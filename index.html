@@ -1638,6 +1638,60 @@
       color: var(--color-text);
     }
 
+    /* ============ ARTICLE VIDEO PLAYER ============ */
+    .article-video-wrap {
+      margin-bottom: var(--space-8);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-divider);
+    }
+    .article-video-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .article-video-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      background: var(--color-primary-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .article-video-label {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-text);
+    }
+    .article-video-badge {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-faint);
+      background: var(--color-surface-dynamic);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      margin-left: auto;
+    }
+    .article-video-player {
+      width: 100%;
+      max-height: 480px;
+      display: flex;
+      justify-content: center;
+      background: #000;
+    }
+    .article-video-player video {
+      width: auto;
+      max-width: 100%;
+      max-height: 480px;
+      display: block;
+    }
+
     /* ============ COMPANY USE CASE CARDS ============ */
     .companies-grid {
       display: grid;
@@ -1924,6 +1978,10 @@
               <div class="form-group">
                 <label class="form-label" for="new-color">Accent Color <small>CSS color</small></label>
                 <input type="text" id="new-color" class="form-input" placeholder="#01696f">
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-video-url">Video URL <small>optional .mp4 link</small></label>
+                <input type="url" id="new-video-url" class="form-input" placeholder="https://alfacrypto.ai/videos/crypto-name.mp4">
               </div>
             </div>
             <div class="form-submit-row">
@@ -2371,6 +2429,8 @@
         consensus: 'Proof of History + Proof of Stake',
         founder: 'Anatoly Yakovenko',
         related: ['Ethereum', 'Avalanche', 'Near Protocol'],
+        videoUrl: 'solana-explained.mp4',
+        videoPoster: '',
         companies: [
           { name: 'Visa', how: { en: 'Uses Solana for USDC stablecoin settlement, processing real-time payments.', fr: 'Utilise Solana pour le règlement en stablecoin USDC, traitant des paiements en temps réel.' }, color: '#1A1F71' },
           { name: 'Shopify', how: { en: 'Integrated Solana Pay for merchants to accept crypto payments at checkout.', fr: 'A intégré Solana Pay pour permettre aux marchands d\'accepter les paiements crypto.' }, color: '#96BF48' },
@@ -2468,6 +2528,8 @@
         'article.pros': 'Pros',
         'article.cons': 'Cons',
         'article.verdict': 'Our Verdict',
+        'article.video': 'Watch the video',
+        'article.video.badge': '60s · EN',
         'article.related': 'Related Cryptos',
         'article.companies': 'Who uses it?',
         'article.companies.sub': 'Real companies building with or accepting this crypto.',
@@ -2537,6 +2599,8 @@
         'article.pros': 'Avantages',
         'article.cons': 'Inconvénients',
         'article.verdict': 'Notre verdict',
+        'article.video': 'Regarder la vidéo',
+        'article.video.badge': '60s · EN',
         'article.related': 'Cryptos similaires',
         'article.companies': 'Qui l\'utilise ?',
         'article.companies.sub': 'De vraies entreprises qui construisent avec ou acceptent cette crypto.',
@@ -2815,6 +2879,7 @@
             '<p class="card-tagline">' + data.tagline + '</p>' +
             '<div class="card-meta">' +
               '<span class="badge ' + badgeClass + '">' + article.category + '</span>' +
+              (article.videoUrl ? '<span class="badge badge-blue"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" style="display:inline;vertical-align:-1px;"><polygon points="5 3 19 12 5 21 5 3"/></svg> Video</span>' : '') +
             '</div>' +
             '<div class="card-footer-inner">' +
               '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
@@ -2912,6 +2977,19 @@
           '<div class="modal-stat-item"><div class="modal-stat-label">Founder</div><div class="modal-stat-value">' + (article.founder || '—') + '</div></div>' +
         '</div>' +
         '<div class="modal-content">' +
+          (article.videoUrl ?
+          '<div class="article-video-wrap">' +
+            '<div class="article-video-header">' +
+              '<div class="article-video-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg></div>' +
+              '<span class="article-video-label">' + t('article.video') + '</span>' +
+              '<span class="article-video-badge">' + t('article.video.badge') + '</span>' +
+            '</div>' +
+            '<div class="article-video-player">' +
+              '<video controls playsinline preload="metadata" poster="' + (article.videoPoster || '') + '">' +
+                '<source src="' + article.videoUrl + '" type="video/mp4">' +
+              '</video>' +
+            '</div>' +
+          '</div>' : '') +
           '<div class="article-section">' +
             '<h3 class="article-section-title">' + t('article.what') + '</h3>' +
             '<p class="article-body">' + (data.what || '') + '</p>' +
@@ -3154,6 +3232,8 @@
         consensus: '',
         founder: '',
         related: [],
+        videoUrl: document.getElementById('new-video-url').value || '',
+        videoPoster: '',
         en: {
           name: document.getElementById('new-name').value,
           tagline: document.getElementById('new-tagline-en').value,
@@ -3227,6 +3307,8 @@
           '<textarea class="form-textarea" id="edit-verdict-en">' + escapeHtml(article.en.verdict) + '</textarea></div>' +
           '<div class="form-group full"><label class="form-label">Verdict (FR)</label>' +
           '<textarea class="form-textarea" id="edit-verdict-fr">' + escapeHtml(article.fr.verdict) + '</textarea></div>' +
+          '<div class="form-group full"><label class="form-label">Video URL <small>optional .mp4 link</small></label>' +
+          '<input class="form-input" id="edit-video-url" value="' + escapeHtml(article.videoUrl || '') + '"></div>' +
         '</div>' +
         '<div class="form-submit-row" style="margin-top:var(--space-6);">' +
           '<button onclick="saveEdit()" class="btn btn-primary">Save Changes</button>' +
@@ -3246,6 +3328,7 @@
       article.fr.what = document.getElementById('edit-what-fr').value;
       article.en.verdict = document.getElementById('edit-verdict-en').value;
       article.fr.verdict = document.getElementById('edit-verdict-fr').value;
+      article.videoUrl = document.getElementById('edit-video-url').value || '';
       closeEditModal();
       renderAdminTable();
       renderCards();
