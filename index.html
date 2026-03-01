@@ -2307,6 +2307,11 @@
   <script id="schema-bitcoin" type="application/ld+json"></script>
   <script id="schema-ethereum" type="application/ld+json"></script>
   <script id="schema-solana" type="application/ld+json"></script>
+  <script id="schema-chainlink" type="application/ld+json"></script>
+  <script id="schema-aave" type="application/ld+json"></script>
+  <script id="schema-bnb" type="application/ld+json"></script>
+  <script id="schema-xrp" type="application/ld+json"></script>
+  <script id="schema-usdt" type="application/ld+json"></script>
 
   <script>
     /* ==========================================
@@ -2468,6 +2473,261 @@
           pros: ['Transactions ultra-rapides — des milliers par seconde', 'Frais extrêmement bas (fractions de centime par transaction)', 'Écosystème en pleine croissance', 'Intérêt institutionnel via les futures CME'],
           cons: ['A connu des pannes de réseau par le passé', 'Plus centralisé que Bitcoin ou Ethereum', 'Blockchain plus jeune — moins éprouvée'],
           verdict: 'Solana est le bolide de la crypto. C\'est parfait pour quiconque trouve Bitcoin trop lent ou Ethereum trop cher. La vitesse et les faibles frais sont indéniables — mais gardez à l\'esprit qu\'il est plus jeune et doit encore faire ses preuves.'
+        }
+      },
+      {
+        id: 4,
+        slug: 'chainlink',
+        ticker: 'LINK',
+        color: '#375BD2',
+        symbol: '⬡',
+        category: 'Oracle Network',
+        difficulty: 2,
+        year: 2017,
+        status: 'published',
+        marketCap: '~$8-12 billion',
+        supply: '1 billion LINK (max)',
+        consensus: 'Decentralized Oracle Network',
+        founder: 'Sergey Nazarov',
+        related: ['Ethereum', 'Aave', 'Solana'],
+        videoUrl: 'chainlink-explained.mp4',
+        videoPoster: '',
+        companies: [
+          { name: 'Aave', how: { en: 'Uses Chainlink Price Feeds to power its lending and borrowing platform with accurate asset prices.', fr: 'Utilise les flux de prix Chainlink pour alimenter sa plateforme de prêt avec des prix d\'actifs précis.' }, color: '#B6509E' },
+          { name: 'Google Cloud', how: { en: 'Runs a Chainlink oracle node, providing real-world data from Google\'s infrastructure to smart contracts.', fr: 'Fait tourner un nœud oracle Chainlink, fournissant des données du monde réel depuis l\'infrastructure Google aux contrats intelligents.' }, color: '#4285F4' },
+          { name: 'SWIFT', how: { en: 'Tested Chainlink CCIP for cross-chain bank transfers, connecting traditional finance to blockchain.', fr: 'A testé Chainlink CCIP pour les transferts bancaires inter-chaînes, connectant la finance traditionnelle à la blockchain.' }, color: '#FF6600' },
+          { name: 'AccuWeather', how: { en: 'Delivers real-time weather data on-chain through Chainlink nodes for insurance and agriculture smart contracts.', fr: 'Fournit des données météo en temps réel on-chain via des nœuds Chainlink pour les contrats intelligents d\'assurance et d\'agriculture.' }, color: '#F15A29' },
+          { name: 'Associated Press', how: { en: 'Publishes verified election and economic data on-chain through a Chainlink node.', fr: 'Publie des données électorales et économiques vérifiées on-chain via un nœud Chainlink.' }, color: '#ED1B2F' }
+        ],
+        updates: [
+          { date: '2024-12', text: { en: 'Chainlink CCIP surpasses $30 billion in cross-chain transaction value.', fr: 'Chainlink CCIP dépasse les 30 milliards de dollars en valeur de transactions inter-chaînes.' } },
+          { date: '2025-03', text: { en: 'SWIFT completes successful multi-bank pilot using Chainlink for tokenized asset settlement.', fr: 'SWIFT termine avec succès un pilote multi-banques utilisant Chainlink pour le règlement d\'actifs tokenisés.' } },
+          { date: '2025-09', text: { en: 'Chainlink launches staking v2.1, expanding rewards to more node operators.', fr: 'Chainlink lance le staking v2.1, élargissant les récompenses à plus d\'opérateurs de nœuds.' } },
+          { date: '2026-01', text: { en: 'Over 1,200 data feeds now live across 15 blockchains, making Chainlink the most widely adopted oracle.', fr: 'Plus de 1 200 flux de données actifs sur 15 blockchains, faisant de Chainlink l\'oracle le plus adopté.' } }
+        ],
+        en: {
+          name: 'Chainlink',
+          tagline: 'The oracle network that connects the real world to blockchain',
+          what: 'Chainlink is the bridge between the real world and blockchains. Smart contracts are powerful, but they can\'t access outside information on their own — they don\'t know today\'s stock price, the weather, or sports scores. Chainlink solves this by securely delivering real-world data to blockchain applications through a decentralized network of "oracles."',
+          how: 'Think of smart contracts like vending machines — they follow rules automatically. But what if the machine needs to know today\'s weather, or the price of gold? That\'s where Chainlink comes in. It\'s a network of independent data providers (called oracles) that fetch information from the real world and deliver it on-chain. Multiple oracles verify each piece of data, so no single source can lie or manipulate the result.',
+          uses: 'Providing price feeds for DeFi lending platforms like Aave, enabling cross-chain communication between different blockchains (CCIP), delivering weather data for insurance smart contracts, verifying real-world events for prediction markets.',
+          pros: ['Most widely used oracle network — powers the majority of DeFi', 'Supported on 15+ blockchains, not limited to one ecosystem', 'Backed by major institutions like Google Cloud and SWIFT', 'Critical infrastructure — most DeFi protocols depend on it'],
+          cons: ['LINK token price doesn\'t always reflect the protocol\'s importance', 'Technical concept can be hard to grasp for beginners', 'Competes with newer oracle solutions', 'Centralization concerns around some data sources'],
+          verdict: 'Chainlink is the invisible plumbing that makes DeFi work. Without reliable oracles, lending platforms couldn\'t set prices, insurance contracts couldn\'t verify claims, and cross-chain transfers would be impossible. It\'s not flashy — but it\'s absolutely essential. If blockchains are the engine, Chainlink is the fuel line.'
+        },
+        fr: {
+          name: 'Chainlink',
+          tagline: 'Le réseau d\'oracles qui connecte le monde réel à la blockchain',
+          what: 'Chainlink est le pont entre le monde réel et les blockchains. Les contrats intelligents sont puissants, mais ils ne peuvent pas accéder aux informations extérieures par eux-mêmes — ils ne connaissent pas le cours d\'une action, la météo ou les résultats sportifs. Chainlink résout ce problème en livrant de manière sécurisée des données du monde réel aux applications blockchain via un réseau décentralisé d\'"oracles."',
+          how: 'Pensez aux contrats intelligents comme des distributeurs automatiques — ils suivent des règles automatiquement. Mais que faire si la machine doit connaître la météo du jour ou le prix de l\'or ? C\'est là que Chainlink intervient. C\'est un réseau de fournisseurs de données indépendants (appelés oracles) qui récupèrent des informations du monde réel et les livrent on-chain. Plusieurs oracles vérifient chaque donnée, de sorte qu\'aucune source unique ne peut mentir ou manipuler le résultat.',
+          uses: 'Fournir des flux de prix pour les plateformes de prêt DeFi comme Aave, permettre la communication inter-chaînes entre différentes blockchains (CCIP), livrer des données météo pour les contrats intelligents d\'assurance, vérifier des événements réels pour les marchés de prédiction.',
+          pros: ['Réseau d\'oracles le plus utilisé — alimente la majorité du DeFi', 'Supporté sur plus de 15 blockchains', 'Soutenu par des institutions majeures comme Google Cloud et SWIFT', 'Infrastructure critique — la plupart des protocoles DeFi en dépendent'],
+          cons: ['Le prix du token LINK ne reflète pas toujours l\'importance du protocole', 'Concept technique difficile à saisir pour les débutants', 'En concurrence avec des solutions oracle plus récentes', 'Préoccupations de centralisation autour de certaines sources de données'],
+          verdict: 'Chainlink est la plomberie invisible qui fait fonctionner le DeFi. Sans oracles fiables, les plateformes de prêt ne pourraient pas fixer les prix, les contrats d\'assurance ne pourraient pas vérifier les sinistres, et les transferts inter-chaînes seraient impossibles. Ce n\'est pas tape-à-l\'œil — mais c\'est absolument essentiel.'
+        }
+      },
+      {
+        id: 5,
+        slug: 'aave',
+        ticker: 'AAVE',
+        color: '#B6509E',
+        symbol: '👻',
+        category: 'DeFi Lending',
+        difficulty: 2,
+        year: 2020,
+        status: 'published',
+        marketCap: '~$3-5 billion',
+        supply: '16 million AAVE (max)',
+        consensus: 'Ethereum-based (Proof of Stake)',
+        founder: 'Stani Kulechov',
+        related: ['Ethereum', 'Chainlink', 'Uniswap'],
+        videoUrl: 'aave-explained.mp4',
+        videoPoster: '',
+        companies: [
+          { name: 'MetaMask', how: { en: 'Powers its Stablecoin Earn program through Aave, letting wallet users earn yield automatically.', fr: 'Alimente son programme Stablecoin Earn via Aave, permettant aux utilisateurs de portefeuilles de gagner des rendements automatiquement.' }, color: '#F6851B' },
+          { name: 'Ledger', how: { en: 'Integrated Aave directly into its hardware wallet app for secure DeFi lending.', fr: 'A intégré Aave directement dans son application de portefeuille matériel pour le prêt DeFi sécurisé.' }, color: '#000000' },
+          { name: 'BlackRock', how: { en: 'Joined Aave Horizon, the institutional real-world asset lending market built on Aave.', fr: 'A rejoint Aave Horizon, le marché institutionnel de prêt d\'actifs réels construit sur Aave.' }, color: '#000000' },
+          { name: 'Ripple', how: { en: 'Partner of Aave Horizon for institutional-grade tokenized asset lending.', fr: 'Partenaire d\'Aave Horizon pour le prêt d\'actifs tokenisés de grade institutionnel.' }, color: '#0085C0' },
+          { name: 'Circle', how: { en: 'USDC is one of the most supplied and borrowed assets on Aave across all chains.', fr: 'L\'USDC est l\'un des actifs les plus fournis et empruntés sur Aave sur toutes les chaînes.' }, color: '#2775CA' }
+        ],
+        updates: [
+          { date: '2025-06', text: { en: 'Aave reaches $75 billion peak in deposits — the highest ever for a DeFi protocol.', fr: 'Aave atteint un pic de 75 milliards de dollars en dépôts — le plus élevé jamais atteint pour un protocole DeFi.' } },
+          { date: '2025-08', text: { en: 'Aave Horizon launches with BlackRock, Ripple, and other institutional partners for RWA lending.', fr: 'Aave Horizon se lance avec BlackRock, Ripple et d\'autres partenaires institutionnels pour le prêt d\'actifs réels.' } },
+          { date: '2025-12', text: { en: 'Aave V4 launches on testnet with new Hub and Spoke architecture.', fr: 'Aave V4 se lance sur testnet avec une nouvelle architecture Hub and Spoke.' } },
+          { date: '2026-01', text: { en: 'Aave\'s share of total DeFi TVL climbs to 29%, up from 17% a year earlier.', fr: 'La part d\'Aave dans la TVL DeFi totale grimpe à 29%, contre 17% un an plus tôt.' } }
+        ],
+        en: {
+          name: 'Aave',
+          tagline: 'The decentralized bank with no bankers',
+          what: 'Aave is the world\'s largest decentralized lending platform. Imagine a bank where there are no bankers, no paperwork, and no approval process. You deposit crypto and earn interest automatically. Need a loan? Put up collateral and borrow instantly. Everything runs on smart contracts — code that executes exactly as programmed, with no human in the middle.',
+          how: 'Aave works like a pool system. Lenders deposit their crypto into shared pools and earn interest in real time. Borrowers can take from these pools by locking up collateral worth more than what they borrow. If the collateral drops too much in value, the system automatically sells it to repay lenders — this keeps the platform safe without any human intervention.',
+          uses: 'Earning interest on crypto deposits (up to 9% APY on stablecoins), borrowing against your crypto without selling it, institutional lending for real-world assets via Aave Horizon, powering yield features inside wallets like MetaMask and Ledger.',
+          pros: ['Largest DeFi lending protocol — $55+ billion in deposits', 'Live on 6 blockchains (Ethereum, Arbitrum, Avalanche, Base, and more)', 'Institutional backing from BlackRock, Ripple, and major partners', 'Aave App bringing DeFi savings to everyday mobile users'],
+          cons: ['Requires crypto collateral — not accessible without existing holdings', 'Smart contract risk — code bugs could theoretically lose funds', 'Complex for absolute beginners', 'Interest rates fluctuate based on supply and demand'],
+          verdict: 'Aave is DeFi\'s most trusted bank — except there is no bank. It\'s proof that finance can run on code alone. With $75 billion in peak deposits and institutions joining through Aave Horizon, it\'s bridging the gap between traditional finance and crypto. If you want to understand DeFi, Aave is the best place to start.'
+        },
+        fr: {
+          name: 'Aave',
+          tagline: 'La banque décentralisée sans banquiers',
+          what: 'Aave est la plus grande plateforme de prêt décentralisée au monde. Imaginez une banque sans banquiers, sans paperasse et sans processus d\'approbation. Vous déposez de la crypto et gagnez des intérêts automatiquement. Besoin d\'un prêt ? Mettez en garantie et empruntez instantanément. Tout fonctionne avec des contrats intelligents — du code qui s\'exécute exactement comme programmé.',
+          how: 'Aave fonctionne comme un système de pools. Les prêteurs déposent leur crypto dans des pools partagées et gagnent des intérêts en temps réel. Les emprunteurs peuvent puiser dans ces pools en verrouillant une garantie supérieure à ce qu\'ils empruntent. Si la garantie baisse trop, le système la vend automatiquement pour rembourser les prêteurs.',
+          uses: 'Gagner des intérêts sur les dépôts crypto (jusqu\'à 9% APY sur les stablecoins), emprunter contre sa crypto sans la vendre, prêt institutionnel pour les actifs réels via Aave Horizon, alimenter les fonctionnalités de rendement dans les portefeuilles comme MetaMask et Ledger.',
+          pros: ['Plus grand protocole de prêt DeFi — plus de 55 milliards de dollars en dépôts', 'Actif sur 6 blockchains (Ethereum, Arbitrum, Avalanche, Base, et plus)', 'Soutien institutionnel de BlackRock, Ripple et des partenaires majeurs', 'Aave App amenant l\'épargne DeFi aux utilisateurs mobiles'],
+          cons: ['Nécessite une garantie en crypto — pas accessible sans actifs existants', 'Risque de contrat intelligent — des bugs pourraient théoriquement perdre des fonds', 'Complexe pour les débutants absolus', 'Les taux d\'intérêt fluctuent selon l\'offre et la demande'],
+          verdict: 'Aave est la banque la plus fiable du DeFi — sauf qu\'il n\'y a pas de banque. C\'est la preuve que la finance peut fonctionner uniquement avec du code. Avec 75 milliards de dollars en dépôts au pic et des institutions rejoignant via Aave Horizon, il comble le fossé entre la finance traditionnelle et la crypto.'
+        }
+      },
+      {
+        id: 6,
+        slug: 'bnb',
+        ticker: 'BNB',
+        color: '#F3BA2F',
+        symbol: '◆',
+        category: 'Exchange Token',
+        difficulty: 1,
+        year: 2017,
+        status: 'published',
+        marketCap: '~$80-100 billion',
+        supply: '200 million BNB (decreasing via burns)',
+        consensus: 'Proof of Staked Authority',
+        founder: 'Changpeng Zhao (CZ)',
+        related: ['Ethereum', 'Solana', 'Cronos'],
+        videoUrl: 'bnb-explained.mp4',
+        videoPoster: '',
+        companies: [
+          { name: 'BlackRock', how: { en: 'Tokenized its BUIDL money market fund on BNB Chain for institutional access.', fr: 'A tokenisé son fonds monétaire BUIDL sur BNB Chain pour l\'accès institutionnel.' }, color: '#000000' },
+          { name: 'Circle', how: { en: 'Deployed USDC stablecoin on BNB Chain, enabling fast and cheap dollar-pegged transactions.', fr: 'A déployé le stablecoin USDC sur BNB Chain, permettant des transactions rapides et peu coûteuses indexées au dollar.' }, color: '#2775CA' },
+          { name: 'China Merchants International', how: { en: 'Launched a tokenized money market fund on BNB Chain for traditional finance integration.', fr: 'A lancé un fonds monétaire tokenisé sur BNB Chain pour l\'intégration de la finance traditionnelle.' }, color: '#C41230' },
+          { name: 'PancakeSwap', how: { en: 'The largest decentralized exchange on BNB Chain, processing billions in daily volume.', fr: 'Le plus grand échange décentralisé sur BNB Chain, traitant des milliards en volume quotidien.' }, color: '#1FC7D4' },
+          { name: 'Franklin Templeton', how: { en: 'Deployed tokenized assets on BNB Chain as part of institutional blockchain adoption.', fr: 'A déployé des actifs tokenisés sur BNB Chain dans le cadre de l\'adoption institutionnelle de la blockchain.' }, color: '#0B3D91' }
+        ],
+        updates: [
+          { date: '2025-01', text: { en: 'BNB Chain surpasses 700 million unique addresses, showing massive retail adoption.', fr: 'BNB Chain dépasse les 700 millions d\'adresses uniques, montrant une adoption massive.' } },
+          { date: '2025-05', text: { en: 'BlackRock and Franklin Templeton deploy tokenized funds on BNB Chain.', fr: 'BlackRock et Franklin Templeton déploient des fonds tokenisés sur BNB Chain.' } },
+          { date: '2025-09', text: { en: 'BNB Chain processes over 30 million daily transactions consistently.', fr: 'BNB Chain traite plus de 30 millions de transactions quotidiennes de manière constante.' } },
+          { date: '2026-01', text: { en: 'BNB Chain expected to introduce zero-knowledge privacy features for institutions.', fr: 'BNB Chain devrait introduire des fonctionnalités de confidentialité zero-knowledge pour les institutions.' } }
+        ],
+        en: {
+          name: 'BNB',
+          tagline: 'The gateway token to the world\'s largest crypto exchange',
+          what: 'BNB is the native token of the Binance ecosystem — the world\'s largest cryptocurrency exchange. Think of it as a membership card to a massive digital city. It gives you lower trading fees on Binance, access to thousands of decentralized apps on BNB Chain, and serves as the fuel that powers all transactions on the network.',
+          how: 'BNB Chain uses a system called Proof of Staked Authority — a hybrid that combines staking (locking up tokens) with a limited set of trusted validators. This makes it much faster and cheaper than Ethereum, though slightly less decentralized. BNB also has a unique deflationary mechanism: Binance regularly "burns" (permanently destroys) BNB tokens, reducing the total supply over time.',
+          uses: 'Paying reduced trading fees on Binance exchange, transaction gas fees on BNB Chain, participating in Binance Launchpad token sales, accessing DeFi apps like PancakeSwap, staking for passive income.',
+          pros: ['Backed by Binance — the largest crypto exchange with massive user base', 'Very low transaction fees and fast confirmation times', 'Huge ecosystem of 700M+ addresses and thousands of dApps', 'Institutional interest from BlackRock and Franklin Templeton'],
+          cons: ['More centralized than Ethereum or Bitcoin — fewer validators', 'Heavily dependent on Binance\'s success and reputation', 'Regulatory scrutiny on Binance affects BNB sentiment', 'Less developer innovation compared to Ethereum'],
+          verdict: 'BNB is the gateway between traditional finance and crypto. If you use Binance, you already live in BNB\'s world. It\'s not the most decentralized blockchain, but the speed, low fees, and massive ecosystem make it one of the most practical options for everyday crypto users.'
+        },
+        fr: {
+          name: 'BNB',
+          tagline: 'Le token passerelle vers la plus grande plateforme d\'échange crypto au monde',
+          what: 'BNB est le token natif de l\'écosystème Binance — la plus grande plateforme d\'échange de cryptomonnaies au monde. Pensez-y comme une carte de membre d\'une immense ville numérique. Il vous donne des frais de trading réduits sur Binance, un accès à des milliers d\'applications décentralisées sur BNB Chain, et sert de carburant pour toutes les transactions sur le réseau.',
+          how: 'BNB Chain utilise un système appelé Proof of Staked Authority — un hybride qui combine le staking (verrouillage de tokens) avec un ensemble limité de validateurs de confiance. Cela le rend beaucoup plus rapide et moins cher qu\'Ethereum, bien que légèrement moins décentralisé. BNB a aussi un mécanisme déflationniste unique : Binance "brûle" régulièrement (détruit définitivement) des tokens BNB, réduisant l\'offre totale au fil du temps.',
+          uses: 'Payer des frais de trading réduits sur Binance, frais de gas sur BNB Chain, participer aux ventes de tokens Binance Launchpad, accéder aux apps DeFi comme PancakeSwap, staking pour un revenu passif.',
+          pros: ['Soutenu par Binance — la plus grande plateforme crypto avec une base d\'utilisateurs massive', 'Frais de transaction très bas et confirmations rapides', 'Énorme écosystème de plus de 700M d\'adresses et milliers de dApps', 'Intérêt institutionnel de BlackRock et Franklin Templeton'],
+          cons: ['Plus centralisé qu\'Ethereum ou Bitcoin — moins de validateurs', 'Fortement dépendant du succès et de la réputation de Binance', 'La surveillance réglementaire de Binance affecte le sentiment sur BNB', 'Moins d\'innovation développeur comparé à Ethereum'],
+          verdict: 'BNB est la passerelle entre la finance traditionnelle et la crypto. Si vous utilisez Binance, vous vivez déjà dans le monde de BNB. Ce n\'est pas la blockchain la plus décentralisée, mais la vitesse, les faibles frais et l\'écosystème massif en font l\'une des options les plus pratiques.'
+        }
+      },
+      {
+        id: 7,
+        slug: 'xrp',
+        ticker: 'XRP',
+        color: '#23292F',
+        symbol: '✕',
+        category: 'Cross-Border Payments',
+        difficulty: 1,
+        year: 2012,
+        status: 'published',
+        marketCap: '~$30-50 billion',
+        supply: '100 billion XRP (max)',
+        consensus: 'XRP Ledger Consensus Protocol',
+        founder: 'Chris Larsen & Jed McCaleb',
+        related: ['Stellar', 'Bitcoin', 'USDT'],
+        videoUrl: 'xrp-explained.mp4',
+        videoPoster: '',
+        companies: [
+          { name: 'Santander', how: { en: 'Uses RippleNet for international money transfers, reducing settlement from days to seconds.', fr: 'Utilise RippleNet pour les transferts d\'argent internationaux, réduisant le règlement de jours à secondes.' }, color: '#EC0000' },
+          { name: 'SBI Holdings', how: { en: 'Japan\'s largest financial group processes billions in transactions through Ripple\'s network.', fr: 'Le plus grand groupe financier du Japon traite des milliards de transactions via le réseau Ripple.' }, color: '#0070C0' },
+          { name: 'Bank of America', how: { en: 'Has run pilot programs using RippleNet for cross-border payment efficiency.', fr: 'A mené des programmes pilotes utilisant RippleNet pour l\'efficacité des paiements transfrontaliers.' }, color: '#012169' },
+          { name: 'Travelex Bank', how: { en: 'Settles international payments nearly instantly using Ripple\'s On-Demand Liquidity with XRP.', fr: 'Règle les paiements internationaux presque instantanément en utilisant la liquidité à la demande de Ripple avec XRP.' }, color: '#003B5C' },
+          { name: 'MoneyGram', how: { en: 'Previously partnered with Ripple for ODL services, demonstrating XRP\'s remittance potential.', fr: 'A précédemment collaboré avec Ripple pour les services ODL, démontrant le potentiel de XRP pour les transferts.' }, color: '#FF6600' }
+        ],
+        updates: [
+          { date: '2024-07', text: { en: 'Ripple largely wins its SEC lawsuit, establishing XRP is not a security in secondary sales.', fr: 'Ripple remporte largement son procès avec la SEC, établissant que XRP n\'est pas un titre financier dans les ventes secondaires.' } },
+          { date: '2025-03', text: { en: 'Ripple\'s partnership network spans 300+ financial institutions across 40+ countries.', fr: 'Le réseau de partenariats de Ripple couvre plus de 300 institutions financières dans plus de 40 pays.' } },
+          { date: '2025-11', text: { en: 'Ripple\'s valuation reaches $40 billion following a $500 million investment round.', fr: 'La valorisation de Ripple atteint 40 milliards de dollars après une levée de fonds de 500 millions.' } },
+          { date: '2026-01', text: { en: 'RippleNet processes over $15 billion in monthly cross-border transactions.', fr: 'RippleNet traite plus de 15 milliards de dollars en transactions transfrontalières mensuelles.' } }
+        ],
+        en: {
+          name: 'XRP',
+          tagline: 'The crypto built to fix how money moves around the world',
+          what: 'XRP is the cryptocurrency created by Ripple to revolutionize cross-border payments. Imagine sending money abroad like sending a text message — nearly instant and almost free. While traditional bank transfers take 3 to 5 days and involve multiple intermediaries, XRP settles in under 5 seconds for a fraction of a cent.',
+          how: 'The XRP Ledger uses a unique consensus protocol — instead of mining (like Bitcoin) or staking (like Ethereum), a network of trusted validators agrees on transactions in seconds. Think of it like a group of referees who all have to agree before a goal counts. This makes XRP incredibly fast and energy-efficient, processing 1,500+ transactions per second.',
+          uses: 'Cross-border bank payments and international remittances, real-time settlement between financial institutions, bridge currency between different fiat currencies, fast and low-cost transactions for businesses.',
+          pros: ['Settles in under 5 seconds — faster than almost any other crypto', 'Used by 300+ banks and financial institutions via RippleNet', 'Extremely low transaction fees (fractions of a cent)', 'Massive supply makes it practical for moving large sums'],
+          cons: ['More centralized than Bitcoin — Ripple holds a large portion of XRP', 'Regulatory uncertainty persisted for years due to SEC lawsuit', 'Token price heavily influenced by Ripple company news', 'Not designed for smart contracts or DeFi applications'],
+          verdict: 'XRP isn\'t trying to replace your money — it\'s trying to fix how your money moves. If SWIFT is the old highway, XRP is the bullet train. With 300+ bank partnerships and $15 billion in monthly volume, it\'s already proving that crypto can solve real problems in traditional finance.'
+        },
+        fr: {
+          name: 'XRP',
+          tagline: 'La crypto conçue pour réparer la façon dont l\'argent circule dans le monde',
+          what: 'XRP est la cryptomonnaie créée par Ripple pour révolutionner les paiements transfrontaliers. Imaginez envoyer de l\'argent à l\'étranger comme envoyer un SMS — quasi instantané et presque gratuit. Alors que les virements bancaires traditionnels prennent 3 à 5 jours et impliquent de multiples intermédiaires, XRP se règle en moins de 5 secondes pour une fraction de centime.',
+          how: 'Le XRP Ledger utilise un protocole de consensus unique — au lieu du minage (comme Bitcoin) ou du staking (comme Ethereum), un réseau de validateurs de confiance s\'accorde sur les transactions en quelques secondes. Pensez-y comme un groupe d\'arbitres qui doivent tous être d\'accord avant qu\'un but soit validé. Cela rend XRP incroyablement rapide et économe en énergie.',
+          uses: 'Paiements bancaires transfrontaliers et transferts internationaux, règlement en temps réel entre institutions financières, devise pont entre différentes monnaies fiduciaires, transactions rapides et peu coûteuses pour les entreprises.',
+          pros: ['Règlement en moins de 5 secondes — plus rapide que presque toute autre crypto', 'Utilisé par plus de 300 banques et institutions financières via RippleNet', 'Frais de transaction extrêmement bas (fractions de centime)', 'Offre massive le rendant pratique pour déplacer de grosses sommes'],
+          cons: ['Plus centralisé que Bitcoin — Ripple détient une grande partie des XRP', 'Incertitude réglementaire pendant des années à cause du procès SEC', 'Le prix du token fortement influencé par les nouvelles de Ripple', 'Pas conçu pour les contrats intelligents ou les applications DeFi'],
+          verdict: 'XRP n\'essaie pas de remplacer votre argent — il essaie de réparer la façon dont votre argent circule. Si SWIFT est l\'ancienne autoroute, XRP est le TGV. Avec plus de 300 partenariats bancaires et 15 milliards de dollars en volume mensuel, il prouve déjà que la crypto peut résoudre de vrais problèmes dans la finance traditionnelle.'
+        }
+      },
+      {
+        id: 8,
+        slug: 'usdt',
+        ticker: 'USDT',
+        color: '#26A17B',
+        symbol: '₮',
+        category: 'Stablecoin',
+        difficulty: 1,
+        year: 2014,
+        status: 'published',
+        marketCap: '~$130+ billion',
+        supply: 'No max supply (issued on demand)',
+        consensus: 'Issued by Tether (multi-chain)',
+        founder: 'Brock Pierce, Reeve Collins & Craig Sellars',
+        related: ['USDC', 'Bitcoin', 'Ethereum'],
+        videoUrl: 'usdt-explained.mp4',
+        videoPoster: '',
+        companies: [
+          { name: 'Binance', how: { en: 'USDT is the most traded pair on Binance, serving as the primary base currency for crypto trading.', fr: 'L\'USDT est la paire la plus échangée sur Binance, servant de devise de base principale pour le trading crypto.' }, color: '#F3BA2F' },
+          { name: 'MoneyGram', how: { en: 'Uses USDT for international remittance services, enabling faster cross-border transfers.', fr: 'Utilise l\'USDT pour les services de transfert international, permettant des transferts transfrontaliers plus rapides.' }, color: '#FF6600' },
+          { name: 'Coinbase', how: { en: 'Lists USDT as a major trading pair, giving users access to the world\'s largest stablecoin.', fr: 'Liste l\'USDT comme paire de trading majeure, donnant accès au plus grand stablecoin du monde.' }, color: '#0052FF' },
+          { name: 'Tether', how: { en: 'The issuer holds $127+ billion in US Treasury bills and other reserves to back each USDT 1:1 with USD.', fr: 'L\'émetteur détient plus de 127 milliards de dollars en bons du Trésor américain et autres réserves pour garantir chaque USDT 1:1 avec l\'USD.' }, color: '#26A17B' },
+          { name: 'Western Union', how: { en: 'Launched its own stablecoin but competes in a market where USDT remains the dominant standard.', fr: 'A lancé son propre stablecoin mais rivalise sur un marché où l\'USDT reste la norme dominante.' }, color: '#FFDD00' }
+        ],
+        updates: [
+          { date: '2025-07', text: { en: 'The US GENIUS Act is signed into law, establishing regulatory framework for stablecoins.', fr: 'La loi américaine GENIUS Act est promulguée, établissant un cadre réglementaire pour les stablecoins.' } },
+          { date: '2025-09', text: { en: 'Tether announces USAT — a new GENIUS Act-compliant stablecoin for the US market.', fr: 'Tether annonce USAT — un nouveau stablecoin conforme au GENIUS Act pour le marché américain.' } },
+          { date: '2025-11', text: { en: 'USDT\'s global market share drops from 67% to 60% as USDC gains ground under new regulations.', fr: 'La part de marché mondiale de l\'USDT passe de 67% à 60% alors que l\'USDC gagne du terrain sous les nouvelles régulations.' } },
+          { date: '2026-01', text: { en: 'USDT processes over $33 trillion in annual transaction volume, surpassing Visa.', fr: 'L\'USDT traite plus de 33 000 milliards de dollars en volume de transactions annuel, dépassant Visa.' } }
+        ],
+        en: {
+          name: 'Tether (USDT)',
+          tagline: 'The digital dollar that powers the crypto world',
+          what: 'USDT, also known as Tether, is the world\'s most used stablecoin. Unlike Bitcoin or Ethereum, USDT doesn\'t go up or down — one USDT always equals one US dollar. Think of it like a digital dollar bill that lives on the blockchain. It\'s the bridge between traditional money and the crypto world, used by millions of people every day.',
+          how: 'Tether (the company) issues USDT tokens and promises that each one is backed by real reserves — primarily US Treasury bills. When you buy 1 USDT, there should be $1 worth of real assets sitting in Tether\'s vaults. The token exists on multiple blockchains (Ethereum, Tron, Solana, and more), making it available virtually everywhere in crypto.',
+          uses: 'Trading crypto without converting back to traditional currency, sending money across borders instantly and cheaply, protecting savings in countries with unstable currencies, serving as the base trading pair on every major exchange.',
+          pros: ['Most liquid stablecoin — accepted everywhere in crypto', 'Processes more annual volume than Visa ($33+ trillion)', 'Available on almost every blockchain and exchange', 'Essential for traders who need a stable store of value between trades'],
+          cons: ['Transparency concerns — reserves are not fully audited like USDC', 'Not compliant with the new US GENIUS Act regulations', 'Market share declining as regulated alternatives grow', 'Centralized — Tether company can freeze or blacklist wallets'],
+          verdict: 'USDT is the cash of the crypto world. It\'s not exciting — but without it, nothing else works. It\'s the most widely used stablecoin for trading, remittances, and savings. However, increasing regulatory pressure and competitors like USDC mean its dominance may evolve. For now, USDT remains the heartbeat of crypto markets.'
+        },
+        fr: {
+          name: 'Tether (USDT)',
+          tagline: 'Le dollar numérique qui alimente le monde crypto',
+          what: 'L\'USDT, également connu sous le nom de Tether, est le stablecoin le plus utilisé au monde. Contrairement au Bitcoin ou à l\'Ethereum, l\'USDT ne monte ni ne descend — un USDT vaut toujours un dollar américain. Pensez-y comme un billet de dollar numérique qui vit sur la blockchain. C\'est le pont entre l\'argent traditionnel et le monde crypto, utilisé par des millions de personnes chaque jour.',
+          how: 'Tether (l\'entreprise) émet des tokens USDT et garantit que chacun est soutenu par des réserves réelles — principalement des bons du Trésor américain. Quand vous achetez 1 USDT, il devrait y avoir 1$ d\'actifs réels dans les coffres de Tether. Le token existe sur plusieurs blockchains (Ethereum, Tron, Solana, et plus), le rendant disponible pratiquement partout dans la crypto.',
+          uses: 'Trader des cryptos sans reconvertir en monnaie traditionnelle, envoyer de l\'argent à travers les frontières instantanément et à moindre coût, protéger l\'épargne dans les pays aux devises instables, servir de paire de trading de base sur chaque grande plateforme.',
+          pros: ['Stablecoin le plus liquide — accepté partout dans la crypto', 'Traite plus de volume annuel que Visa (33 000+ milliards $)', 'Disponible sur presque toutes les blockchains et plateformes', 'Essentiel pour les traders ayant besoin d\'une valeur stable entre les trades'],
+          cons: ['Préoccupations de transparence — les réserves ne sont pas auditées comme l\'USDC', 'Non conforme aux nouvelles régulations américaines GENIUS Act', 'Part de marché en déclin face aux alternatives régulées', 'Centralisé — Tether peut geler ou bloquer des portefeuilles'],
+          verdict: 'L\'USDT est le cash du monde crypto. Ce n\'est pas excitant — mais sans lui, rien d\'autre ne fonctionne. C\'est le stablecoin le plus utilisé pour le trading, les transferts et l\'épargne. Cependant, la pression réglementaire croissante et les concurrents comme l\'USDC signifient que sa domination pourrait évoluer. Pour l\'instant, l\'USDT reste le battement de cœur des marchés crypto.'
         }
       }
     ];
@@ -3101,7 +3361,7 @@
        SCHEMA.ORG
        ========================================== */
     function injectSchema() {
-      var slugs = ['bitcoin', 'ethereum', 'solana'];
+      var slugs = ['bitcoin', 'ethereum', 'solana', 'chainlink', 'aave', 'bnb', 'xrp', 'usdt'];
       slugs.forEach(function(slug) {
         var article = ARTICLES.find(function(a) { return a.slug === slug; });
         var el = document.getElementById('schema-' + slug);
