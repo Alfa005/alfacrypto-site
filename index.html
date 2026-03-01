@@ -1638,6 +1638,103 @@
       color: var(--color-text);
     }
 
+    /* ============ COMPANY USE CASE CARDS ============ */
+    .companies-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+      gap: var(--space-4);
+    }
+    .company-card {
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .company-card:hover {
+      border-color: var(--color-primary-highlight);
+      box-shadow: var(--shadow-sm);
+    }
+    .company-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    .company-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      flex-shrink: 0;
+    }
+    .company-name {
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .company-how {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============ UPDATES TIMELINE ============ */
+    .updates-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      padding-left: var(--space-8);
+    }
+    .updates-timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: var(--color-divider);
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative;
+      padding-bottom: var(--space-6);
+    }
+    .timeline-item:last-child {
+      padding-bottom: 0;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: calc(-1 * var(--space-8) + 2px);
+      top: 6px;
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      border: 2px solid var(--color-surface);
+      z-index: 1;
+    }
+    .timeline-date {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-1);
+    }
+    .timeline-text {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      line-height: 1.6;
+    }
+    .article-section-sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+    }
+
     /* ============ RESPONSIVE ============ */
     @media (max-width: 479px) {
       .cards-grid { grid-template-columns: 1fr; }
@@ -2174,6 +2271,20 @@
         consensus: 'Proof of Work',
         founder: 'Satoshi Nakamoto',
         related: ['Ethereum', 'Litecoin', 'Bitcoin Cash'],
+        companies: [
+          { name: 'Microsoft', how: { en: 'Accepts BTC for Xbox games, apps, and subscriptions via BitPay.', fr: 'Accepte le BTC pour les jeux Xbox, applications et abonnements via BitPay.' }, color: '#00A4EF' },
+          { name: 'PayPal', how: { en: 'Lets users buy, hold, sell, and pay with Bitcoin directly in the app.', fr: 'Permet aux utilisateurs d\'acheter, détenir, vendre et payer en Bitcoin directement dans l\'app.' }, color: '#003087' },
+          { name: 'Tesla', how: { en: 'Holds Bitcoin on its balance sheet; previously accepted BTC for car purchases.', fr: 'Détient du Bitcoin dans son bilan ; a précédemment accepté le BTC pour l\'achat de véhicules.' }, color: '#E82127' },
+          { name: 'Starbucks', how: { en: 'Accepts Bitcoin payments via the Bakkt app for coffee and merchandise.', fr: 'Accepte les paiements en Bitcoin via l\'app Bakkt pour le café et les produits.' }, color: '#00704A' },
+          { name: 'AT&T', how: { en: 'First major U.S. telecom to accept Bitcoin for bill payments via BitPay.', fr: 'Premier grand opérateur télécom américain à accepter le Bitcoin pour le paiement de factures.' }, color: '#009FDB' },
+          { name: 'Newegg', how: { en: 'Online tech retailer accepting Bitcoin for electronics purchases since 2014.', fr: 'Détaillant tech en ligne acceptant le Bitcoin pour les achats d\'électronique depuis 2014.' }, color: '#FF6600' }
+        ],
+        updates: [
+          { date: '2025-01', text: { en: 'Bitcoin spot ETFs surpass $100 billion in total assets under management.', fr: 'Les ETF Bitcoin spot dépassent les 100 milliards de dollars d\'actifs sous gestion.' } },
+          { date: '2025-04', text: { en: 'The fourth Bitcoin halving reduces block rewards to 3.125 BTC.', fr: 'Le quatrième halving du Bitcoin réduit les récompenses de bloc à 3,125 BTC.' } },
+          { date: '2025-12', text: { en: 'Bitcoin crosses $100,000 for the first time amid institutional demand.', fr: 'Le Bitcoin franchit les 100 000 $ pour la première fois grâce à la demande institutionnelle.' } },
+          { date: '2026-01', text: { en: 'SEC approves 5 new Bitcoin ETF products, expanding investor access.', fr: 'La SEC approuve 5 nouveaux produits ETF Bitcoin, élargissant l\'accès aux investisseurs.' } }
+        ],
         en: {
           name: 'Bitcoin',
           tagline: 'The original cryptocurrency that started it all',
@@ -2210,6 +2321,20 @@
         consensus: 'Proof of Stake',
         founder: 'Vitalik Buterin',
         related: ['Bitcoin', 'Solana', 'Polygon'],
+        companies: [
+          { name: 'BlackRock', how: { en: 'Launched the BUIDL fund — a tokenized money market fund on Ethereum.', fr: 'A lancé le fonds BUIDL — un fonds monétaire tokenisé sur Ethereum.' }, color: '#000000' },
+          { name: 'JPMorgan', how: { en: 'Built Onyx platform using an Ethereum-based private chain for institutional payments.', fr: 'A créé la plateforme Onyx utilisant une chaîne privée basée sur Ethereum pour les paiements institutionnels.' }, color: '#003A70' },
+          { name: 'PayPal (PYUSD)', how: { en: 'Issued its PYUSD stablecoin as an ERC-20 token on the Ethereum network.', fr: 'A émis son stablecoin PYUSD en tant que jeton ERC-20 sur le réseau Ethereum.' }, color: '#003087' },
+          { name: 'Sony', how: { en: 'Launched Soneium, an Ethereum Layer 2 blockchain for entertainment and Web3.', fr: 'A lancé Soneium, une blockchain Layer 2 Ethereum pour le divertissement et le Web3.' }, color: '#1428A0' },
+          { name: 'Stripe', how: { en: 'Integrated Ethereum for USDC payment processing for online merchants.', fr: 'A intégré Ethereum pour le traitement des paiements USDC pour les marchands en ligne.' }, color: '#635BFF' },
+          { name: 'Fidelity', how: { en: 'Offers Ethereum custody and staking services for institutional investors.', fr: 'Propose des services de garde et de staking Ethereum pour les investisseurs institutionnels.' }, color: '#4B8B3B' }
+        ],
+        updates: [
+          { date: '2024-03', text: { en: 'Dencun upgrade goes live, dramatically reducing Layer 2 transaction fees.', fr: 'La mise à jour Dencun est déployée, réduisant considérablement les frais de transaction Layer 2.' } },
+          { date: '2024-05', text: { en: 'SEC approves Ethereum spot ETFs, a landmark for institutional adoption.', fr: 'La SEC approuve les ETF Ethereum spot, une étape clé pour l\'adoption institutionnelle.' } },
+          { date: '2025-03', text: { en: 'Pectra upgrade planned to improve staking, wallets, and scalability.', fr: 'Mise à jour Pectra prévue pour améliorer le staking, les portefeuilles et la scalabilité.' } },
+          { date: '2025-09', text: { en: 'Ethereum Layer 2 ecosystem processes more transactions than the mainnet.', fr: 'L\'écosystème Layer 2 d\'Ethereum traite plus de transactions que le réseau principal.' } }
+        ],
         en: {
           name: 'Ethereum',
           tagline: 'The world computer that runs apps without middlemen',
@@ -2246,6 +2371,20 @@
         consensus: 'Proof of History + Proof of Stake',
         founder: 'Anatoly Yakovenko',
         related: ['Ethereum', 'Avalanche', 'Near Protocol'],
+        companies: [
+          { name: 'Visa', how: { en: 'Uses Solana for USDC stablecoin settlement, processing real-time payments.', fr: 'Utilise Solana pour le règlement en stablecoin USDC, traitant des paiements en temps réel.' }, color: '#1A1F71' },
+          { name: 'Shopify', how: { en: 'Integrated Solana Pay for merchants to accept crypto payments at checkout.', fr: 'A intégré Solana Pay pour permettre aux marchands d\'accepter les paiements crypto.' }, color: '#96BF48' },
+          { name: 'Stripe', how: { en: 'Enabled USDC payouts on Solana for fast, low-cost global payments.', fr: 'A activé les paiements USDC sur Solana pour des transferts mondiaux rapides et peu coûteux.' }, color: '#635BFF' },
+          { name: 'Google Cloud', how: { en: 'Runs a Solana validator node and offers Solana tools to developers on GCP.', fr: 'Fait tourner un nœud validateur Solana et offre des outils Solana aux développeurs sur GCP.' }, color: '#4285F4' },
+          { name: 'Solana Mobile', how: { en: 'Launched the Seeker smartphone — a crypto-native Android device for Web3.', fr: 'A lancé le smartphone Seeker — un appareil Android natif crypto pour le Web3.' }, color: '#9945FF' },
+          { name: 'Helium', how: { en: 'Migrated its decentralized wireless network from its own chain to Solana.', fr: 'A migré son réseau sans fil décentralisé de sa propre chaîne vers Solana.' }, color: '#474DFF' }
+        ],
+        updates: [
+          { date: '2024-04', text: { en: 'Solana processes over 1,000 transactions per second consistently.', fr: 'Solana traite plus de 1 000 transactions par seconde de manière constante.' } },
+          { date: '2024-10', text: { en: 'Firedancer validator client launches, boosting network resilience and speed.', fr: 'Le client validateur Firedancer est lancé, renforçant la résilience et la vitesse du réseau.' } },
+          { date: '2025-06', text: { en: 'CME Group launches Solana futures, signaling institutional interest.', fr: 'Le CME Group lance des contrats à terme sur Solana, signalant l\'intérêt institutionnel.' } },
+          { date: '2025-11', text: { en: 'Solana mobile app ecosystem grows 300% year-over-year.', fr: 'L\'écosystème d\'applications mobiles Solana croît de 300% en glissement annuel.' } }
+        ],
         en: {
           name: 'Solana',
           tagline: 'The fast and affordable blockchain built for speed',
@@ -2330,6 +2469,10 @@
         'article.cons': 'Cons',
         'article.verdict': 'Our Verdict',
         'article.related': 'Related Cryptos',
+        'article.companies': 'Who uses it?',
+        'article.companies.sub': 'Real companies building with or accepting this crypto.',
+        'article.updates': 'Latest Updates',
+        'article.updates.sub': 'Recent milestones and developments.',
         'diff.1': 'Beginner',
         'diff.2': 'Intermediate',
         'diff.3': 'Advanced',
@@ -2395,6 +2538,10 @@
         'article.cons': 'Inconvénients',
         'article.verdict': 'Notre verdict',
         'article.related': 'Cryptos similaires',
+        'article.companies': 'Qui l\'utilise ?',
+        'article.companies.sub': 'De vraies entreprises qui construisent avec ou acceptent cette crypto.',
+        'article.updates': 'Dernières actualités',
+        'article.updates.sub': 'Jalons et développements récents.',
         'diff.1': 'Débutant',
         'diff.2': 'Intermédiaire',
         'diff.3': 'Avancé',
@@ -2777,6 +2924,42 @@
             '<h3 class="article-section-title">' + t('article.uses') + '</h3>' +
             '<p class="article-body">' + (data.uses || '') + '</p>' +
           '</div>' +
+          (article.companies && article.companies.length ?
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.companies') + ' <span>' + article.companies.length + ' companies</span></h3>' +
+            '<p class="article-section-sub">' + t('article.companies.sub') + '</p>' +
+            '<div class="companies-grid">' +
+              article.companies.map(function(c) {
+                return '<div class="company-card">' +
+                  '<div class="company-card-header">' +
+                    '<div class="company-dot" style="background:' + c.color + '"></div>' +
+                    '<span class="company-name">' + escapeHtml(c.name) + '</span>' +
+                  '</div>' +
+                  '<p class="company-how">' + escapeHtml(c.how[currentLang] || c.how.en) + '</p>' +
+                '</div>';
+              }).join('') +
+            '</div>' +
+          '</div>' : '') +
+          (article.updates && article.updates.length ?
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.updates') + '</h3>' +
+            '<p class="article-section-sub">' + t('article.updates.sub') + '</p>' +
+            '<div class="updates-timeline">' +
+              article.updates.slice().reverse().map(function(u) {
+                var dateStr = u.date;
+                try {
+                  var parts = u.date.split('-');
+                  var monthNames = currentLang === 'fr' ? ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'] : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                  dateStr = monthNames[parseInt(parts[1])-1] + ' ' + parts[0];
+                } catch(e) {}
+                return '<div class="timeline-item">' +
+                  '<div class="timeline-dot"></div>' +
+                  '<div class="timeline-date">' + dateStr + '</div>' +
+                  '<div class="timeline-text">' + escapeHtml(u.text[currentLang] || u.text.en) + '</div>' +
+                '</div>';
+              }).join('') +
+            '</div>' +
+          '</div>' : '') +
           '<div class="article-section">' +
             '<h3 class="article-section-title">' + t('article.pros') + ' & ' + t('article.cons') + '</h3>' +
             '<div class="pros-cons">' +
