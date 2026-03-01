@@ -1,0 +1,3083 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>alfacrypto.ai — Crypto, Explained Simply</title>
+  <meta name="description" content="Three new cryptocurrencies explained every week, in plain English and French. No jargon, no hype — just clear, educational crypto profiles for curious minds.">
+  <meta name="keywords" content="cryptocurrency education, bitcoin explained, ethereum explained, solana explained, crypto for beginners, learn crypto, cryptomonnaie débutant, bitcoin explication">
+  <meta name="author" content="alfacrypto.ai">
+  <link rel="canonical" href="https://alfacrypto.ai/">
+
+  <!-- hreflang for bilingual -->
+  <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/">
+  <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/?lang=fr">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alfacrypto.ai/">
+  <meta property="og:title" content="alfacrypto.ai — Crypto, Explained Simply">
+  <meta property="og:description" content="Three new cryptocurrencies explained every week. No jargon, no hype. Educational crypto profiles in English and French.">
+  <meta property="og:site_name" content="alfacrypto.ai">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@alfacrypto">
+  <meta name="twitter:title" content="alfacrypto.ai — Crypto, Explained Simply">
+  <meta name="twitter:description" content="Three new cryptocurrencies explained every week. No jargon, no hype.">
+
+  <!-- Schema.org WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "alfacrypto.ai",
+    "url": "https://alfacrypto.ai/",
+    "description": "Educational cryptocurrency website publishing three crypto profiles per week in English and French.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "alfacrypto.ai",
+      "url": "https://alfacrypto.ai/"
+    },
+    "inLanguage": ["en", "fr"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js" defer></script>
+
+  <style>
+    /* ============================================
+       DESIGN TOKENS — alfacrypto.ai
+       Nexus Palette + Instrument Serif × Plus Jakarta Sans
+       ============================================ */
+    :root, [data-theme="light"] {
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+      --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+      --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      --color-bg:             #f7f6f2;
+      --color-surface:        #f9f8f5;
+      --color-surface-2:      #fbfbf9;
+      --color-surface-offset: #f3f0ec;
+      --color-surface-offset-2: #edeae5;
+      --color-surface-dynamic: #e6e4df;
+      --color-divider:        #dcd9d5;
+      --color-border:         #d4d1ca;
+
+      --color-text:           #28251d;
+      --color-text-muted:     #7a7974;
+      --color-text-faint:     #bab9b4;
+      --color-text-inverse:   #f9f8f4;
+
+      --color-primary:        #01696f;
+      --color-primary-hover:  #0c4e54;
+      --color-primary-active: #0f3638;
+      --color-primary-highlight: #cedcd8;
+
+      --color-gold:           #d19900;
+      --color-gold-hover:     #b07a00;
+      --color-gold-active:    #8a5b00;
+      --color-gold-highlight: #e9e0c6;
+
+      --color-success:        #437a22;
+      --color-success-hover:  #2e5c10;
+      --color-success-highlight: #d4dfcc;
+
+      --color-blue:           #006494;
+      --color-blue-hover:     #0b5177;
+      --color-blue-highlight: #c6d8e4;
+
+      --color-warning:        #964219;
+      --color-warning-highlight: #ddcfc6;
+
+      --color-error:          #a12c7b;
+      --color-error-highlight: #e0ced7;
+
+      --radius-sm: 0.375rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-2xl: 1.5rem;
+      --radius-full: 9999px;
+
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+      --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+      --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+
+      --content-narrow: 640px;
+      --content-default: 960px;
+      --content-wide: 1200px;
+
+      --font-display: 'Instrument Serif', 'Georgia', serif;
+      --font-body: 'Plus Jakarta Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    [data-theme="dark"] {
+      --color-bg:             #171614;
+      --color-surface:        #1c1b19;
+      --color-surface-2:      #201f1d;
+      --color-surface-offset: #1d1c1a;
+      --color-surface-offset-2: #22211f;
+      --color-surface-dynamic: #2d2c2a;
+      --color-divider:        #262523;
+      --color-border:         #393836;
+      --color-text:           #cdccca;
+      --color-text-muted:     #797876;
+      --color-text-faint:     #5a5957;
+      --color-text-inverse:   #2b2a28;
+      --color-primary:        #4f98a3;
+      --color-primary-hover:  #227f8b;
+      --color-primary-active: #1a626b;
+      --color-primary-highlight: #313b3b;
+      --color-gold:           #e8af34;
+      --color-gold-hover:     #fdc551;
+      --color-gold-active:    #feda74;
+      --color-gold-highlight: #4d4332;
+      --color-success:        #6daa45;
+      --color-success-hover:  #4d8f25;
+      --color-success-highlight: #3a4435;
+      --color-blue:           #5591c7;
+      --color-blue-hover:     #3b78ab;
+      --color-blue-highlight: #3a4550;
+      --color-warning:        #bb653b;
+      --color-warning-highlight: #564942;
+      --color-error:          #d163a7;
+      --color-error-highlight: #4c3d46;
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+      --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3);
+      --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        --color-bg: #171614; --color-surface: #1c1b19; --color-surface-2: #201f1d;
+        --color-surface-offset: #1d1c1a; --color-surface-offset-2: #22211f;
+        --color-surface-dynamic: #2d2c2a; --color-divider: #262523; --color-border: #393836;
+        --color-text: #cdccca; --color-text-muted: #797876; --color-text-faint: #5a5957;
+        --color-text-inverse: #2b2a28; --color-primary: #4f98a3; --color-primary-hover: #227f8b;
+        --color-primary-active: #1a626b; --color-primary-highlight: #313b3b;
+        --color-gold: #e8af34; --color-gold-hover: #fdc551; --color-gold-highlight: #4d4332;
+        --color-success: #6daa45; --color-success-highlight: #3a4435;
+        --color-blue: #5591c7; --color-blue-highlight: #3a4550;
+        --color-error: #d163a7; --color-error-highlight: #4c3d46;
+        --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.2);
+        --shadow-md: 0 4px 12px oklch(0 0 0 / 0.3);
+        --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.4);
+      }
+    }
+
+    /* ============ BASE RESET ============ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--space-16);
+      hanging-punctuation: first last;
+    }
+    body {
+      min-height: 100dvh;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+      transition: background-color 300ms, color 300ms;
+      overflow-x: hidden;
+    }
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    ul[role="list"], ol[role="list"] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; }
+    p, li, figcaption { text-wrap: pretty; }
+    button { cursor: pointer; background: none; border: none; }
+    a { color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: var(--radius-sm); }
+    ::selection { background: oklch(from var(--color-primary) l c h / 0.2); color: var(--color-text); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Accessible hidden — screen reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* ============ SKIP LINK ============ */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: var(--space-4);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      z-index: 1000;
+    }
+    .skip-link:focus { top: var(--space-4); }
+
+    /* ============ UTILITY ============ */
+    .container { width: 100%; max-width: var(--content-wide); margin-inline: auto; padding-inline: clamp(var(--space-4), 5vw, var(--space-16)); }
+    .container--narrow { max-width: var(--content-default); }
+    .container--prose { max-width: var(--content-narrow); }
+
+    .section { padding-block: clamp(var(--space-12), 8vw, var(--space-24)); }
+
+    /* ============ SCROLL ANIMATIONS ============ */
+    .fade-in { opacity: 1; }
+    @supports (animation-timeline: scroll()) {
+      .fade-in {
+        opacity: 0;
+        animation: reveal-fade linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 60%;
+      }
+    }
+    @keyframes reveal-fade { to { opacity: 1; } }
+
+    .reveal-clip { }
+    @supports (animation-timeline: scroll()) {
+      .reveal-clip {
+        clip-path: inset(0 0 20% 0);
+        animation: reveal-clip-anim linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 80%;
+      }
+    }
+    @keyframes reveal-clip-anim { to { clip-path: inset(0 0 0% 0); } }
+
+    /* ============ NEWS TICKER ============ */
+    .ticker-bar {
+      background: var(--color-surface-offset);
+      border-bottom: 1px solid var(--color-divider);
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+    }
+    .ticker-label {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0 var(--space-4);
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-track {
+      flex: 1;
+      overflow: hidden;
+    }
+    .ticker-inner {
+      display: flex;
+      gap: 0;
+      animation: ticker-scroll 35s linear infinite;
+      width: max-content;
+    }
+    .ticker-item {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      padding: 0 var(--space-8);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .ticker-item strong { color: var(--color-text); font-weight: 600; }
+    .ticker-item .up { color: var(--color-success); }
+    .ticker-item .down { color: var(--color-error); }
+    .ticker-sep { color: var(--color-divider); }
+    @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .ticker-bar:hover .ticker-inner { animation-play-state: paused; }
+
+    /* ============ HEADER / NAV ============ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in oklch, var(--color-bg) 85%, transparent);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--color-divider);
+      transition: background var(--transition-interactive);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-text);
+      font-style: italic;
+      flex-shrink: 0;
+      transition: color var(--transition-interactive);
+    }
+    .nav-logo span { color: var(--color-primary); }
+    .nav-logo:hover { color: var(--color-primary); }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      list-style: none;
+      margin-left: var(--space-4);
+    }
+    .nav-links a {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+    }
+    .nav-links a:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+    .nav-links a.active { color: var(--color-primary); background: var(--color-primary-highlight); }
+
+    .nav-spacer { flex: 1; }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    /* Language toggle */
+    .lang-toggle {
+      display: flex;
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      font-size: var(--text-xs);
+      font-weight: 700;
+    }
+    .lang-btn {
+      padding: var(--space-1) var(--space-3);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+      border: none;
+      background: transparent;
+      font: inherit;
+      font-size: var(--text-xs);
+      font-weight: 700;
+    }
+    .lang-btn.active {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+    .lang-btn:not(.active):hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+
+    /* Theme toggle */
+    .theme-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      color: var(--color-text-muted);
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+    }
+    .theme-btn:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+
+    /* Mobile nav toggle */
+    .nav-mobile-toggle {
+      display: none;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+      transition: background var(--transition-interactive);
+    }
+    .nav-mobile-toggle:hover { background: var(--color-surface-dynamic); }
+
+    @media (max-width: 767px) {
+      .nav-links { display: none; }
+      .nav-mobile-toggle { display: flex; }
+      .nav-mobile-toggle.is-open + .nav-links,
+      .nav-links.mobile-open {
+        display: flex;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--color-surface);
+        border-bottom: 1px solid var(--color-divider);
+        padding: var(--space-4);
+        gap: var(--space-1);
+        z-index: 99;
+      }
+    }
+
+    /* ============ HERO SECTION ============ */
+    .hero {
+      padding-block: clamp(var(--space-16), 12vw, var(--space-32));
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in oklch, var(--color-primary) 6%, var(--color-bg)), var(--color-bg));
+      pointer-events: none;
+    }
+    .hero-inner {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: var(--space-12);
+      align-items: center;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+    }
+    .hero-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      line-height: 0.95;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+    }
+    .hero-headline em {
+      font-style: italic;
+      color: var(--color-primary);
+    }
+    .hero-sub {
+      font-size: var(--text-lg);
+      color: var(--color-text-muted);
+      max-width: 55ch;
+      margin-inline: auto;
+      margin-bottom: var(--space-10);
+      font-weight: 400;
+    }
+
+    /* Hero search */
+    .hero-search {
+      display: flex;
+      max-width: 520px;
+      margin-inline: auto;
+      gap: 0;
+      background: var(--color-surface);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .hero-search:focus-within {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 4px var(--color-primary-highlight), var(--shadow-md);
+    }
+    .hero-search-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      padding: var(--space-4) var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .hero-search-input::placeholder { color: var(--color-text-faint); }
+    .hero-search-input:focus { outline: none; }
+    .hero-search-btn {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border: none;
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-full);
+      margin: var(--space-1);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      transition: background var(--transition-interactive);
+      white-space: nowrap;
+    }
+    .hero-search-btn:hover { background: var(--color-primary-hover); }
+
+    /* Floating crypto symbols */
+    .hero-symbols {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .float-sym {
+      position: absolute;
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 5rem);
+      opacity: 0.07;
+      animation: float-sym 6s ease-in-out infinite;
+      user-select: none;
+    }
+    .float-sym:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; font-size: clamp(1.5rem, 3vw, 4rem); }
+    .float-sym:nth-child(2) { top: 20%; right: 8%; animation-delay: 1.5s; font-size: clamp(2rem, 5vw, 6rem); opacity: 0.05; }
+    .float-sym:nth-child(3) { bottom: 15%; left: 12%; animation-delay: 3s; font-size: clamp(1.5rem, 3.5vw, 4.5rem); }
+    .float-sym:nth-child(4) { top: 50%; right: 5%; animation-delay: 0.8s; font-size: clamp(1rem, 2.5vw, 3rem); opacity: 0.05; }
+    .float-sym:nth-child(5) { bottom: 25%; right: 15%; animation-delay: 2s; opacity: 0.06; }
+    .float-sym:nth-child(6) { top: 35%; left: 2%; animation-delay: 4s; font-size: clamp(1rem, 2vw, 3rem); opacity: 0.04; }
+    @keyframes float-sym {
+      0%, 100% { transform: translateY(0) rotate(-5deg); }
+      50% { transform: translateY(-20px) rotate(5deg); }
+    }
+
+    /* Hero stats */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: clamp(var(--space-6), 4vw, var(--space-12));
+      flex-wrap: wrap;
+      margin-top: var(--space-10);
+      padding-top: var(--space-8);
+      border-top: 1px solid var(--color-divider);
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat-num {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .hero-stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      font-weight: 500;
+      margin-top: var(--space-1);
+    }
+
+    /* ============ SECTION HEADERS ============ */
+    .section-header {
+      margin-bottom: clamp(var(--space-8), 4vw, var(--space-12));
+    }
+    .section-eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-3);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .section-subtitle {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 60ch;
+    }
+    .section-header--center { text-align: center; }
+    .section-header--center .section-subtitle { margin-inline: auto; }
+
+    /* ============ CRYPTO CARDS ============ */
+    .cards-filter {
+      display: flex;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-8);
+      align-items: center;
+    }
+    .filter-btn {
+      padding: var(--space-2) var(--space-4);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .filter-btn:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+    .filter-btn.active { background: var(--color-primary); color: var(--color-text-inverse); border-color: var(--color-primary); }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+      gap: var(--space-6);
+    }
+
+    .crypto-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      overflow: hidden;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow var(--transition-interactive),
+                  transform var(--transition-interactive),
+                  border-color var(--transition-interactive);
+    }
+    .crypto-card:hover {
+      box-shadow: var(--shadow-lg);
+      transform: translateY(-3px);
+      border-color: var(--color-primary-highlight);
+    }
+    .crypto-card:active { transform: translateY(-1px); }
+    .crypto-card[aria-hidden="true"] { display: none; }
+
+    .card-accent { height: 5px; flex-shrink: 0; }
+    .card-body-inner { padding: var(--space-6); flex: 1; display: flex; flex-direction: column; gap: var(--space-4); }
+
+    .card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--space-3); }
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: var(--radius-xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      flex-shrink: 0;
+      color: var(--color-text-inverse);
+      font-weight: 400;
+    }
+    .card-ticker {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: var(--color-text-faint);
+      margin-top: var(--space-1);
+    }
+
+    .card-name {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      line-height: 1.1;
+      margin-bottom: var(--space-1);
+    }
+    .card-tagline {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      align-items: center;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .badge-teal { background: var(--color-primary-highlight); color: var(--color-primary-active); }
+    .badge-gold { background: var(--color-gold-highlight); color: var(--color-gold-active); }
+    .badge-green { background: var(--color-success-highlight); color: var(--color-success-hover); }
+    .badge-blue { background: var(--color-blue-highlight); color: var(--color-blue-hover); }
+    .badge-warning { background: var(--color-warning-highlight); color: var(--color-warning); }
+
+    .card-difficulty {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+    }
+    .diff-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: var(--radius-full);
+      background: var(--color-border);
+    }
+    .diff-dot.filled { background: var(--color-gold); }
+
+    .card-footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+      margin-top: auto;
+    }
+    .card-year {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      font-weight: 500;
+    }
+    .card-read-btn {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      color: var(--color-primary);
+      transition: gap var(--transition-interactive), color var(--transition-interactive);
+    }
+    .crypto-card:hover .card-read-btn { gap: var(--space-3); }
+
+    /* Empty state */
+    .cards-empty {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: var(--space-16);
+      color: var(--color-text-muted);
+    }
+    .cards-empty svg { margin: 0 auto var(--space-4); opacity: 0.4; }
+
+    /* ============ ARTICLE MODAL ============ */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: oklch(from var(--color-bg) l c h / 0.7);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 200;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: var(--space-4);
+      overflow-y: auto;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.is-open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .modal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      max-width: 780px;
+      width: 100%;
+      margin: var(--space-8) auto;
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      transform: scale(0.95);
+      transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.is-open .modal { transform: scale(1); }
+
+    .modal-hero {
+      padding: var(--space-8) var(--space-8) var(--space-6);
+      border-bottom: 1px solid var(--color-divider);
+      position: relative;
+    }
+    .modal-close {
+      position: absolute;
+      top: var(--space-6);
+      right: var(--space-6);
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+    }
+    .modal-close:hover { background: var(--color-surface-dynamic); color: var(--color-text); }
+    .modal-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .modal-headline {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .modal-tagline {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      font-style: italic;
+      font-family: var(--font-display);
+    }
+
+    .modal-stats-row {
+      display: flex;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      padding: var(--space-6) var(--space-8);
+      background: var(--color-surface-offset);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .modal-stat-item { flex: 1; min-width: 120px; }
+    .modal-stat-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-1);
+    }
+    .modal-stat-value {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+
+    .modal-content {
+      padding: var(--space-8);
+    }
+    .article-section { margin-bottom: var(--space-10); }
+    .article-section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-3);
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .article-section-title span {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-family: var(--font-body);
+      margin-left: var(--space-3);
+    }
+    .article-body {
+      font-size: var(--text-base);
+      color: var(--color-text);
+      line-height: 1.75;
+      max-width: 68ch;
+    }
+    .article-body + .article-body { margin-top: var(--space-4); }
+
+    .pros-cons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    @media (max-width: 600px) { .pros-cons { grid-template-columns: 1fr; } }
+    .pros-box, .cons-box {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    .pros-box { background: var(--color-success-highlight); }
+    .cons-box { background: var(--color-error-highlight); }
+    .pros-box-title {
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--color-success);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .cons-box-title {
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--color-error);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .pros-cons-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+    .pros-cons-list li {
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      padding-left: var(--space-5);
+      position: relative;
+    }
+    .pros-cons-list li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--color-text-faint);
+    }
+
+    .verdict-box {
+      background: linear-gradient(in oklab, var(--color-primary-highlight), var(--color-gold-highlight));
+      border: 1px solid var(--color-primary-highlight);
+      border-radius: var(--radius-xl);
+      padding: var(--space-6);
+    }
+    .verdict-label {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-3);
+    }
+    .verdict-text {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      color: var(--color-text);
+      line-height: 1.5;
+      font-style: italic;
+    }
+
+    .related-section { margin-top: var(--space-8); }
+    .related-title {
+      font-size: var(--text-sm);
+      font-weight: 700;
+      color: var(--color-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-4);
+    }
+    .related-pills { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+    .related-pill {
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
+
+    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
+    .featured-section { background: var(--color-surface-offset); }
+    .featured-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--space-8), 5vw, var(--space-16));
+      align-items: center;
+    }
+    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    .featured-icon-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .featured-icon {
+      width: clamp(120px, 20vw, 180px);
+      height: clamp(120px, 20vw, 180px);
+      border-radius: var(--radius-2xl);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      color: var(--color-text-inverse);
+      box-shadow: var(--shadow-lg);
+    }
+    .featured-eyebrow {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-gold);
+      margin-bottom: var(--space-3);
+    }
+    .featured-title {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+    }
+    .featured-desc {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      max-width: 50ch;
+      margin-bottom: var(--space-6);
+      line-height: 1.7;
+    }
+
+    /* ============ ABOUT SECTION ============ */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--space-8), 5vw, var(--space-16));
+      align-items: start;
+    }
+    @media (max-width: 767px) { .about-grid { grid-template-columns: 1fr; } }
+    .about-text {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.8;
+    }
+    .about-text + .about-text { margin-top: var(--space-4); }
+    .about-values { display: flex; flex-direction: column; gap: var(--space-4); }
+    .value-item {
+      display: flex;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+    .value-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-lg);
+      background: var(--color-primary-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      flex-shrink: 0;
+    }
+    .value-title {
+      font-weight: 600;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      margin-bottom: var(--space-1);
+    }
+    .value-desc { font-size: var(--text-sm); color: var(--color-text-muted); }
+
+    /* ============ NEWSLETTER ============ */
+    .newsletter-section {
+      background: var(--color-surface-offset);
+    }
+    .newsletter-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: clamp(var(--space-8), 5vw, var(--space-16));
+      text-align: center;
+      max-width: 640px;
+      margin-inline: auto;
+      box-shadow: var(--shadow-md);
+    }
+    .newsletter-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-xl);
+      background: var(--color-primary-highlight);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary);
+      margin: 0 auto var(--space-6);
+    }
+    .newsletter-title {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .newsletter-sub {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-8);
+      max-width: 45ch;
+      margin-inline: auto;
+    }
+    .newsletter-form {
+      display: flex;
+      gap: var(--space-3);
+      max-width: 440px;
+      margin-inline: auto;
+    }
+    @media (max-width: 500px) { .newsletter-form { flex-direction: column; } }
+    .newsletter-input {
+      flex: 1;
+      padding: var(--space-4) var(--space-5);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-full);
+      background: var(--color-bg);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .newsletter-input::placeholder { color: var(--color-text-faint); }
+    .newsletter-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-highlight);
+    }
+    .newsletter-btn {
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border: none;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background var(--transition-interactive), transform var(--transition-interactive);
+    }
+    .newsletter-btn:hover { background: var(--color-primary-hover); transform: translateY(-1px); }
+    .newsletter-privacy {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-top: var(--space-4);
+    }
+    .newsletter-success {
+      display: none;
+      color: var(--color-success);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-top: var(--space-4);
+    }
+
+    /* ============ FOOTER ============ */
+    .site-footer {
+      background: var(--color-surface-offset-2);
+      border-top: 1px solid var(--color-divider);
+      padding-block: var(--space-12) var(--space-8);
+    }
+    .footer-inner {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: clamp(var(--space-8), 5vw, var(--space-16));
+    }
+    @media (max-width: 767px) {
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 479px) { .footer-inner { grid-template-columns: 1fr; } }
+
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+    }
+    .footer-logo span { color: var(--color-primary); }
+    .footer-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: 35ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-6);
+    }
+    .footer-socials {
+      display: flex;
+      gap: var(--space-3);
+    }
+    .footer-social-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-text-muted);
+      transition: background var(--transition-interactive), color var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .footer-social-btn:hover { background: var(--color-surface-dynamic); color: var(--color-text); border-color: var(--color-primary); }
+
+    .footer-col-title {
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    .footer-links a {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      transition: color var(--transition-interactive);
+    }
+    .footer-links a:hover { color: var(--color-primary); }
+
+    .footer-bottom {
+      margin-top: var(--space-12);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-divider);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+    .footer-copyright {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+    .footer-bottom-links {
+      display: flex;
+      gap: var(--space-6);
+    }
+    .footer-bottom-links a {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      transition: color var(--transition-interactive);
+    }
+    .footer-bottom-links a:hover { color: var(--color-text-muted); }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 700;
+      font-family: var(--font-body);
+      cursor: pointer;
+      border: none;
+      text-decoration: none;
+      transition: background var(--transition-interactive),
+                  color var(--transition-interactive),
+                  box-shadow var(--transition-interactive),
+                  transform var(--transition-interactive),
+                  border-color var(--transition-interactive);
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+    .btn-primary:hover { background: var(--color-primary-hover); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+    .btn-primary:active { transform: translateY(0); background: var(--color-primary-active); }
+    .btn-secondary {
+      background: var(--color-surface);
+      color: var(--color-text);
+      border: 1px solid var(--color-border);
+    }
+    .btn-secondary:hover { background: var(--color-surface-dynamic); border-color: var(--color-primary); }
+    .btn-ghost {
+      background: transparent;
+      color: var(--color-primary);
+      padding-inline: var(--space-2);
+    }
+    .btn-ghost:hover { color: var(--color-primary-hover); }
+
+    /* ============ DIVIDER ============ */
+    .divider { height: 1px; background: var(--color-divider); }
+
+    /* ============ ADMIN PANEL ============ */
+    #admin-view { display: none; }
+    #main-view { display: block; }
+
+    .admin-body {
+      min-height: 100vh;
+      background: var(--color-bg);
+    }
+    .admin-header {
+      background: var(--color-surface);
+      border-bottom: 1px solid var(--color-divider);
+      padding: var(--space-4) var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .admin-logo {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-text);
+    }
+    .admin-logo span { color: var(--color-primary); }
+    .admin-badge {
+      background: var(--color-error-highlight);
+      color: var(--color-error);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+    .admin-logout {
+      margin-left: auto;
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      cursor: pointer;
+      transition: color var(--transition-interactive);
+    }
+    .admin-logout:hover { color: var(--color-error); }
+
+    .admin-content { padding: var(--space-8); max-width: var(--content-wide); margin-inline: auto; }
+    .admin-section-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .admin-stat-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-5);
+    }
+    .admin-stat-num {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: var(--color-text);
+      line-height: 1;
+    }
+    .admin-stat-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-muted);
+      margin-top: var(--space-2);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .admin-table-wrap {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      margin-bottom: var(--space-8);
+    }
+    .admin-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .admin-table th {
+      background: var(--color-surface-offset);
+      padding: var(--space-3) var(--space-5);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-muted);
+      text-align: left;
+      border-bottom: 1px solid var(--color-divider);
+    }
+    .admin-table td {
+      padding: var(--space-4) var(--space-5);
+      border-bottom: 1px solid var(--color-divider);
+      font-size: var(--text-sm);
+      vertical-align: middle;
+    }
+    .admin-table tr:last-child td { border-bottom: none; }
+    .admin-table tr:hover td { background: var(--color-surface-offset); }
+
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .status-published { background: var(--color-success-highlight); color: var(--color-success); }
+    .status-draft { background: var(--color-warning-highlight); color: var(--color-warning); }
+
+    .admin-action-btn {
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition-interactive), color var(--transition-interactive);
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+    }
+    .admin-action-btn:hover { border-color: var(--color-primary); color: var(--color-primary); background: var(--color-primary-highlight); }
+    .admin-action-btn.publish { border-color: var(--color-success); color: var(--color-success); background: var(--color-success-highlight); }
+    .admin-action-btn.publish:hover { background: var(--color-success); color: #fff; }
+    .admin-action-btn.unpublish { border-color: var(--color-warning); color: var(--color-warning); background: var(--color-warning-highlight); }
+    .admin-action-btn.unpublish:hover { background: var(--color-warning); color: #fff; }
+    .admin-action-btn.delete { border-color: var(--color-error); color: var(--color-error); background: var(--color-error-highlight); }
+    .admin-action-btn.delete:hover { background: var(--color-error); color: #fff; }
+
+    .admin-actions-row { display: flex; gap: var(--space-2); align-items: center; }
+
+    /* Admin form */
+    .admin-form-wrap {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+    .admin-form-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+    }
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-5);
+    }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-group { display: flex; flex-direction: column; gap: var(--space-2); }
+    .form-group.full { grid-column: 1 / -1; }
+    .form-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+    }
+    .form-label small {
+      font-weight: 400;
+      color: var(--color-text-muted);
+      margin-left: var(--space-2);
+    }
+    .form-input, .form-select, .form-textarea {
+      padding: var(--space-3) var(--space-4);
+      border: 1.5px solid var(--color-border);
+      border-radius: var(--radius-md);
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--color-text-faint); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-primary-highlight);
+    }
+    .form-textarea { resize: vertical; min-height: 100px; line-height: 1.6; }
+    .form-select { cursor: pointer; }
+    .form-submit-row { display: flex; gap: var(--space-3); margin-top: var(--space-6); }
+
+    /* Admin export */
+    .admin-export-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+      cursor: pointer;
+      transition: background var(--transition-interactive), border-color var(--transition-interactive);
+    }
+    .admin-export-btn:hover { background: var(--color-surface-dynamic); border-color: var(--color-primary); }
+
+    /* Password gate */
+    .admin-gate {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-8);
+    }
+    .admin-gate-box {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-10);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      box-shadow: var(--shadow-lg);
+    }
+    .admin-gate-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: var(--radius-xl);
+      background: var(--color-surface-offset);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto var(--space-6);
+      color: var(--color-text-muted);
+    }
+    .admin-gate-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      margin-bottom: var(--space-2);
+    }
+    .admin-gate-sub {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-6);
+    }
+    .admin-gate-error {
+      font-size: var(--text-xs);
+      color: var(--color-error);
+      margin-top: var(--space-3);
+      display: none;
+    }
+    .admin-gate-error.visible { display: block; }
+
+    /* ============ INLINE EDIT ============ */
+    .edit-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: oklch(from var(--color-bg) l c h / 0.8);
+      backdrop-filter: blur(8px);
+      z-index: 300;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--space-4);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 250ms;
+    }
+    .edit-modal-overlay.is-open { opacity: 1; pointer-events: auto; }
+    .edit-modal {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-2xl);
+      padding: var(--space-8);
+      width: 100%;
+      max-width: 600px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.95);
+      transition: transform 250ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .edit-modal-overlay.is-open .edit-modal { transform: scale(1); }
+    .edit-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    .edit-modal-title {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 479px) {
+      .cards-grid { grid-template-columns: 1fr; }
+      .hero-symbols .float-sym { display: none; }
+      .hero-symbols .float-sym:nth-child(2) { display: block; }
+    }
+    @media (max-width: 767px) {
+      .modal { margin: var(--space-4) auto; }
+      .modal-hero, .modal-content { padding: var(--space-6); }
+      .modal-stats-row { padding: var(--space-4) var(--space-6); }
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ========== ADMIN VIEW ========== -->
+  <div id="admin-view" role="main" aria-label="Admin panel">
+    <!-- Password Gate -->
+    <div id="admin-gate" class="admin-gate">
+      <div class="admin-gate-box">
+        <div class="admin-gate-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        </div>
+        <h1 class="admin-gate-title">Admin Access</h1>
+        <p class="admin-gate-sub">Enter the password to access the alfacrypto admin panel.</p>
+        <div class="form-group">
+          <input type="password" id="admin-password" class="form-input" placeholder="Password" autocomplete="current-password">
+          <p id="admin-gate-error" class="admin-gate-error">Incorrect password. Try again.</p>
+        </div>
+        <div style="margin-top: var(--space-4);">
+          <button onclick="checkAdminPassword()" class="btn btn-primary" style="width:100%; justify-content:center;">Sign In</button>
+        </div>
+        <div style="margin-top: var(--space-4);">
+          <a href="#" onclick="switchView('main'); return false;" class="btn-ghost" style="font-size: var(--text-sm);">← Back to site</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin Dashboard (hidden until authenticated) -->
+    <div id="admin-dashboard" style="display:none;">
+      <header class="admin-header">
+        <span class="admin-logo">alfa<span>crypto</span>.ai</span>
+        <span class="admin-badge">Admin</span>
+        <nav style="display:flex; gap:var(--space-3); margin-left: var(--space-6);">
+          <button onclick="scrollAdminTo('admin-articles')" class="admin-action-btn">Articles</button>
+          <button onclick="scrollAdminTo('admin-add')" class="admin-action-btn">Add New</button>
+        </nav>
+        <div style="margin-left:auto; display:flex; gap:var(--space-3); align-items:center;">
+          <button onclick="exportArticles()" class="admin-export-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export JSON
+          </button>
+          <button onclick="adminLogout()" class="admin-logout">Sign Out</button>
+        </div>
+      </header>
+      <div class="admin-content">
+        <!-- Stats -->
+        <div class="admin-stats" id="admin-stats-row"></div>
+
+        <!-- Articles Table -->
+        <div id="admin-articles">
+          <h2 class="admin-section-title">All Articles</h2>
+          <div class="admin-table-wrap">
+            <table class="admin-table" role="grid">
+              <thead>
+                <tr>
+                  <th>Crypto</th>
+                  <th>Ticker</th>
+                  <th>Category</th>
+                  <th>Difficulty</th>
+                  <th>Year</th>
+                  <th>Status</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="admin-table-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Add New Article Form -->
+        <div id="admin-add" class="admin-form-wrap">
+          <h2 class="admin-form-title">Add New Crypto Article</h2>
+          <form id="add-article-form" onsubmit="submitNewArticle(event)">
+            <div class="form-grid">
+              <div class="form-group">
+                <label class="form-label" for="new-name">Name <small>e.g. Bitcoin</small></label>
+                <input type="text" id="new-name" class="form-input" placeholder="Bitcoin" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-ticker">Ticker <small>e.g. BTC</small></label>
+                <input type="text" id="new-ticker" class="form-input" placeholder="BTC" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-tagline-en">Tagline (EN)</label>
+                <input type="text" id="new-tagline-en" class="form-input" placeholder="The original cryptocurrency..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-tagline-fr">Tagline (FR)</label>
+                <input type="text" id="new-tagline-fr" class="form-input" placeholder="La cryptomonnaie originale..." required>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-category">Category</label>
+                <select id="new-category" class="form-select">
+                  <option value="Digital Gold">Digital Gold</option>
+                  <option value="Smart Contracts">Smart Contracts</option>
+                  <option value="Layer 1">Layer 1</option>
+                  <option value="DeFi">DeFi</option>
+                  <option value="Payment">Payment</option>
+                  <option value="Privacy">Privacy</option>
+                  <option value="Stablecoin">Stablecoin</option>
+                  <option value="Other">Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-difficulty">Difficulty</label>
+                <select id="new-difficulty" class="form-select">
+                  <option value="1">Beginner</option>
+                  <option value="2">Intermediate</option>
+                  <option value="3">Advanced</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-year">Year</label>
+                <input type="number" id="new-year" class="form-input" placeholder="2009" min="2009" max="2030">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-marketcap">Market Cap</label>
+                <input type="text" id="new-marketcap" class="form-input" placeholder="~$1 trillion">
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-what-en">What is it? (EN)</label>
+                <textarea id="new-what-en" class="form-textarea" placeholder="Explain in plain English..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-what-fr">What is it? (FR)</label>
+                <textarea id="new-what-fr" class="form-textarea" placeholder="Expliquez en français simple..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-how-en">How does it work? (EN)</label>
+                <textarea id="new-how-en" class="form-textarea" placeholder="Explain with an analogy..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-how-fr">How does it work? (FR)</label>
+                <textarea id="new-how-fr" class="form-textarea" placeholder="Expliquez avec une analogie..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-uses-en">Use Cases (EN) <small>comma separated</small></label>
+                <textarea id="new-uses-en" class="form-textarea" style="min-height:70px;" placeholder="Store of value, International payments..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-uses-fr">Use Cases (FR)</label>
+                <textarea id="new-uses-fr" class="form-textarea" style="min-height:70px;" placeholder="Réserve de valeur, Paiements internationaux..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-pros-en">Pros (EN) <small>comma separated</small></label>
+                <textarea id="new-pros-en" class="form-textarea" style="min-height:70px;" placeholder="Pro 1, Pro 2, Pro 3"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-pros-fr">Pros (FR)</label>
+                <textarea id="new-pros-fr" class="form-textarea" style="min-height:70px;" placeholder="Avantage 1, Avantage 2"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-cons-en">Cons (EN) <small>comma separated</small></label>
+                <textarea id="new-cons-en" class="form-textarea" style="min-height:70px;" placeholder="Con 1, Con 2, Con 3"></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-cons-fr">Cons (FR)</label>
+                <textarea id="new-cons-fr" class="form-textarea" style="min-height:70px;" placeholder="Inconvénient 1, Inconvénient 2"></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-verdict-en">Verdict (EN)</label>
+                <textarea id="new-verdict-en" class="form-textarea" placeholder="Our final take on this crypto..."></textarea>
+              </div>
+              <div class="form-group full">
+                <label class="form-label" for="new-verdict-fr">Verdict (FR)</label>
+                <textarea id="new-verdict-fr" class="form-textarea" placeholder="Notre verdict sur cette crypto..."></textarea>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-status">Status</label>
+                <select id="new-status" class="form-select">
+                  <option value="draft">Draft</option>
+                  <option value="published">Published</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="new-color">Accent Color <small>CSS color</small></label>
+                <input type="text" id="new-color" class="form-input" placeholder="#01696f">
+              </div>
+            </div>
+            <div class="form-submit-row">
+              <button type="submit" class="btn btn-primary">Add Article</button>
+              <button type="button" onclick="document.getElementById('add-article-form').reset()" class="btn btn-secondary">Reset</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Edit Article Modal -->
+    <div id="edit-modal-overlay" class="edit-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="edit-modal-title">
+      <div class="edit-modal">
+        <div class="edit-modal-header">
+          <h2 id="edit-modal-title" class="edit-modal-title">Edit Article</h2>
+          <button onclick="closeEditModal()" class="modal-close" aria-label="Close edit">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+          </button>
+        </div>
+        <div id="edit-modal-body">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== MAIN SITE VIEW ========== -->
+  <div id="main-view">
+    <!-- News Ticker -->
+    <div class="ticker-bar" role="marquee" aria-label="Crypto news ticker" aria-live="off">
+      <div class="ticker-label">Live</div>
+      <div class="ticker-track">
+        <div class="ticker-inner" id="ticker-inner">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Site Header -->
+    <header class="site-header" role="banner">
+      <div class="container">
+        <nav class="nav-inner" role="navigation" aria-label="Main navigation">
+          <a href="#" class="nav-logo" aria-label="alfacrypto.ai home">alfa<span>crypto</span>.ai</a>
+
+          <button class="nav-mobile-toggle" id="mobile-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-links-list">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+
+          <ul class="nav-links" id="nav-links-list" role="list">
+            <li><a href="#cryptos" data-i18n="nav.cryptos">All Cryptos</a></li>
+            <li><a href="#featured" data-i18n="nav.featured">Crypto of the Week</a></li>
+            <li><a href="#about" data-i18n="nav.about">About</a></li>
+            <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+          </ul>
+
+          <div class="nav-spacer"></div>
+
+          <div class="nav-actions">
+            <div class="lang-toggle" role="group" aria-label="Language selection">
+              <button class="lang-btn active" data-lang="en" onclick="setLang('en')" aria-label="English" aria-pressed="true">EN</button>
+              <button class="lang-btn" data-lang="fr" onclick="setLang('fr')" aria-label="Français" aria-pressed="false">FR</button>
+            </div>
+            <button class="theme-btn" data-theme-toggle aria-label="Toggle dark mode">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- ========== HERO ========== -->
+      <section class="hero" aria-labelledby="hero-heading">
+        <div class="hero-bg"></div>
+        <div class="hero-symbols" aria-hidden="true">
+          <span class="float-sym">₿</span>
+          <span class="float-sym">⟠</span>
+          <span class="float-sym">◎</span>
+          <span class="float-sym">Ł</span>
+          <span class="float-sym">⬡</span>
+          <span class="float-sym">◈</span>
+        </div>
+        <div class="container">
+          <div class="hero-inner">
+            <div>
+              <div class="hero-eyebrow fade-in">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+                <span data-i18n="hero.eyebrow">3 new cryptos every week</span>
+              </div>
+              <h1 class="hero-headline fade-in" id="hero-heading">
+                <span data-i18n="hero.headline.line1">Crypto,</span><br>
+                <em data-i18n="hero.headline.line2">explained simply.</em>
+              </h1>
+              <p class="hero-sub fade-in" data-i18n="hero.sub">
+                Three new cryptos every week, no jargon, no hype.
+              </p>
+              <div class="hero-search fade-in" role="search">
+                <label for="hero-search-input" class="sr-only" data-i18n="hero.search.label">Search cryptocurrencies</label>
+                <input
+                  type="search"
+                  id="hero-search-input"
+                  class="hero-search-input"
+                  data-i18n-placeholder="hero.search.placeholder"
+                  placeholder="Search cryptos… Bitcoin, Ethereum…"
+                  autocomplete="off"
+                  aria-label="Search cryptocurrencies"
+                >
+                <button class="hero-search-btn" aria-label="Search" onclick="doSearch()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                  <span data-i18n="hero.search.btn">Search</span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="hero-stats fade-in" aria-label="Site statistics">
+            <div class="hero-stat">
+              <div class="hero-stat-num">3</div>
+              <div class="hero-stat-label" data-i18n="hero.stats.weekly">Cryptos per week</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">2</div>
+              <div class="hero-stat-label" data-i18n="hero.stats.languages">Languages</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">0</div>
+              <div class="hero-stat-label" data-i18n="hero.stats.jargon">Jargon</div>
+            </div>
+            <div class="hero-stat">
+              <div class="hero-stat-num">100%</div>
+              <div class="hero-stat-label" data-i18n="hero.stats.free">Free, always</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- ========== ALL CRYPTOS ========== -->
+      <section id="cryptos" class="section" aria-labelledby="cryptos-heading">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow" data-i18n="cryptos.eyebrow">Crypto Library</div>
+            <h2 class="section-title" id="cryptos-heading" data-i18n="cryptos.title">Explore all cryptos</h2>
+            <p class="section-subtitle" data-i18n="cryptos.sub">Each profile explains a cryptocurrency in plain language — what it is, how it works, and why it matters.</p>
+          </div>
+
+          <!-- Filter + Search -->
+          <div class="cards-filter" role="group" aria-label="Filter by category">
+            <button class="filter-btn active" data-filter="all" onclick="filterCards('all', this)">
+              <span data-i18n="filter.all">All</span>
+            </button>
+            <button class="filter-btn" data-filter="Digital Gold" onclick="filterCards('Digital Gold', this)">Digital Gold</button>
+            <button class="filter-btn" data-filter="Smart Contracts" onclick="filterCards('Smart Contracts', this)">Smart Contracts</button>
+            <button class="filter-btn" data-filter="Layer 1" onclick="filterCards('Layer 1', this)">Layer 1</button>
+            <button class="filter-btn" data-filter="DeFi" onclick="filterCards('DeFi', this)">DeFi</button>
+            <button class="filter-btn" data-filter="Payment" onclick="filterCards('Payment', this)">Payment</button>
+          </div>
+
+          <div class="cards-grid" id="cards-grid" role="list" aria-label="Cryptocurrency profiles">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== FEATURED / CRYPTO OF THE WEEK ========== -->
+      <section id="featured" class="section featured-section" aria-labelledby="featured-heading">
+        <div class="container">
+          <div id="featured-inner" class="featured-inner">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== ABOUT ========== -->
+      <section id="about" class="section" aria-labelledby="about-heading">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow" data-i18n="about.eyebrow">Our mission</div>
+            <h2 class="section-title" id="about-heading" data-i18n="about.title">Crypto should be for everyone</h2>
+          </div>
+          <div class="about-grid">
+            <div>
+              <p class="about-text" data-i18n="about.p1">
+                alfacrypto.ai was born from a simple frustration: most crypto content is either too technical, too speculative, or just trying to sell you something. We wanted something different.
+              </p>
+              <p class="about-text" data-i18n="about.p2">
+                Every week, we publish three clear, jargon-free profiles of cryptocurrencies — explaining what they are, how they work, and what they're actually used for. No price predictions. No financial advice. Just clear, honest education.
+              </p>
+              <p class="about-text" data-i18n="about.p3">
+                We publish in both English and French because good information should have no language barrier. Think of us as that smart friend who happens to understand crypto — and can explain it over coffee.
+              </p>
+            </div>
+            <div class="about-values fade-in">
+              <div class="value-item">
+                <div class="value-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                </div>
+                <div>
+                  <div class="value-title" data-i18n="about.v1.title">Plain language, always</div>
+                  <div class="value-desc" data-i18n="about.v1.desc">No jargon, no acronyms without explanation. If your grandmother can't understand it, we rewrite it.</div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+                <div>
+                  <div class="value-title" data-i18n="about.v2.title">No financial advice</div>
+                  <div class="value-desc" data-i18n="about.v2.desc">We explain, we don't advise. We are educators, not financial advisors.</div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                </div>
+                <div>
+                  <div class="value-title" data-i18n="about.v3.title">Bilingual EN / FR</div>
+                  <div class="value-desc" data-i18n="about.v3.desc">All content available in English and French. Good education knows no language barrier.</div>
+                </div>
+              </div>
+              <div class="value-item">
+                <div class="value-icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                <div>
+                  <div class="value-title" data-i18n="about.v4.title">Free, forever</div>
+                  <div class="value-desc" data-i18n="about.v4.desc">Education should be free. No paywalls, no premium tiers — just open knowledge.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== NEWSLETTER ========== -->
+      <section id="newsletter" class="section newsletter-section" aria-labelledby="newsletter-heading">
+        <div class="container">
+          <div class="newsletter-box fade-in">
+            <div class="newsletter-icon" aria-hidden="true">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h2 class="newsletter-title" id="newsletter-heading" data-i18n="newsletter.title">Stay in the loop</h2>
+            <p class="newsletter-sub" data-i18n="newsletter.sub">Get three new crypto explanations every week, straight to your inbox. In English or French — your choice.</p>
+            <form class="newsletter-form" onsubmit="submitNewsletter(event)" role="form">
+              <label for="newsletter-email" class="sr-only" data-i18n="newsletter.label">Email address</label>
+              <input
+                type="email"
+                id="newsletter-email"
+                class="newsletter-input"
+                data-i18n-placeholder="newsletter.placeholder"
+                placeholder="you@example.com"
+                required
+                autocomplete="email"
+              >
+              <button type="submit" class="newsletter-btn" data-i18n="newsletter.btn">Subscribe</button>
+            </form>
+            <p class="newsletter-privacy" data-i18n="newsletter.privacy">No spam, ever. Unsubscribe anytime. We respect your inbox.</p>
+            <p class="newsletter-success" id="newsletter-success" data-i18n="newsletter.success" role="status">🎉 You're subscribed! First edition coming your way.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="site-footer" role="contentinfo">
+      <div class="container">
+        <div class="footer-inner">
+          <div class="footer-brand">
+            <div class="footer-logo">alfa<span>crypto</span>.ai</div>
+            <p class="footer-desc" data-i18n="footer.desc">Crypto, explained simply. Three new profiles every week in English and French. No jargon, no hype, no financial advice.</p>
+            <div class="footer-socials" role="list" aria-label="Social media links">
+              <a href="#" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="TikTok" role="listitem">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 00-.79-.05A6.34 6.34 0 003.15 15.3a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V8.69a8.18 8.18 0 004.79 1.52V6.76a4.85 4.85 0 01-1.03-.07z"/></svg>
+              </a>
+              <a href="#" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube" role="listitem">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="var(--color-bg)"/></svg>
+              </a>
+              <a href="#" class="footer-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram" role="listitem">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+            </div>
+          </div>
+          <div>
+            <div class="footer-col-title" data-i18n="footer.col.explore">Explore</div>
+            <ul class="footer-links" role="list">
+              <li><a href="#cryptos" data-i18n="nav.cryptos">All Cryptos</a></li>
+              <li><a href="#featured" data-i18n="nav.featured">Crypto of the Week</a></li>
+              <li><a href="#about" data-i18n="nav.about">About</a></li>
+              <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
+            </ul>
+          </div>
+          <div>
+            <div class="footer-col-title" data-i18n="footer.col.contact">Connect</div>
+            <ul class="footer-links" role="list">
+              <li><a href="#" target="_blank" rel="noopener noreferrer">TikTok</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+              <li><a href="#" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+              <li><a href="mailto:hello@alfacrypto.ai">hello@alfacrypto.ai</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <span class="footer-copyright" data-i18n="footer.copyright">© 2026 alfacrypto.ai. All rights reserved. Not financial advice.</span>
+          <div class="footer-bottom-links">
+            <a href="#" data-i18n="footer.privacy">Privacy</a>
+            <a href="#" data-i18n="footer.terms">Terms</a>
+            <a href="#admin" onclick="switchView('admin'); return false;" data-i18n="footer.admin">Admin</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Article Modal -->
+    <div id="article-modal-overlay" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
+      <div class="modal" id="article-modal">
+        <!-- Populated by JS -->
+      </div>
+    </div>
+  </div><!-- #main-view -->
+
+  <!-- Schema.org Article structured data for Bitcoin, Ethereum, Solana (rendered by JS) -->
+  <script id="schema-bitcoin" type="application/ld+json"></script>
+  <script id="schema-ethereum" type="application/ld+json"></script>
+  <script id="schema-solana" type="application/ld+json"></script>
+
+  <script>
+    /* ==========================================
+       DATA STORE — All article data lives here.
+       In-memory only.
+       ========================================== */
+    var ARTICLES = [
+      {
+        id: 1,
+        slug: 'bitcoin',
+        ticker: 'BTC',
+        color: '#F7931A',
+        symbol: '₿',
+        category: 'Digital Gold',
+        difficulty: 1,
+        year: 2009,
+        status: 'published',
+        marketCap: '~$1 trillion',
+        supply: '21 million BTC (max)',
+        consensus: 'Proof of Work',
+        founder: 'Satoshi Nakamoto',
+        related: ['Ethereum', 'Litecoin', 'Bitcoin Cash'],
+        en: {
+          name: 'Bitcoin',
+          tagline: 'The original cryptocurrency that started it all',
+          what: 'Bitcoin is the world\'s first cryptocurrency, created by the mysterious Satoshi Nakamoto. Think of it as digital gold — a form of money that exists only online, with no bank or government controlling it. It was the first time anyone had solved the problem of creating a scarce digital asset — one that can\'t be copied or faked.',
+          how: 'Bitcoin uses a technology called blockchain — imagine a giant notebook that thousands of computers around the world share. Every transaction is written in this notebook, and once written, it can never be erased. New bitcoins are created through "mining," where powerful computers solve complex mathematical puzzles. This process secures the network and ensures no one can cheat the system.',
+          uses: 'Store of value (digital savings and long-term wealth), international payments without banks, protection against inflation in countries with unstable currencies, accepted by major companies like Tesla and Microsoft.',
+          pros: ['Most established and trusted crypto in the world', 'Highest liquidity — easy to buy and sell anywhere', 'Limited supply of 21 million creates natural scarcity', 'Growing institutional adoption (ETFs, corporate treasuries)'],
+          cons: ['Slow transactions — only 7 per second compared to thousands for newer chains', 'High energy consumption from the mining process', 'Volatile price swings can be dramatic', 'Not ideal for small everyday payments due to fees'],
+          verdict: 'Bitcoin is the entry point for anyone curious about crypto. It\'s the most proven, most widely accepted, and easiest to understand. If crypto were a school, Bitcoin would be the first lesson. Whatever happens in the crypto world, Bitcoin has already changed finance forever.'
+        },
+        fr: {
+          name: 'Bitcoin',
+          tagline: 'La cryptomonnaie originale qui a tout lancé',
+          what: 'Le Bitcoin est la toute première cryptomonnaie au monde, créée par le mystérieux Satoshi Nakamoto. Imaginez-le comme de l\'or numérique — une forme d\'argent qui n\'existe qu\'en ligne, sans banque ni gouvernement pour le contrôler. C\'était la première fois que quelqu\'un résolvait le problème de créer un actif numérique rare — impossible à copier ou à falsifier.',
+          how: 'Le Bitcoin utilise une technologie appelée blockchain — imaginez un immense cahier partagé par des milliers d\'ordinateurs à travers le monde. Chaque transaction est inscrite dans ce cahier, et une fois écrite, elle ne peut jamais être effacée. De nouveaux bitcoins sont créés par le "minage", où de puissants ordinateurs résolvent des puzzles mathématiques complexes.',
+          uses: 'Réserve de valeur (épargne numérique et richesse à long terme), paiements internationaux sans banques, protection contre l\'inflation dans les pays à devises instables, accepté par de grandes entreprises comme Tesla et Microsoft.',
+          pros: ['La crypto la plus établie et la plus fiable au monde', 'Liquidité la plus élevée — facile à acheter et vendre partout', 'Offre limitée à 21 millions créant une rareté naturelle', 'Adoption institutionnelle croissante (ETFs, trésoreries d\'entreprises)'],
+          cons: ['Transactions lentes — seulement 7 par seconde', 'Consommation énergétique élevée due au minage', 'Fluctuations de prix importantes', 'Pas idéal pour les petits paiements quotidiens'],
+          verdict: 'Le Bitcoin est le point d\'entrée pour quiconque s\'intéresse à la crypto. C\'est le plus éprouvé, le plus largement accepté et le plus facile à comprendre. Si la crypto était une école, le Bitcoin serait la première leçon.'
+        }
+      },
+      {
+        id: 2,
+        slug: 'ethereum',
+        ticker: 'ETH',
+        color: '#627EEA',
+        symbol: '⟠',
+        category: 'Smart Contracts',
+        difficulty: 2,
+        year: 2015,
+        status: 'published',
+        marketCap: '~$400 billion',
+        supply: 'No max supply',
+        consensus: 'Proof of Stake',
+        founder: 'Vitalik Buterin',
+        related: ['Bitcoin', 'Solana', 'Polygon'],
+        en: {
+          name: 'Ethereum',
+          tagline: 'The world computer that runs apps without middlemen',
+          what: 'If Bitcoin is digital gold, Ethereum is a digital world computer. Created by Vitalik Buterin, Ethereum doesn\'t just transfer money — it runs programs called "smart contracts" that execute automatically without any middleman. It\'s the platform that powers most of the decentralized internet.',
+          how: 'Imagine a vending machine: you put money in, press a button, and get your drink — no cashier needed. Ethereum works the same way but for any kind of agreement or application. These are called "decentralized applications" or dApps. Once a smart contract is deployed, it runs exactly as programmed — no one can change it or stop it.',
+          uses: 'Decentralized finance (lending, borrowing without banks), NFTs and digital art ownership, tokenizing real-world assets like property, running thousands of crypto projects built on top of it.',
+          pros: ['Largest developer community in crypto', 'Powers most of DeFi and the NFT ecosystem', 'Staking rewards for holders (around 4% APY)', 'Continuously improving — major upgrades planned'],
+          cons: ['Gas fees can be very expensive during busy periods', 'Slower than newer blockchains like Solana', 'Complexity can confuse beginners'],
+          verdict: 'Ethereum is the foundation of the crypto ecosystem. Most innovations in crypto happen here first. If Bitcoin is lesson one, Ethereum is lesson two — and it opens the door to everything else. Understanding Ethereum means understanding most of modern crypto.'
+        },
+        fr: {
+          name: 'Ethereum',
+          tagline: 'L\'ordinateur mondial qui fait tourner des applications sans intermédiaires',
+          what: 'Si le Bitcoin est de l\'or numérique, l\'Ethereum est un ordinateur mondial numérique. Créé par Vitalik Buterin, Ethereum ne se contente pas de transférer de l\'argent — il exécute des programmes appelés "contrats intelligents" qui fonctionnent automatiquement sans aucun intermédiaire.',
+          how: 'Imaginez un distributeur automatique : vous mettez de l\'argent, appuyez sur un bouton et recevez votre boisson — pas besoin de caissier. Ethereum fonctionne de la même manière mais pour tout type d\'accord ou d\'application. Ces programmes s\'appellent des "applications décentralisées" ou dApps.',
+          uses: 'Finance décentralisée (prêts, emprunts sans banques), NFTs et propriété d\'art numérique, tokenisation d\'actifs réels comme l\'immobilier, faire tourner des milliers de projets crypto.',
+          pros: ['Plus grande communauté de développeurs en crypto', 'Alimente la majorité du DeFi et des NFTs', 'Récompenses de staking pour les détenteurs (environ 4% APY)', 'Amélioration continue avec des mises à niveau majeures'],
+          cons: ['Les frais de gas peuvent être très élevés en période chargée', 'Plus lent que les blockchains plus récentes comme Solana', 'La complexité peut dérouter les débutants'],
+          verdict: 'Ethereum est la fondation de l\'écosystème crypto. La plupart des innovations en crypto se produisent ici en premier. Si le Bitcoin est la leçon un, Ethereum est la leçon deux — et il ouvre la porte à tout le reste.'
+        }
+      },
+      {
+        id: 3,
+        slug: 'solana',
+        ticker: 'SOL',
+        color: '#9945FF',
+        symbol: '◎',
+        category: 'Layer 1',
+        difficulty: 2,
+        year: 2020,
+        status: 'published',
+        marketCap: '~$80-120 billion',
+        supply: 'No max supply (inflationary)',
+        consensus: 'Proof of History + Proof of Stake',
+        founder: 'Anatoly Yakovenko',
+        related: ['Ethereum', 'Avalanche', 'Near Protocol'],
+        en: {
+          name: 'Solana',
+          tagline: 'The fast and affordable blockchain built for speed',
+          what: 'Solana is one of the fastest blockchains in the world. If Bitcoin is like sending a letter by mail and Ethereum is like sending an email, Solana is like sending an instant message — nearly instant and almost free. It was designed from the ground up to handle massive transaction volumes without sacrificing security.',
+          how: 'Solana uses a unique technology called "Proof of History" combined with "Proof of Stake." Think of it as a system that timestamps everything so the network doesn\'t waste time figuring out the order of transactions. It\'s like having a trusted clock that everyone on the network agrees on, which removes a huge bottleneck.',
+          uses: 'Fast payment processing and micropayments, DeFi applications, NFT marketplaces (the second largest after Ethereum), mobile crypto apps, meme coins and token launches.',
+          pros: ['Lightning-fast transactions — thousands per second', 'Extremely low fees (fractions of a cent per transaction)', 'Growing ecosystem with major apps and investors', 'Institutional interest via CME futures'],
+          cons: ['Has experienced network outages in the past', 'More centralized than Bitcoin or Ethereum', 'Younger blockchain — less battle-tested and proven'],
+          verdict: 'Solana is the speed demon of crypto. It\'s perfect for anyone who finds Bitcoin too slow or Ethereum too expensive. Just keep in mind it\'s younger and still proving itself — but the speed and low fees are genuinely impressive and hard to argue with.'
+        },
+        fr: {
+          name: 'Solana',
+          tagline: 'La blockchain rapide et abordable construite pour la vitesse',
+          what: 'Solana est l\'une des blockchains les plus rapides au monde. Si Bitcoin c\'est envoyer une lettre par la poste et Ethereum c\'est envoyer un email, Solana c\'est envoyer un message instantané — quasi instantané et presque gratuit.',
+          how: 'Solana utilise une technologie unique appelée "Preuve d\'Histoire" combinée à la "Preuve d\'Enjeu". Pensez-y comme un système qui horodate tout pour que le réseau ne perde pas de temps à déterminer l\'ordre des transactions.',
+          uses: 'Traitement rapide des paiements et micropaiements, applications DeFi, places de marché NFT, applications crypto mobiles, lancements de tokens et meme coins.',
+          pros: ['Transactions ultra-rapides — des milliers par seconde', 'Frais extrêmement bas (fractions de centime par transaction)', 'Écosystème en pleine croissance', 'Intérêt institutionnel via les futures CME'],
+          cons: ['A connu des pannes de réseau par le passé', 'Plus centralisé que Bitcoin ou Ethereum', 'Blockchain plus jeune — moins éprouvée'],
+          verdict: 'Solana est le bolide de la crypto. C\'est parfait pour quiconque trouve Bitcoin trop lent ou Ethereum trop cher. La vitesse et les faibles frais sont indéniables — mais gardez à l\'esprit qu\'il est plus jeune et doit encore faire ses preuves.'
+        }
+      }
+    ];
+
+    /* ==========================================
+       i18n — All UI strings in EN and FR
+       ========================================== */
+    var i18n = {
+      en: {
+        'nav.cryptos': 'All Cryptos',
+        'nav.featured': 'Crypto of the Week',
+        'nav.about': 'About',
+        'nav.newsletter': 'Newsletter',
+        'hero.eyebrow': '3 new cryptos every week',
+        'hero.headline.line1': 'Crypto,',
+        'hero.headline.line2': 'explained simply.',
+        'hero.sub': 'Three new cryptos every week, no jargon, no hype.',
+        'hero.search.label': 'Search cryptocurrencies',
+        'hero.search.placeholder': 'Search cryptos… Bitcoin, Ethereum…',
+        'hero.search.btn': 'Search',
+        'hero.stats.weekly': 'Cryptos per week',
+        'hero.stats.languages': 'Languages',
+        'hero.stats.jargon': 'Jargon',
+        'hero.stats.free': 'Free, always',
+        'cryptos.eyebrow': 'Crypto Library',
+        'cryptos.title': 'Explore all cryptos',
+        'cryptos.sub': 'Each profile explains a cryptocurrency in plain language — what it is, how it works, and why it matters.',
+        'filter.all': 'All',
+        'featured.eyebrow': 'Crypto of the Week',
+        'featured.cta': 'Read full article',
+        'about.eyebrow': 'Our mission',
+        'about.title': 'Crypto should be for everyone',
+        'about.p1': 'alfacrypto.ai was born from a simple frustration: most crypto content is either too technical, too speculative, or just trying to sell you something. We wanted something different.',
+        'about.p2': 'Every week, we publish three clear, jargon-free profiles of cryptocurrencies — explaining what they are, how they work, and what they\'re actually used for. No price predictions. No financial advice. Just clear, honest education.',
+        'about.p3': 'We publish in both English and French because good information should have no language barrier. Think of us as that smart friend who happens to understand crypto — and can explain it over coffee.',
+        'about.v1.title': 'Plain language, always',
+        'about.v1.desc': 'No jargon, no acronyms without explanation. If your grandmother can\'t understand it, we rewrite it.',
+        'about.v2.title': 'No financial advice',
+        'about.v2.desc': 'We explain, we don\'t advise. We are educators, not financial advisors.',
+        'about.v3.title': 'Bilingual EN / FR',
+        'about.v3.desc': 'All content available in English and French. Good education knows no language barrier.',
+        'about.v4.title': 'Free, forever',
+        'about.v4.desc': 'Education should be free. No paywalls, no premium tiers — just open knowledge.',
+        'newsletter.title': 'Stay in the loop',
+        'newsletter.sub': 'Get three new crypto explanations every week, straight to your inbox. In English or French — your choice.',
+        'newsletter.label': 'Email address',
+        'newsletter.placeholder': 'you@example.com',
+        'newsletter.btn': 'Subscribe',
+        'newsletter.privacy': 'No spam, ever. Unsubscribe anytime. We respect your inbox.',
+        'newsletter.success': '🎉 You\'re subscribed! First edition coming your way.',
+        'footer.desc': 'Crypto, explained simply. Three new profiles every week in English and French. No jargon, no hype, no financial advice.',
+        'footer.col.explore': 'Explore',
+        'footer.col.contact': 'Connect',
+        'footer.copyright': '© 2026 alfacrypto.ai. All rights reserved. Not financial advice.',
+        'footer.privacy': 'Privacy',
+        'footer.terms': 'Terms',
+        'footer.admin': 'Admin',
+        'article.what': 'What is it?',
+        'article.how': 'How does it work?',
+        'article.uses': 'What is it used for?',
+        'article.stats': 'Key Stats',
+        'article.pros': 'Pros',
+        'article.cons': 'Cons',
+        'article.verdict': 'Our Verdict',
+        'article.related': 'Related Cryptos',
+        'diff.1': 'Beginner',
+        'diff.2': 'Intermediate',
+        'diff.3': 'Advanced',
+        'card.read': 'Read more',
+        'search.no_results': 'No cryptos found matching',
+        'search.try_again': 'Try a different search term.',
+        'ticker.news': 'News'
+      },
+      fr: {
+        'nav.cryptos': 'Toutes les cryptos',
+        'nav.featured': 'Crypto de la semaine',
+        'nav.about': 'À propos',
+        'nav.newsletter': 'Newsletter',
+        'hero.eyebrow': '3 nouvelles cryptos chaque semaine',
+        'hero.headline.line1': 'La crypto,',
+        'hero.headline.line2': 'expliquée simplement.',
+        'hero.sub': 'Trois nouvelles cryptos chaque semaine, sans jargon, sans hype.',
+        'hero.search.label': 'Rechercher des cryptomonnaies',
+        'hero.search.placeholder': 'Chercher… Bitcoin, Ethereum…',
+        'hero.search.btn': 'Chercher',
+        'hero.stats.weekly': 'Cryptos par semaine',
+        'hero.stats.languages': 'Langues',
+        'hero.stats.jargon': 'Jargon',
+        'hero.stats.free': 'Gratuit, toujours',
+        'cryptos.eyebrow': 'Bibliothèque crypto',
+        'cryptos.title': 'Explorez toutes les cryptos',
+        'cryptos.sub': 'Chaque profil explique une cryptomonnaie en langage simple — ce que c\'est, comment ça fonctionne, et pourquoi ça compte.',
+        'filter.all': 'Tout',
+        'featured.eyebrow': 'Crypto de la semaine',
+        'featured.cta': 'Lire l\'article complet',
+        'about.eyebrow': 'Notre mission',
+        'about.title': 'La crypto devrait être pour tout le monde',
+        'about.p1': 'alfacrypto.ai est né d\'une frustration simple : la plupart des contenus crypto sont soit trop techniques, soit trop spéculatifs, soit ils essaient de vous vendre quelque chose. Nous voulions quelque chose de différent.',
+        'about.p2': 'Chaque semaine, nous publions trois profils clairs et sans jargon de cryptomonnaies — expliquant ce qu\'elles sont, comment elles fonctionnent et à quoi elles servent réellement. Pas de prédictions de prix. Pas de conseils financiers. Juste une éducation claire et honnête.',
+        'about.p3': 'Nous publions en anglais et en français parce que les bonnes informations ne devraient pas avoir de barrière linguistique. Pensez à nous comme à cet ami intelligent qui comprend la crypto — et peut l\'expliquer autour d\'un café.',
+        'about.v1.title': 'Langage simple, toujours',
+        'about.v1.desc': 'Pas de jargon, pas d\'acronymes sans explication. Si votre grand-mère ne comprend pas, on réécrit.',
+        'about.v2.title': 'Pas de conseils financiers',
+        'about.v2.desc': 'Nous expliquons, nous ne conseillons pas. Nous sommes des éducateurs, pas des conseillers financiers.',
+        'about.v3.title': 'Bilingue EN / FR',
+        'about.v3.desc': 'Tout le contenu disponible en anglais et en français. La bonne éducation ne connaît pas de barrière linguistique.',
+        'about.v4.title': 'Gratuit, pour toujours',
+        'about.v4.desc': 'L\'éducation devrait être gratuite. Pas de murs payants, pas de niveaux premium — juste de la connaissance ouverte.',
+        'newsletter.title': 'Restez dans la boucle',
+        'newsletter.sub': 'Recevez trois nouvelles explications crypto chaque semaine, directement dans votre boîte mail. En anglais ou en français — à vous de choisir.',
+        'newsletter.label': 'Adresse email',
+        'newsletter.placeholder': 'vous@exemple.com',
+        'newsletter.btn': 'S\'abonner',
+        'newsletter.privacy': 'Pas de spam, jamais. Désabonnez-vous quand vous voulez. Nous respectons votre boîte mail.',
+        'newsletter.success': '🎉 Vous êtes abonné ! La première édition arrive bientôt.',
+        'footer.desc': 'La crypto, expliquée simplement. Trois nouveaux profils chaque semaine en anglais et en français. Sans jargon, sans hype, sans conseils financiers.',
+        'footer.col.explore': 'Explorer',
+        'footer.col.contact': 'Contact',
+        'footer.copyright': '© 2026 alfacrypto.ai. Tous droits réservés. Pas de conseils financiers.',
+        'footer.privacy': 'Confidentialité',
+        'footer.terms': 'Conditions',
+        'footer.admin': 'Admin',
+        'article.what': 'C\'est quoi ?',
+        'article.how': 'Comment ça marche ?',
+        'article.uses': 'À quoi ça sert ?',
+        'article.stats': 'Statistiques clés',
+        'article.pros': 'Avantages',
+        'article.cons': 'Inconvénients',
+        'article.verdict': 'Notre verdict',
+        'article.related': 'Cryptos similaires',
+        'diff.1': 'Débutant',
+        'diff.2': 'Intermédiaire',
+        'diff.3': 'Avancé',
+        'card.read': 'Lire la suite',
+        'search.no_results': 'Aucune crypto trouvée pour',
+        'search.try_again': 'Essayez un autre terme de recherche.',
+        'ticker.news': 'Actualités'
+      }
+    };
+
+    /* Ticker headlines */
+    var TICKER_ITEMS = [
+      { text: 'BTC <strong>$103,200</strong>', change: '+2.4%', up: true },
+      { text: 'ETH <strong>$3,850</strong>', change: '+1.1%', up: true },
+      { text: 'SOL <strong>$198</strong>', change: '+4.2%', up: true },
+      { text: 'Bitcoin hits new all-time high in 2026' },
+      { text: 'Ethereum Layer 2 adoption reaches record high' },
+      { text: 'SEC approves 5 new Bitcoin ETF products' },
+      { text: 'Solana mobile app ecosystem grows 300%' },
+      { text: 'Crypto education searches up 180% YoY' },
+      { text: 'BNB <strong>$520</strong>', change: '-0.8%', up: false },
+      { text: 'ADA <strong>$0.92</strong>', change: '+3.1%', up: true },
+      { text: 'Institutional crypto holdings exceed $1 trillion' },
+      { text: 'New EU crypto regulations take effect March 2026' },
+    ];
+
+    /* ==========================================
+       STATE
+       ========================================== */
+    var currentLang = 'en';
+    var currentFilter = 'all';
+    var searchQuery = '';
+    var adminAuthenticated = false;
+    var editingId = null;
+
+    /* ==========================================
+       INIT
+       ========================================== */
+    document.addEventListener('DOMContentLoaded', function() {
+      // Init theme
+      initTheme();
+      // Check hash
+      checkHash();
+      // Build ticker
+      renderTicker();
+      // Build cards
+      renderCards();
+      // Build featured
+      renderFeatured();
+      // Apply i18n
+      applyI18n();
+      // Schema.org
+      injectSchema();
+      // Search input
+      var searchInput = document.getElementById('hero-search-input');
+      if (searchInput) {
+        searchInput.addEventListener('input', function(e) {
+          searchQuery = e.target.value.toLowerCase().trim();
+          renderCards();
+          if (searchQuery) {
+            var el = document.getElementById('cryptos');
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+        searchInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') doSearch();
+        });
+      }
+      // Admin password enter key
+      var pwInput = document.getElementById('admin-password');
+      if (pwInput) {
+        pwInput.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter') checkAdminPassword();
+        });
+      }
+      // Mobile nav
+      var mobileToggle = document.getElementById('mobile-toggle');
+      var navLinks = document.getElementById('nav-links-list');
+      if (mobileToggle && navLinks) {
+        mobileToggle.addEventListener('click', function() {
+          var isOpen = navLinks.classList.toggle('mobile-open');
+          mobileToggle.setAttribute('aria-expanded', isOpen);
+        });
+      }
+      // Close modal on overlay click
+      var modalOverlay = document.getElementById('article-modal-overlay');
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+          if (e.target === modalOverlay) closeModal();
+        });
+      }
+      // Escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') { closeModal(); closeEditModal(); }
+      });
+      // Nav smooth scroll
+      document.querySelectorAll('.nav-links a[href^="#"], .footer-links a[href^="#"]').forEach(function(a) {
+        a.addEventListener('click', function(e) {
+          var href = a.getAttribute('href');
+          if (href && href.length > 1 && !href.startsWith('#admin')) {
+            e.preventDefault();
+            var el = document.querySelector(href);
+            if (el) el.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+    });
+
+    /* ==========================================
+       HASH ROUTING
+       ========================================== */
+    function checkHash() {
+      if (window.location.hash === '#admin') {
+        switchView('admin');
+      }
+    }
+    window.addEventListener('hashchange', checkHash);
+
+    function switchView(view) {
+      if (view === 'admin') {
+        document.getElementById('main-view').style.display = 'none';
+        document.getElementById('admin-view').style.display = 'block';
+        window.location.hash = 'admin';
+        if (!adminAuthenticated) {
+          document.getElementById('admin-gate').style.display = 'flex';
+          document.getElementById('admin-dashboard').style.display = 'none';
+        }
+      } else {
+        document.getElementById('main-view').style.display = 'block';
+        document.getElementById('admin-view').style.display = 'none';
+        window.location.hash = '';
+      }
+    }
+
+    /* ==========================================
+       THEME TOGGLE
+       ========================================== */
+    function initTheme() {
+      var root = document.documentElement;
+      var theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      root.setAttribute('data-theme', theme);
+      updateThemeIcon(theme);
+      var toggle = document.querySelector('[data-theme-toggle]');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', theme);
+          updateThemeIcon(theme);
+        });
+      }
+    }
+    function updateThemeIcon(theme) {
+      var btn = document.querySelector('[data-theme-toggle]');
+      if (!btn) return;
+      if (theme === 'dark') {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>';
+        btn.setAttribute('aria-label', 'Switch to light mode');
+      } else {
+        btn.innerHTML = '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        btn.setAttribute('aria-label', 'Switch to dark mode');
+      }
+    }
+
+    /* ==========================================
+       LANGUAGE
+       ========================================== */
+    function setLang(lang) {
+      currentLang = lang;
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        var isActive = btn.dataset.lang === lang;
+        btn.classList.toggle('active', isActive);
+        btn.setAttribute('aria-pressed', isActive);
+      });
+      document.documentElement.setAttribute('lang', lang);
+      applyI18n();
+      renderCards();
+      renderFeatured();
+    }
+
+    function t(key) {
+      return (i18n[currentLang] && i18n[currentLang][key]) || (i18n['en'] && i18n['en'][key]) || key;
+    }
+
+    function applyI18n() {
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        el.textContent = t(key);
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n-placeholder');
+        el.setAttribute('placeholder', t(key));
+      });
+    }
+
+    /* ==========================================
+       TICKER
+       ========================================== */
+    function renderTicker() {
+      var container = document.getElementById('ticker-inner');
+      if (!container) return;
+      var items = TICKER_ITEMS.concat(TICKER_ITEMS); // duplicate for seamless loop
+      container.innerHTML = items.map(function(item) {
+        if (item.change) {
+          var changeClass = item.up ? 'up' : 'down';
+          var arrow = item.up ? '▲' : '▼';
+          return '<span class="ticker-item">' + item.text + ' <span class="' + changeClass + '">' + arrow + ' ' + item.change + '</span></span><span class="ticker-sep">·</span>';
+        }
+        return '<span class="ticker-item">' + item.text + '</span><span class="ticker-sep">·</span>';
+      }).join('');
+    }
+
+    /* ==========================================
+       CARDS
+       ========================================== */
+    function getCategoryBadge(cat) {
+      var map = {
+        'Digital Gold': 'badge-gold',
+        'Smart Contracts': 'badge-teal',
+        'Layer 1': 'badge-blue',
+        'DeFi': 'badge-teal',
+        'Payment': 'badge-green',
+        'Privacy': 'badge-warning',
+        'Stablecoin': 'badge-green',
+      };
+      return map[cat] || 'badge-teal';
+    }
+
+    function getDifficultyDots(level) {
+      var html = '';
+      for (var i = 1; i <= 3; i++) {
+        html += '<div class="diff-dot' + (i <= level ? ' filled' : '') + '" aria-hidden="true"></div>';
+      }
+      return html;
+    }
+
+    function renderCards() {
+      var grid = document.getElementById('cards-grid');
+      if (!grid) return;
+      var published = ARTICLES.filter(function(a) { return a.status === 'published'; });
+      var filtered = published.filter(function(a) {
+        var matchFilter = currentFilter === 'all' || a.category === currentFilter;
+        var matchSearch = !searchQuery || 
+          a[currentLang].name.toLowerCase().includes(searchQuery) ||
+          a[currentLang].tagline.toLowerCase().includes(searchQuery) ||
+          a.ticker.toLowerCase().includes(searchQuery) ||
+          a.category.toLowerCase().includes(searchQuery);
+        return matchFilter && matchSearch;
+      });
+
+      if (filtered.length === 0) {
+        grid.innerHTML = '<div class="cards-empty" role="status"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><p>' + t('search.no_results') + ' "' + (searchQuery || currentFilter) + '".</p><p style="margin-top:var(--space-2);font-size:var(--text-sm);">' + t('search.try_again') + '</p></div>';
+        return;
+      }
+
+      grid.innerHTML = filtered.map(function(article) {
+        var data = article[currentLang];
+        var diffLabel = t('diff.' + article.difficulty);
+        var badgeClass = getCategoryBadge(article.category);
+        return '<article class="crypto-card fade-in" role="listitem" tabindex="0" aria-label="' + data.name + ' - ' + data.tagline + '" onclick="openArticle(' + article.id + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \')openArticle(' + article.id + ')">' +
+          '<div class="card-accent" style="background:' + article.color + '"></div>' +
+          '<div class="card-body-inner">' +
+            '<div class="card-top">' +
+              '<div>' +
+                '<div class="card-name">' + data.name + '</div>' +
+                '<div class="card-ticker">' + article.ticker + ' · ' + article.year + '</div>' +
+              '</div>' +
+              '<div style="text-align:right;">' +
+                '<div class="card-icon" style="background:' + article.color + '; margin-left:auto;">' + article.symbol + '</div>' +
+              '</div>' +
+            '</div>' +
+            '<p class="card-tagline">' + data.tagline + '</p>' +
+            '<div class="card-meta">' +
+              '<span class="badge ' + badgeClass + '">' + article.category + '</span>' +
+            '</div>' +
+            '<div class="card-footer-inner">' +
+              '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
+                '<span style="font-size:var(--text-xs);color:var(--color-text-faint);">' + diffLabel + '</span>' +
+                '<div class="card-difficulty" aria-label="Difficulty: ' + diffLabel + '">' + getDifficultyDots(article.difficulty) + '</div>' +
+              '</div>' +
+              '<div class="card-read-btn" aria-hidden="true">' +
+                t('card.read') +
+                '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</article>';
+      }).join('');
+    }
+
+    function filterCards(cat, btn) {
+      currentFilter = cat;
+      document.querySelectorAll('.filter-btn').forEach(function(b) { b.classList.remove('active'); });
+      if (btn) btn.classList.add('active');
+      renderCards();
+    }
+
+    function doSearch() {
+      var input = document.getElementById('hero-search-input');
+      if (!input) return;
+      searchQuery = input.value.toLowerCase().trim();
+      renderCards();
+      if (searchQuery) {
+        var el = document.getElementById('cryptos');
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    /* ==========================================
+       FEATURED SECTION
+       ========================================== */
+    function renderFeatured() {
+      var container = document.getElementById('featured-inner');
+      if (!container) return;
+      // Feature the first published article
+      var article = ARTICLES.find(function(a) { return a.status === 'published'; });
+      if (!article) { container.innerHTML = ''; return; }
+      var data = article[currentLang];
+      container.innerHTML =
+        '<div class="featured-icon-wrap fade-in">' +
+          '<div class="featured-icon" style="background:linear-gradient(135deg,' + article.color + ',color-mix(in oklab,' + article.color + ' 60%,#000))">' + article.symbol + '</div>' +
+        '</div>' +
+        '<div>' +
+          '<div class="featured-eyebrow">' + t('featured.eyebrow') + '</div>' +
+          '<h2 class="featured-title">' + data.name + '</h2>' +
+          '<p class="featured-desc">' + data.tagline + '. ' + data.what.split('.')[0] + '.' + '</p>' +
+          '<div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">' +
+            '<button onclick="openArticle(' + article.id + ')" class="btn btn-primary">' + t('featured.cta') + ' →</button>' +
+          '</div>' +
+        '</div>';
+    }
+
+    /* ==========================================
+       ARTICLE MODAL
+       ========================================== */
+    function openArticle(id) {
+      var article = ARTICLES.find(function(a) { return a.id === id; });
+      if (!article) return;
+      var data = article[currentLang];
+      var diffLabel = t('diff.' + article.difficulty);
+      var modal = document.getElementById('article-modal');
+
+      var prosHtml = (data.pros || []).map(function(p) { return '<li>' + p + '</li>'; }).join('');
+      var consHtml = (data.cons || []).map(function(c) { return '<li>' + c + '</li>'; }).join('');
+      var relatedHtml = (article.related || []).map(function(r) {
+        var rel = ARTICLES.find(function(a) { return a[currentLang].name === r || a.en.name === r; });
+        if (rel) return '<button class="related-pill" onclick="closeModal();setTimeout(function(){openArticle(' + rel.id + ')},50)">' + r + '</button>';
+        return '<span class="related-pill">' + r + '</span>';
+      }).join('');
+
+      modal.innerHTML =
+        '<div class="modal-hero">' +
+          '<button class="modal-close" onclick="closeModal()" aria-label="' + (currentLang === 'fr' ? 'Fermer' : 'Close') + '">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+          '</button>' +
+          '<div class="modal-eyebrow">' +
+            '<div class="card-icon" style="background:' + article.color + '; width:52px; height:52px; font-size:1.6rem;">' + article.symbol + '</div>' +
+            '<span class="badge ' + getCategoryBadge(article.category) + '">' + article.category + '</span>' +
+            '<span class="badge badge-green">' + diffLabel + '</span>' +
+          '</div>' +
+          '<h2 id="modal-headline" class="modal-headline">' + data.name + '</h2>' +
+          '<p class="modal-tagline">' + data.tagline + '</p>' +
+        '</div>' +
+        '<div class="modal-stats-row">' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stats') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">Market Cap</div><div class="modal-stat-value">' + (article.marketCap || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">Supply</div><div class="modal-stat-value">' + (article.supply || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">Consensus</div><div class="modal-stat-value">' + (article.consensus || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">Founder</div><div class="modal-stat-value">' + (article.founder || '—') + '</div></div>' +
+        '</div>' +
+        '<div class="modal-content">' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.what') + '</h3>' +
+            '<p class="article-body">' + (data.what || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.how') + '</h3>' +
+            '<p class="article-body">' + (data.how || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.uses') + '</h3>' +
+            '<p class="article-body">' + (data.uses || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('article.pros') + ' & ' + t('article.cons') + '</h3>' +
+            '<div class="pros-cons">' +
+              '<div class="pros-box">' +
+                '<div class="pros-box-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' + t('article.pros') + '</div>' +
+                '<ul class="pros-cons-list" role="list">' + prosHtml + '</ul>' +
+              '</div>' +
+              '<div class="cons-box">' +
+                '<div class="cons-box-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' + t('article.cons') + '</div>' +
+                '<ul class="pros-cons-list" role="list">' + consHtml + '</ul>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<div class="verdict-box">' +
+              '<div class="verdict-label">⭐ ' + t('article.verdict') + '</div>' +
+              '<p class="verdict-text">' + (data.verdict || '') + '</p>' +
+            '</div>' +
+          '</div>' +
+          (article.related && article.related.length ? 
+            '<div class="related-section">' +
+              '<div class="related-title">' + t('article.related') + '</div>' +
+              '<div class="related-pills">' + relatedHtml + '</div>' +
+            '</div>' : '') +
+        '</div>';
+
+      var overlay = document.getElementById('article-modal-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      // Focus modal
+      setTimeout(function() {
+        var closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
+      }, 50);
+    }
+
+    function closeModal() {
+      var overlay = document.getElementById('article-modal-overlay');
+      overlay.classList.remove('is-open');
+      document.body.style.overflow = '';
+    }
+
+    /* ==========================================
+       NEWSLETTER
+       ========================================== */
+    function submitNewsletter(e) {
+      e.preventDefault();
+      var success = document.getElementById('newsletter-success');
+      if (success) {
+        success.style.display = 'block';
+        success.textContent = t('newsletter.success');
+      }
+      e.target.style.display = 'none';
+    }
+
+    /* ==========================================
+       SCHEMA.ORG
+       ========================================== */
+    function injectSchema() {
+      var slugs = ['bitcoin', 'ethereum', 'solana'];
+      slugs.forEach(function(slug) {
+        var article = ARTICLES.find(function(a) { return a.slug === slug; });
+        var el = document.getElementById('schema-' + slug);
+        if (!article || !el) return;
+        var schema = {
+          "@context": "https://schema.org",
+          "@type": "Article",
+          "headline": article.en.name + ' explained: ' + article.en.tagline,
+          "description": article.en.what.substring(0, 200),
+          "url": 'https://alfacrypto.ai/#' + slug,
+          "datePublished": article.year + '-01-01',
+          "publisher": {
+            "@type": "Organization",
+            "name": "alfacrypto.ai",
+            "url": "https://alfacrypto.ai/"
+          },
+          "inLanguage": ["en", "fr"],
+          "about": {
+            "@type": "FinancialProduct",
+            "name": article.en.name,
+            "description": article.en.tagline
+          }
+        };
+        el.textContent = JSON.stringify(schema);
+      });
+    }
+
+    /* ==========================================
+       ADMIN
+       ========================================== */
+    function checkAdminPassword() {
+      var input = document.getElementById('admin-password');
+      var error = document.getElementById('admin-gate-error');
+      if (!input) return;
+      if (input.value === 'alfacrypto2026') {
+        adminAuthenticated = true;
+        document.getElementById('admin-gate').style.display = 'none';
+        document.getElementById('admin-dashboard').style.display = 'block';
+        renderAdminStats();
+        renderAdminTable();
+      } else {
+        error.classList.add('visible');
+        input.value = '';
+        input.focus();
+        setTimeout(function() { error.classList.remove('visible'); }, 3000);
+      }
+    }
+
+    function adminLogout() {
+      adminAuthenticated = false;
+      document.getElementById('admin-gate').style.display = 'flex';
+      document.getElementById('admin-dashboard').style.display = 'none';
+      var pwInput = document.getElementById('admin-password');
+      if (pwInput) pwInput.value = '';
+      switchView('main');
+    }
+
+    function renderAdminStats() {
+      var row = document.getElementById('admin-stats-row');
+      if (!row) return;
+      var total = ARTICLES.length;
+      var published = ARTICLES.filter(function(a) { return a.status === 'published'; }).length;
+      var drafts = ARTICLES.filter(function(a) { return a.status === 'draft'; }).length;
+      row.innerHTML =
+        '<div class="admin-stat-card"><div class="admin-stat-num">' + total + '</div><div class="admin-stat-label">Total Articles</div></div>' +
+        '<div class="admin-stat-card"><div class="admin-stat-num" style="color:var(--color-success)">' + published + '</div><div class="admin-stat-label">Published</div></div>' +
+        '<div class="admin-stat-card"><div class="admin-stat-num" style="color:var(--color-warning)">' + drafts + '</div><div class="admin-stat-label">Drafts</div></div>' +
+        '<div class="admin-stat-card"><div class="admin-stat-num">2</div><div class="admin-stat-label">Languages</div></div>';
+    }
+
+    function renderAdminTable() {
+      var tbody = document.getElementById('admin-table-body');
+      if (!tbody) return;
+      tbody.innerHTML = ARTICLES.map(function(a) {
+        var statusBadge = a.status === 'published'
+          ? '<span class="status-badge status-published">● Published</span>'
+          : '<span class="status-badge status-draft">○ Draft</span>';
+        var toggleBtn = a.status === 'published'
+          ? '<button class="admin-action-btn unpublish" onclick="toggleStatus(' + a.id + ')">Unpublish</button>'
+          : '<button class="admin-action-btn publish" onclick="toggleStatus(' + a.id + ')">Publish</button>';
+        return '<tr>' +
+          '<td><strong>' + a.en.name + '</strong></td>' +
+          '<td><code style="font-size:var(--text-xs);background:var(--color-surface-offset);padding:2px 6px;border-radius:4px;">' + a.ticker + '</code></td>' +
+          '<td><span class="badge ' + getCategoryBadge(a.category) + '">' + a.category + '</span></td>' +
+          '<td>' + ['', 'Beginner', 'Intermediate', 'Advanced'][a.difficulty] + '</td>' +
+          '<td>' + a.year + '</td>' +
+          '<td>' + statusBadge + '</td>' +
+          '<td><div class="admin-actions-row">' +
+            toggleBtn +
+            '<button class="admin-action-btn" onclick="openEditModal(' + a.id + ')">Edit</button>' +
+            '<button class="admin-action-btn delete" onclick="deleteArticle(' + a.id + ')">Delete</button>' +
+          '</div></td>' +
+        '</tr>';
+      }).join('');
+    }
+
+    function toggleStatus(id) {
+      var article = ARTICLES.find(function(a) { return a.id === id; });
+      if (!article) return;
+      article.status = article.status === 'published' ? 'draft' : 'published';
+      renderAdminStats();
+      renderAdminTable();
+      renderCards();
+      renderFeatured();
+    }
+
+    function deleteArticle(id) {
+      if (!confirm('Delete this article? This cannot be undone.')) return;
+      var idx = ARTICLES.findIndex(function(a) { return a.id === id; });
+      if (idx > -1) ARTICLES.splice(idx, 1);
+      renderAdminStats();
+      renderAdminTable();
+      renderCards();
+      renderFeatured();
+    }
+
+    function submitNewArticle(e) {
+      e.preventDefault();
+      var maxId = Math.max.apply(null, ARTICLES.map(function(a) { return a.id; }));
+      var newArticle = {
+        id: maxId + 1,
+        slug: document.getElementById('new-name').value.toLowerCase().replace(/\s+/g, '-'),
+        ticker: document.getElementById('new-ticker').value.toUpperCase(),
+        color: document.getElementById('new-color').value || '#01696f',
+        symbol: document.getElementById('new-ticker').value.charAt(0),
+        category: document.getElementById('new-category').value,
+        difficulty: parseInt(document.getElementById('new-difficulty').value),
+        year: parseInt(document.getElementById('new-year').value) || new Date().getFullYear(),
+        status: document.getElementById('new-status').value,
+        marketCap: document.getElementById('new-marketcap').value,
+        supply: '',
+        consensus: '',
+        founder: '',
+        related: [],
+        en: {
+          name: document.getElementById('new-name').value,
+          tagline: document.getElementById('new-tagline-en').value,
+          what: document.getElementById('new-what-en').value,
+          how: document.getElementById('new-how-en').value,
+          uses: document.getElementById('new-uses-en').value,
+          pros: document.getElementById('new-pros-en').value.split(',').map(function(s) { return s.trim(); }).filter(Boolean),
+          cons: document.getElementById('new-cons-en').value.split(',').map(function(s) { return s.trim(); }).filter(Boolean),
+          verdict: document.getElementById('new-verdict-en').value,
+        },
+        fr: {
+          name: document.getElementById('new-name').value,
+          tagline: document.getElementById('new-tagline-fr').value,
+          what: document.getElementById('new-what-fr').value,
+          how: document.getElementById('new-how-fr').value,
+          uses: document.getElementById('new-uses-fr').value,
+          pros: document.getElementById('new-pros-fr').value.split(',').map(function(s) { return s.trim(); }).filter(Boolean),
+          cons: document.getElementById('new-cons-fr').value.split(',').map(function(s) { return s.trim(); }).filter(Boolean),
+          verdict: document.getElementById('new-verdict-fr').value,
+        }
+      };
+      ARTICLES.push(newArticle);
+      document.getElementById('add-article-form').reset();
+      renderAdminStats();
+      renderAdminTable();
+      renderCards();
+      renderFeatured();
+      scrollAdminTo('admin-articles');
+      // Show brief success
+      var btn = e.target.querySelector('[type="submit"]');
+      if (btn) { btn.textContent = '✓ Article added!'; setTimeout(function() { btn.textContent = 'Add Article'; }, 2000); }
+    }
+
+    function exportArticles() {
+      var json = JSON.stringify(ARTICLES, null, 2);
+      var blob = new Blob([json], { type: 'application/json' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'alfacrypto-articles-' + new Date().toISOString().split('T')[0] + '.json';
+      a.click();
+    }
+
+    function scrollAdminTo(id) {
+      var el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    /* ==========================================
+       EDIT MODAL
+       ========================================== */
+    function openEditModal(id) {
+      var article = ARTICLES.find(function(a) { return a.id === id; });
+      if (!article) return;
+      editingId = id;
+      var body = document.getElementById('edit-modal-body');
+      body.innerHTML =
+        '<div class="form-grid">' +
+          '<div class="form-group"><label class="form-label">Name (EN)</label>' +
+          '<input class="form-input" id="edit-name-en" value="' + escapeHtml(article.en.name) + '"></div>' +
+          '<div class="form-group"><label class="form-label">Tagline (EN)</label>' +
+          '<input class="form-input" id="edit-tagline-en" value="' + escapeHtml(article.en.tagline) + '"></div>' +
+          '<div class="form-group"><label class="form-label">Name (FR)</label>' +
+          '<input class="form-input" id="edit-name-fr" value="' + escapeHtml(article.fr.name) + '"></div>' +
+          '<div class="form-group"><label class="form-label">Tagline (FR)</label>' +
+          '<input class="form-input" id="edit-tagline-fr" value="' + escapeHtml(article.fr.tagline) + '"></div>' +
+          '<div class="form-group full"><label class="form-label">What is it? (EN)</label>' +
+          '<textarea class="form-textarea" id="edit-what-en">' + escapeHtml(article.en.what) + '</textarea></div>' +
+          '<div class="form-group full"><label class="form-label">What is it? (FR)</label>' +
+          '<textarea class="form-textarea" id="edit-what-fr">' + escapeHtml(article.fr.what) + '</textarea></div>' +
+          '<div class="form-group full"><label class="form-label">Verdict (EN)</label>' +
+          '<textarea class="form-textarea" id="edit-verdict-en">' + escapeHtml(article.en.verdict) + '</textarea></div>' +
+          '<div class="form-group full"><label class="form-label">Verdict (FR)</label>' +
+          '<textarea class="form-textarea" id="edit-verdict-fr">' + escapeHtml(article.fr.verdict) + '</textarea></div>' +
+        '</div>' +
+        '<div class="form-submit-row" style="margin-top:var(--space-6);">' +
+          '<button onclick="saveEdit()" class="btn btn-primary">Save Changes</button>' +
+          '<button onclick="closeEditModal()" class="btn btn-secondary">Cancel</button>' +
+        '</div>';
+      document.getElementById('edit-modal-overlay').classList.add('is-open');
+    }
+
+    function saveEdit() {
+      var article = ARTICLES.find(function(a) { return a.id === editingId; });
+      if (!article) return;
+      article.en.name = document.getElementById('edit-name-en').value;
+      article.en.tagline = document.getElementById('edit-tagline-en').value;
+      article.fr.name = document.getElementById('edit-name-fr').value;
+      article.fr.tagline = document.getElementById('edit-tagline-fr').value;
+      article.en.what = document.getElementById('edit-what-en').value;
+      article.fr.what = document.getElementById('edit-what-fr').value;
+      article.en.verdict = document.getElementById('edit-verdict-en').value;
+      article.fr.verdict = document.getElementById('edit-verdict-fr').value;
+      closeEditModal();
+      renderAdminTable();
+      renderCards();
+      renderFeatured();
+    }
+
+    function closeEditModal() {
+      document.getElementById('edit-modal-overlay').classList.remove('is-open');
+      editingId = null;
+    }
+
+    function escapeHtml(str) {
+      if (!str) return '';
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+    }
+  </script>
+</body>
+</html>
