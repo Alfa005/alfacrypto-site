@@ -1938,6 +1938,75 @@
       .modal-hero, .modal-content { padding: var(--space-6); }
       .modal-stats-row { padding: var(--space-4) var(--space-6); }
     }
+/* Category Guide Modals */
+.filter-btn-wrap {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.category-info-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  background: var(--surface-1);
+  color: var(--text-2);
+  font-size: 0.7rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  flex-shrink: 0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.category-info-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: scale(1.1);
+}
+.category-examples-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+}
+.category-example-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-4);
+  border-radius: 999px;
+  background: var(--surface-1);
+  border: 1px solid var(--border);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-1);
+  cursor: default;
+  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.category-example-pill:hover {
+  border-color: var(--accent);
+  background: oklch(from var(--accent) l c h / 0.08);
+}
+.category-example-pill .pill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.category-modal-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+}
   </style>
 </head>
 <body>
@@ -2272,11 +2341,38 @@
             <button class="filter-btn active" data-filter="all" onclick="filterCards('all', this)">
               <span data-i18n="filter.all">All</span>
             </button>
-            <button class="filter-btn" data-filter="Digital Gold" onclick="filterCards('Digital Gold', this)">Digital Gold</button>
-            <button class="filter-btn" data-filter="Smart Contracts" onclick="filterCards('Smart Contracts', this)">Smart Contracts</button>
-            <button class="filter-btn" data-filter="Layer 1" onclick="filterCards('Layer 1', this)">Layer 1</button>
-            <button class="filter-btn" data-filter="DeFi" onclick="filterCards('DeFi', this)">DeFi</button>
-            <button class="filter-btn" data-filter="Payment" onclick="filterCards('Payment', this)">Payment</button>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Digital Gold" onclick="filterCards('Digital Gold', this)">Digital Gold</button>
+              <button class="category-info-btn" onclick="openCategory('digital-gold')" title="What is Digital Gold?" aria-label="Learn about Digital Gold">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Smart Contracts" onclick="filterCards('Smart Contracts', this)">Smart Contracts</button>
+              <button class="category-info-btn" onclick="openCategory('smart-contracts')" title="What are Smart Contracts?" aria-label="Learn about Smart Contracts">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Layer 1" onclick="filterCards('Layer 1', this)">Layer 1</button>
+              <button class="category-info-btn" onclick="openCategory('layer-1')" title="What is a Layer 1?" aria-label="Learn about Layer 1">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Oracle Network" onclick="filterCards('Oracle Network', this)">Oracle</button>
+              <button class="category-info-btn" onclick="openCategory('oracle-network')" title="What is an Oracle Network?" aria-label="Learn about Oracle Networks">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="DeFi Lending" onclick="filterCards('DeFi Lending', this)">DeFi</button>
+              <button class="category-info-btn" onclick="openCategory('defi-lending')" title="What is DeFi Lending?" aria-label="Learn about DeFi Lending">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Exchange Token" onclick="filterCards('Exchange Token', this)">Exchange</button>
+              <button class="category-info-btn" onclick="openCategory('exchange-token')" title="What is an Exchange Token?" aria-label="Learn about Exchange Tokens">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Cross-Border Payments" onclick="filterCards('Cross-Border Payments', this)">Payment</button>
+              <button class="category-info-btn" onclick="openCategory('cross-border-payments')" title="What are Cross-Border Payments?" aria-label="Learn about Cross-Border Payments">?</button>
+            </span>
+            <span class="filter-btn-wrap">
+              <button class="filter-btn" data-filter="Stablecoin" onclick="filterCards('Stablecoin', this)">Stablecoin</button>
+              <button class="category-info-btn" onclick="openCategory('stablecoin')" title="What is a Stablecoin?" aria-label="Learn about Stablecoins">?</button>
+            </span>
           </div>
 
           <div class="cards-grid" id="cards-grid" role="list" aria-label="Cryptocurrency profiles">
@@ -2452,6 +2548,369 @@
   <script id="schema-usdt" type="application/ld+json"></script>
 
   <script>
+    var CATEGORIES = [
+      {
+        slug: 'digital-gold',
+        name: 'Digital Gold',
+        icon: '🪙',
+        color: '#F7931A',
+        examples: ['Bitcoin', 'Litecoin', 'Bitcoin Cash', 'Monero'],
+        en: {
+          tagline: 'The original store of value, reimagined for the internet age',
+          what: 'Imagine gold, but instead of being locked in a vault, it lives on the internet — and anyone in the world can own a piece of it without a bank or broker. Digital Gold refers to cryptocurrencies designed primarily to preserve value over time, just like physical gold has done for thousands of years. Bitcoin is the most famous example: a fixed, scarce asset that can\'t be inflated away by any government.',
+          how: 'These currencies work on a blockchain — a public ledger maintained by thousands of computers worldwide, making it nearly impossible to hack or forge. New coins are released through a process called \'mining,\' where powerful computers compete to solve puzzles. Bitcoin\'s total supply is capped at 21 million coins forever, which is what makes it scarce and therefore valuable.',
+          uses: 'Primarily used as a long-term savings tool, a hedge against inflation, and increasingly as a reserve asset held by corporations and governments. In 2024–2025, the launch of Bitcoin ETFs in the US opened the door to institutional investors holding Bitcoin inside traditional portfolios.',
+          pros: [
+            'Truly scarce — only 21 million Bitcoin will ever exist',
+            'Decentralized — no government or bank controls it',
+            'Battle-tested — Bitcoin has run without major failure since 2009',
+            'Now accessible via traditional ETFs and brokerage accounts'
+          ],
+          cons: [
+            'Very volatile in the short term',
+            'Slow to evolve — by design, Bitcoin changes little',
+            'Energy-intensive mining process',
+            'Not ideal for everyday small payments'
+          ],
+          verdict: 'Digital Gold is the simplest and most intuitive crypto category to understand: it\'s money that nobody can print more of. In 2026, with spot Bitcoin ETFs now mainstream in the US and Europe, this category has moved from fringe speculation to recognized financial infrastructure. It\'s the \'blue chip\' of the crypto world.'
+        },
+        fr: {
+          tagline: 'La valeur refuge de l\'ère numérique',
+          what: 'Imaginez de l\'or, mais au lieu d\'être enfermé dans un coffre-fort, il existe sur internet — et n\'importe qui dans le monde peut en posséder une fraction sans avoir besoin d\'une banque. L\'Or Numérique désigne les cryptomonnaies conçues avant tout pour conserver de la valeur dans le temps, exactement comme l\'or physique le fait depuis des millénaires. Bitcoin en est l\'exemple le plus connu : un actif rare et limité qu\'aucun gouvernement ne peut dévaluer en imprimant davantage.',
+          how: 'Ces monnaies fonctionnent grâce à une blockchain — un grand registre public maintenu par des milliers d\'ordinateurs à travers le monde, ce qui le rend pratiquement impossible à pirater ou à falsifier. De nouvelles pièces sont émises via un processus appelé le \'minage\', où des ordinateurs puissants s\'affrontent pour résoudre des énigmes mathématiques. L\'offre totale de Bitcoin est plafonnée à 21 millions de pièces pour toujours — c\'est cette rareté qui lui confère sa valeur.',
+          uses: 'Principalement utilisé comme outil d\'épargne à long terme, protection contre l\'inflation, et de plus en plus comme réserve de valeur par des entreprises et des États. Depuis le lancement des ETF Bitcoin aux États-Unis en 2024–2025, les investisseurs institutionnels peuvent désormais l\'intégrer dans des portefeuilles traditionnels.',
+          pros: [
+            'Véritablement rare — seulement 21 millions de Bitcoin existeront jamais',
+            'Décentralisé — aucun gouvernement ni banque ne le contrôle',
+            'Éprouvé — Bitcoin fonctionne sans incident majeur depuis 2009',
+            'Accessible via des ETF et des courtiers traditionnels'
+          ],
+          cons: [
+            'Très volatile à court terme',
+            'Peu évolutif — Bitcoin change peu, c\'est voulu',
+            'Processus de minage très énergivore',
+            'Peu adapté aux petits paiements du quotidien'
+          ],
+          verdict: 'L\'Or Numérique est la catégorie crypto la plus simple à comprendre : c\'est de la monnaie dont personne ne peut augmenter l\'offre. En 2026, avec les ETF Bitcoin désormais répandus aux États-Unis et en Europe, cette catégorie a quitté la sphère de la spéculation marginale pour devenir une infrastructure financière reconnue. C\'est le \'blue chip\' du monde crypto.'
+        }
+      },
+      {
+        slug: 'smart-contracts',
+        name: 'Smart Contracts',
+        icon: '📜',
+        color: '#627EEA',
+        examples: ['Ethereum', 'Avalanche', 'Cardano', 'Tezos'],
+        en: {
+          tagline: 'Code that executes itself — contracts without the middleman',
+          what: 'Think of a vending machine: you put in money, select your snack, and the machine automatically gives it to you — no cashier needed. Smart Contract platforms work the same way, but for any kind of agreement: the rules are written in code, and when conditions are met, the contract executes itself automatically. Ethereum pioneered this idea, turning a blockchain into a programmable platform rather than just digital money.',
+          how: 'Developers write programs called smart contracts and deploy them on the blockchain. Once deployed, these programs run exactly as written — no one can alter them, censor them, or stop them. Thousands of applications (called dApps — decentralized apps) are built on top of these contracts, from lending protocols to digital art marketplaces. Users pay a small fee in the platform\'s native token (called \'gas\' on Ethereum) to run these programs.',
+          uses: 'Powers decentralized finance (DeFi), NFT marketplaces, decentralized exchanges, on-chain voting systems, and automated insurance contracts. In 2026, smart contract platforms also underpin many real-world asset tokenization projects, turning property and bonds into tradeable digital tokens.',
+          pros: [
+            'Eliminates middlemen — no bank, lawyer, or notary required',
+            'Transparent — anyone can audit the code',
+            'Unstoppable once deployed — highly censorship-resistant',
+            'Foundation for an entirely new financial system'
+          ],
+          cons: [
+            'Code bugs can be catastrophic and irreversible',
+            'Complex to understand and audit',
+            'Transaction fees can spike during high demand',
+            'Regulatory uncertainty around smart contract liability'
+          ],
+          verdict: 'Smart contract platforms are the backbone of the decentralized internet. Ethereum remains the dominant player in 2026, processing trillions in annual transaction volume, and its ecosystem of applications is the closest thing crypto has to an \'app store\' for finance. Understanding this category is key to understanding why crypto is more than just digital money.'
+        },
+        fr: {
+          tagline: 'Des contrats qui s\'exécutent seuls, sans intermédiaire',
+          what: 'Imaginez un distributeur automatique : vous insérez de l\'argent, choisissez votre article, et la machine vous le remet automatiquement — sans caissier. Les plateformes de contrats intelligents fonctionnent exactement pareil, mais pour n\'importe quel type d\'accord : les règles sont écrites en code, et dès que les conditions sont remplies, le contrat s\'exécute tout seul. Ethereum a été le pionnier de cette idée, transformant une blockchain en plateforme programmable plutôt qu\'en simple monnaie numérique.',
+          how: 'Les développeurs écrivent des programmes appelés contrats intelligents et les déploient sur la blockchain. Une fois mis en ligne, ils s\'exécutent exactement comme prévu — personne ne peut les modifier, les censurer ni les stopper. Des milliers d\'applications décentralisées (dApps) sont construites par-dessus : protocoles de prêt, marchés NFT, échanges décentralisés. Les utilisateurs paient de petits frais en jeton natif (le \'gas\' sur Ethereum) pour faire tourner ces programmes.',
+          uses: 'Alimente la finance décentralisée (DeFi), les marchés NFT, les échanges décentralisés, les systèmes de vote en ligne et les assurances automatisées. En 2026, ces plateformes soutiennent aussi de nombreux projets de tokenisation d\'actifs réels — transformer des biens immobiliers ou des obligations en jetons numériques échangeables.',
+          pros: [
+            'Supprime les intermédiaires — plus besoin de banque, d\'avocat ni de notaire',
+            'Transparent — n\'importe qui peut auditer le code',
+            'Immuable une fois déployé — très résistant à la censure',
+            'Fondation d\'un nouveau système financier'
+          ],
+          cons: [
+            'Un bug dans le code peut être catastrophique et irréversible',
+            'Complexe à comprendre et à auditer',
+            'Les frais de transaction peuvent s\'envoler en période de forte demande',
+            'Incertitude réglementaire sur la responsabilité des contrats'
+          ],
+          verdict: 'Les plateformes de contrats intelligents sont l\'épine dorsale d\'internet décentralisé. Ethereum reste le leader incontesté en 2026, traitant des milliers de milliards de dollars de transactions par an. Son écosystème d\'applications est ce qui se rapproche le plus d\'un \'App Store\' pour la finance. Comprendre cette catégorie, c\'est comprendre pourquoi la crypto va bien au-delà de la simple monnaie numérique.'
+        }
+      },
+      {
+        slug: 'layer-1',
+        name: 'Layer 1',
+        icon: '⚡',
+        color: '#9945FF',
+        examples: ['Solana', 'Sui', 'Aptos', 'Near Protocol'],
+        en: {
+          tagline: 'Faster, cheaper blockchains built for the real world',
+          what: 'If Ethereum is like a busy city highway that gets congested and expensive during rush hour, Layer 1 blockchains are the new high-speed expressways built alongside it. They are independent base blockchains — the foundation layer — engineered from scratch to be faster, cheaper, and more scalable than their predecessors. Solana, for example, can process tens of thousands of transactions per second, compared to Ethereum\'s few dozen.',
+          how: 'Each Layer 1 makes different engineering choices to solve the \'blockchain trilemma\' — the challenge of being fast, secure, and decentralized all at once. Solana achieves speed through a unique timing mechanism called Proof of History, which lets validators agree on transaction order without slow back-and-forth communication. Others use novel consensus algorithms or different node architectures to achieve similar goals.',
+          uses: 'Used for high-frequency applications like decentralized exchanges, on-chain gaming, micropayments, and consumer-facing apps where speed matters. Solana in particular became the home of meme coin trading and retail-oriented DeFi in 2024–2025 due to its near-zero fees.',
+          pros: [
+            'Extremely fast — thousands of transactions per second',
+            'Very low fees — fractions of a cent per transaction',
+            'Growing developer ecosystems attracting fresh talent',
+            'Strong for real-time and consumer applications'
+          ],
+          cons: [
+            'More centralized than older blockchains — fewer validators',
+            'History of network outages on some chains',
+            'Competing with many similar projects for developers',
+            'Still maturing — battle-tested less than Ethereum'
+          ],
+          verdict: 'Layer 1 blockchains represent the next generation of blockchain infrastructure — purpose-built for mass adoption. Solana\'s explosive growth between 2023 and 2026 proved that speed and low fees unlock entirely new categories of apps that simply couldn\'t exist on slower networks. This is the category to watch as crypto moves from speculation to everyday utility.'
+        },
+        fr: {
+          tagline: 'Des blockchains plus rapides, conçues pour le monde réel',
+          what: 'Si Ethereum est une autoroute urbaine saturée et coûteuse aux heures de pointe, les blockchains Layer 1 sont les nouvelles voies rapides construites à côté. Ce sont des blockchains de base indépendantes — la couche fondatrice — repensées de zéro pour être plus rapides, moins chères et plus évolutives que leurs ancêtres. Solana, par exemple, peut traiter des dizaines de milliers de transactions par seconde, contre quelques dizaines pour Ethereum.',
+          how: 'Chaque Layer 1 fait des choix techniques différents pour résoudre le \'trilemme blockchain\' : être rapide, sécurisé et décentralisé à la fois. Solana atteint sa vitesse grâce à un mécanisme original appelé Proof of History, qui permet aux validateurs de s\'accorder sur l\'ordre des transactions sans communications lentes. D\'autres utilisent de nouveaux algorithmes de consensus ou des architectures de nœuds différentes pour atteindre des objectifs similaires.',
+          uses: 'Utilisé pour les applications à haute fréquence : échanges décentralisés, jeux en ligne, micropaiements et applications grand public où la rapidité est essentielle. Solana est notamment devenue la maison du trading de meme coins et de la DeFi grand public en 2024–2025 grâce à ses frais quasi nuls.',
+          pros: [
+            'Extrêmement rapide — des milliers de transactions par seconde',
+            'Frais très bas — une fraction de centime par transaction',
+            'Écosystèmes de développeurs en pleine croissance',
+            'Idéal pour les applications temps réel et grand public'
+          ],
+          cons: [
+            'Plus centralisé que les anciennes blockchains — moins de validateurs',
+            'Historique de pannes réseau sur certaines chaînes',
+            'Forte concurrence entre de nombreux projets similaires',
+            'Encore en maturation — moins éprouvé qu\'Ethereum'
+          ],
+          verdict: 'Les blockchains Layer 1 représentent la prochaine génération d\'infrastructure décentralisée, conçue pour l\'adoption de masse. La croissance explosive de Solana entre 2023 et 2026 a prouvé que rapidité et frais bas ouvrent des catégories d\'applications entièrement nouvelles, impossibles sur des réseaux plus lents. C\'est la catégorie à suivre pour voir la crypto passer de la spéculation à l\'utilité quotidienne.'
+        }
+      },
+      {
+        slug: 'oracle-network',
+        name: 'Oracle Network',
+        icon: '🔮',
+        color: '#375BD2',
+        examples: ['Chainlink', 'Pyth Network', 'Band Protocol', 'API3'],
+        en: {
+          tagline: 'The bridge between the blockchain and the real world',
+          what: 'Blockchains are like isolated fortresses — extremely secure inside, but completely blind to the outside world. An oracle network is the trusted messenger that carries real-world data (like stock prices, weather conditions, or sports results) inside the fortress. Without oracles, a smart contract can\'t know what the price of oil is today, whether it rained in Paris, or whether a flight was delayed — which would make most real-world applications impossible.',
+          how: 'Oracle networks like Chainlink aggregate data from many independent sources, cross-verify it for accuracy, and deliver it on-chain in a tamper-proof way. Rather than relying on a single data feed (which could be hacked or manipulated), they use a decentralized network of data providers who stake tokens as collateral — if they lie, they lose their stake. This \'skin in the game\' design ensures data integrity.',
+          uses: 'Essential for DeFi protocols that need accurate price feeds, insurance contracts that trigger on real-world events, prediction markets, and supply chain tracking. Chainlink\'s data infrastructure powers hundreds of billions of dollars in DeFi smart contracts globally.',
+          pros: [
+            'Enables smart contracts to interact with the real world',
+            'Decentralized data sources prevent single points of failure',
+            'Widely integrated — most major DeFi protocols use Chainlink',
+            'Expanding into cross-chain communication and verifiable randomness'
+          ],
+          cons: [
+            'Still dependent on the quality and honesty of data sources',
+            'Complex infrastructure — harder to understand than simpler cryptos',
+            'Token value tied to network usage, not direct cash flows',
+            'Competition growing from newer, faster oracle solutions'
+          ],
+          verdict: 'Oracle networks are the unsung heroes of the crypto ecosystem — invisible infrastructure that makes everything else work. As blockchain use cases expand into insurance, real estate, and traditional finance in 2026, the demand for reliable real-world data on-chain will only grow. Chainlink\'s dominant position in this niche makes it one of the most structurally important projects in crypto.'
+        },
+        fr: {
+          tagline: 'Le pont entre la blockchain et le monde réel',
+          what: 'Les blockchains sont comme des forteresses isolées — extrêmement sécurisées en interne, mais totalement aveugles au monde extérieur. Un réseau d\'oracles est le messager de confiance qui transporte des données du monde réel (cours boursiers, météo, résultats sportifs) à l\'intérieur de cette forteresse. Sans oracles, un contrat intelligent ne peut pas savoir quel est le prix du pétrole aujourd\'hui, s\'il a plu à Paris, ou si un vol a été annulé — rendant la plupart des applications concrètes impossibles.',
+          how: 'Des réseaux comme Chainlink agrègent des données provenant de nombreuses sources indépendantes, les croisent pour en vérifier l\'exactitude, puis les livrent sur la blockchain de façon infalsifiable. Plutôt que de dépendre d\'une source unique (qui pourrait être hackée ou manipulée), ils s\'appuient sur un réseau décentralisé de fournisseurs de données qui déposent des jetons en garantie — s\'ils mentent, ils les perdent. Ce mécanisme \'d\'enjeu financier\' garantit l\'intégrité des données.',
+          uses: 'Indispensable pour les protocoles DeFi qui ont besoin de cours fiables, les contrats d\'assurance déclenchés par des événements réels, les marchés de prédiction et le suivi de chaînes logistiques. L\'infrastructure Chainlink alimente des centaines de milliards de dollars de contrats DeFi à travers le monde.',
+          pros: [
+            'Permet aux contrats intelligents d\'interagir avec le monde réel',
+            'Sources décentralisées — pas de point de défaillance unique',
+            'Très intégré — la plupart des grands protocoles DeFi l\'utilisent',
+            'S\'étend à la communication inter-chaînes et à l\'aléatoire vérifiable'
+          ],
+          cons: [
+            'Reste dépendant de la qualité et de l\'honnêteté des sources de données',
+            'Infrastructure complexe — plus difficile à comprendre que d\'autres cryptos',
+            'La valeur du jeton dépend de l\'usage réseau, pas de flux de trésorerie directs',
+            'Concurrence croissante de nouvelles solutions d\'oracles plus rapides'
+          ],
+          verdict: 'Les réseaux d\'oracles sont les héros invisibles de l\'écosystème crypto — une infrastructure discrète qui fait fonctionner tout le reste. En 2026, à mesure que la blockchain s\'étend à l\'assurance, l\'immobilier et la finance traditionnelle, la demande de données fiables du monde réel sur la chaîne ne fera que croître. La position dominante de Chainlink dans ce créneau en fait l\'un des projets les plus structurellement importants de la crypto.'
+        }
+      },
+      {
+        slug: 'defi-lending',
+        name: 'DeFi Lending',
+        icon: '🏦',
+        color: '#B6509E',
+        examples: ['Aave', 'Compound', 'Morpho', 'Spark'],
+        en: {
+          tagline: 'A bank in code — borrow and lend without asking permission',
+          what: 'Imagine a bank that never closes, never asks for your credit score, never rejects an application, and returns all its profits to depositors — not shareholders. DeFi Lending platforms are exactly that: open, automated protocols where anyone can deposit crypto assets to earn interest, or borrow against their existing holdings. Aave is the most prominent example, functioning as a global, permissionless money market running entirely on smart contracts.',
+          how: 'Lenders deposit assets (like USDC or ETH) into a shared pool and earn interest paid by borrowers. Borrowers must provide collateral worth more than what they borrow — this \'over-collateralization\' protects the protocol if prices drop. If a borrower\'s collateral falls too far in value, the protocol automatically liquidates it to repay the loan. No human approval needed — the code handles everything in real time.',
+          uses: 'Used by traders to leverage positions, by crypto holders who want liquidity without selling their assets, and increasingly by institutions for treasury management. In 2026, some DeFi lending protocols have also begun supporting real-world asset collateral like tokenized US Treasury bonds.',
+          pros: [
+            'Open to anyone — no credit checks, no bank account required',
+            'Interest rates are transparent and market-driven',
+            'Funds are controlled by code, not a bank\'s discretion',
+            'Earns yield 24/7 with no manual intervention'
+          ],
+          cons: [
+            'Requires over-collateralization — you must own crypto to borrow crypto',
+            'Smart contract risk — bugs could lead to loss of funds',
+            'Liquidation risk if collateral value drops sharply',
+            'Regulatory frameworks still unclear in many countries'
+          ],
+          verdict: 'DeFi Lending is one of the clearest demonstrations of what blockchain technology can do that traditional finance cannot: run a fully functional bank with no staff, no headquarters, and no discrimination. Aave has consistently been one of the largest DeFi protocols by total value locked since 2020, and its expansion into institutional DeFi in 2025–2026 marks a significant step toward mainstream financial integration.'
+        },
+        fr: {
+          tagline: 'Une banque en code — empruntez et prêtez sans demander la permission',
+          what: 'Imaginez une banque qui ne ferme jamais, ne demande jamais votre score de crédit, ne rejette jamais une demande, et reverse tous ses bénéfices aux déposants — pas aux actionnaires. Les plateformes de prêt DeFi sont exactement ça : des protocoles ouverts et automatisés où n\'importe qui peut déposer des cryptos pour toucher des intérêts, ou emprunter en mettant ses actifs en garantie. Aave en est l\'exemple le plus connu — un marché monétaire mondial sans autorisation, tournant entièrement sur des contrats intelligents.',
+          how: 'Les prêteurs déposent des actifs (comme des USDC ou de l\'ETH) dans une réserve commune et perçoivent des intérêts payés par les emprunteurs. Les emprunteurs doivent fournir des garanties supérieures à ce qu\'ils empruntent — cette \'sur-collatéralisation\' protège le protocole en cas de baisse des prix. Si la valeur des garanties chute trop, le protocole les liquide automatiquement pour rembourser le prêt. Aucune approbation humaine n\'est nécessaire — le code gère tout en temps réel.',
+          uses: 'Utilisé par les traders pour augmenter leurs positions, par les détenteurs de crypto qui veulent des liquidités sans vendre leurs actifs, et de plus en plus par des institutions pour la gestion de trésorerie. En 2026, certains protocoles acceptent aussi des garanties d\'actifs réels tokenisés, comme des bons du Trésor américain.',
+          pros: [
+            'Accessible à tous — aucun score de crédit ni compte bancaire requis',
+            'Taux d\'intérêt transparents et fixés par le marché',
+            'Les fonds sont gérés par le code, pas par la discrétion d\'une banque',
+            'Génère des rendements 24h/24 sans intervention manuelle'
+          ],
+          cons: [
+            'Nécessite une sur-collatéralisation — il faut posséder des cryptos pour en emprunter',
+            'Risque de bugs dans les contrats intelligents pouvant entraîner des pertes',
+            'Risque de liquidation si la valeur des garanties chute brutalement',
+            'Cadre réglementaire encore flou dans de nombreux pays'
+          ],
+          verdict: 'Le prêt DeFi est l\'une des démonstrations les plus claires de ce que la blockchain peut faire là où la finance traditionnelle échoue : faire tourner une banque entièrement fonctionnelle sans employés, sans siège social, et sans discrimination. Aave figure régulièrement parmi les plus grands protocoles DeFi depuis 2020, et son expansion vers la DeFi institutionnelle en 2025–2026 marque une étape décisive vers l\'intégration dans la finance mainstream.'
+        }
+      },
+      {
+        slug: 'exchange-token',
+        name: 'Exchange Token',
+        icon: '🔄',
+        color: '#F0B90B',
+        examples: ['BNB', 'OKB', 'KCS', 'CRO'],
+        en: {
+          tagline: 'The loyalty card of crypto — but it powers an entire economy',
+          what: 'Think of airline miles or a loyalty program — except instead of free flights, your points can reduce trading fees, participate in exclusive token sales, pay for services, and even run an entire blockchain network. Exchange tokens are native currencies issued by large crypto exchanges, and BNB (issued by Binance) is the most powerful example. What started as a simple fee-discount token has evolved into the fuel for an entire blockchain ecosystem.',
+          how: 'BNB powers the BNB Chain — a high-throughput blockchain used by millions of apps and users, especially in Southeast Asia. Users pay transaction fees in BNB, developers build apps on BNB Chain, and Binance periodically \'burns\' (destroys) a portion of BNB to reduce supply over time. This burning mechanism, tied to Binance\'s trading revenue, creates a deflationary dynamic that has historically supported BNB\'s value.',
+          uses: 'Used to pay trading fees on Binance (with a discount), as gas on BNB Chain, to participate in token launch events (launchpad), and increasingly as collateral in DeFi protocols. BNB Chain hosts thousands of decentralized applications and processes millions of transactions daily.',
+          pros: [
+            'Real, immediate utility — used daily by millions of Binance users',
+            'Deflationary — supply decreases via regular token burns',
+            'Entire blockchain ecosystem built around it',
+            'Access to exclusive Binance Launchpad token sales'
+          ],
+          cons: [
+            'Deeply tied to Binance\'s business — if Binance struggles, BNB suffers',
+            'More centralized than most blockchains',
+            'Regulatory scrutiny on Binance has impacted BNB in the past',
+            'Competitive pressure from other exchange tokens and Layer 1s'
+          ],
+          verdict: 'Exchange tokens blur the line between a company loyalty program and a decentralized currency. BNB has successfully evolved beyond its origins to power one of the world\'s most active blockchain ecosystems. In 2026, as crypto exchanges continue to expand their product offerings — from spot trading to asset management — exchange tokens like BNB represent a bet on the success of the exchange itself.'
+        },
+        fr: {
+          tagline: 'Le programme de fidélité crypto — qui alimente toute une économie',
+          what: 'Pensez à des miles aériens ou à un programme de fidélité — sauf qu\'au lieu de vols gratuits, vos points réduisent les frais de trading, vous donnent accès à des ventes de jetons exclusives, paient des services, et alimentent même une blockchain entière. Les jetons d\'exchange sont les monnaies natives émises par de grandes plateformes crypto, et BNB (émis par Binance) en est l\'exemple le plus puissant. Ce qui a démarré comme un simple jeton de réduction est devenu le carburant d\'un écosystème blockchain entier.',
+          how: 'BNB alimente la BNB Chain — une blockchain à haut débit utilisée par des millions d\'applications, notamment en Asie du Sud-Est. Les utilisateurs paient les frais de transaction en BNB, les développeurs construisent des apps sur BNB Chain, et Binance \'brûle\' périodiquement (détruit) une partie des BNB pour réduire l\'offre au fil du temps. Ce mécanisme de combustion, lié aux revenus de trading de Binance, crée une dynamique déflationniste qui a historiquement soutenu la valeur du BNB.',
+          uses: 'Utilisé pour payer les frais de trading sur Binance (avec réduction), comme gas sur BNB Chain, pour participer aux lancements de jetons (launchpad), et de plus en plus comme garantie dans des protocoles DeFi. La BNB Chain héberge des milliers d\'applications décentralisées et traite des millions de transactions par jour.',
+          pros: [
+            'Utilité réelle et immédiate — utilisé quotidiennement par des millions d\'utilisateurs Binance',
+            'Déflationniste — l\'offre diminue grâce aux combustions régulières',
+            'Un écosystème blockchain entier construit autour de lui',
+            'Accès aux ventes exclusives du Binance Launchpad'
+          ],
+          cons: [
+            'Fortement lié à Binance — si Binance vacille, BNB en souffre',
+            'Plus centralisé que la plupart des blockchains',
+            'Les pressions réglementaires sur Binance ont déjà impacté BNB',
+            'Concurrence d\'autres jetons d\'exchange et blockchains Layer 1'
+          ],
+          verdict: 'Les jetons d\'exchange brouillent la frontière entre programme de fidélité d\'entreprise et monnaie décentralisée. BNB a réussi à dépasser ses origines pour alimenter l\'un des écosystèmes blockchain les plus actifs au monde. En 2026, alors que les exchanges continuent d\'élargir leur offre — du trading spot à la gestion d\'actifs — des jetons comme BNB représentent un pari sur le succès de la plateforme elle-même.'
+        }
+      },
+      {
+        slug: 'cross-border-payments',
+        name: 'Cross-Border Payments',
+        icon: '🌐',
+        color: '#00AAE4',
+        examples: ['XRP', 'Stellar', 'Ripple', 'SWIFT GPI'],
+        en: {
+          tagline: 'Sending money across borders in seconds, not days',
+          what: 'Sending money internationally today is like sending a letter through multiple post offices in different countries — it passes through layers of intermediaries, takes days, and costs a fortune in fees. Cross-border payment cryptocurrencies are designed to replace that outdated system, enabling funds to travel from one country to another in seconds at near-zero cost. XRP, created by Ripple, is the leading example: it was purpose-built to be the settlement layer between banks and financial institutions worldwide.',
+          how: 'XRP transactions settle in 3–5 seconds on the XRP Ledger, a distributed network that doesn\'t rely on energy-intensive mining. Financial institutions can use XRP as a bridge currency: instead of holding pre-funded accounts in every country they operate in, they convert their currency to XRP, send it instantly, and the recipient converts it back. This dramatically reduces the capital tied up in nostro/vostro accounts at correspondent banks.',
+          uses: 'Used by banks, payment processors, and remittance companies to settle international transactions. RippleNet, the enterprise network built around XRP, is used by financial institutions in over 55 countries. Retail users also use XRP directly on crypto exchanges for fast, cheap transfers.',
+          pros: [
+            'Lightning-fast settlement — 3 to 5 seconds per transaction',
+            'Extremely low fees — fractions of a cent',
+            'Already adopted by real banks and financial institutions',
+            'Legal clarity improving — Ripple won key US court battles in 2023–2024'
+          ],
+          cons: [
+            'More centralized — Ripple company holds large XRP reserves',
+            'Faces intense competition from CBDCs and stablecoin solutions',
+            'Adoption by banks has been slower than originally projected',
+            'Token value doesn\'t directly capture Ripple\'s business revenue'
+          ],
+          verdict: 'Cross-border payment cryptos tackle one of the most concrete inefficiencies in global finance: the $150+ billion annual cost of international money transfers. XRP\'s partial legal victory in the US and growing institutional partnerships have restored momentum in 2024–2026. Whether it replaces SWIFT or simply complements it, this category solves a real problem affecting billions of people — especially migrants sending money home.'
+        },
+        fr: {
+          tagline: 'Envoyer de l\'argent à l\'autre bout du monde en quelques secondes',
+          what: 'Envoyer de l\'argent à l\'international aujourd\'hui, c\'est comme poster une lettre qui passe par plusieurs bureaux de poste dans différents pays — des intermédiaires en cascade, des délais de plusieurs jours, et des frais exorbitants. Les cryptomonnaies de paiement transfrontalier sont conçues pour remplacer ce système obsolète, permettant à des fonds de traverser le globe en quelques secondes pour presque rien. XRP, créé par Ripple, en est le chef de file : il a été conçu spécifiquement comme couche de règlement entre banques et institutions financières du monde entier.',
+          how: 'Les transactions XRP se règlent en 3 à 5 secondes sur le XRP Ledger, un réseau distribué qui ne repose pas sur le minage énergivore. Les institutions financières peuvent utiliser XRP comme monnaie-pont : au lieu de maintenir des comptes pré-financés dans chaque pays où elles opèrent, elles convertissent leur devise en XRP, l\'envoient instantanément, et le destinataire le reconvertit. Cela réduit considérablement le capital immobilisé dans les comptes nostro/vostro des banques correspondantes.',
+          uses: 'Utilisé par des banques, des processeurs de paiement et des sociétés de transfert d\'argent pour régler des transactions internationales. RippleNet, le réseau d\'entreprise construit autour de XRP, est utilisé par des institutions financières dans plus de 55 pays. Les particuliers l\'utilisent aussi directement sur les exchanges pour des transferts rapides et peu coûteux.',
+          pros: [
+            'Règlement ultra-rapide — 3 à 5 secondes par transaction',
+            'Frais extrêmement bas — une fraction de centime',
+            'Déjà adopté par de vraies banques et institutions financières',
+            'Clarté juridique en amélioration — Ripple a remporté des batailles clés aux États-Unis en 2023–2024'
+          ],
+          cons: [
+            'Plus centralisé — la société Ripple détient d\'importantes réserves de XRP',
+            'Concurrence intense des CBDC et des solutions en stablecoins',
+            'L\'adoption bancaire a été plus lente que prévu initialement',
+            'La valeur du jeton ne reflète pas directement les revenus de Ripple'
+          ],
+          verdict: 'Les cryptos de paiement transfrontalier s\'attaquent à l\'une des inefficacités les plus concrètes de la finance mondiale : le coût annuel de plus de 150 milliards de dollars des transferts internationaux. La victoire juridique partielle de Ripple aux États-Unis et le renforcement de ses partenariats institutionnels ont redonné de l\'élan à XRP en 2024–2026. Qu\'il remplace SWIFT ou simplement le complète, cette catégorie résout un problème réel qui affecte des milliards de personnes — notamment les migrants qui envoient de l\'argent chez eux.'
+        }
+      },
+      {
+        slug: 'stablecoin',
+        name: 'Stablecoin',
+        icon: '🔒',
+        color: '#26A17B',
+        examples: ['USDT', 'USDC', 'DAI', 'PYUSD'],
+        en: {
+          tagline: 'The calm in the crypto storm — always worth $1',
+          what: 'Imagine if every time you went on a rollercoaster, you could swap your seat for a park bench — same location, none of the ups and downs. Stablecoins are cryptocurrencies designed to maintain a fixed value, almost always pegged to the US dollar. They give you all the benefits of blockchain (speed, global access, 24/7 transfers) without the wild price swings. USDT (Tether) is the most widely used stablecoin, with tens of billions of dollars circulating daily.',
+          how: 'Most major stablecoins maintain their $1 peg by holding real-world reserves — dollar deposits, US Treasury bonds, and other liquid assets — equal to every coin in circulation. When you send USDT, you\'re essentially sending a digital claim on dollars held in reserve. Others, like DAI, maintain their peg algorithmically through crypto collateral managed by smart contracts. Regulators in the US and EU have introduced specific stablecoin frameworks in 2025–2026 to govern these reserves.',
+          uses: 'Used as a safe haven during market volatility, for remittances, DeFi trading pairs, payroll in crypto-native companies, and cross-border commerce. In 2026, stablecoins are increasingly used by businesses in emerging markets to transact in dollars without needing a US bank account.',
+          pros: [
+            'Stable value — eliminates crypto price volatility',
+            'Moves at blockchain speed — settles in seconds, globally',
+            'Essential \'lubricant\' for the entire DeFi ecosystem',
+            'Growing regulatory legitimacy under new EU and US frameworks'
+          ],
+          cons: [
+            'Requires trust in the issuer and their reserves',
+            'Centralized — Tether and Circle can freeze accounts',
+            'Regulatory risk — governments could restrict or ban them',
+            'Not truly decentralized — a single point of failure exists'
+          ],
+          verdict: 'Stablecoins are arguably the most practically useful innovation in crypto to date — they take the best parts of blockchain and attach them to the stability of the dollar. USDT alone processes more daily transaction volume than Visa and Mastercard combined. In 2026, with regulatory frameworks now in place in the EU (MiCA) and progressing in the US, stablecoins are graduating from a crypto niche to a global payment infrastructure.'
+        },
+        fr: {
+          tagline: 'Le calme dans la tempête crypto — toujours à 1 dollar',
+          what: 'Imaginez que pendant des montagnes russes, vous puissiez échanger votre siège contre un banc dans le parc — même endroit, sans les montées ni les descentes. Les stablecoins sont des cryptomonnaies conçues pour maintenir une valeur fixe, presque toujours indexée sur le dollar américain. Ils vous donnent tous les avantages de la blockchain (rapidité, accès mondial, transferts 24h/24) sans les variations de prix spectaculaires. L\'USDT (Tether) est le stablecoin le plus utilisé, avec des dizaines de milliards de dollars en circulation chaque jour.',
+          how: 'La plupart des grands stablecoins maintiennent leur parité à 1 dollar en détenant des réserves réelles — dépôts en dollars, bons du Trésor américain et autres actifs liquides — équivalentes à chaque pièce en circulation. Envoyer des USDT revient essentiellement à transférer une créance numérique sur des dollars en réserve. D\'autres, comme DAI, maintiennent leur parité de façon algorithmique via des garanties crypto gérées par des contrats intelligents. Des cadres réglementaires spécifiques aux stablecoins ont été introduits aux États-Unis et dans l\'UE en 2025–2026.',
+          uses: 'Utilisé comme refuge en période de volatilité, pour les envois de fonds, les paires de trading DeFi, la paie dans les entreprises natives du crypto, et le commerce transfrontalier. En 2026, les stablecoins sont de plus en plus utilisés par des entreprises dans les marchés émergents pour transacter en dollars sans avoir besoin d\'un compte bancaire américain.',
+          pros: [
+            'Valeur stable — élimine la volatilité des prix crypto',
+            'Rapidité blockchain — règlement en quelques secondes, partout dans le monde',
+            'Le \'lubrifiant\' indispensable de tout l\'écosystème DeFi',
+            'Légitimité réglementaire croissante sous les nouveaux cadres MiCA et américains'
+          ],
+          cons: [
+            'Nécessite de faire confiance à l\'émetteur et à ses réserves',
+            'Centralisé — Tether et Circle peuvent geler des comptes',
+            'Risque réglementaire — les gouvernements pourraient les restreindre ou les interdire',
+            'Pas vraiment décentralisé — un point de défaillance central existe'
+          ],
+          verdict: 'Les stablecoins sont sans doute l\'innovation crypto la plus concrètement utile à ce jour : ils prennent ce que la blockchain fait de mieux et l\'associent à la stabilité du dollar. L\'USDT seul traite plus de volume de transactions quotidien que Visa et Mastercard réunis. En 2026, avec le cadre MiCA en vigueur dans l\'UE et une législation en cours aux États-Unis, les stablecoins sortent de leur niche pour devenir une infrastructure de paiement mondiale.'
+        }
+      }
+    ];
+
     /* ==========================================
        DATA STORE — All article data lives here.
        In-memory only.
@@ -3024,6 +3483,14 @@
         'card.read': 'Read more',
         'search.no_results': 'No cryptos found matching',
         'search.try_again': 'Try a different search term.',
+        'category.what': 'What is this category?',
+        'category.how': 'How does it work?',
+        'category.uses': 'What is it used for?',
+        'category.pros': 'Advantages',
+        'category.cons': 'Disadvantages',
+        'category.verdict': 'Why it matters',
+        'category.examples': 'Notable projects in this category',
+        'category.learn': 'What is this?',
         'ticker.news': 'News'
       },
       fr: {
@@ -3104,6 +3571,14 @@
         'card.read': 'Lire la suite',
         'search.no_results': 'Aucune crypto trouvée pour',
         'search.try_again': 'Essayez un autre terme de recherche.',
+        'category.what': 'C\'est quoi cette catégorie ?',
+        'category.how': 'Comment ça fonctionne ?',
+        'category.uses': 'À quoi ça sert ?',
+        'category.pros': 'Avantages',
+        'category.cons': 'Inconvénients',
+        'category.verdict': 'Pourquoi c\'est important',
+        'category.examples': 'Projets notables dans cette catégorie',
+        'category.learn': 'C\'est quoi ?',
         'ticker.news': 'Actualités'
       }
     };
@@ -3782,6 +4257,91 @@
       var overlay = document.getElementById('article-modal-overlay');
       overlay.classList.remove('is-open');
       document.body.style.overflow = '';
+    }
+
+    /* ==========================================
+       CATEGORY GUIDE MODAL
+       ========================================== */
+    function openCategory(slug) {
+      var cat = CATEGORIES.find(function(c) { return c.slug === slug; });
+      if (!cat) return;
+      var data = cat[currentLang];
+      var modal = document.getElementById('article-modal');
+
+      var prosHtml = (data.pros || []).map(function(p) { return '<li>' + p + '</li>'; }).join('');
+      var consHtml = (data.cons || []).map(function(c) { return '<li>' + c + '</li>'; }).join('');
+      var examplesHtml = (cat.examples || []).map(function(ex) {
+        var article = ARTICLES.find(function(a) { return a.en.name === ex || a[currentLang].name === ex; });
+        if (article) {
+          return '<button class="category-example-pill" onclick="closeModal();setTimeout(function(){openArticle(' + article.id + ')},50)" style="cursor:pointer">' +
+            '<span class="pill-dot" style="background:' + article.color + '"></span>' +
+            ex +
+          '</button>';
+        }
+        return '<span class="category-example-pill">' +
+          '<span class="pill-dot" style="background:' + cat.color + '"></span>' +
+          ex +
+        '</span>';
+      }).join('');
+
+      modal.innerHTML =
+        '<div class="modal-hero">' +
+          '<button class="modal-close" onclick="closeModal()" aria-label="' + (currentLang === 'fr' ? 'Fermer' : 'Close') + '">' +
+            '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
+          '</button>' +
+          '<div class="modal-eyebrow">' +
+            '<div class="category-modal-icon" style="background:linear-gradient(135deg,' + cat.color + ',color-mix(in oklab,' + cat.color + ' 60%,#000))">' + cat.icon + '</div>' +
+            '<span class="badge ' + getCategoryBadge(cat.name) + '">' + (currentLang === 'fr' ? 'Guide' : 'Guide') + '</span>' +
+          '</div>' +
+          '<h2 id="modal-headline" class="modal-headline">' + cat.name + '</h2>' +
+          '<p class="modal-tagline">' + data.tagline + '</p>' +
+        '</div>' +
+        '<div class="modal-content">' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('category.what') + '</h3>' +
+            '<p class="article-body">' + (data.what || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('category.how') + '</h3>' +
+            '<p class="article-body">' + (data.how || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('category.uses') + '</h3>' +
+            '<p class="article-body">' + (data.uses || '') + '</p>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<h3 class="article-section-title">' + t('category.pros') + ' & ' + t('category.cons') + '</h3>' +
+            '<div class="pros-cons">' +
+              '<div class="pros-box">' +
+                '<div class="pros-box-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>' + t('category.pros') + '</div>' +
+                '<ul class="pros-cons-list" role="list">' + prosHtml + '</ul>' +
+              '</div>' +
+              '<div class="cons-box">' +
+                '<div class="cons-box-title"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' + t('category.cons') + '</div>' +
+                '<ul class="pros-cons-list" role="list">' + consHtml + '</ul>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="article-section">' +
+            '<div class="verdict-box">' +
+              '<div class="verdict-label">⭐ ' + t('category.verdict') + '</div>' +
+              '<p class="verdict-text">' + (data.verdict || '') + '</p>' +
+            '</div>' +
+          '</div>' +
+          (cat.examples && cat.examples.length ?
+            '<div class="article-section">' +
+              '<h3 class="article-section-title">' + t('category.examples') + '</h3>' +
+              '<div class="category-examples-grid">' + examplesHtml + '</div>' +
+            '</div>' : '') +
+        '</div>';
+
+      var overlay = document.getElementById('article-modal-overlay');
+      overlay.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(function() {
+        var closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) closeBtn.focus();
+      }, 50);
     }
 
     /* ==========================================
