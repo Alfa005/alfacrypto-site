@@ -1938,34 +1938,127 @@
       .modal-hero, .modal-content { padding: var(--space-6); }
       .modal-stats-row { padding: var(--space-4) var(--space-6); }
     }
-/* Category Guide Modals */
-.filter-btn-wrap {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--space-1);
+/* Category Guide — Learn Page */
+.learn-section {
+  background: linear-gradient(180deg, var(--surface-0) 0%, var(--surface-1) 100%);
 }
-.category-info-btn {
-  display: inline-flex;
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+.learn-card {
+  position: relative;
+  border-radius: 16px;
+  padding: var(--space-8) var(--space-6) var(--space-6);
+  background: var(--surface-0);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 280ms cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+.learn-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--card-accent, var(--accent));
+  border-radius: 16px 16px 0 0;
+  transition: height 280ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.learn-card:hover {
+  border-color: var(--card-accent, var(--accent));
+  box-shadow: 0 8px 32px oklch(from var(--card-accent, var(--accent)) l c h / 0.12);
+  transform: translateY(-2px);
+}
+.learn-card:hover::before {
+  height: 6px;
+}
+.learn-card-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
-  border-radius: 50%;
-  border: 1.5px solid var(--border);
-  background: var(--surface-1);
-  color: var(--text-2);
-  font-size: 0.7rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 180ms cubic-bezier(0.16, 1, 0.3, 1);
+  font-size: 1.75rem;
   flex-shrink: 0;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  margin-bottom: var(--space-2);
 }
-.category-info-btn:hover {
-  background: var(--accent);
+.learn-card-name {
+  font-family: 'Instrument Serif', serif;
+  font-size: var(--text-xl);
+  color: var(--text-1);
+  line-height: 1.2;
+}
+.learn-card-tagline {
+  font-size: var(--text-sm);
+  color: var(--text-2);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+.learn-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: var(--space-3);
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--border);
+}
+.learn-card-count {
+  font-size: var(--text-xs);
+  color: var(--text-3);
+  font-weight: 500;
+}
+.learn-card-arrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--card-accent, var(--accent));
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: gap 180ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.learn-card:hover .learn-card-arrow {
+  gap: var(--space-3);
+}
+.learn-card-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+}
+.learn-card-example-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  font-weight: 700;
   color: white;
-  border-color: var(--accent);
-  transform: scale(1.1);
+  border: 2px solid var(--surface-0);
+  margin-left: -6px;
+}
+.learn-card-example-dot:first-child {
+  margin-left: 0;
+}
+@media (max-width: 640px) {
+  .learn-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-4);
+  }
+  .learn-card {
+    padding: var(--space-6) var(--space-4) var(--space-4);
+  }
 }
 .category-examples-grid {
   display: flex;
@@ -2240,6 +2333,7 @@
 
           <ul class="nav-links" id="nav-links-list" role="list">
             <li><a href="#cryptos" data-i18n="nav.cryptos">All Cryptos</a></li>
+            <li><a href="#learn" data-i18n="nav.learn">Learn</a></li>
             <li><a href="#featured" data-i18n="nav.featured">Crypto of the Week</a></li>
             <li><a href="#about" data-i18n="nav.about">About</a></li>
             <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
@@ -2341,38 +2435,14 @@
             <button class="filter-btn active" data-filter="all" onclick="filterCards('all', this)">
               <span data-i18n="filter.all">All</span>
             </button>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Digital Gold" onclick="filterCards('Digital Gold', this)">Digital Gold</button>
-              <button class="category-info-btn" onclick="openCategory('digital-gold')" title="What is Digital Gold?" aria-label="Learn about Digital Gold">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Smart Contracts" onclick="filterCards('Smart Contracts', this)">Smart Contracts</button>
-              <button class="category-info-btn" onclick="openCategory('smart-contracts')" title="What are Smart Contracts?" aria-label="Learn about Smart Contracts">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Layer 1" onclick="filterCards('Layer 1', this)">Layer 1</button>
-              <button class="category-info-btn" onclick="openCategory('layer-1')" title="What is a Layer 1?" aria-label="Learn about Layer 1">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Oracle Network" onclick="filterCards('Oracle Network', this)">Oracle</button>
-              <button class="category-info-btn" onclick="openCategory('oracle-network')" title="What is an Oracle Network?" aria-label="Learn about Oracle Networks">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="DeFi Lending" onclick="filterCards('DeFi Lending', this)">DeFi</button>
-              <button class="category-info-btn" onclick="openCategory('defi-lending')" title="What is DeFi Lending?" aria-label="Learn about DeFi Lending">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Exchange Token" onclick="filterCards('Exchange Token', this)">Exchange</button>
-              <button class="category-info-btn" onclick="openCategory('exchange-token')" title="What is an Exchange Token?" aria-label="Learn about Exchange Tokens">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Cross-Border Payments" onclick="filterCards('Cross-Border Payments', this)">Payment</button>
-              <button class="category-info-btn" onclick="openCategory('cross-border-payments')" title="What are Cross-Border Payments?" aria-label="Learn about Cross-Border Payments">?</button>
-            </span>
-            <span class="filter-btn-wrap">
-              <button class="filter-btn" data-filter="Stablecoin" onclick="filterCards('Stablecoin', this)">Stablecoin</button>
-              <button class="category-info-btn" onclick="openCategory('stablecoin')" title="What is a Stablecoin?" aria-label="Learn about Stablecoins">?</button>
-            </span>
+            <button class="filter-btn" data-filter="Digital Gold" onclick="filterCards('Digital Gold', this)">Digital Gold</button>
+            <button class="filter-btn" data-filter="Smart Contracts" onclick="filterCards('Smart Contracts', this)">Smart Contracts</button>
+            <button class="filter-btn" data-filter="Layer 1" onclick="filterCards('Layer 1', this)">Layer 1</button>
+            <button class="filter-btn" data-filter="Oracle Network" onclick="filterCards('Oracle Network', this)">Oracle</button>
+            <button class="filter-btn" data-filter="DeFi Lending" onclick="filterCards('DeFi Lending', this)">DeFi</button>
+            <button class="filter-btn" data-filter="Exchange Token" onclick="filterCards('Exchange Token', this)">Exchange</button>
+            <button class="filter-btn" data-filter="Cross-Border Payments" onclick="filterCards('Cross-Border Payments', this)">Payment</button>
+            <button class="filter-btn" data-filter="Stablecoin" onclick="filterCards('Stablecoin', this)">Stablecoin</button>
           </div>
 
           <div class="cards-grid" id="cards-grid" role="list" aria-label="Cryptocurrency profiles">
@@ -2385,6 +2455,20 @@
       <section id="featured" class="section featured-section" aria-labelledby="featured-heading">
         <div class="container">
           <div id="featured-inner" class="featured-inner">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+      </section>
+
+      <!-- ========== LEARN / CATEGORY GUIDES ========== -->
+      <section id="learn" class="section learn-section" aria-labelledby="learn-heading">
+        <div class="container">
+          <div class="section-header">
+            <div class="section-eyebrow" data-i18n="learn.eyebrow">Learn the Basics</div>
+            <h2 class="section-title" id="learn-heading" data-i18n="learn.title">Understand crypto categories</h2>
+            <p class="section-subtitle" data-i18n="learn.sub">Before diving into individual cryptos, understand the different types that exist. Each guide explains a category in plain language.</p>
+          </div>
+          <div class="learn-grid" id="learn-grid">
             <!-- Populated by JS -->
           </div>
         </div>
@@ -3491,6 +3575,12 @@
         'category.verdict': 'Why it matters',
         'category.examples': 'Notable projects in this category',
         'category.learn': 'What is this?',
+        'nav.learn': 'Learn',
+        'learn.eyebrow': 'Learn the Basics',
+        'learn.title': 'Understand crypto categories',
+        'learn.sub': 'Before diving into individual cryptos, understand the different types that exist. Each guide explains a category in plain language.',
+        'learn.read': 'Read guide',
+        'learn.cryptos_count': '{n} cryptos on the site',
         'ticker.news': 'News'
       },
       fr: {
@@ -3579,6 +3669,12 @@
         'category.verdict': 'Pourquoi c\'est important',
         'category.examples': 'Projets notables dans cette catégorie',
         'category.learn': 'C\'est quoi ?',
+        'nav.learn': 'Apprendre',
+        'learn.eyebrow': 'Les bases',
+        'learn.title': 'Comprendre les catégories crypto',
+        'learn.sub': 'Avant de plonger dans les cryptos individuelles, comprenez les différents types qui existent. Chaque guide explique une catégorie en langage simple.',
+        'learn.read': 'Lire le guide',
+        'learn.cryptos_count': '{n} cryptos sur le site',
         'ticker.news': 'Actualités'
       }
     };
@@ -3680,6 +3776,8 @@
       renderCards();
       // Build featured
       renderFeatured();
+      // Build learn page
+      renderLearn();
       // Apply i18n
       applyI18n();
       // Schema.org
@@ -3808,6 +3906,7 @@
       applyI18n();
       renderCards();
       renderFeatured();
+      renderLearn();
     }
 
     function t(key) {
@@ -3965,6 +4064,41 @@
             '<button onclick="openArticle(' + article.id + ')" class="btn btn-primary">' + t('featured.cta') + ' →</button>' +
           '</div>' +
         '</div>';
+    }
+
+    /* ==========================================
+       LEARN PAGE — CATEGORY CARDS
+       ========================================== */
+    function renderLearn() {
+      var grid = document.getElementById('learn-grid');
+      if (!grid) return;
+      grid.innerHTML = CATEGORIES.map(function(cat) {
+        var data = cat[currentLang];
+        // Count how many published articles match this category
+        var matchCount = ARTICLES.filter(function(a) {
+          return a.status === 'published' && a.category === cat.name;
+        }).length;
+        // Get first 4 matching article colors for the dot row
+        var matchingArticles = ARTICLES.filter(function(a) {
+          return a.status === 'published' && a.category === cat.name;
+        }).slice(0, 4);
+        var dotsHtml = matchingArticles.map(function(a) {
+          return '<span class="learn-card-example-dot" style="background:' + a.color + '" title="' + a[currentLang].name + '">' + a.symbol + '</span>';
+        }).join('');
+        var countText = t('learn.cryptos_count').replace('{n}', matchCount);
+        return '<div class="learn-card" onclick="openCategory(\'' + cat.slug + '\')" style="--card-accent:' + cat.color + '" role="button" tabindex="0" aria-label="' + cat.name + ' guide">' +
+          '<div class="learn-card-icon" style="background:linear-gradient(135deg,' + cat.color + ',color-mix(in oklab,' + cat.color + ' 60%,#000))">' + cat.icon + '</div>' +
+          '<div class="learn-card-name">' + cat.name + '</div>' +
+          '<div class="learn-card-tagline">' + data.tagline + '</div>' +
+          '<div class="learn-card-meta">' +
+            '<div style="display:flex;align-items:center;gap:var(--space-3);">' +
+              (dotsHtml ? '<div class="learn-card-examples">' + dotsHtml + '</div>' : '') +
+              '<span class="learn-card-count">' + countText + '</span>' +
+            '</div>' +
+            '<div class="learn-card-arrow">' + t('learn.read') + ' <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>' +
+          '</div>' +
+        '</div>';
+      }).join('');
     }
 
     /* ==========================================
