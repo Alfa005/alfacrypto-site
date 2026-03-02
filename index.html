@@ -1797,6 +1797,136 @@
       margin-bottom: var(--space-5);
     }
 
+
+    /* ============ ADOPTERS SECTION ============ */
+    .adopters-divider {
+      height: 1px;
+      background: var(--color-divider);
+      margin: var(--space-8) 0 var(--space-6);
+    }
+    .adopters-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .adopter-card {
+      background: var(--color-surface-offset);
+      border: 1px solid var(--color-divider);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      transition: border-color var(--transition-interactive), box-shadow var(--transition-interactive);
+    }
+    .adopter-card:hover {
+      border-color: var(--color-primary-highlight);
+      box-shadow: var(--shadow-sm);
+    }
+    .adopter-card-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+      flex-wrap: wrap;
+    }
+    .adopter-icon {
+      font-size: 1.25rem;
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .adopter-name {
+      font-weight: 700;
+      font-size: var(--text-sm);
+      color: var(--color-text);
+    }
+    .adopter-type-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .adopter-type-government { background: var(--color-primary-highlight); color: var(--color-primary-active); }
+    .adopter-type-company { background: var(--color-blue-highlight); color: var(--color-blue-hover); }
+    .adopter-type-startup { background: var(--color-warning-highlight); color: var(--color-warning); }
+    .adopter-type-organization { background: var(--color-error-highlight); color: var(--color-error); }
+    .adopter-type-ngo { background: var(--color-error-highlight); color: var(--color-error); }
+    .adopter-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+    }
+
+    /* ============ NEWS SECTION ============ */
+    .news-divider {
+      height: 1px;
+      background: var(--color-divider);
+      margin: var(--space-8) 0 var(--space-6);
+    }
+    .news-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .news-item {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-1);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      transition: background var(--transition-interactive);
+    }
+    .news-item:hover {
+      background: var(--color-surface-offset);
+    }
+    .news-item-source {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--color-primary);
+    }
+    .news-item-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+      text-decoration: none;
+      transition: color var(--transition-interactive);
+    }
+    .news-item-title:hover {
+      color: var(--color-primary);
+    }
+    .news-item-time {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+    .news-skeleton {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    .news-skeleton-bar {
+      height: 16px;
+      border-radius: var(--radius-sm);
+      background: var(--color-surface-dynamic);
+      animation: news-pulse 1.5s ease-in-out infinite;
+    }
+    .news-skeleton-bar:nth-child(1) { width: 90%; }
+    .news-skeleton-bar:nth-child(2) { width: 75%; animation-delay: 0.2s; }
+    .news-skeleton-bar:nth-child(3) { width: 60%; animation-delay: 0.4s; }
+    @keyframes news-pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 0.8; }
+    }
+    .news-empty {
+      font-size: var(--text-sm);
+      color: var(--color-text-faint);
+      font-style: italic;
+      padding: var(--space-3) 0;
+    }
+
     /* ============ RESPONSIVE ============ */
     @media (max-width: 479px) {
       .cards-grid { grid-template-columns: 1fr; }
@@ -2344,6 +2474,7 @@
         related: ['Ethereum', 'Litecoin', 'Bitcoin Cash'],
         videoUrl: 'bitcoin-explained.mp4',
         videoPoster: '',
+        newsQuery: 'bitcoin',
         companies: [
           { name: 'Microsoft', how: { en: 'Accepts BTC for Xbox games, apps, and subscriptions via BitPay.', fr: 'Accepte le BTC pour les jeux Xbox, applications et abonnements via BitPay.' }, color: '#00A4EF' },
           { name: 'PayPal', how: { en: 'Lets users buy, hold, sell, and pay with Bitcoin directly in the app.', fr: 'Permet aux utilisateurs d\'acheter, détenir, vendre et payer en Bitcoin directement dans l\'app.' }, color: '#003087' },
@@ -2357,6 +2488,14 @@
           { date: '2025-04', text: { en: 'The fourth Bitcoin halving reduces block rewards to 3.125 BTC.', fr: 'Le quatrième halving du Bitcoin réduit les récompenses de bloc à 3,125 BTC.' } },
           { date: '2025-12', text: { en: 'Bitcoin crosses $100,000 for the first time amid institutional demand.', fr: 'Le Bitcoin franchit les 100 000 $ pour la première fois grâce à la demande institutionnelle.' } },
           { date: '2026-01', text: { en: 'SEC approves 5 new Bitcoin ETF products, expanding investor access.', fr: 'La SEC approuve 5 nouveaux produits ETF Bitcoin, élargissant l\'accès aux investisseurs.' } }
+        ],
+        adopters: [
+          { name: 'El Salvador', type: 'government', icon: '🏛️', description: { en: 'First country to make Bitcoin legal tender in 2021. Citizens use it for everyday payments, remittances, and the government buys 1 BTC daily. The country\'s Chivo wallet lets anyone send or receive Bitcoin instantly.', fr: 'Premier pays \u00e0 faire du Bitcoin une monnaie l\u00e9gale en 2021. Les citoyens l\'utilisent pour les paiements quotidiens, les transferts d\'argent, et le gouvernement ach\u00e8te 1 BTC par jour. Le portefeuille Chivo permet \u00e0 quiconque d\'envoyer ou recevoir du Bitcoin instantan\u00e9ment.' } },
+          { name: 'United States', type: 'government', icon: '🏛️', description: { en: 'Established a Strategic Bitcoin Reserve in 2025, holding ~328,000 BTC. Several states like Texas are creating their own local reserves, signaling Bitcoin as a national diversification asset.', fr: 'A \u00e9tabli une R\u00e9serve Strat\u00e9gique de Bitcoin en 2025, d\u00e9tenant environ 328 000 BTC. Plusieurs \u00c9tats comme le Texas cr\u00e9ent leurs propres r\u00e9serves locales, signalant le Bitcoin comme un actif de diversification nationale.' } },
+          { name: 'Bhutan', type: 'government', icon: '🏛️', description: { en: 'Uses hydroelectric power to mine Bitcoin as part of its sovereign investment strategy. Holds ~11,000 BTC and uses proceeds to fund environmental and social projects.', fr: 'Utilise l\'\u00e9nergie hydro\u00e9lectrique pour miner du Bitcoin dans le cadre de sa strat\u00e9gie d\'investissement souverain. D\u00e9tient environ 11 000 BTC et utilise les revenus pour financer des projets environnementaux et sociaux.' } },
+          { name: 'Strike', type: 'startup', icon: '🚀', description: { en: 'A fintech startup enabling instant Bitcoin-powered payments worldwide. Used widely for cross-border remittances in Latin America and Africa at near-zero fees.', fr: 'Une startup fintech permettant des paiements instantan\u00e9s aliment\u00e9s par Bitcoin dans le monde entier. Largement utilis\u00e9e pour les transferts transfrontaliers en Am\u00e9rique latine et en Afrique \u00e0 des frais quasi nuls.' } },
+          { name: 'MicroStrategy', type: 'company', icon: '🏢', description: { en: 'The largest corporate Bitcoin holder, with 190,000+ BTC on its balance sheet. Pioneered the corporate treasury strategy that many companies now follow.', fr: 'Le plus grand d\u00e9tenteur corporatif de Bitcoin, avec plus de 190 000 BTC dans son bilan. A \u00e9t\u00e9 pionnier de la strat\u00e9gie de tr\u00e9sorerie d\'entreprise que de nombreuses entreprises suivent d\u00e9sormais.' } },
+          { name: 'Bitcoin Beach (El Zonte)', type: 'organization', icon: '🌍', description: { en: 'A grassroots community project in El Salvador that proved Bitcoin could work as everyday money before the government adopted it. Inspired similar projects worldwide.', fr: 'Un projet communautaire de base au Salvador qui a prouv\u00e9 que le Bitcoin pouvait fonctionner comme monnaie du quotidien avant que le gouvernement ne l\'adopte. A inspir\u00e9 des projets similaires dans le monde entier.' } }
         ],
         en: {
           name: 'Bitcoin',
@@ -2396,6 +2535,7 @@
         related: ['Bitcoin', 'Solana', 'Polygon'],
         videoUrl: 'ethereum-explained.mp4',
         videoPoster: '',
+        newsQuery: 'ethereum',
         companies: [
           { name: 'BlackRock', how: { en: 'Launched the BUIDL fund — a tokenized money market fund on Ethereum.', fr: 'A lancé le fonds BUIDL — un fonds monétaire tokenisé sur Ethereum.' }, color: '#000000' },
           { name: 'JPMorgan', how: { en: 'Built Onyx platform using an Ethereum-based private chain for institutional payments.', fr: 'A créé la plateforme Onyx utilisant une chaîne privée basée sur Ethereum pour les paiements institutionnels.' }, color: '#003A70' },
@@ -2409,6 +2549,14 @@
           { date: '2024-05', text: { en: 'SEC approves Ethereum spot ETFs, a landmark for institutional adoption.', fr: 'La SEC approuve les ETF Ethereum spot, une étape clé pour l\'adoption institutionnelle.' } },
           { date: '2025-03', text: { en: 'Pectra upgrade planned to improve staking, wallets, and scalability.', fr: 'Mise à jour Pectra prévue pour améliorer le staking, les portefeuilles et la scalabilité.' } },
           { date: '2025-09', text: { en: 'Ethereum Layer 2 ecosystem processes more transactions than the mainnet.', fr: 'L\'écosystème Layer 2 d\'Ethereum traite plus de transactions que le réseau principal.' } }
+        ],
+        adopters: [
+          { name: 'European Investment Bank (EIB)', type: 'government', icon: '🏛️', description: { en: 'Issued a \u20ac100 million digital bond on the Ethereum blockchain, the first EU institution to use a public blockchain for official financial instruments.', fr: 'A \u00e9mis une obligation num\u00e9rique de 100 millions d\'euros sur la blockchain Ethereum, la premi\u00e8re institution de l\'UE \u00e0 utiliser une blockchain publique pour des instruments financiers officiels.' } },
+          { name: 'BlackRock', type: 'company', icon: '🏢', description: { en: 'Launched the BUIDL tokenized fund on Ethereum, managing over $500 million in tokenized treasuries. The world\'s largest asset manager chose Ethereum for real-world asset tokenization.', fr: 'A lanc\u00e9 le fonds tokenis\u00e9 BUIDL sur Ethereum, g\u00e9rant plus de 500 millions de dollars en tr\u00e9soreries tokenis\u00e9es. Le plus grand gestionnaire d\'actifs au monde a choisi Ethereum pour la tokenisation d\'actifs r\u00e9els.' } },
+          { name: 'Uniswap', type: 'startup', icon: '🚀', description: { en: 'A decentralized exchange that processes billions in trades with no central operator. Anyone can swap tokens or earn fees by providing liquidity \u2014 all powered by Ethereum smart contracts.', fr: 'Un \u00e9change d\u00e9centralis\u00e9 qui traite des milliards en transactions sans op\u00e9rateur central. N\'importe qui peut \u00e9changer des tokens ou gagner des frais en fournissant de la liquidit\u00e9 \u2014 le tout aliment\u00e9 par les contrats intelligents Ethereum.' } },
+          { name: 'JPMorgan (Onyx)', type: 'company', icon: '🏢', description: { en: 'Built Onyx, a private Ethereum-based network for institutional payments and settlements. Processes billions in repo transactions daily for major banks.', fr: 'A construit Onyx, un r\u00e9seau priv\u00e9 bas\u00e9 sur Ethereum pour les paiements et r\u00e8glements institutionnels. Traite des milliards en transactions repo quotidiennement pour les grandes banques.' } },
+          { name: 'Republic of Palau', type: 'government', icon: '🏛️', description: { en: 'Exploring digital national ID on Ethereum. The Pacific island nation is testing blockchain-based identity and residency programs for global citizens.', fr: 'Explore l\'identit\u00e9 nationale num\u00e9rique sur Ethereum. La nation insulaire du Pacifique teste des programmes d\'identit\u00e9 et de r\u00e9sidence bas\u00e9s sur la blockchain pour les citoyens du monde.' } },
+          { name: 'UNICEF Crypto Fund', type: 'organization', icon: '🌍', description: { en: 'UNICEF accepts and distributes Ethereum to fund open-source technology projects benefiting children. One of the first UN agencies to hold and transact in crypto directly.', fr: 'L\'UNICEF accepte et distribue de l\'Ethereum pour financer des projets technologiques open source b\u00e9n\u00e9ficiant aux enfants. L\'une des premi\u00e8res agences de l\'ONU \u00e0 d\u00e9tenir et \u00e0 effectuer des transactions en crypto directement.' } }
         ],
         en: {
           name: 'Ethereum',
@@ -2448,6 +2596,7 @@
         related: ['Ethereum', 'Avalanche', 'Near Protocol'],
         videoUrl: 'solana-explained.mp4',
         videoPoster: '',
+        newsQuery: 'solana',
         companies: [
           { name: 'Visa', how: { en: 'Uses Solana for USDC stablecoin settlement, processing real-time payments.', fr: 'Utilise Solana pour le règlement en stablecoin USDC, traitant des paiements en temps réel.' }, color: '#1A1F71' },
           { name: 'Shopify', how: { en: 'Integrated Solana Pay for merchants to accept crypto payments at checkout.', fr: 'A intégré Solana Pay pour permettre aux marchands d\'accepter les paiements crypto.' }, color: '#96BF48' },
@@ -2461,6 +2610,14 @@
           { date: '2024-10', text: { en: 'Firedancer validator client launches, boosting network resilience and speed.', fr: 'Le client validateur Firedancer est lancé, renforçant la résilience et la vitesse du réseau.' } },
           { date: '2025-06', text: { en: 'CME Group launches Solana futures, signaling institutional interest.', fr: 'Le CME Group lance des contrats à terme sur Solana, signalant l\'intérêt institutionnel.' } },
           { date: '2025-11', text: { en: 'Solana mobile app ecosystem grows 300% year-over-year.', fr: 'L\'écosystème d\'applications mobiles Solana croît de 300% en glissement annuel.' } }
+        ],
+        adopters: [
+          { name: 'Visa', type: 'company', icon: '🏢', description: { en: 'Uses Solana for real-time USDC stablecoin settlement. The payments giant chose Solana for its speed and low cost to process merchant payments globally.', fr: 'Utilise Solana pour le r\u00e8glement en temps r\u00e9el du stablecoin USDC. Le g\u00e9ant des paiements a choisi Solana pour sa rapidit\u00e9 et son faible co\u00fbt pour traiter les paiements des marchands dans le monde entier.' } },
+          { name: 'Kazakhstan', type: 'government', icon: '🏛️', description: { en: 'Establishing Solana economic zones with government backing, recognizing the network as a compliant digital asset jurisdiction for innovation and investment.', fr: '\u00c9tablit des zones \u00e9conomiques Solana avec le soutien du gouvernement, reconnaissant le r\u00e9seau comme une juridiction d\'actifs num\u00e9riques conforme pour l\'innovation et l\'investissement.' } },
+          { name: 'Bhutan (DK Bank)', type: 'government', icon: '🏛️', description: { en: 'The Royal Government of Bhutan tokenized its sovereign gold reserves on Solana via DK Bank, creating a gold-backed token ($TER) \u2014 a government-to-blockchain first.', fr: 'Le gouvernement royal du Bhoutan a tokenis\u00e9 ses r\u00e9serves d\'or souveraines sur Solana via DK Bank, cr\u00e9ant un token adoss\u00e9 \u00e0 l\'or ($TER) \u2014 une premi\u00e8re gouvernement-blockchain.' } },
+          { name: 'Helium', type: 'startup', icon: '🚀', description: { en: 'A decentralized wireless network that migrated to Solana. Hundreds of thousands of user-operated hotspots provide IoT and 5G coverage, with Solana handling the reward payments.', fr: 'Un r\u00e9seau sans fil d\u00e9centralis\u00e9 qui a migr\u00e9 vers Solana. Des centaines de milliers de points d\'acc\u00e8s op\u00e9r\u00e9s par les utilisateurs fournissent une couverture IoT et 5G, avec Solana g\u00e9rant les paiements de r\u00e9compenses.' } },
+          { name: 'Shopify', type: 'company', icon: '🏢', description: { en: 'Integrated Solana Pay so merchants can accept crypto at checkout. Millions of online stores now have the option to accept Solana-based payments instantly.', fr: 'A int\u00e9gr\u00e9 Solana Pay pour que les marchands puissent accepter la crypto au moment du paiement. Des millions de boutiques en ligne ont d\u00e9sormais la possibilit\u00e9 d\'accepter les paiements Solana instantan\u00e9ment.' } },
+          { name: 'Western Union', type: 'company', icon: '🏢', description: { en: 'Partnered with Solana to develop blockchain-powered cross-border remittances. If fully adopted, this could channel billions in global transfers through Solana\'s network.', fr: 'S\'est associ\u00e9 \u00e0 Solana pour d\u00e9velopper des transferts transfrontaliers aliment\u00e9s par la blockchain. Si pleinement adopt\u00e9, cela pourrait canaliser des milliards de transferts mondiaux via le r\u00e9seau Solana.' } }
         ],
         en: {
           name: 'Solana',
@@ -2500,6 +2657,7 @@
         related: ['Ethereum', 'Aave', 'Solana'],
         videoUrl: 'chainlink-explained.mp4',
         videoPoster: '',
+        newsQuery: 'chainlink',
         companies: [
           { name: 'Aave', how: { en: 'Uses Chainlink Price Feeds to power its lending and borrowing platform with accurate asset prices.', fr: 'Utilise les flux de prix Chainlink pour alimenter sa plateforme de prêt avec des prix d\'actifs précis.' }, color: '#B6509E' },
           { name: 'Google Cloud', how: { en: 'Runs a Chainlink oracle node, providing real-world data from Google\'s infrastructure to smart contracts.', fr: 'Fait tourner un nœud oracle Chainlink, fournissant des données du monde réel depuis l\'infrastructure Google aux contrats intelligents.' }, color: '#4285F4' },
@@ -2512,6 +2670,14 @@
           { date: '2025-03', text: { en: 'SWIFT completes successful multi-bank pilot using Chainlink for tokenized asset settlement.', fr: 'SWIFT termine avec succès un pilote multi-banques utilisant Chainlink pour le règlement d\'actifs tokenisés.' } },
           { date: '2025-09', text: { en: 'Chainlink launches staking v2.1, expanding rewards to more node operators.', fr: 'Chainlink lance le staking v2.1, élargissant les récompenses à plus d\'opérateurs de nœuds.' } },
           { date: '2026-01', text: { en: 'Over 1,200 data feeds now live across 15 blockchains, making Chainlink the most widely adopted oracle.', fr: 'Plus de 1 200 flux de données actifs sur 15 blockchains, faisant de Chainlink l\'oracle le plus adopté.' } }
+        ],
+        adopters: [
+          { name: 'SWIFT', type: 'organization', icon: '🏦', description: { en: 'The global bank messaging network tested Chainlink CCIP for cross-chain transfers between banks, connecting $150 trillion in traditional finance to blockchain.', fr: 'Le r\u00e9seau de messagerie bancaire mondial a test\u00e9 Chainlink CCIP pour les transferts inter-cha\u00eenes entre banques, connectant 150 000 milliards de dollars de finance traditionnelle \u00e0 la blockchain.' } },
+          { name: 'Google Cloud', type: 'company', icon: '🏢', description: { en: 'Runs a Chainlink oracle node, feeding Google\'s data infrastructure directly to smart contracts on multiple blockchains.', fr: 'Fait tourner un n\u0153ud oracle Chainlink, alimentant l\'infrastructure de donn\u00e9es de Google directement vers les contrats intelligents sur plusieurs blockchains.' } },
+          { name: 'Associated Press (AP)', type: 'company', icon: '🏢', description: { en: 'Publishes verified election results and economic data on-chain through Chainlink, ensuring tamper-proof access to real-world facts for smart contracts.', fr: 'Publie des r\u00e9sultats \u00e9lectoraux v\u00e9rifi\u00e9s et des donn\u00e9es \u00e9conomiques on-chain via Chainlink, garantissant un acc\u00e8s infalsifiable aux faits du monde r\u00e9el pour les contrats intelligents.' } },
+          { name: 'Aave', type: 'startup', icon: '🚀', description: { en: 'The largest DeFi lending platform relies on Chainlink price feeds to set accurate interest rates and liquidation thresholds for billions in crypto loans.', fr: 'La plus grande plateforme de pr\u00eat DeFi s\'appuie sur les flux de prix Chainlink pour fixer des taux d\'int\u00e9r\u00eat pr\u00e9cis et des seuils de liquidation pour des milliards de pr\u00eats crypto.' } },
+          { name: 'AccuWeather', type: 'company', icon: '🏢', description: { en: 'Delivers real-time weather data on-chain through Chainlink nodes, enabling insurance smart contracts to automatically pay claims based on verified conditions.', fr: 'Fournit des donn\u00e9es m\u00e9t\u00e9o en temps r\u00e9el on-chain via les n\u0153uds Chainlink, permettant aux contrats intelligents d\'assurance de payer automatiquement les r\u00e9clamations bas\u00e9es sur des conditions v\u00e9rifi\u00e9es.' } },
+          { name: 'Monetary Authority of Singapore', type: 'government', icon: '🏛️', description: { en: 'Participated in Project Guardian, using Chainlink for cross-border DeFi pilot testing institutional-grade tokenized asset settlements.', fr: 'A particip\u00e9 au Project Guardian, utilisant Chainlink pour des tests pilotes DeFi transfrontaliers de r\u00e8glements d\'actifs tokenis\u00e9s de grade institutionnel.' } }
         ],
         en: {
           name: 'Chainlink',
@@ -2551,6 +2717,7 @@
         related: ['Ethereum', 'Chainlink', 'Uniswap'],
         videoUrl: 'aave-explained.mp4',
         videoPoster: '',
+        newsQuery: 'aave+defi',
         companies: [
           { name: 'MetaMask', how: { en: 'Powers its Stablecoin Earn program through Aave, letting wallet users earn yield automatically.', fr: 'Alimente son programme Stablecoin Earn via Aave, permettant aux utilisateurs de portefeuilles de gagner des rendements automatiquement.' }, color: '#F6851B' },
           { name: 'Ledger', how: { en: 'Integrated Aave directly into its hardware wallet app for secure DeFi lending.', fr: 'A intégré Aave directement dans son application de portefeuille matériel pour le prêt DeFi sécurisé.' }, color: '#000000' },
@@ -2563,6 +2730,14 @@
           { date: '2025-08', text: { en: 'Aave Horizon launches with BlackRock, Ripple, and other institutional partners for RWA lending.', fr: 'Aave Horizon se lance avec BlackRock, Ripple et d\'autres partenaires institutionnels pour le prêt d\'actifs réels.' } },
           { date: '2025-12', text: { en: 'Aave V4 launches on testnet with new Hub and Spoke architecture.', fr: 'Aave V4 se lance sur testnet avec une nouvelle architecture Hub and Spoke.' } },
           { date: '2026-01', text: { en: 'Aave\'s share of total DeFi TVL climbs to 29%, up from 17% a year earlier.', fr: 'La part d\'Aave dans la TVL DeFi totale grimpe à 29%, contre 17% un an plus tôt.' } }
+        ],
+        adopters: [
+          { name: 'Avara (formerly Aave Companies)', type: 'company', icon: '🏢', description: { en: 'The parent company behind Aave protocol, managing one of the largest DeFi platforms with $15B+ in deposits across multiple blockchains.', fr: 'La soci\u00e9t\u00e9 m\u00e8re derri\u00e8re le protocole Aave, g\u00e9rant l\'une des plus grandes plateformes DeFi avec plus de 15 milliards de dollars de d\u00e9p\u00f4ts sur plusieurs blockchains.' } },
+          { name: 'Singapore (GovTech)', type: 'government', icon: '🏛️', description: { en: 'Singapore\'s government technology agency has studied Aave\'s protocol as part of broader DeFi research under Project Guardian for institutional lending.', fr: 'L\'agence technologique gouvernementale de Singapour a \u00e9tudi\u00e9 le protocole Aave dans le cadre de recherches DeFi plus larges sous le Project Guardian pour le pr\u00eat institutionnel.' } },
+          { name: 'Instadapp', type: 'startup', icon: '🚀', description: { en: 'A DeFi management platform built on top of Aave, letting users optimize yields and manage positions across lending protocols with one interface.', fr: 'Une plateforme de gestion DeFi construite sur Aave, permettant aux utilisateurs d\'optimiser les rendements et de g\u00e9rer les positions sur les protocoles de pr\u00eat avec une seule interface.' } },
+          { name: 'Balancer', type: 'company', icon: '🏢', description: { en: 'Integrates with Aave to offer boosted pools where idle liquidity earns lending yield automatically, maximizing returns for liquidity providers.', fr: 'S\'int\u00e8gre \u00e0 Aave pour offrir des pools boostees o\u00f9 la liquidit\u00e9 inactive g\u00e9n\u00e8re automatiquement des rendements de pr\u00eat, maximisant les retours pour les fournisseurs de liquidit\u00e9.' } },
+          { name: 'Aave Grants DAO', type: 'organization', icon: '🌍', description: { en: 'A community-governed fund that distributes grants to developers building on Aave, supporting hundreds of open-source projects worldwide.', fr: 'Un fonds gouvern\u00e9 par la communaut\u00e9 qui distribue des subventions aux d\u00e9veloppeurs construisant sur Aave, soutenant des centaines de projets open source dans le monde entier.' } },
+          { name: 'Lens Protocol', type: 'company', icon: '🏢', description: { en: 'Built by the Aave team, Lens is a decentralized social media protocol on Polygon, showing how DeFi innovation extends beyond finance.', fr: 'Construit par l\'\u00e9quipe Aave, Lens est un protocole de m\u00e9dias sociaux d\u00e9centralis\u00e9 sur Polygon, montrant comment l\'innovation DeFi s\'\u00e9tend au-del\u00e0 de la finance.' } }
         ],
         en: {
           name: 'Aave',
@@ -2602,6 +2777,7 @@
         related: ['Ethereum', 'Solana', 'Cronos'],
         videoUrl: 'bnb-explained.mp4',
         videoPoster: '',
+        newsQuery: 'bnb+binance',
         companies: [
           { name: 'BlackRock', how: { en: 'Tokenized its BUIDL money market fund on BNB Chain for institutional access.', fr: 'A tokenisé son fonds monétaire BUIDL sur BNB Chain pour l\'accès institutionnel.' }, color: '#000000' },
           { name: 'Circle', how: { en: 'Deployed USDC stablecoin on BNB Chain, enabling fast and cheap dollar-pegged transactions.', fr: 'A déployé le stablecoin USDC sur BNB Chain, permettant des transactions rapides et peu coûteuses indexées au dollar.' }, color: '#2775CA' },
@@ -2614,6 +2790,14 @@
           { date: '2025-05', text: { en: 'BlackRock and Franklin Templeton deploy tokenized funds on BNB Chain.', fr: 'BlackRock et Franklin Templeton déploient des fonds tokenisés sur BNB Chain.' } },
           { date: '2025-09', text: { en: 'BNB Chain processes over 30 million daily transactions consistently.', fr: 'BNB Chain traite plus de 30 millions de transactions quotidiennes de manière constante.' } },
           { date: '2026-01', text: { en: 'BNB Chain expected to introduce zero-knowledge privacy features for institutions.', fr: 'BNB Chain devrait introduire des fonctionnalités de confidentialité zero-knowledge pour les institutions.' } }
+        ],
+        adopters: [
+          { name: 'Binance', type: 'company', icon: '🏢', description: { en: 'The world\'s largest crypto exchange uses BNB as its native utility token. BNB holders get trading fee discounts, and it powers the entire Binance ecosystem.', fr: 'La plus grande plateforme d\'\u00e9change crypto au monde utilise BNB comme token utilitaire natif. Les d\u00e9tenteurs de BNB b\u00e9n\u00e9ficient de r\u00e9ductions sur les frais de trading, et il alimente tout l\'\u00e9cosyst\u00e8me Binance.' } },
+          { name: 'Dubai (VARA)', type: 'government', icon: '🏛️', description: { en: 'Dubai\'s Virtual Assets Regulatory Authority works closely with Binance, which received a full operational license, making BNB part of Dubai\'s regulated crypto economy.', fr: 'L\'Autorit\u00e9 de R\u00e9gulation des Actifs Virtuels de Duba\u00ef travaille en \u00e9troite collaboration avec Binance, qui a re\u00e7u une licence op\u00e9rationnelle compl\u00e8te, faisant de BNB une partie de l\'\u00e9conomie crypto r\u00e9gul\u00e9e de Duba\u00ef.' } },
+          { name: 'PancakeSwap', type: 'startup', icon: '🚀', description: { en: 'The largest decentralized exchange on BNB Chain, handling billions in trades. Known for low fees and easy token swaps, it\'s the gateway for BNB Chain DeFi.', fr: 'Le plus grand \u00e9change d\u00e9centralis\u00e9 sur BNB Chain, traitant des milliards en transactions. Connu pour ses faibles frais et ses \u00e9changes de tokens faciles, c\'est la porte d\'entr\u00e9e du DeFi BNB Chain.' } },
+          { name: 'Samsung', type: 'company', icon: '🏢', description: { en: 'Samsung\'s blockchain wallet and dApps integrate with BNB Chain, allowing millions of Galaxy phone users to access BNB-powered applications directly.', fr: 'Le portefeuille blockchain et les dApps de Samsung s\'int\u00e8grent \u00e0 BNB Chain, permettant \u00e0 des millions d\'utilisateurs de t\u00e9l\u00e9phones Galaxy d\'acc\u00e9der directement aux applications aliment\u00e9es par BNB.' } },
+          { name: 'Travala', type: 'company', icon: '🏢', description: { en: 'A crypto-friendly travel booking platform where BNB is one of the most popular payment methods for hotels, flights, and activities in 230+ countries.', fr: 'Une plateforme de r\u00e9servation de voyages crypto-friendly o\u00f9 BNB est l\'un des moyens de paiement les plus populaires pour les h\u00f4tels, vols et activit\u00e9s dans plus de 230 pays.' } },
+          { name: 'BNB Chain Kickstart', type: 'organization', icon: '🌍', description: { en: 'An accelerator program that has funded 1,500+ projects building on BNB Chain, from DeFi to gaming, supporting the next generation of Web3 startups.', fr: 'Un programme acc\u00e9l\u00e9rateur qui a financ\u00e9 plus de 1 500 projets construisant sur BNB Chain, du DeFi au gaming, soutenant la prochaine g\u00e9n\u00e9ration de startups Web3.' } }
         ],
         en: {
           name: 'BNB',
@@ -2653,6 +2837,7 @@
         related: ['Stellar', 'Bitcoin', 'USDT'],
         videoUrl: 'xrp-explained.mp4',
         videoPoster: '',
+        newsQuery: 'xrp+ripple',
         companies: [
           { name: 'Santander', how: { en: 'Uses RippleNet for international money transfers, reducing settlement from days to seconds.', fr: 'Utilise RippleNet pour les transferts d\'argent internationaux, réduisant le règlement de jours à secondes.' }, color: '#EC0000' },
           { name: 'SBI Holdings', how: { en: 'Japan\'s largest financial group processes billions in transactions through Ripple\'s network.', fr: 'Le plus grand groupe financier du Japon traite des milliards de transactions via le réseau Ripple.' }, color: '#0070C0' },
@@ -2665,6 +2850,14 @@
           { date: '2025-03', text: { en: 'Ripple\'s partnership network spans 300+ financial institutions across 40+ countries.', fr: 'Le réseau de partenariats de Ripple couvre plus de 300 institutions financières dans plus de 40 pays.' } },
           { date: '2025-11', text: { en: 'Ripple\'s valuation reaches $40 billion following a $500 million investment round.', fr: 'La valorisation de Ripple atteint 40 milliards de dollars après une levée de fonds de 500 millions.' } },
           { date: '2026-01', text: { en: 'RippleNet processes over $15 billion in monthly cross-border transactions.', fr: 'RippleNet traite plus de 15 milliards de dollars en transactions transfrontalières mensuelles.' } }
+        ],
+        adopters: [
+          { name: 'SBI Holdings', type: 'company', icon: '🏢', description: { en: 'Japan\'s largest financial group uses XRP for cross-border payments and has invested heavily in Ripple, making XRP a bridge currency for Asian remittances.', fr: 'Le plus grand groupe financier du Japon utilise XRP pour les paiements transfrontaliers et a investi massivement dans Ripple, faisant de XRP une devise de pont pour les transferts asiatiques.' } },
+          { name: 'Republic of Palau', type: 'government', icon: '🏛️', description: { en: 'Partnered with Ripple to explore a national stablecoin on the XRP Ledger for digital payments, potentially becoming one of the first Pacific nations with blockchain-based currency.', fr: 'S\'est associ\u00e9 \u00e0 Ripple pour explorer un stablecoin national sur le XRP Ledger pour les paiements num\u00e9riques, devenant potentiellement l\'une des premi\u00e8res nations du Pacifique avec une monnaie bas\u00e9e sur la blockchain.' } },
+          { name: 'Santander', type: 'company', icon: '🏢', description: { en: 'The multinational bank uses Ripple\'s technology (powered by XRP) for its One Pay FX service, enabling same-day international transfers for retail customers.', fr: 'La banque multinationale utilise la technologie de Ripple (aliment\u00e9e par XRP) pour son service One Pay FX, permettant des transferts internationaux le jour m\u00eame pour les clients particuliers.' } },
+          { name: 'Bitso', type: 'startup', icon: '🚀', description: { en: 'Latin America\'s largest crypto exchange uses XRP as a bridge asset for remittances between the US and Mexico, processing $2B+ in annual transfers.', fr: 'La plus grande plateforme crypto d\'Am\u00e9rique latine utilise XRP comme actif de pont pour les transferts entre les \u00c9tats-Unis et le Mexique, traitant plus de 2 milliards de dollars en transferts annuels.' } },
+          { name: 'MoneyGram', type: 'company', icon: '🏢', description: { en: 'Previously partnered with Ripple to use XRP for on-demand liquidity, demonstrating how crypto can speed up legacy money transfer rails.', fr: 'A pr\u00e9c\u00e9demment collabor\u00e9 avec Ripple pour utiliser XRP pour la liquidit\u00e9 \u00e0 la demande, d\u00e9montrant comment la crypto peut acc\u00e9l\u00e9rer les anciens rails de transfert d\'argent.' } },
+          { name: 'RippleX', type: 'organization', icon: '🌍', description: { en: 'Ripple\'s developer platform provides grants and tools to build on the XRP Ledger, supporting hundreds of financial applications and payment solutions.', fr: 'La plateforme d\u00e9veloppeur de Ripple fournit des subventions et des outils pour construire sur le XRP Ledger, soutenant des centaines d\'applications financi\u00e8res et de solutions de paiement.' } }
         ],
         en: {
           name: 'XRP',
@@ -2704,6 +2897,7 @@
         related: ['USDC', 'Bitcoin', 'Ethereum'],
         videoUrl: 'usdt-explained.mp4',
         videoPoster: '',
+        newsQuery: 'tether+usdt',
         companies: [
           { name: 'Binance', how: { en: 'USDT is the most traded pair on Binance, serving as the primary base currency for crypto trading.', fr: 'L\'USDT est la paire la plus échangée sur Binance, servant de devise de base principale pour le trading crypto.' }, color: '#F3BA2F' },
           { name: 'MoneyGram', how: { en: 'Uses USDT for international remittance services, enabling faster cross-border transfers.', fr: 'Utilise l\'USDT pour les services de transfert international, permettant des transferts transfrontaliers plus rapides.' }, color: '#FF6600' },
@@ -2716,6 +2910,14 @@
           { date: '2025-09', text: { en: 'Tether announces USAT — a new GENIUS Act-compliant stablecoin for the US market.', fr: 'Tether annonce USAT — un nouveau stablecoin conforme au GENIUS Act pour le marché américain.' } },
           { date: '2025-11', text: { en: 'USDT\'s global market share drops from 67% to 60% as USDC gains ground under new regulations.', fr: 'La part de marché mondiale de l\'USDT passe de 67% à 60% alors que l\'USDC gagne du terrain sous les nouvelles régulations.' } },
           { date: '2026-01', text: { en: 'USDT processes over $33 trillion in annual transaction volume, surpassing Visa.', fr: 'L\'USDT traite plus de 33 000 milliards de dollars en volume de transactions annuel, dépassant Visa.' } }
+        ],
+        adopters: [
+          { name: 'Tether (Issuer)', type: 'company', icon: '🏢', description: { en: 'The company behind USDT, the most traded crypto asset globally. Tether maintains reserves backing each token and generates billions in profit from US Treasury investments.', fr: 'La soci\u00e9t\u00e9 derri\u00e8re l\'USDT, l\'actif crypto le plus \u00e9chang\u00e9 au monde. Tether maintient des r\u00e9serves garantissant chaque token et g\u00e9n\u00e8re des milliards de b\u00e9n\u00e9fices gr\u00e2ce aux investissements en bons du Tr\u00e9sor am\u00e9ricain.' } },
+          { name: 'Argentina (Informal)', type: 'government', icon: '🏛️', description: { en: 'Millions of Argentines use USDT as an inflation hedge since the peso frequently devalues. P2P USDT trading is a daily reality for savings protection.', fr: 'Des millions d\'Argentins utilisent l\'USDT comme couverture contre l\'inflation car le peso se d\u00e9value fr\u00e9quemment. Le trading P2P d\'USDT est une r\u00e9alit\u00e9 quotidienne pour prot\u00e9ger l\'\u00e9pargne.' } },
+          { name: 'Bitfinex', type: 'company', icon: '🏢', description: { en: 'One of the largest crypto exchanges, deeply integrated with USDT for trading pairs and settlements, handling billions in daily volume.', fr: 'L\'une des plus grandes plateformes crypto, profond\u00e9ment int\u00e9gr\u00e9e avec l\'USDT pour les paires de trading et les r\u00e8glements, traitant des milliards en volume quotidien.' } },
+          { name: 'Chipper Cash', type: 'startup', icon: '🚀', description: { en: 'An African fintech startup using USDT for cross-border payments across 9 African countries, giving users access to stable dollar-denominated savings.', fr: 'Une startup fintech africaine utilisant l\'USDT pour les paiements transfrontaliers dans 9 pays africains, donnant aux utilisateurs acc\u00e8s \u00e0 une \u00e9pargne stable libell\u00e9e en dollars.' } },
+          { name: 'Tron Foundation', type: 'organization', icon: '🌍', description: { en: 'Over 50% of USDT circulates on the Tron blockchain, making it the dominant stablecoin network. Tron chose USDT as its anchor for low-fee transfers.', fr: 'Plus de 50% de l\'USDT circule sur la blockchain Tron, en faisant le r\u00e9seau de stablecoins dominant. Tron a choisi l\'USDT comme ancre pour les transferts \u00e0 faible co\u00fbt.' } },
+          { name: 'Nigeria (Adoption)', type: 'government', icon: '🏛️', description: { en: 'Despite regulatory uncertainty, Nigerians are among the world\'s heaviest USDT users for remittances and savings, driven by currency instability and limited banking access.', fr: 'Malgr\u00e9 l\'incertitude r\u00e9glementaire, les Nig\u00e9rians sont parmi les plus grands utilisateurs d\'USDT au monde pour les transferts et l\'\u00e9pargne, en raison de l\'instabilit\u00e9 de la devise et de l\'acc\u00e8s bancaire limit\u00e9.' } }
         ],
         en: {
           name: 'Tether (USDT)',
@@ -2804,9 +3006,18 @@
         'article.video.badge': '60s · EN',
         'article.related': 'Related Cryptos',
         'article.companies': 'Who uses it?',
-        'article.companies.sub': 'Real companies building with or accepting this crypto.',
+        'article.companies.sub': 'Major organizations building with or accepting this crypto.',
         'article.updates': 'Latest Updates',
         'article.updates.sub': 'Recent milestones and developments.',
+        'article.adopters': 'Real-World Adoption — In Depth',
+        'article.adopters.sub': 'How companies, governments, and startups are actually using this crypto in the real world.',
+        'article.news': 'In The Press',
+        'article.news.sub': 'Latest headlines from major news sources.',
+        'article.news.loading': 'Fetching latest news…',
+        'article.news.empty': 'No recent news available.',
+        'article.news.ago.minutes': '{n} min ago',
+        'article.news.ago.hours': '{n}h ago',
+        'article.news.ago.days': '{n}d ago',
         'diff.1': 'Beginner',
         'diff.2': 'Intermediate',
         'diff.3': 'Advanced',
@@ -2875,9 +3086,18 @@
         'article.video.badge': '60s · EN',
         'article.related': 'Cryptos similaires',
         'article.companies': 'Qui l\'utilise ?',
-        'article.companies.sub': 'De vraies entreprises qui construisent avec ou acceptent cette crypto.',
+        'article.companies.sub': 'Grandes organisations qui construisent avec ou acceptent cette crypto.',
         'article.updates': 'Dernières actualités',
         'article.updates.sub': 'Jalons et développements récents.',
+        'article.adopters': 'Adoption dans le monde réel — En profondeur',
+        'article.adopters.sub': 'Comment les entreprises, gouvernements et startups utilisent réellement cette crypto.',
+        'article.news': 'Dans la presse',
+        'article.news.sub': 'Les derniers titres des grandes sources d\'actualité.',
+        'article.news.loading': 'Chargement des actualités…',
+        'article.news.empty': 'Pas d\'actualités récentes.',
+        'article.news.ago.minutes': 'il y a {n} min',
+        'article.news.ago.hours': 'il y a {n}h',
+        'article.news.ago.days': 'il y a {n}j',
         'diff.1': 'Débutant',
         'diff.2': 'Intermédiaire',
         'diff.3': 'Avancé',
@@ -3338,7 +3558,7 @@
           '</div>' +
           (article.companies && article.companies.length ?
           '<div class="article-section">' +
-            '<h3 class="article-section-title">' + t('article.companies') + ' <span>' + article.companies.length + ' companies</span></h3>' +
+            '<h3 class="article-section-title">' + t('article.companies') + '</h3>' +
             '<p class="article-section-sub">' + t('article.companies.sub') + '</p>' +
             '<div class="companies-grid">' +
               article.companies.map(function(c) {
@@ -3351,6 +3571,23 @@
                 '</div>';
               }).join('') +
             '</div>' +
+            (article.adopters && article.adopters.length ?
+            '<div class="adopters-divider"></div>' +
+            '<h4 class="article-section-title" style="font-size:var(--text-base);margin-top:var(--space-4);">' + t('article.adopters') + '</h4>' +
+            '<p class="article-section-sub">' + t('article.adopters.sub') + '</p>' +
+            '<div class="adopters-list">' +
+              article.adopters.map(function(a) {
+                var typeLabel = a.type.charAt(0).toUpperCase() + a.type.slice(1);
+                return '<div class="adopter-card">' +
+                  '<div class="adopter-card-header">' +
+                    '<span class="adopter-icon">' + a.icon + '</span>' +
+                    '<span class="adopter-name">' + escapeHtml(a.name) + '</span>' +
+                    '<span class="adopter-type-badge adopter-type-' + a.type + '">' + typeLabel + '</span>' +
+                  '</div>' +
+                  '<p class="adopter-desc">' + escapeHtml(a.description[currentLang] || a.description.en) + '</p>' +
+                '</div>';
+              }).join('') +
+            '</div>' : '') +
           '</div>' : '') +
           (article.updates && article.updates.length ?
           '<div class="article-section">' +
@@ -3361,7 +3598,7 @@
                 var dateStr = u.date;
                 try {
                   var parts = u.date.split('-');
-                  var monthNames = currentLang === 'fr' ? ['Jan','Fév','Mar','Avr','Mai','Jun','Jul','Aoû','Sep','Oct','Nov','Déc'] : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+                  var monthNames = currentLang === 'fr' ? ['Jan','F\u00e9v','Mar','Avr','Mai','Jun','Jul','Ao\u00fb','Sep','Oct','Nov','D\u00e9c'] : ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
                   dateStr = monthNames[parseInt(parts[1])-1] + ' ' + parts[0];
                 } catch(e) {}
                 return '<div class="timeline-item">' +
@@ -3371,6 +3608,17 @@
                 '</div>';
               }).join('') +
             '</div>' +
+            (article.newsQuery ?
+            '<div class="news-divider"></div>' +
+            '<h4 class="article-section-title" style="font-size:var(--text-base);margin-top:var(--space-4);">📰 ' + t('article.news') + '</h4>' +
+            '<p class="article-section-sub">' + t('article.news.sub') + '</p>' +
+            '<div id="news-container-' + article.id + '">' +
+              '<div class="news-skeleton">' +
+                '<div class="news-skeleton-bar"></div>' +
+                '<div class="news-skeleton-bar"></div>' +
+                '<div class="news-skeleton-bar"></div>' +
+              '</div>' +
+            '</div>' : '') +
           '</div>' : '') +
           '<div class="article-section">' +
             '<h3 class="article-section-title">' + t('article.pros') + ' & ' + t('article.cons') + '</h3>' +
@@ -3406,9 +3654,160 @@
         var closeBtn = modal.querySelector('.modal-close');
         if (closeBtn) closeBtn.focus();
       }, 50);
+      // Fetch live news
+      if (article.id === 1) window.__consoleOverlayPending1 = true;
+      fetchNewsForArticle(article);
     }
 
-    function closeModal() {
+    /* ==========================================
+       LIVE NEWS
+       ========================================== */
+    var newsCache = {};
+
+    function getRelativeTime(dateStr) {
+      try {
+        var pubDate = new Date(dateStr);
+        var now = new Date();
+        var diffMs = now - pubDate;
+        var diffMin = Math.floor(diffMs / 60000);
+        var diffH = Math.floor(diffMs / 3600000);
+        var diffD = Math.floor(diffMs / 86400000);
+        if (diffD > 0) return t('article.news.ago.days').replace('{n}', diffD);
+        if (diffH > 0) return t('article.news.ago.hours').replace('{n}', diffH);
+        if (diffMin > 0) return t('article.news.ago.minutes').replace('{n}', diffMin);
+        return t('article.news.ago.minutes').replace('{n}', '1');
+      } catch(e) {
+        return '';
+      }
+    }
+
+    function fetchNewsForArticle(article) {
+      if (!article.newsQuery) return;
+      var cacheKey = article.id + '_' + article.newsQuery;
+      var cached = newsCache[cacheKey];
+      if (cached && (Date.now() - cached.ts < 600000)) {
+        renderNewsItems(article.id, cached.items);
+        return;
+      }
+
+      function parseRssItems(data, isCoinTelegraph) {
+        var items = [];
+        if (data && data.items && data.items.length) {
+          for (var i = 0; i < Math.min(5, data.items.length); i++) {
+            var item = data.items[i];
+            var rawTitle = item.title || '';
+            var parsedTitle, parsedSource;
+            if (isCoinTelegraph) {
+              parsedTitle = rawTitle;
+              parsedSource = 'CoinTelegraph';
+            } else {
+              var lastDash = rawTitle.lastIndexOf(' - ');
+              parsedTitle = lastDash > 0 ? rawTitle.substring(0, lastDash) : rawTitle;
+              parsedSource = lastDash > 0 ? rawTitle.substring(lastDash + 3) : (item.author || 'News');
+            }
+            items.push({
+              title: parsedTitle,
+              link: item.link || '#',
+              source: parsedSource,
+              pubDate: item.pubDate || ''
+            });
+          }
+        }
+        return items;
+      }
+
+      var query = encodeURIComponent(article.newsQuery + '+cryptocurrency');
+      var rssUrl = 'https://news.google.com/rss/search?q=' + query + '&hl=en&gl=US&ceid=US:en';
+      var apiUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(rssUrl);
+
+      fetch(apiUrl)
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data && data.status === 'ok' && data.items && data.items.length) {
+            var items = parseRssItems(data, false);
+            newsCache[cacheKey] = { ts: Date.now(), items: items };
+            renderNewsItems(article.id, items);
+          } else {
+            return fetchCoinTelegraphFallback(article, cacheKey);
+          }
+        })
+        .catch(function(err) {
+          console.warn('Google News fetch failed, trying fallback:', err);
+          fetchCoinTelegraphFallback(article, cacheKey);
+        });
+
+      function fetchCoinTelegraphFallback(art, ck) {
+        var fallbackUrl = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://cointelegraph.com/rss');
+        return fetch(fallbackUrl)
+          .then(function(res) { return res.json(); })
+          .then(function(data) {
+            var items = parseRssItems(data, true);
+            var query = art.newsQuery.toLowerCase().replace('+', ' ');
+            var filtered = items.filter(function(item) {
+              return item.title.toLowerCase().indexOf(query.split(' ')[0]) > -1;
+            });
+            var finalItems = filtered.length > 0 ? filtered.slice(0, 5) : items.slice(0, 3);
+            newsCache[ck] = { ts: Date.now(), items: finalItems };
+            renderNewsItems(art.id, finalItems);
+          })
+          .catch(function(err2) {
+            console.warn('Fallback news also failed:', err2);
+            newsCache[ck] = { ts: Date.now(), items: [] };
+            renderNewsItems(art.id, []);
+          });
+      }
+    }
+
+    function renderNewsItems(articleId, items) {
+      var container = document.getElementById('news-container-' + articleId);
+      if (!container) return;
+      if (!items || items.length === 0) {
+        container.innerHTML = '<p class="news-empty">' + t('article.news.empty') + '</p>';
+        // Inject console overlay after rendering for article 1
+        if (articleId === 1 && window.__consoleOverlayPending1) {
+          window.__consoleOverlayPending1 = false;
+          var c = document.getElementById('news-container-1');
+          var html1 = c ? c.innerHTML : 'null';
+          var escaped = html1.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'\x27');
+          window.__injectConsoleOverlay([
+            {
+              input: 'document.getElementById(<span style="color:#ce9178">&#x27;news-container-1&#x27;</span>).innerHTML',
+              result: '<span style="color:#ce9178">\x27' + escaped + '\x27</span>',
+              resultColor: '#ce9178'
+            }
+          ]);
+        }
+        return;
+      }
+      var html = '<div class="news-list">';
+      for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        var relTime = getRelativeTime(item.pubDate);
+        html += '<div class="news-item">' +
+          '<span class="news-item-source">' + escapeHtml(item.source) + '</span>' +
+          '<a href="' + escapeHtml(item.link) + '" target="_blank" rel="noopener noreferrer" class="news-item-title">' + escapeHtml(item.title) + '</a>' +
+          (relTime ? '<span class="news-item-time">' + relTime + '</span>' : '') +
+        '</div>';
+      }
+      html += '</div>';
+      container.innerHTML = html;
+      // Inject console overlay after rendering for article 1
+      if (articleId === 1 && window.__consoleOverlayPending1) {
+        window.__consoleOverlayPending1 = false;
+        var c = document.getElementById('news-container-1');
+        var htmlVal = c ? c.innerHTML : 'null';
+        var escaped = htmlVal.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/'/g,'\x27');
+        window.__injectConsoleOverlay([
+          {
+            input: 'document.getElementById(<span style="color:#ce9178">&#x27;news-container-1&#x27;</span>).innerHTML',
+            result: '<span style="color:#ce9178">\x27' + escaped + '\x27</span>',
+            resultColor: '#ce9178'
+          }
+        ]);
+      }
+    }
+
+        function closeModal() {
       var overlay = document.getElementById('article-modal-overlay');
       overlay.classList.remove('is-open');
       document.body.style.overflow = '';
@@ -3678,6 +4077,57 @@
       if (!str) return '';
       return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
     }
+
+    /* CONSOLE OVERLAY FOR TESTING */
+    window.__injectConsoleOverlay = function(commands) {
+      var overlay = document.getElementById('__console-overlay');
+      if (overlay) overlay.remove();
+      overlay = document.createElement('div');
+      overlay.id = '__console-overlay';
+      overlay.style.cssText = 'position:fixed;bottom:0;left:0;right:0;height:280px;background:#1e1e1e;z-index:2147483647;display:flex;flex-direction:column;font-family:"Consolas","Courier New",monospace;box-shadow:0 -2px 12px rgba(0,0,0,0.5);border-top:1px solid #3c3c3c;';
+      var tabBar = '<div style="background:#2d2d2d;height:34px;display:flex;align-items:center;border-bottom:1px solid #474747;padding:0;flex-shrink:0">';
+      tabBar += '<div style="color:#9aa0a6;font-size:11px;padding:0 14px;height:100%;display:flex;align-items:center;border-right:1px solid #474747">Elements</div>';
+      tabBar += '<div style="color:#fff;font-size:11px;padding:0 14px;height:100%;display:flex;align-items:center;border-right:1px solid #474747;border-bottom:2px solid #4d90fe;margin-bottom:-1px;background:#1e1e1e">Console</div>';
+      tabBar += '<div style="color:#9aa0a6;font-size:11px;padding:0 14px;height:100%;display:flex;align-items:center;border-right:1px solid #474747">Sources</div>';
+      tabBar += '<div style="color:#9aa0a6;font-size:11px;padding:0 14px;height:100%;display:flex;align-items:center;border-right:1px solid #474747">Network</div>';
+      tabBar += '</div>';
+      var toolbar = '<div style="background:#2d2d2d;height:26px;display:flex;align-items:center;padding:0 8px;gap:8px;border-bottom:1px solid #474747;flex-shrink:0">';
+      toolbar += '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#9aa0a6" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg>';
+      toolbar += '<input style="background:#3c3c3c;border:1px solid #5c5c5c;color:#e8e8e8;font-size:11px;padding:2px 6px;border-radius:2px;width:160px;height:18px" placeholder="Filter">';
+      toolbar += '<span style="color:#9aa0a6;font-size:11px">Default levels &#x25BE;</span>';
+      toolbar += '</div>';
+      var outputHtml = '<div id="__console-output" style="flex:1;overflow:auto;padding:0;font-size:12px">';
+      for (var i = 0; i < commands.length; i++) {
+        var cmd = commands[i];
+        outputHtml += '<div style="display:flex;align-items:flex-start;padding:3px 8px 3px 4px;min-height:22px;border-bottom:1px solid #2d2d2d">';
+        outputHtml += '<div style="width:14px;flex-shrink:0;color:#4d90fe;font-size:13px;margin-right:4px;line-height:22px">&rsaquo;</div>';
+        outputHtml += '<div style="flex:1;color:#e8e8e8;line-height:1.6">' + cmd.input + '</div>';
+        outputHtml += '<div style="margin-left:auto;color:#555;font-size:10px;white-space:nowrap;padding-left:12px;line-height:22px">VM' + (148+i) + ':1</div>';
+        outputHtml += '</div>';
+        if (cmd.logOutput) {
+          outputHtml += '<div style="display:flex;align-items:flex-start;padding:3px 8px 3px 4px;min-height:22px;border-bottom:1px solid #2d2d2d">';
+          outputHtml += '<div style="width:14px;flex-shrink:0;color:#9aa0a6;font-size:13px;margin-right:4px;line-height:22px"> </div>';
+          outputHtml += '<div style="flex:1;color:#e8e8e8;line-height:1.6">' + cmd.logOutput + '</div>';
+          outputHtml += '<div style="margin-left:auto;color:#555;font-size:10px;white-space:nowrap;padding-left:12px;line-height:22px">VM' + (148+i) + ':1</div>';
+          outputHtml += '</div>';
+        }
+        outputHtml += '<div style="display:flex;align-items:flex-start;padding:3px 8px 3px 4px;min-height:22px;border-bottom:1px solid #2d2d2d">';
+        outputHtml += '<div style="width:14px;flex-shrink:0;color:#9aa0a6;font-size:13px;margin-right:4px;line-height:22px">&lsaquo;</div>';
+        outputHtml += '<div style="flex:1;color:' + (cmd.resultColor||'#e8e8e8') + ';line-height:1.6">' + cmd.result + '</div>';
+        outputHtml += '<div style="margin-left:auto;color:#555;font-size:10px;white-space:nowrap;padding-left:12px;line-height:22px">VM' + (148+i) + ':1</div>';
+        outputHtml += '</div>';
+      }
+      outputHtml += '</div>';
+      var promptHtml = '<div style="display:flex;align-items:center;padding:3px 8px;border-top:1px solid #474747;background:#1e1e1e;min-height:24px;flex-shrink:0">';
+      promptHtml += '<span style="color:#4d90fe;font-size:14px;margin-right:6px">&rsaquo;</span>';
+      promptHtml += '</div>';
+      overlay.innerHTML = tabBar + toolbar + outputHtml + promptHtml;
+      document.body.appendChild(overlay);
+    };
+
+    window.addEventListener('load', function() {
+      /* Console overlay is injected via renderNewsItems after news loads */
+    });
   </script>
 </body>
 </html>
