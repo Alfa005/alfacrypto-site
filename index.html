@@ -2170,6 +2170,22 @@
           </div>
         </div>
 
+        <!-- Newsletter Subscribers -->
+        <div id="admin-subscribers" style="margin-top:var(--space-8)">
+          <h2 class="admin-section-title">Newsletter Subscribers</h2>
+          <div style="display:flex;gap:var(--space-3);margin-bottom:var(--space-4);align-items:center">
+            <span id="sub-count" style="font-size:0.95rem;color:var(--color-text-secondary)">0 subscribers</span>
+            <button onclick="exportSubscribers()" class="admin-action-btn" style="margin-left:auto">Export CSV</button>
+            <button onclick="clearSubscribers()" class="admin-action-btn delete">Clear All</button>
+          </div>
+          <div class="admin-table-wrap">
+            <table class="admin-table" role="grid">
+              <thead><tr><th>#</th><th>Email</th><th>Date</th><th>Actions</th></tr></thead>
+              <tbody id="sub-table-body"><tr><td colspan="4" style="text-align:center;color:var(--color-text-faint)">No subscribers yet</td></tr></tbody>
+            </table>
+          </div>
+        </div>
+
         <!-- Add New Article Form -->
         <div id="admin-add" class="admin-form-wrap">
           <h2 class="admin-form-title">Add New Crypto Article</h2>
@@ -2544,18 +2560,19 @@
             </div>
             <h2 class="newsletter-title" id="newsletter-heading" data-i18n="newsletter.title">Stay in the loop</h2>
             <p class="newsletter-sub" data-i18n="newsletter.sub">Get the latest crypto guides and updates straight to your inbox. In English or French — your choice.</p>
-            <form class="newsletter-form" onsubmit="submitNewsletter(event)" role="form">
+            <form class="newsletter-form" id="newsletter-form" role="form">
               <label for="newsletter-email" class="sr-only" data-i18n="newsletter.label">Email address</label>
               <input
                 type="email"
                 id="newsletter-email"
+                name="email"
                 class="newsletter-input"
                 data-i18n-placeholder="newsletter.placeholder"
                 placeholder="you@example.com"
                 required
                 autocomplete="email"
               >
-              <button type="submit" class="newsletter-btn" data-i18n="newsletter.btn">Subscribe</button>
+              <button type="submit" class="newsletter-btn" id="newsletter-btn" data-i18n="newsletter.btn">Subscribe</button>
             </form>
             <p class="newsletter-privacy" data-i18n="newsletter.privacy">No spam, ever. Unsubscribe anytime. We respect your inbox.</p>
             <p class="newsletter-success" id="newsletter-success" data-i18n="newsletter.success" role="status">🎉 You're subscribed! First edition coming your way.</p>
@@ -4507,14 +4524,106 @@
     /* ==========================================
        NEWSLETTER
        ========================================== */
-    function submitNewsletter(e) {
-      e.preventDefault();
-      var success = document.getElementById('newsletter-success');
-      if (success) {
-        success.style.display = 'block';
-        success.textContent = t('newsletter.success');
+    /* ========== NEWSLETTER — Mailchimp JSONP Subscribe ========== */
+    (function() {
+      // Mailchimp config — update these after creating your audience in Mailchimp dashboard
+      // Go to: Mailchimp > Audience > Signup forms > Embedded forms to get your action URL
+      // Format: https://<dc>.list-manage.com/subscribe/post?u=<u>&id=<id>
+      var MC_U    = 'b623bc79243d6aad8154c3734';
+      var MC_ID   = '08c06bcd23';
+
+      var form = document.getElementById('newsletter-form');
+      if (!form) return;
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var emailInput = document.getElementById('newsletter-email');
+        var btn = document.getElementById('newsletter-btn');
+        var success = document.getElementById('newsletter-success');
+        var email = emailInput ? emailInput.value.trim() : '';
+        if (!email) return;
+
+        /* If Mailchimp is configured, use JSONP subscribe */
+        if (MC_U && MC_ID) {
+          btn.disabled = true;
+          btn.textContent = '...';
+          var url = 'https://us6.list-manage.com/subscribe/post-json?u=' + MC_U + '&id=' + MC_ID + '&EMAIL=' + encodeURIComponent(email) + '&c=mcCallback';
+          window.mcCallback = function(resp) {
+            if (resp.result === 'success' || (resp.msg && resp.msg.indexOf('already subscribed') > -1)) {
+              form.style.display = 'none';
+              if (success) { success.style.display = 'block'; success.textContent = t('newsletter.success'); }
+            } else {
+              btn.disabled = false;
+              btn.textContent = t('newsletter.btn');
+              alert(resp.msg || 'Something went wrong. Please try again.');
+            }
+            var s = document.getElementById('mc-jsonp'); if (s) s.remove();
+          };
+          var script = document.createElement('script');
+          script.id = 'mc-jsonp';
+          script.src = url;
+          document.body.appendChild(script);
+          return;
+        }
+
+        /* Fallback: store locally + show success (emails saved in localStorage for admin export) */
+        var subscribers = [];
+        try { subscribers = JSON.parse(localStorage.getItem('alfacrypto_subscribers') || '[]'); } catch(ex) {}
+        var exists = subscribers.some(function(s) { return (typeof s === 'string' ? s : s.email) === email; });
+        if (!exists) {
+          subscribers.push({ email: email, date: new Date().toISOString() });
+          localStorage.setItem('alfacrypto_subscribers', JSON.stringify(subscribers));
+        }
+        form.style.display = 'none';
+        if (success) { success.style.display = 'block'; success.textContent = t('newsletter.success'); }
+      });
+    })();
+
+    /* ========== ADMIN: Subscriber Management ========== */
+    function loadSubscribersTable() {
+      var tbody = document.getElementById('sub-table-body');
+      var countEl = document.getElementById('sub-count');
+      if (!tbody) return;
+      var subs = [];
+      try { subs = JSON.parse(localStorage.getItem('alfacrypto_subscribers') || '[]'); } catch(ex) {}
+      // Migrate old string-only entries
+      subs = subs.map(function(s) { return typeof s === 'string' ? { email: s, date: '' } : s; });
+      if (countEl) countEl.textContent = subs.length + ' subscriber' + (subs.length !== 1 ? 's' : '');
+      if (subs.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:var(--color-text-faint)">No subscribers yet</td></tr>';
+        return;
       }
-      e.target.style.display = 'none';
+      tbody.innerHTML = subs.map(function(s, i) {
+        var d = s.date ? new Date(s.date).toLocaleDateString() : 'N/A';
+        return '<tr><td>' + (i+1) + '</td><td>' + s.email + '</td><td>' + d + '</td><td><button class="admin-action-btn delete" onclick="removeSub(' + i + ')">Remove</button></td></tr>';
+      }).join('');
+    }
+    function removeSub(idx) {
+      var subs = [];
+      try { subs = JSON.parse(localStorage.getItem('alfacrypto_subscribers') || '[]'); } catch(ex) {}
+      subs.splice(idx, 1);
+      localStorage.setItem('alfacrypto_subscribers', JSON.stringify(subs));
+      loadSubscribersTable();
+    }
+    function exportSubscribers() {
+      var subs = [];
+      try { subs = JSON.parse(localStorage.getItem('alfacrypto_subscribers') || '[]'); } catch(ex) {}
+      if (subs.length === 0) { alert('No subscribers to export.'); return; }
+      var csv = 'Email,Date\n' + subs.map(function(s) {
+        var e = typeof s === 'string' ? s : s.email;
+        var d = (s && s.date) ? s.date : '';
+        return e + ',' + d;
+      }).join('\n');
+      var blob = new Blob([csv], { type: 'text/csv' });
+      var a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'alfacrypto-subscribers.csv';
+      a.click();
+    }
+    function clearSubscribers() {
+      if (!confirm('Delete all subscribers? This cannot be undone.')) return;
+      localStorage.removeItem('alfacrypto_subscribers');
+      loadSubscribersTable();
     }
 
     /* ==========================================
@@ -4562,6 +4671,7 @@
         document.getElementById('admin-dashboard').style.display = 'block';
         renderAdminStats();
         renderAdminTable();
+        loadSubscribersTable();
       } else {
         error.classList.add('visible');
         input.value = '';
