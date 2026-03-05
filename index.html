@@ -2214,6 +2214,8 @@
                   <option value="Smart Contracts">Smart Contracts</option>
                   <option value="Layer 1">Layer 1</option>
                   <option value="DeFi">DeFi</option>
+                  <option value="Perpetual DEX">Perpetual DEX</option>
+                  <option value="DEX">DEX</option>
                   <option value="Payment">Payment</option>
                   <option value="Privacy">Privacy</option>
                   <option value="Stablecoin">Stablecoin</option>
@@ -2416,7 +2418,7 @@
           </div>
           <div class="hero-stats fade-in" aria-label="Site statistics">
             <div class="hero-stat">
-              <div class="hero-stat-num">8</div>
+              <div class="hero-stat-num">11</div>
               <div class="hero-stat-label" data-i18n="hero.stats.weekly">Cryptos covered</div>
             </div>
             <div class="hero-stat">
@@ -2748,7 +2750,7 @@
         icon: '⚡',
         color: '#9945FF',
         videoUrl: 'layer-1-guide.mp4',
-        examples: ['Solana', 'Sui', 'Aptos', 'Near Protocol'],
+        examples: ['Solana', 'Avalanche', 'Sui', 'Aptos'],
         en: {
           tagline: 'Faster, cheaper blockchains built for the real world',
           what: 'If Ethereum is like a busy city highway that gets congested and expensive during rush hour, Layer 1 blockchains are the new high-speed expressways built alongside it. They are independent base blockchains — the foundation layer — engineered from scratch to be faster, cheaper, and more scalable than their predecessors. Solana, for example, can process tens of thousands of transactions per second, compared to Ethereum\'s few dozen.',
@@ -3016,6 +3018,98 @@
             'Pas vraiment décentralisé — un point de défaillance central existe'
           ],
           verdict: 'Les stablecoins sont sans doute l\'innovation crypto la plus concrètement utile à ce jour : ils prennent ce que la blockchain fait de mieux et l\'associent à la stabilité du dollar. L\'USDT seul traite plus de volume de transactions quotidien que Visa et Mastercard réunis. En 2026, avec le cadre MiCA en vigueur dans l\'UE et une législation en cours aux États-Unis, les stablecoins sortent de leur niche pour devenir une infrastructure de paiement mondiale.'
+        }
+      },
+      {
+        slug: 'perpetual-dex',
+        name: 'Perpetual DEX',
+        icon: '📊',
+        color: '#97FCE4',
+        videoUrl: '',
+        examples: ['Hyperliquid', 'dYdX', 'GMX', 'Aster'],
+        en: {
+          tagline: 'Trade the future of any asset — without a middleman',
+          what: 'Perpetual DEXes are decentralized exchanges built specifically for trading "perpetual futures" — a type of contract that lets you bet on whether an asset\'s price will go up or down, with leverage, and without an expiration date. Think of it like being able to make a $1,000 bet on Bitcoin\'s direction with only $100 of your own money — while everything runs transparently on a blockchain instead of through a company like Binance or Coinbase.',
+          how: 'These platforms use blockchain technology to match buyers and sellers of leveraged positions. Some, like Hyperliquid, run a full order book on-chain (like a traditional stock exchange). Others, like GMX, use liquidity pools where depositors collectively act as the counterparty to all trades. Margin is held in smart contracts, and if a trader\'s position loses too much value, the system automatically liquidates it — all according to transparent, auditable code.',
+          uses: 'Speculating on crypto price movements with leverage (up to 50x), hedging existing crypto holdings against price drops, accessing markets for stocks, commodities, and other assets synthetically (without owning the underlying), and earning yield by providing liquidity as a market maker.',
+          pros: [
+            'Trade any asset 24/7 without trusting a centralized company',
+            'Full transparency — every trade verifiable on-chain',
+            'No KYC required — accessible globally from a wallet',
+            'Some platforms offer zero gas fees on trades'
+          ],
+          cons: [
+            'Leverage amplifies losses — you can lose your entire deposit',
+            'Smart contract risk — bugs or exploits can drain funds',
+            'Thin liquidity on some assets can cause slippage',
+            'Regulatory gray area — leveraged trading is heavily regulated in most countries'
+          ],
+          verdict: 'Perpetual DEXes represent the cutting edge of decentralized finance — they bring Wall Street-level trading to anyone with a crypto wallet. Hyperliquid proved the model works at massive scale ($2.95 trillion in 2025 volume). However, leverage is a double-edged sword, and the regulatory landscape is still evolving. This category is for intermediate-to-advanced users who understand the risks of leveraged trading.'
+        },
+        fr: {
+          tagline: 'Tradez l\'avenir de n\'importe quel actif — sans intermédiaire',
+          what: 'Les DEX de perpétuels sont des échanges décentralisés construits spécifiquement pour trader des « futures perpétuels » — un type de contrat qui permet de parier sur la hausse ou la baisse d\'un actif, avec effet de levier, sans date d\'expiration. Imaginez pouvoir faire un pari de 1 000$ sur la direction du Bitcoin avec seulement 100$ — le tout fonctionnant de manière transparente sur une blockchain plutôt que via une entreprise comme Binance ou Coinbase.',
+          how: 'Ces plateformes utilisent la blockchain pour mettre en relation acheteurs et vendeurs de positions à effet de levier. Certaines, comme Hyperliquid, gèrent un carnet d\'ordres complet on-chain (comme une bourse traditionnelle). D\'autres, comme GMX, utilisent des pools de liquidité où les déposants agissent collectivement comme contrepartie. La marge est détenue dans des smart contracts, et si un trader perd trop, le système liquide automatiquement sa position — selon un code transparent et vérifiable.',
+          uses: 'Spéculer sur les mouvements de prix des cryptos avec effet de levier (jusqu\'à 50x), couvrir des positions existantes contre les baisses de prix, accéder à des marchés d\'actions et matières premières de manière synthétique, et générer du rendement en fournissant de la liquidité.',
+          pros: [
+            'Trader n\'importe quel actif 24h/24 sans faire confiance à une entreprise',
+            'Transparence totale — chaque trade vérifiable on-chain',
+            'Pas de KYC requis — accessible mondialement depuis un wallet',
+            'Certaines plateformes offrent zéro frais de gas sur les trades'
+          ],
+          cons: [
+            'L\'effet de levier amplifie les pertes — vous pouvez perdre tout votre dépôt',
+            'Risque de smart contract — des bugs peuvent vider les fonds',
+            'Liquidité faible sur certains actifs peut causer du slippage',
+            'Zone grise réglementaire — le trading à effet de levier est très régulé'
+          ],
+          verdict: 'Les DEX de perpétuels représentent la pointe de la finance décentralisée — ils apportent le trading de niveau Wall Street à quiconque possède un wallet crypto. Hyperliquid a prouvé que le modèle fonctionne à grande échelle (2,95 T$ de volume en 2025). Cependant, l\'effet de levier est à double tranchant et le paysage réglementaire évolue encore. Cette catégorie est pour les utilisateurs intermédiaires à avancés qui comprennent les risques du trading à effet de levier.'
+        }
+      },
+      {
+        slug: 'dex',
+        name: 'DEX',
+        icon: '🔄',
+        color: '#FF007A',
+        videoUrl: '',
+        examples: ['Uniswap', 'Curve Finance', 'SushiSwap', 'Balancer'],
+        en: {
+          tagline: 'Swap any token, anytime — no account needed',
+          what: 'A Decentralized Exchange (DEX) lets you trade cryptocurrencies directly from your own wallet, without signing up, without providing ID, and without trusting a company to hold your money. Think of it as a fully automated currency exchange booth that runs 24/7 on the blockchain — governed by code, not people. Unlike centralized exchanges (Coinbase, Binance, Kraken), there is no company in the middle: smart contracts handle everything.',
+          how: 'Most DEXes use an invention called an Automated Market Maker (AMM). Instead of matching buyers with sellers like a stock exchange, they use "liquidity pools" — pools of two tokens that anyone can deposit into. When you trade, you swap with the pool, and a mathematical formula automatically adjusts the price based on supply and demand. Anyone who deposits tokens into a pool earns a share of trading fees — this is called "providing liquidity."',
+          uses: 'Swapping any cryptocurrency for another directly from your wallet, earning fees by providing liquidity to trading pools, accessing new or niche tokens not listed on centralized exchanges, participating in DeFi protocols that build on top of DEX liquidity, and maintaining full control of your funds at all times.',
+          pros: [
+            'No account, no KYC — connect your wallet and start trading',
+            'Non-custodial — your funds stay in your control at all times',
+            'Permissionless — any token can be traded without approval',
+            'Censorship-resistant — smart contracts cannot be shut down'
+          ],
+          cons: [
+            'Gas fees on Ethereum can make small trades expensive',
+            'Impermanent loss risk for liquidity providers',
+            'Scam tokens are common — users must verify contracts themselves',
+            'More complex UX than centralized exchanges for beginners'
+          ],
+          verdict: 'Decentralized exchanges are the backbone of DeFi — they proved that code can replace financial intermediaries. Uniswap alone has processed over $3 trillion in volume, more than Canada\'s GDP. While the user experience still has room to improve, DEXes offer something no centralized exchange can: true financial freedom where you always control your own money. If you believe in the ethos of crypto, DEXes are where that ethos lives.'
+        },
+        fr: {
+          tagline: 'Échangez n\'importe quel token, à tout moment — sans compte',
+          what: 'Un échange décentralisé (DEX) vous permet d\'échanger des cryptomonnaies directement depuis votre portefeuille, sans inscription, sans pièce d\'identité, et sans confier votre argent à une entreprise. Imaginez un bureau de change entièrement automatisé fonctionnant 24h/24 sur la blockchain — géré par du code, pas par des personnes. Contrairement aux échanges centralisés (Coinbase, Binance, Kraken), il n\'y a pas d\'entreprise au milieu : les smart contracts gèrent tout.',
+          how: 'La plupart des DEX utilisent une invention appelée Automated Market Maker (AMM). Au lieu de faire correspondre acheteurs et vendeurs comme une bourse, ils utilisent des « pools de liquidité » — des réserves de deux tokens dans lesquelles n\'importe qui peut déposer. Quand vous tradez, vous échangez avec le pool, et une formule mathématique ajuste automatiquement le prix selon l\'offre et la demande. Quiconque dépose des tokens dans un pool gagne une part des frais de trading — c\'est la « fourniture de liquidité ».',
+          uses: 'Échanger n\'importe quelle cryptomonnaie directement depuis son portefeuille, gagner des frais en fournissant de la liquidité, accéder à des tokens rares non listés sur les échanges centralisés, participer aux protocoles DeFi construits sur la liquidité DEX, et garder le contrôle total de ses fonds.',
+          pros: [
+            'Pas de compte, pas de KYC — connectez votre wallet et commencez',
+            'Non-custodial — vos fonds restent sous votre contrôle',
+            'Sans permission — n\'importe quel token peut être échangé',
+            'Résistant à la censure — les smart contracts ne peuvent être arrêtés'
+          ],
+          cons: [
+            'Les frais de gas sur Ethereum rendent les petits trades coûteux',
+            'Risque de perte impermanente pour les fournisseurs de liquidité',
+            'Les tokens arnaque sont fréquents — les utilisateurs doivent vérifier',
+            'UX plus complexe que les échanges centralisés pour les débutants'
+          ],
+          verdict: 'Les échanges décentralisés sont la colonne vertébrale de la DeFi — ils ont prouvé que le code peut remplacer les intermédiaires financiers. Uniswap seul a traité plus de 3 000 milliards $ de volume, plus que le PIB du Canada. Bien que l\'expérience utilisateur ait encore une marge de progression, les DEX offrent quelque chose qu\'aucun échange centralisé ne peut : une vraie liberté financière où vous contrôlez toujours votre argent. Si vous croyez en l\'éthique de la crypto, les DEX sont là où cette éthique vit.'
         }
       }
     ];
@@ -3507,7 +3601,191 @@
           cons: ['Préoccupations de transparence — les réserves ne sont pas auditées comme l\'USDC', 'Non conforme aux nouvelles régulations américaines GENIUS Act', 'Part de marché en déclin face aux alternatives régulées', 'Centralisé — Tether peut geler ou bloquer des portefeuilles'],
           verdict: 'L\'USDT est le cash du monde crypto. Ce n\'est pas excitant — mais sans lui, rien d\'autre ne fonctionne. C\'est le stablecoin le plus utilisé pour le trading, les transferts et l\'épargne. Cependant, la pression réglementaire croissante et les concurrents comme l\'USDC signifient que sa domination pourrait évoluer. Pour l\'instant, l\'USDT reste le battement de cœur des marchés crypto.'
         }
+      }      ,
+      {
+        id: 9,
+        slug: 'hyperliquid',
+        ticker: 'HYPE',
+        color: '#97FCE4',
+        symbol: '⧫',
+        category: 'Perpetual DEX',
+        difficulty: 2,
+        year: 2023,
+        status: 'published',
+        marketCap: '~$8 billion',
+        supply: '1 billion HYPE (max)',
+        consensus: 'HyperBFT (DPoS)',
+        founder: 'Jeff Yan',
+        related: ['dYdX', 'GMX', 'Aster'],
+        videoUrl: '',
+        videoPoster: '',
+        newsQuery: 'hyperliquid',
+        companies: [
+          { name: 'Circle', how: { en: 'Launched Native USDC on HyperEVM and purchased HYPE tokens as a direct ecosystem stakeholder.', fr: 'A lanc\u00e9 l\'USDC natif sur HyperEVM et achet\u00e9 des tokens HYPE en tant que partie prenante de l\'\u00e9cosyst\u00e8me.' }, color: '#00D395' },
+          { name: 'Phantom', how: { en: 'Integrated Hyperliquid perpetuals trading via builder codes, giving millions of users leveraged access.', fr: 'A int\u00e9gr\u00e9 le trading de perp\u00e9tuels Hyperliquid via les builder codes, offrant un acc\u00e8s \u00e0 effet de levier \u00e0 des millions d\'utilisateurs.' }, color: '#AB9FF2' },
+          { name: 'MetaMask', how: { en: 'Launched perpetuals trading in partnership with Hyperliquid for 150+ assets including crypto and stocks.', fr: 'A lanc\u00e9 le trading de perp\u00e9tuels en partenariat avec Hyperliquid pour plus de 150 actifs incluant crypto et actions.' }, color: '#E2761B' },
+          { name: 'Chainlink', how: { en: 'Supports Hyperliquid with CCIP for cross-chain token deployments linking HyperEVM and HyperCore.', fr: 'Prend en charge Hyperliquid avec CCIP pour les d\u00e9ploiements de tokens cross-chain reliant HyperEVM et HyperCore.' }, color: '#375BD2' },
+          { name: 'Kinetiq', how: { en: 'Leading liquid staking protocol on Hyperliquid with $1.9B+ TVL, issuing yield-bearing kHYPE tokens.', fr: 'Principal protocole de staking liquide sur Hyperliquid avec plus de 1,9 Md$ de TVL, \u00e9mettant des tokens kHYPE g\u00e9n\u00e9rant du rendement.' }, color: '#4DFFE0' },
+          { name: 'Ethena Labs', how: { en: 'Deployed synthetic dollar USDe on HyperEVM and proposed a $75M stablecoin growth partnership.', fr: 'A d\u00e9ploy\u00e9 le dollar synth\u00e9tique USDe sur HyperEVM et propos\u00e9 un partenariat de croissance stablecoin de 75 M$.' }, color: '#7B61FF' }
+        ],
+        updates: [
+          { date: '2024-11', text: { en: 'Largest community airdrop in crypto history: 310M HYPE ($1.2B) to 94,000 users, zero VC allocation.', fr: 'Plus grand airdrop communautaire de l\'histoire crypto : 310M HYPE (1,2 Md$) \u00e0 94 000 utilisateurs, z\u00e9ro allocation VC.' } },
+          { date: '2025-02', text: { en: 'HyperEVM mainnet launch transforms Hyperliquid from a DEX into a full Layer 1 ecosystem.', fr: 'Le lancement du mainnet HyperEVM transforme Hyperliquid d\'un DEX en un \u00e9cosyst\u00e8me Layer 1 complet.' } },
+          { date: '2025-03', text: { en: 'JELLY token manipulation attack exposes centralization risks; validators intervene in 2 minutes.', fr: 'L\'attaque de manipulation du token JELLY expose les risques de centralisation ; les validateurs interviennent en 2 minutes.' } },
+          { date: '2025-10', text: { en: 'HIP-3 enables permissionless perpetual futures markets for stocks, commodities, and custom assets.', fr: 'HIP-3 permet des march\u00e9s de futures perp\u00e9tuels sans permission pour actions, mati\u00e8res premi\u00e8res et actifs personnalis\u00e9s.' } }
+        ],
+        adopters: [
+          { name: 'Based (SuperApp)', type: 'startup', icon: '\ud83d\udcf1', description: { en: 'A Hyperliquid-powered mobile SuperApp combining wallet, trading, on/off-ramps, and a crypto debit card. Over 100,000 users and $40B+ in cumulative trading volume. Raised $11.5M from Pantera Capital and Coinbase Ventures.', fr: 'Une SuperApp mobile aliment\u00e9e par Hyperliquid combinant portefeuille, trading, rampes d\'acc\u00e8s et carte de d\u00e9bit crypto. Plus de 100 000 utilisateurs et plus de 40 Md$ de volume de trading cumul\u00e9.' } },
+          { name: 'Atlas Merchant Capital', type: 'company', icon: '\ud83c\udfe6', description: { en: 'A private equity firm whose founding partner David Schamis is actively accumulating HYPE through a public company, seeing Hyperliquid as broader financial infrastructure beyond just crypto trading.', fr: 'Une soci\u00e9t\u00e9 de capital-investissement dont le partenaire fondateur David Schamis accumule activement des HYPE via une entreprise publique, voyant Hyperliquid comme une infrastructure financi\u00e8re plus large.' } },
+          { name: 'Paradigm & a16z', type: 'company', icon: '\ud83d\udcbc', description: { en: 'Two of the most prominent crypto venture capital firms hold HYPE positions acquired on the open market \u2014 a strong signal of institutional confidence given that no VC allocation existed.', fr: 'Deux des plus grandes soci\u00e9t\u00e9s de capital-risque crypto d\u00e9tiennent des positions HYPE acquises sur le march\u00e9 libre \u2014 un signal fort de confiance institutionnelle vu qu\'aucune allocation VC n\'existait.' } },
+          { name: 'Native Markets (USDH)', type: 'organization', icon: '\ud83c\udf10', description: { en: 'Won the competitive bid to develop USDH, Hyperliquid\'s native stablecoin, redirecting ~$200M/year in yield back to the ecosystem instead of Circle/Coinbase.', fr: 'A remport\u00e9 l\'appel d\'offres pour d\u00e9velopper USDH, le stablecoin natif d\'Hyperliquid, redirigeant ~200 M$/an de rendement vers l\'\u00e9cosyst\u00e8me au lieu de Circle/Coinbase.' } },
+          { name: 'Kinetiq Community', type: 'organization', icon: '\ud83d\udc3e', description: { en: 'Over 15,000 wallets and $1.7B+ staked through Kinetiq liquid staking within days of launch, demonstrating massive retail adoption as a yield-generating platform.', fr: 'Plus de 15 000 portefeuilles et plus de 1,7 Md$ stak\u00e9s via le staking liquide Kinetiq en quelques jours, d\u00e9montrant une adoption massive comme plateforme de rendement.' } },
+          { name: 'Jeff Yan (Founder)', type: 'company', icon: '\ud83e\udde0', description: { en: 'Harvard math & CS grad, former quant trader at Hudson River Trading. Self-funded Hyperliquid with an 11-person team, grew to $650M+ revenue and $2.95T annual volume with zero VC money.', fr: 'Dipl\u00f4m\u00e9 de Harvard en maths et informatique, ancien trader quant chez Hudson River Trading. A autofinanc\u00e9 Hyperliquid avec une \u00e9quipe de 11 personnes, atteignant 650 M$+ de revenus et 2,95 T$ de volume annuel sans argent VC.' } }
+        ],
+        en: {
+          name: 'Hyperliquid (HYPE)',
+          tagline: 'The on-chain exchange that rivals Wall Street speed',
+          what: 'Hyperliquid is a decentralized exchange built on its own custom blockchain. Think of it as a stock exchange \u2014 but fully transparent, open to anyone in the world, and running on blockchain technology. It lets people trade "perpetual futures" (bets on whether a crypto\'s price will go up or down) without trusting a centralized company like Coinbase or Binance. What makes it special is that every single trade happens on-chain, meaning anyone can verify what happened \u2014 no hidden processes, no manipulation.',
+          how: 'Hyperliquid built its own blockchain (the Hyperliquid L1) specifically designed for trading. At its core is HyperBFT \u2014 a custom consensus system where dozens of computers verify every trade almost instantly (0.2 seconds). Unlike most DEXes that use automated pools, Hyperliquid runs a full order book on-chain, just like a stock exchange: buyers place bids, sellers place asks, best price wins. It handles 200,000 orders per second with zero gas fees. On top of this, HyperEVM lets developers build any Ethereum-style app with direct access to the trading engine.',
+          uses: 'Trading perpetual futures with up to 50x leverage, spot trading new tokens, earning yield by providing liquidity to the HLP vault, deploying custom perpetual markets for stocks and commodities via HIP-3, staking HYPE for rewards and fee discounts.',
+          pros: ['Lightning-fast execution (0.2s) with full on-chain transparency', 'Zero gas fees on trades \u2014 only tiny maker/taker fees', 'Largest community airdrop ever: $1.2B to 94K users, zero VC allocation', 'Self-funded team grew to $650M+ revenue without any venture capital'],
+          cons: ['Centralization concerns \u2014 small validator set can make unilateral decisions', 'Security incidents including the JELLY attack and $21M private key breach', 'Intense competition from dYdX, GMX, Aster, and expanding centralized exchanges', 'No KYC on leveraged derivatives trading attracts regulatory scrutiny'],
+          verdict: 'Hyperliquid is the fastest and most transparent decentralized exchange ever built. It proved that a small, self-funded team could build something that rivals Wall Street in speed while keeping everything on-chain. The zero-VC, community-first approach created extraordinary loyalty. However, centralization risks and security incidents remind us it\'s still early. If you\'re interested in the future of on-chain trading, Hyperliquid is impossible to ignore.'
+        },
+        fr: {
+          name: 'Hyperliquid (HYPE)',
+          tagline: 'L\'\u00e9change on-chain qui rivalise avec la vitesse de Wall Street',
+          what: 'Hyperliquid est un \u00e9change d\u00e9centralis\u00e9 construit sur sa propre blockchain. Imaginez une bourse \u2014 mais enti\u00e8rement transparente, ouverte \u00e0 tous et fonctionnant sur la blockchain. Il permet de trader des \u00ab futures perp\u00e9tuels \u00bb (des paris sur la hausse ou la baisse d\'une crypto) sans faire confiance \u00e0 une entreprise centralis\u00e9e comme Coinbase ou Binance. Sa particularit\u00e9 : chaque trade se fait on-chain, ce qui signifie que tout est v\u00e9rifiable \u2014 aucun processus cach\u00e9, aucune manipulation.',
+          how: 'Hyperliquid a construit sa propre blockchain (Hyperliquid L1) sp\u00e9cialement con\u00e7ue pour le trading. Au c\u0153ur se trouve HyperBFT \u2014 un syst\u00e8me de consensus o\u00f9 des dizaines d\'ordinateurs v\u00e9rifient chaque trade presque instantan\u00e9ment (0,2 seconde). Contrairement \u00e0 la plupart des DEX qui utilisent des pools automatis\u00e9s, Hyperliquid utilise un carnet d\'ordres complet on-chain, comme une bourse : acheteurs et vendeurs placent des ordres, le meilleur prix gagne. Il g\u00e8re 200 000 ordres par seconde sans frais de gas. En plus, HyperEVM permet aux d\u00e9veloppeurs de construire toute application Ethereum avec acc\u00e8s direct au moteur de trading.',
+          uses: 'Trader des futures perp\u00e9tuels avec jusqu\'\u00e0 50x de levier, trading spot de nouveaux tokens, g\u00e9n\u00e9rer du rendement en fournissant de la liquidit\u00e9 au coffre HLP, d\u00e9ployer des march\u00e9s perp\u00e9tuels personnalis\u00e9s pour actions et mati\u00e8res premi\u00e8res via HIP-3, staker des HYPE pour des r\u00e9compenses.',
+          pros: ['Ex\u00e9cution ultra-rapide (0,2s) avec transparence totale on-chain', 'Z\u00e9ro frais de gas sur les trades \u2014 seulement de minuscules frais maker/taker', 'Plus grand airdrop communautaire jamais r\u00e9alis\u00e9 : 1,2 Md$ pour 94K utilisateurs, z\u00e9ro allocation VC', '\u00c9quipe autofinanc\u00e9e atteignant 650 M$+ de revenus sans capital-risque'],
+          cons: ['Pr\u00e9occupations de centralisation \u2014 un petit ensemble de validateurs peut prendre des d\u00e9cisions unilat\u00e9rales', 'Incidents de s\u00e9curit\u00e9 incluant l\'attaque JELLY et le vol de 21 M$ par cl\u00e9 priv\u00e9e', 'Concurrence intense de dYdX, GMX, Aster et des \u00e9changes centralis\u00e9s', 'Pas de KYC sur les d\u00e9riv\u00e9s \u00e0 effet de levier attire l\'attention des r\u00e9gulateurs'],
+          verdict: 'Hyperliquid est l\'\u00e9change d\u00e9centralis\u00e9 le plus rapide et le plus transparent jamais construit. Il a prouv\u00e9 qu\'une petite \u00e9quipe autofinanc\u00e9e pouvait construire quelque chose qui rivalise avec Wall Street en vitesse tout en gardant tout on-chain. L\'approche z\u00e9ro-VC et orient\u00e9e communaut\u00e9 a cr\u00e9\u00e9 une loyaut\u00e9 extraordinaire. Cependant, les risques de centralisation et les incidents de s\u00e9curit\u00e9 rappellent que c\'est encore le d\u00e9but. Si le futur du trading on-chain vous int\u00e9resse, Hyperliquid est impossible \u00e0 ignorer.'
+        }
+      },
+      {
+        id: 10,
+        slug: 'avalanche',
+        ticker: 'AVAX',
+        color: '#E84142',
+        symbol: '\ud83d\udd3a',
+        category: 'Layer 1',
+        difficulty: 2,
+        year: 2020,
+        status: 'published',
+        marketCap: '~$4 billion',
+        supply: '720 million AVAX (max)',
+        consensus: 'Avalanche Consensus (PoS)',
+        founder: 'Emin G\u00fcn Sirer',
+        related: ['Ethereum', 'Solana', 'Polygon'],
+        videoUrl: '',
+        videoPoster: '',
+        newsQuery: 'avalanche avax',
+        companies: [
+          { name: 'Aave', how: { en: 'Deployed its lending protocol on Avalanche C-Chain, offering low-fee borrowing and flash loans.', fr: 'A d\u00e9ploy\u00e9 son protocole de pr\u00eat sur l\'Avalanche C-Chain, offrant des emprunts \u00e0 faibles frais et des flash loans.' }, color: '#B6509E' },
+          { name: 'LFJ (Trader Joe)', how: { en: 'The leading native DEX on Avalanche handling billions in trading volume with its Liquidity Book AMM.', fr: 'Le principal DEX natif sur Avalanche g\u00e9rant des milliards de volume avec son AMM Liquidity Book.' }, color: '#FF5C00' },
+          { name: 'GMX', how: { en: 'Operates a decentralized perpetual exchange on Avalanche C-Chain with up to 50x leverage.', fr: 'Op\u00e8re un \u00e9change de perp\u00e9tuels d\u00e9centralis\u00e9 sur l\'Avalanche C-Chain avec jusqu\'\u00e0 50x de levier.' }, color: '#00D1FF' },
+          { name: 'BENQI', how: { en: 'The largest native DeFi protocol on Avalanche offering lending, liquid staking (sAVAX), and validator tools.', fr: 'Le plus grand protocole DeFi natif sur Avalanche offrant pr\u00eats, staking liquide (sAVAX) et outils de validateur.' }, color: '#1CE6B9' },
+          { name: 'Chainlink', how: { en: 'Provides price feeds, VRF randomness, and CCIP cross-chain messaging across Avalanche C-Chain and all L1s.', fr: 'Fournit des flux de prix, le VRF et la messagerie cross-chain CCIP sur l\'Avalanche C-Chain et tous les L1.' }, color: '#0847F7' },
+          { name: 'Franklin Templeton', how: { en: 'Launched its tokenized BENJI money market fund on Avalanche \u2014 the first US-registered fund on a public blockchain.', fr: 'A lanc\u00e9 son fonds mon\u00e9taire tokenis\u00e9 BENJI sur Avalanche \u2014 le premier fonds am\u00e9ricain enregistr\u00e9 sur une blockchain publique.' }, color: '#003087' }
+        ],
+        updates: [
+          { date: '2024-10', text: { en: 'Off The Grid AAA game tops Epic Games Store, built on a dedicated Avalanche subnet (GUNZ Chain).', fr: 'Le jeu AAA Off The Grid en t\u00eate de l\'Epic Games Store, construit sur un subnet Avalanche d\u00e9di\u00e9 (GUNZ Chain).' } },
+          { date: '2025-01', text: { en: 'Avalanche9000 (Etna) upgrade launches: 99.9% fee reduction, cheaper subnets, $250M token sale completed.', fr: 'Lancement de la mise \u00e0 jour Avalanche9000 (Etna) : r\u00e9duction de 99,9% des frais, subnets moins chers, vente de tokens de 250 M$.' } },
+          { date: '2025-05', text: { en: 'FIFA selects Avalanche to build its own dedicated L1 blockchain for 5 billion football fans worldwide.', fr: 'La FIFA choisit Avalanche pour construire sa propre blockchain L1 d\u00e9di\u00e9e pour 5 milliards de fans de football.' } },
+          { date: '2025-08', text: { en: 'Wyoming launches FRNT stablecoin on Avalanche \u2014 the first US state-issued stablecoin backed by Treasuries.', fr: 'Le Wyoming lance le stablecoin FRNT sur Avalanche \u2014 le premier stablecoin \u00e9mis par un \u00c9tat am\u00e9ricain adoss\u00e9 aux bons du Tr\u00e9sor.' } }
+        ],
+        adopters: [
+          { name: 'Deloitte', type: 'company', icon: '\ud83c\udfe2', description: { en: 'Built the CAYG platform on Avalanche to streamline FEMA disaster-relief reimbursements for the US government, improving accuracy and reducing fraud in federal emergency funding.', fr: 'A construit la plateforme CAYG sur Avalanche pour rationaliser les remboursements de catastrophes FEMA pour le gouvernement am\u00e9ricain, am\u00e9liorant la pr\u00e9cision et r\u00e9duisant la fraude.' } },
+          { name: 'Franklin Templeton', type: 'company', icon: '\ud83d\udcbc', description: { en: 'Extended its tokenized money market fund (FOBXX/BENJI) to Avalanche \u2014 the first US-registered mutual fund using a public blockchain as its official system of record.', fr: 'A \u00e9tendu son fonds mon\u00e9taire tokenis\u00e9 (FOBXX/BENJI) \u00e0 Avalanche \u2014 le premier fonds commun am\u00e9ricain utilisant une blockchain publique comme syst\u00e8me d\'enregistrement officiel.' } },
+          { name: 'FIFA', type: 'organization', icon: '\u26bd', description: { en: 'Selected Avalanche to power its own sovereign L1 blockchain for FIFA Collect digital collectibles and fan engagement products, serving 5+ billion football fans globally.', fr: 'A choisi Avalanche pour alimenter sa propre blockchain L1 souveraine pour les objets de collection FIFA Collect et produits d\'engagement des fans, desservant 5+ milliards de fans de football.' } },
+          { name: 'Wyoming State', type: 'government', icon: '\ud83c\udfe2', description: { en: 'First US state to issue a stablecoin on a public blockchain \u2014 the Frontier Stable Token (FRNT) backed by US Treasuries with 102% reserve, enabling real-time government contractor payments.', fr: 'Premier \u00c9tat am\u00e9ricain \u00e0 \u00e9mettre un stablecoin sur blockchain publique \u2014 le FRNT adoss\u00e9 aux bons du Tr\u00e9sor avec 102% de r\u00e9serve, permettant des paiements en temps r\u00e9el aux sous-traitants gouvernementaux.' } },
+          { name: 'JPMorgan Chase', type: 'company', icon: '\ud83c\udfe6', description: { en: 'Integrated Avalanche via its Kinexys (Onyx) division for automated portfolio management and asset tokenization through a permissioned Evergreen Subnet.', fr: 'A int\u00e9gr\u00e9 Avalanche via sa division Kinexys (Onyx) pour la gestion automatis\u00e9e de portefeuille et la tokenisation d\'actifs via un Evergreen Subnet.' } },
+          { name: 'Gunzilla Games', type: 'startup', icon: '\ud83c\udfae', description: { en: 'Built Off The Grid, the first AAA blockchain game on Xbox, PlayStation, and PC, on a dedicated Avalanche subnet. Topped Epic Games Store at launch with 148K concurrent Twitch viewers.', fr: 'A construit Off The Grid, le premier jeu AAA blockchain sur Xbox, PlayStation et PC, sur un subnet Avalanche d\u00e9di\u00e9. En t\u00eate de l\'Epic Games Store au lancement avec 148K spectateurs Twitch.' } }
+        ],
+        en: {
+          name: 'Avalanche (AVAX)',
+          tagline: 'The blazing-fast blockchain where institutions build',
+          what: 'Avalanche is a Layer 1 blockchain platform \u2014 the foundational layer of a blockchain network, like Ethereum or Solana, but designed to be faster, cheaper, and more flexible. Think of it as a high-speed highway for blockchain apps. Unlike older blockchains that get congested, Avalanche confirms transactions in under 2 seconds for fractions of a cent. Its most powerful feature is "subnets" (now called L1s) \u2014 custom mini-blockchains that any company or developer can create, tailored to their specific needs, all connected to the main network.',
+          how: 'Avalanche uses a novel consensus called the Snow protocol. Imagine a room full of people deciding what to eat: instead of counting every vote, each person asks a random small group nearby. If most say pizza, that person adopts pizza. Everyone does this repeatedly, and within seconds the whole room agrees \u2014 without anyone being in charge. This is how Avalanche validators reach agreement: fast, efficient, and secure. The network is split into three chains: the X-Chain (fast transfers), P-Chain (validator management), and C-Chain (smart contracts, fully Ethereum-compatible).',
+          uses: 'Building DeFi apps with instant finality, launching AAA blockchain games on dedicated subnets, tokenizing real-world assets like treasury bonds and real estate funds, issuing government-backed stablecoins, running enterprise blockchain infrastructure for banks and institutions.',
+          pros: ['Sub-2-second transaction finality \u2014 one of the fastest blockchains', 'Custom subnets let anyone launch a tailored blockchain at minimal cost', 'Fully Ethereum-compatible \u2014 same tools and smart contracts work out of the box', 'Deflationary tokenomics: 720M hard cap with all fees permanently burned'],
+          cons: ['High validator stake requirement: 2,000 AVAX needed to run a node', 'Intense competition from Ethereum L2s, Solana, and other Layer 1s', 'Ava Labs holds significant centralized influence over ecosystem direction', 'Subnet architecture can fragment liquidity across separate chains'],
+          verdict: 'Avalanche is the blockchain that institutions trust. From JPMorgan to FIFA to Wyoming\u2019s state stablecoin, it has attracted the most impressive roster of real-world partners in all of crypto. The Avalanche9000 upgrade made custom blockchains accessible to everyone. While it faces fierce competition from Ethereum\u2019s L2 ecosystem and Solana, no other chain combines enterprise credibility with DeFi speed quite like Avalanche.'
+        },
+        fr: {
+          name: 'Avalanche (AVAX)',
+          tagline: 'La blockchain ultra-rapide o\u00f9 les institutions construisent',
+          what: 'Avalanche est une plateforme blockchain Layer 1 \u2014 la couche fondamentale d\'un r\u00e9seau blockchain, comme Ethereum ou Solana, mais con\u00e7ue pour \u00eatre plus rapide, moins ch\u00e8re et plus flexible. Imaginez une autoroute \u00e0 grande vitesse pour les applications blockchain. Contrairement aux blockchains plus anciennes qui se congestionnent, Avalanche confirme les transactions en moins de 2 secondes pour des fractions de centime. Sa fonctionnalit\u00e9 la plus puissante : les \u00ab subnets \u00bb (d\u00e9sormais appel\u00e9s L1) \u2014 des mini-blockchains personnalis\u00e9es que toute entreprise peut cr\u00e9er selon ses besoins.',
+          how: 'Avalanche utilise un consensus novateur appel\u00e9 le protocole Snow. Imaginez une salle remplie de personnes d\u00e9cidant quoi manger : au lieu de compter chaque vote, chacun demande \u00e0 un petit groupe al\u00e9atoire. Si la majorit\u00e9 dit pizza, cette personne adopte pizza. Tout le monde fait pareil, et en quelques secondes la salle enti\u00e8re est d\'accord \u2014 sans qu\'un chef d\u00e9cide. C\'est ainsi que les validateurs Avalanche atteignent un consensus : rapide, efficace et s\u00e9curis\u00e9. Le r\u00e9seau est divis\u00e9 en trois cha\u00eenes : X-Chain (transferts rapides), P-Chain (gestion des validateurs) et C-Chain (contrats intelligents, compatible Ethereum).',
+          uses: 'Construire des apps DeFi avec finalit\u00e9 instantan\u00e9e, lancer des jeux AAA blockchain sur des subnets d\u00e9di\u00e9s, tokeniser des actifs r\u00e9els comme des bons du Tr\u00e9sor et fonds immobiliers, \u00e9mettre des stablecoins gouvernementaux, faire fonctionner des infrastructures blockchain pour banques et institutions.',
+          pros: ['Finalit\u00e9 de transaction en moins de 2 secondes \u2014 une des blockchains les plus rapides', 'Les subnets personnalis\u00e9s permettent \u00e0 quiconque de lancer une blockchain sur mesure', 'Enti\u00e8rement compatible Ethereum \u2014 m\u00eames outils et contrats intelligents', 'Tokenomics d\u00e9flationniste : limite de 720M avec tous les frais br\u00fbl\u00e9s d\u00e9finitivement'],
+          cons: ['Exigence de staking \u00e9lev\u00e9e : 2 000 AVAX pour faire tourner un n\u0153ud', 'Concurrence intense des L2 Ethereum, Solana et autres Layer 1', 'Ava Labs d\u00e9tient une influence centralis\u00e9e significative sur l\'\u00e9cosyst\u00e8me', 'L\'architecture subnet peut fragmenter la liquidit\u00e9 entre les cha\u00eenes'],
+          verdict: 'Avalanche est la blockchain en laquelle les institutions ont confiance. De JPMorgan \u00e0 la FIFA en passant par le stablecoin du Wyoming, elle a attir\u00e9 les partenaires r\u00e9els les plus impressionnants de toute la crypto. La mise \u00e0 jour Avalanche9000 a rendu les blockchains personnalis\u00e9es accessibles \u00e0 tous. Face \u00e0 la concurrence d\'Ethereum L2 et Solana, aucune autre cha\u00eene ne combine cr\u00e9dibilit\u00e9 institutionnelle et vitesse DeFi comme Avalanche.'
+        }
+      },
+      {
+        id: 11,
+        slug: 'uniswap',
+        ticker: 'UNI',
+        color: '#FF007A',
+        symbol: '\ud83e\udd84',
+        category: 'DEX',
+        difficulty: 2,
+        year: 2018,
+        status: 'published',
+        marketCap: '~$2.5 billion',
+        supply: '1 billion UNI (max)',
+        consensus: 'Ethereum PoS (Smart Contract)',
+        founder: 'Hayden Adams',
+        related: ['Curve Finance', 'SushiSwap', 'Balancer'],
+        videoUrl: '',
+        videoPoster: '',
+        newsQuery: 'uniswap',
+        companies: [
+          { name: 'Aave', how: { en: 'Uses Uniswap LP tokens as collateral and sources TWAP price oracles from Uniswap pools.', fr: 'Utilise les tokens LP Uniswap comme garantie et s\'approvisionne en oracles de prix TWAP depuis les pools Uniswap.' }, color: '#B6509E' },
+          { name: '1inch', how: { en: 'The largest DEX aggregator routes trades through Uniswap pools to find the best prices for users.', fr: 'Le plus grand agr\u00e9gateur DEX route les trades \u00e0 travers les pools Uniswap pour trouver les meilleurs prix.' }, color: '#1B314F' },
+          { name: 'Chainlink', how: { en: 'Provides decentralized price feeds that complement Uniswap\'s on-chain TWAP oracles for DeFi security.', fr: 'Fournit des flux de prix d\u00e9centralis\u00e9s qui compl\u00e8tent les oracles TWAP on-chain d\'Uniswap pour la s\u00e9curit\u00e9 DeFi.' }, color: '#375BD2' },
+          { name: 'Anchorage Digital', how: { en: 'The only US federally chartered crypto bank integrated Uniswap\'s API for institutional DeFi access.', fr: 'La seule banque crypto agr\u00e9\u00e9e par le gouvernement am\u00e9ricain a int\u00e9gr\u00e9 l\'API Uniswap pour l\'acc\u00e8s institutionnel DeFi.' }, color: '#0A0A0A' },
+          { name: 'MakerDAO', how: { en: 'Accepts Uniswap v3 LP tokens as collateral to mint DAI, the largest decentralized stablecoin.', fr: 'Accepte les tokens LP Uniswap v3 comme garantie pour \u00e9mettre du DAI, le plus grand stablecoin d\u00e9centralis\u00e9.' }, color: '#1AAB9B' },
+          { name: 'Morpho', how: { en: 'Selected as the first Uniswap DAO grant recipient to boost Unichain TVL, reaching $207M in 30 days.', fr: 'S\u00e9lectionn\u00e9 comme premier r\u00e9cipiendaire de subvention du DAO Uniswap pour augmenter la TVL d\'Unichain, atteignant 207 M$ en 30 jours.' }, color: '#9B5BDB' }
+        ],
+        updates: [
+          { date: '2024-10', text: { en: 'Uniswap Labs announces Unichain \u2014 its own Layer 2 with 250ms block times built on the OP Stack.', fr: 'Uniswap Labs annonce Unichain \u2014 son propre Layer 2 avec des blocs de 250ms construit sur l\'OP Stack.' } },
+          { date: '2025-01', text: { en: 'Uniswap v4 launches with revolutionary Hooks system, singleton architecture, and 99% cheaper pool creation.', fr: 'Uniswap v4 se lance avec le syst\u00e8me r\u00e9volutionnaire Hooks, une architecture singleton et la cr\u00e9ation de pools 99% moins ch\u00e8re.' } },
+          { date: '2025-05', text: { en: 'First DEX ever to surpass $3 trillion in cumulative trading volume \u2014 more than Canada\'s GDP.', fr: 'Premier DEX \u00e0 d\u00e9passer les 3 000 milliards $ de volume cumul\u00e9 \u2014 plus que le PIB du Canada.' } },
+          { date: '2025-12', text: { en: 'UNIfication proposal passes with 99.9% support: fee switch activated, 100M UNI ($590M) burned.', fr: 'La proposition UNIfication adopt\u00e9e \u00e0 99,9% : fee switch activ\u00e9, 100M UNI (590 M$) br\u00fbl\u00e9s.' } }
+        ],
+        adopters: [
+          { name: 'Uniswap DAO', type: 'organization', icon: '\ud83d\uddf3\ufe0f', description: { en: 'One of the most active DAOs in DeFi, controlling a multi-hundred-million dollar treasury. Passed 7 major on-chain proposals in 2025 including the landmark UNIfication fee switch.', fr: 'Un des DAOs les plus actifs en DeFi, contr\u00f4lant un tr\u00e9sor de plusieurs centaines de millions de dollars. A adopt\u00e9 7 propositions majeures on-chain en 2025 dont le fee switch UNIfication.' } },
+          { name: 'a16z (Andreessen Horowitz)', type: 'company', icon: '\ud83d\udcbc', description: { en: 'One of the largest VC firms in the world and early Uniswap investor. A major UNI holder and active governance delegate, helping legitimize Uniswap as institutional-grade infrastructure.', fr: 'L\'une des plus grandes soci\u00e9t\u00e9s de capital-risque au monde et investisseur pr\u00e9coce d\'Uniswap. D\u00e9tenteur majeur de UNI et d\u00e9l\u00e9gu\u00e9 de gouvernance actif.' } },
+          { name: 'Anchorage Digital', type: 'company', icon: '\ud83c\udfe6', description: { en: 'The only federally chartered US crypto bank integrated Uniswap\'s API, allowing institutional clients to access DEX liquidity from a bank-grade secure interface.', fr: 'La seule banque crypto am\u00e9ricaine agr\u00e9\u00e9e a int\u00e9gr\u00e9 l\'API d\'Uniswap, permettant aux clients institutionnels d\'acc\u00e9der \u00e0 la liquidit\u00e9 DEX depuis une interface bancaire s\u00e9curis\u00e9e.' } },
+          { name: 'MakerDAO / Sky', type: 'organization', icon: '\ud83c\udfe2', description: { en: 'Creator of DAI, the largest decentralized stablecoin. MakerDAO accepts Uniswap v3 LP tokens as collateral and DAI is one of the most traded assets on Uniswap.', fr: 'Cr\u00e9ateur de DAI, le plus grand stablecoin d\u00e9centralis\u00e9. MakerDAO accepte les tokens LP Uniswap v3 comme garantie et DAI est l\'un des actifs les plus \u00e9chang\u00e9s sur Uniswap.' } },
+          { name: 'Paradigm', type: 'company', icon: '\ud83d\udd2c', description: { en: 'Crypto-native investment firm whose researchers co-authored the Unichain whitepaper and contributed foundational research on AMM design that shaped Uniswap v3 and v4.', fr: 'Soci\u00e9t\u00e9 d\'investissement crypto-native dont les chercheurs ont co-\u00e9crit le whitepaper Unichain et contribu\u00e9 \u00e0 la recherche fondamentale sur les AMM qui a fa\u00e7onn\u00e9 Uniswap v3 et v4.' } },
+          { name: 'Hayden Adams (Founder)', type: 'company', icon: '\ud83e\udd84', description: { en: 'Former Siemens mechanical engineer who learned Ethereum smart contracts after being laid off. Created Uniswap in 2018, now the world\'s largest DEX with $3T+ in all-time volume.', fr: 'Ancien ing\u00e9nieur m\u00e9canique chez Siemens qui a appris les smart contracts Ethereum apr\u00e8s avoir \u00e9t\u00e9 licenci\u00e9. A cr\u00e9\u00e9 Uniswap en 2018, aujourd\'hui le plus grand DEX au monde avec plus de 3 000 Md$ de volume total.' } }
+        ],
+        en: {
+          name: 'Uniswap (UNI)',
+          tagline: 'The decentralized exchange that invented token swapping',
+          what: 'Uniswap is the world\'s largest decentralized exchange (DEX). It lets anyone trade cryptocurrencies directly from their own wallet \u2014 without signing up, providing ID, or trusting a company to hold their funds. Think of it as a fully automated currency exchange booth that runs 24/7 on the blockchain, governed by code instead of people. Unlike centralized exchanges like Coinbase or Binance, there is no company matching your trades \u2014 smart contracts handle everything automatically.',
+          how: 'Uniswap uses an invention called an Automated Market Maker (AMM). Instead of matching buyers with sellers like a traditional exchange, it uses "liquidity pools" \u2014 pools of two tokens that anyone can deposit into. Imagine a vending machine with apples and oranges: you insert apples to get oranges, and the machine automatically adjusts prices based on supply. The math formula x \u00d7 y = k keeps everything balanced. In v3, liquidity providers can concentrate their capital in specific price ranges for much higher returns. In v4, developers can add "hooks" \u2014 plugins that customize how each pool behaves.',
+          uses: 'Swapping any token for another directly from your wallet, earning fees by providing liquidity to pools, voting on protocol upgrades through UNI governance, building DeFi apps using Uniswap as a liquidity layer, trading on Unichain L2 with sub-second block times and 95% lower fees.',
+          pros: ['Truly permissionless \u2014 anyone can trade any token without an account', 'World\'s #1 DEX by volume with $3T+ all-time and deepest liquidity', 'Capital-efficient concentrated liquidity (v3) and customizable hooks (v4)', 'Immutable, censorship-resistant smart contracts running since 2018'],
+          cons: ['High gas fees on Ethereum mainnet make small trades expensive', 'Liquidity providers face impermanent loss risk, amplified in v3', 'Permissionless listings mean scam tokens are common \u2014 users must verify', 'Complex UX for beginners: wallet setup, gas, approvals, slippage settings'],
+          verdict: 'Uniswap is the backbone of decentralized finance. It invented the AMM model, processed more volume than Canada\'s GDP, and proved that code can replace centralized intermediaries. The UNIfication fee switch finally made UNI a revenue-generating asset. If you want to understand DeFi, start with Uniswap \u2014 it\'s the most important protocol in the space.'
+        },
+        fr: {
+          name: 'Uniswap (UNI)',
+          tagline: 'L\'\u00e9change d\u00e9centralis\u00e9 qui a invent\u00e9 le swap de tokens',
+          what: 'Uniswap est le plus grand \u00e9change d\u00e9centralis\u00e9 (DEX) au monde. Il permet \u00e0 quiconque d\'\u00e9changer des cryptomonnaies directement depuis son portefeuille \u2014 sans inscription, sans pi\u00e8ce d\'identit\u00e9, sans confier ses fonds \u00e0 une entreprise. Imaginez un bureau de change enti\u00e8rement automatis\u00e9 fonctionnant 24h/24 sur la blockchain, gouvern\u00e9 par du code au lieu de personnes. Contrairement aux \u00e9changes centralis\u00e9s comme Coinbase ou Binance, aucune entreprise ne g\u00e8re vos trades \u2014 les smart contracts font tout automatiquement.',
+          how: 'Uniswap utilise une invention appel\u00e9e Automated Market Maker (AMM). Au lieu de faire correspondre acheteurs et vendeurs comme une bourse traditionnelle, il utilise des \u00ab pools de liquidit\u00e9 \u00bb \u2014 des r\u00e9serves de deux tokens dans lesquelles chacun peut d\u00e9poser. Imaginez un distributeur avec des pommes et des oranges : vous ins\u00e9rez des pommes pour obtenir des oranges, et la machine ajuste les prix automatiquement. La formule x \u00d7 y = k maintient l\'\u00e9quilibre. En v3, les fournisseurs de liquidit\u00e9 concentrent leur capital sur des plages de prix sp\u00e9cifiques. En v4, les d\u00e9veloppeurs ajoutent des \u00ab hooks \u00bb \u2014 des plugins personnalisant chaque pool.',
+          uses: '\u00c9changer n\'importe quel token directement depuis son portefeuille, gagner des frais en fournissant de la liquidit\u00e9, voter sur les am\u00e9liorations du protocole via la gouvernance UNI, construire des apps DeFi en utilisant Uniswap comme couche de liquidit\u00e9, trader sur Unichain L2 avec des blocs sub-seconde et 95% de frais en moins.',
+          pros: ['Vraiment sans permission \u2014 quiconque peut \u00e9changer n\'importe quel token sans compte', 'Premier DEX mondial par volume avec 3 000 Md$+ et la liquidit\u00e9 la plus profonde', 'Liquidit\u00e9 concentr\u00e9e efficace en capital (v3) et hooks personnalisables (v4)', 'Smart contracts immuables et r\u00e9sistants \u00e0 la censure depuis 2018'],
+          cons: ['Frais de gas \u00e9lev\u00e9s sur Ethereum mainnet rendant les petits trades co\u00fbteux', 'Les fournisseurs de liquidit\u00e9 font face au risque de perte impermanente, amplifi\u00e9 en v3', 'Les listings sans permission signifient que les tokens arnaque sont fr\u00e9quents', 'UX complexe pour les d\u00e9butants : configuration du wallet, gas, approbations, slippage'],
+          verdict: 'Uniswap est la colonne vert\u00e9brale de la finance d\u00e9centralis\u00e9e. Il a invent\u00e9 le mod\u00e8le AMM, trait\u00e9 plus de volume que le PIB du Canada, et prouv\u00e9 que le code peut remplacer les interm\u00e9diaires centralis\u00e9s. Le fee switch UNIfication a enfin fait d\'UNI un actif g\u00e9n\u00e9rateur de revenus. Si vous voulez comprendre la DeFi, commencez par Uniswap \u2014 c\'est le protocole le plus important de l\'\u00e9cosyst\u00e8me.'
+        }
       }
+
     ];
 
     /* ==========================================
