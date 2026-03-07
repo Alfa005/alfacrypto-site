@@ -1,1 +1,3 @@
-/*    /index.html   200
+# Static files served directly by Cloudflare Pages
+# Article pages: /bitcoin/ → /bitcoin/index.html (auto)
+# Homepage: / → /index.html (auto)

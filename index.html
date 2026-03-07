@@ -15,18 +15,30 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/?lang=fr">
 
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://alfacrypto.ai/">
   <meta property="og:title" content="alfacrypto.ai — Crypto, Explained Simply">
   <meta property="og:description" content="Cryptocurrencies explained simply. No jargon, no hype. Educational crypto guides and videos in English and French.">
   <meta property="og:site_name" content="alfacrypto.ai">
+  <meta property="og:image" content="https://alfacrypto.ai/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@alfacrypto">
   <meta name="twitter:title" content="alfacrypto.ai — Crypto, Explained Simply">
   <meta name="twitter:description" content="Cryptocurrencies explained simply. No jargon, no hype. Guides and videos in English and French.">
+  <meta name="twitter:image" content="https://alfacrypto.ai/og-image.png">
 
   <!-- Schema.org WebSite -->
   <script type="application/ld+json">
@@ -679,6 +691,12 @@
       gap: var(--space-6);
     }
 
+    .crypto-card-link {
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+
     .crypto-card {
       background: var(--color-surface);
       border: 1px solid var(--color-border);
@@ -1300,6 +1318,41 @@
       transition: color var(--transition-interactive);
     }
     .footer-bottom-links a:hover { color: var(--color-text-muted); }
+
+    /* SEO internal links nav */
+    .seo-nav {
+      margin-top: var(--space-6);
+      padding-top: var(--space-6);
+      border-top: 1px solid var(--color-border);
+    }
+    .seo-nav-title {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+    .seo-nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+    }
+    .seo-nav-links a {
+      font-size: var(--text-xs);
+      font-family: var(--font-body);
+      color: var(--color-text-faint);
+      text-decoration: none;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      border: 1px solid var(--color-border);
+      transition: all var(--transition-interactive);
+    }
+    .seo-nav-links a:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
 
     /* ============ BUTTONS ============ */
     .btn {
@@ -2629,6 +2682,23 @@
             <a href="#admin" onclick="switchView('admin'); return false;" data-i18n="footer.admin">Admin</a>
           </div>
         </div>
+        <!-- SEO: Static internal links for Google crawler -->
+        <nav class="seo-nav" aria-label="All crypto guides">
+          <div class="seo-nav-title">Explore Our Crypto Guides</div>
+          <div class="seo-nav-links">
+            <a href="/bitcoin/">Bitcoin (BTC)</a>
+            <a href="/ethereum/">Ethereum (ETH)</a>
+            <a href="/solana/">Solana (SOL)</a>
+            <a href="/chainlink/">Chainlink (LINK)</a>
+            <a href="/aave/">Aave (AAVE)</a>
+            <a href="/bnb/">BNB (BNB)</a>
+            <a href="/xrp/">XRP (XRP)</a>
+            <a href="/usdt/">Tether (USDT)</a>
+            <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
+            <a href="/avalanche/">Avalanche (AVAX)</a>
+            <a href="/uniswap/">Uniswap (UNI)</a>
+          </div>
+        </nav>
       </div>
     </footer>
 
@@ -4295,7 +4365,8 @@
         var data = article[currentLang];
         var diffLabel = t('diff.' + article.difficulty);
         var badgeClass = getCategoryBadge(article.category);
-        return '<article class="crypto-card fade-in" role="listitem" tabindex="0" aria-label="' + data.name + ' - ' + data.tagline + '" onclick="openArticle(' + article.id + ')" onkeydown="if(event.key===\'Enter\'||event.key===\' \')openArticle(' + article.id + ')">' +
+        return '<a href="/' + article.slug + '/" class="crypto-card-link" onclick="event.preventDefault();openArticle(' + article.id + ')">' +
+        '<article class="crypto-card fade-in" role="listitem" aria-label="' + data.name + ' - ' + data.tagline + '">' +
           '<div class="card-accent" style="background:' + article.color + '"></div>' +
           '<div class="card-body-inner">' +
             '<div class="card-top">' +
@@ -4323,7 +4394,7 @@
               '</div>' +
             '</div>' +
           '</div>' +
-        '</article>';
+        '</article></a>';
       }).join('');
     }
 
