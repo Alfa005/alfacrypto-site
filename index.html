@@ -734,7 +734,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1085,6 +1090,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -3255,6 +3266,7 @@
         ticker: 'BTC',
         color: '#F7931A',
         symbol: '₿',
+        logo: 'logos/bitcoin.png',
         category: 'Digital Gold',
         difficulty: 1,
         year: 2009,
@@ -3316,6 +3328,7 @@
         ticker: 'ETH',
         color: '#627EEA',
         symbol: '⟠',
+        logo: 'logos/ethereum.png',
         category: 'Smart Contracts',
         difficulty: 2,
         year: 2015,
@@ -3377,6 +3390,7 @@
         ticker: 'SOL',
         color: '#9945FF',
         symbol: '◎',
+        logo: 'logos/solana.png',
         category: 'Layer 1',
         difficulty: 2,
         year: 2020,
@@ -3438,6 +3452,7 @@
         ticker: 'LINK',
         color: '#375BD2',
         symbol: '⬡',
+        logo: 'logos/chainlink.png',
         category: 'Oracle Network',
         difficulty: 2,
         year: 2017,
@@ -3498,6 +3513,7 @@
         ticker: 'AAVE',
         color: '#B6509E',
         symbol: '👻',
+        logo: 'logos/aave.png',
         category: 'DeFi Lending',
         difficulty: 2,
         year: 2020,
@@ -3558,6 +3574,7 @@
         ticker: 'BNB',
         color: '#F3BA2F',
         symbol: '◆',
+        logo: 'logos/bnb.png',
         category: 'Exchange Token',
         difficulty: 1,
         year: 2017,
@@ -3618,6 +3635,7 @@
         ticker: 'XRP',
         color: '#23292F',
         symbol: '✕',
+        logo: 'logos/xrp.png',
         category: 'Cross-Border Payments',
         difficulty: 1,
         year: 2012,
@@ -3678,6 +3696,7 @@
         ticker: 'USDT',
         color: '#26A17B',
         symbol: '₮',
+        logo: 'logos/usdt.png',
         category: 'Stablecoin',
         difficulty: 1,
         year: 2014,
@@ -3738,6 +3757,7 @@
         ticker: 'HYPE',
         color: '#97FCE4',
         symbol: '⧫',
+        logo: 'logos/hyperliquid.png',
         category: 'Perpetual DEX',
         difficulty: 2,
         year: 2023,
@@ -3799,6 +3819,7 @@
         ticker: 'AVAX',
         color: '#E84142',
         symbol: '\ud83d\udd3a',
+        logo: 'logos/avalanche.png',
         category: 'Layer 1',
         difficulty: 2,
         year: 2020,
@@ -3860,6 +3881,7 @@
         ticker: 'UNI',
         color: '#FF007A',
         symbol: '\ud83e\udd84',
+        logo: 'logos/uniswap.png',
         category: 'DEX',
         difficulty: 2,
         year: 2018,
@@ -4437,7 +4459,7 @@
                 '<div class="card-ticker">' + article.ticker + ' · ' + article.year + '</div>' +
               '</div>' +
               '<div style="text-align:right;">' +
-                '<div class="card-icon" style="background:' + article.color + '; margin-left:auto;">' + article.symbol + '</div>' +
+                '<div class="card-icon" style="background:' + article.color + '; margin-left:auto;">' + (article.logo ? '<img src="' + article.logo + '" alt="' + data.name + '">' : article.symbol) + '</div>' +
               '</div>' +
             '</div>' +
             '<p class="card-tagline">' + data.tagline + '</p>' +
@@ -4504,7 +4526,7 @@
         var data = article[currentLang];
         return '<div class="carousel-slide">' +
           '<div class="featured-icon-wrap">' +
-            '<div class="featured-icon" style="background:linear-gradient(135deg,' + article.color + ',color-mix(in oklab,' + article.color + ' 60%,#000))">' + article.symbol + '</div>' +
+            '<div class="featured-icon" style="background:linear-gradient(135deg,' + article.color + ',color-mix(in oklab,' + article.color + ' 60%,#000))">' + (article.logo ? '<img src="' + article.logo + '" alt="' + data.name + ' logo">' : article.symbol) + '</div>' +
           '</div>' +
           '<div>' +
             '<div class="featured-eyebrow">' + data.name + '</div>' +
@@ -4670,7 +4692,7 @@
             '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
           '</button>' +
           '<div class="modal-eyebrow">' +
-            '<div class="card-icon" style="background:' + article.color + '; width:52px; height:52px; font-size:1.6rem;">' + article.symbol + '</div>' +
+            '<div class="card-icon" style="background:' + article.color + '; width:52px; height:52px; font-size:1.6rem;">' + (article.logo ? '<img src="' + article.logo + '" alt="' + data.name + '">' : article.symbol) + '</div>' +
             '<span class="badge ' + getCategoryBadge(article.category) + '">' + article.category + '</span>' +
             '<span class="badge badge-green">' + diffLabel + '</span>' +
           '</div>' +
