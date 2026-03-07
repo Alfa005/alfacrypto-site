@@ -1051,15 +1051,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1097,6 +1106,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2406,7 +2456,7 @@
           <ul class="nav-links" id="nav-links-list" role="list">
             <li><a href="#cryptos" data-i18n="nav.cryptos">All Cryptos</a></li>
             <li><a href="#learn" data-i18n="nav.learn">Learn</a></li>
-            <li><a href="#featured" data-i18n="nav.featured">Crypto of the Week</a></li>
+            <li><a href="#featured" data-i18n="nav.featured">Spotlight</a></li>
             <li><a href="#about" data-i18n="nav.about">About</a></li>
             <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
           </ul>
@@ -2523,11 +2573,20 @@
         </div>
       </section>
 
-      <!-- ========== FEATURED / CRYPTO OF THE WEEK ========== -->
+      <!-- ========== FEATURED CAROUSEL ========== -->
       <section id="featured" class="section featured-section" aria-labelledby="featured-heading">
         <div class="container">
-          <div id="featured-inner" class="featured-inner">
-            <!-- Populated by JS -->
+          <div class="section-header">
+            <div class="section-eyebrow" data-i18n="featured.eyebrow">Crypto Spotlight</div>
+            <h2 class="section-title" id="featured-heading" data-i18n="featured.title">Discover our cryptos</h2>
+          </div>
+          <div class="carousel-wrapper" id="carousel-wrapper">
+            <div class="carousel-track" id="carousel-track">
+              <!-- Slides populated by JS -->
+            </div>
+            <div class="carousel-controls" id="carousel-controls">
+              <!-- Prev/dots/next populated by JS -->
+            </div>
           </div>
         </div>
       </section>
@@ -2660,7 +2719,7 @@
             <div class="footer-col-title" data-i18n="footer.col.explore">Explore</div>
             <ul class="footer-links" role="list">
               <li><a href="#cryptos" data-i18n="nav.cryptos">All Cryptos</a></li>
-              <li><a href="#featured" data-i18n="nav.featured">Crypto of the Week</a></li>
+              <li><a href="#featured" data-i18n="nav.featured">Spotlight</a></li>
               <li><a href="#about" data-i18n="nav.about">About</a></li>
               <li><a href="#newsletter" data-i18n="nav.newsletter">Newsletter</a></li>
             </ul>
@@ -3865,7 +3924,7 @@
     var i18n = {
       en: {
         'nav.cryptos': 'All Cryptos',
-        'nav.featured': 'Crypto of the Week',
+        'nav.featured': 'Spotlight',
         'nav.about': 'About',
         'nav.newsletter': 'Newsletter',
         'hero.eyebrow': 'Your crypto learning hub',
@@ -3883,7 +3942,8 @@
         'cryptos.title': 'Explore all cryptos',
         'cryptos.sub': 'Each profile explains a cryptocurrency in plain language — what it is, how it works, and why it matters.',
         'filter.all': 'All',
-        'featured.eyebrow': 'Crypto of the Week',
+        'featured.eyebrow': 'Crypto Spotlight',
+        'featured.title': 'Discover our cryptos',
         'featured.cta': 'Read full article',
         'about.eyebrow': 'Our mission',
         'about.title': 'Crypto should be for everyone',
@@ -3959,7 +4019,7 @@
       },
       fr: {
         'nav.cryptos': 'Toutes les cryptos',
-        'nav.featured': 'Crypto de la semaine',
+        'nav.featured': 'À la une',
         'nav.about': 'À propos',
         'nav.newsletter': 'Newsletter',
         'hero.eyebrow': 'Votre espace pour comprendre la crypto',
@@ -3977,7 +4037,8 @@
         'cryptos.title': 'Explorez toutes les cryptos',
         'cryptos.sub': 'Chaque profil explique une cryptomonnaie en langage simple — ce que c\'est, comment ça fonctionne, et pourquoi ça compte.',
         'filter.all': 'Tout',
-        'featured.eyebrow': 'Crypto de la semaine',
+        'featured.eyebrow': 'Crypto à la une',
+        'featured.title': 'Découvrez nos cryptos',
         'featured.cta': 'Lire l\'article complet',
         'about.eyebrow': 'Notre mission',
         'about.title': 'La crypto devrait être pour tout le monde',
@@ -4418,28 +4479,137 @@
     }
 
     /* ==========================================
-       FEATURED SECTION
+       FEATURED CAROUSEL
        ========================================== */
+    var carouselIndex = 0;
+    var carouselTimer = null;
+    var carouselSlides = [];
+    var CAROUSEL_INTERVAL = 5000; // 5 seconds
+
     function renderFeatured() {
-      var container = document.getElementById('featured-inner');
-      if (!container) return;
-      // Feature the first published article
-      var article = ARTICLES.find(function(a) { return a.status === 'published'; });
-      if (!article) { container.innerHTML = ''; return; }
-      var data = article[currentLang];
-      container.innerHTML =
-        '<div class="featured-icon-wrap fade-in">' +
-          '<div class="featured-icon" style="background:linear-gradient(135deg,' + article.color + ',color-mix(in oklab,' + article.color + ' 60%,#000))">' + article.symbol + '</div>' +
-        '</div>' +
-        '<div>' +
-          '<div class="featured-eyebrow">' + t('featured.eyebrow') + '</div>' +
-          '<h2 class="featured-title">' + data.name + '</h2>' +
-          '<p class="featured-desc">' + data.tagline + '. ' + data.what.split('.')[0] + '.' + '</p>' +
-          '<div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">' +
-            '<button onclick="openArticle(' + article.id + ')" class="btn btn-primary">' + t('featured.cta') + ' →</button>' +
+      var track = document.getElementById('carousel-track');
+      var controls = document.getElementById('carousel-controls');
+      if (!track || !controls) return;
+
+      // Get all published articles
+      carouselSlides = ARTICLES.filter(function(a) { return a.status === 'published'; });
+      if (carouselSlides.length === 0) {
+        track.innerHTML = '';
+        controls.innerHTML = '';
+        return;
+      }
+
+      // Build slides
+      track.innerHTML = carouselSlides.map(function(article) {
+        var data = article[currentLang];
+        return '<div class="carousel-slide">' +
+          '<div class="featured-icon-wrap">' +
+            '<div class="featured-icon" style="background:linear-gradient(135deg,' + article.color + ',color-mix(in oklab,' + article.color + ' 60%,#000))">' + article.symbol + '</div>' +
+          '</div>' +
+          '<div>' +
+            '<div class="featured-eyebrow">' + data.name + '</div>' +
+            '<h2 class="featured-title">' + data.tagline + '</h2>' +
+            '<p class="featured-desc">' + data.what.split('.')[0] + '.' + '</p>' +
+            '<div style="display:flex;gap:var(--space-4);flex-wrap:wrap;">' +
+              '<button onclick="openArticle(' + article.id + ')" class="btn btn-primary">' + t('featured.cta') + ' \u2192</button>' +
+            '</div>' +
           '</div>' +
         '</div>';
+      }).join('');
+
+      // Build controls: prev + dots + next
+      var dotsHtml = carouselSlides.map(function(a, i) {
+        return '<button class="carousel-dot' + (i === 0 ? ' active' : '') + '" aria-label="Go to slide ' + (i + 1) + '" onclick="goToSlide(' + i + ')"></button>';
+      }).join('');
+
+      controls.innerHTML =
+        '<button class="carousel-btn" onclick="prevSlide()" aria-label="Previous slide">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>' +
+        '</button>' +
+        '<div class="carousel-dots">' + dotsHtml + '</div>' +
+        '<button class="carousel-btn" onclick="nextSlide()" aria-label="Next slide">' +
+          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>' +
+        '</button>';
+
+      // Reset index and start auto-scroll
+      carouselIndex = 0;
+      updateCarousel();
+      startCarouselTimer();
     }
+
+    function updateCarousel() {
+      var track = document.getElementById('carousel-track');
+      if (!track) return;
+      track.style.transform = 'translateX(-' + (carouselIndex * 100) + '%)';
+      // Update dots
+      var dots = document.querySelectorAll('.carousel-dot');
+      dots.forEach(function(dot, i) {
+        dot.classList.toggle('active', i === carouselIndex);
+      });
+    }
+
+    function goToSlide(index) {
+      carouselIndex = index;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function nextSlide() {
+      carouselIndex = (carouselIndex + 1) % carouselSlides.length;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function prevSlide() {
+      carouselIndex = (carouselIndex - 1 + carouselSlides.length) % carouselSlides.length;
+      updateCarousel();
+      resetCarouselTimer();
+    }
+
+    function startCarouselTimer() {
+      stopCarouselTimer();
+      carouselTimer = setInterval(function() {
+        carouselIndex = (carouselIndex + 1) % carouselSlides.length;
+        updateCarousel();
+      }, CAROUSEL_INTERVAL);
+    }
+
+    function stopCarouselTimer() {
+      if (carouselTimer) {
+        clearInterval(carouselTimer);
+        carouselTimer = null;
+      }
+    }
+
+    function resetCarouselTimer() {
+      stopCarouselTimer();
+      startCarouselTimer();
+    }
+
+    // Pause auto-scroll on hover, resume on leave + touch swipe
+    (function() {
+      var wrapper = document.getElementById('carousel-wrapper');
+      if (!wrapper) return;
+      wrapper.addEventListener('mouseenter', stopCarouselTimer);
+      wrapper.addEventListener('mouseleave', function() {
+        if (carouselSlides.length > 0) startCarouselTimer();
+      });
+      // Touch swipe support
+      var touchStartX = 0;
+      var touchEndX = 0;
+      wrapper.addEventListener('touchstart', function(e) {
+        touchStartX = e.changedTouches[0].screenX;
+        stopCarouselTimer();
+      }, { passive: true });
+      wrapper.addEventListener('touchend', function(e) {
+        touchEndX = e.changedTouches[0].screenX;
+        var diff = touchStartX - touchEndX;
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) { nextSlide(); } else { prevSlide(); }
+        }
+        startCarouselTimer();
+      }, { passive: true });
+    })();
 
     /* ==========================================
        LEARN PAGE — CATEGORY CARDS
