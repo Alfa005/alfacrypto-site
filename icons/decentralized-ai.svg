@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B6DFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#5B21B6" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="10" y1="8" x2="40" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="56" height="56" rx="14" fill="url(#g)"/>
+  <rect width="56" height="56" rx="14" fill="url(#shine)"/>
+  <circle cx="28" cy="22" r="6" stroke="#fff" stroke-width="2" fill="none" opacity="0.9"/>
+  <circle cx="18" cy="34" r="4" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <circle cx="38" cy="34" r="4" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.7"/>
+  <circle cx="28" cy="42" r="3" stroke="#fff" stroke-width="1.5" fill="none" opacity="0.6"/>
+  <line x1="25" y1="27" x2="20" y2="31" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="31" y1="27" x2="36" y2="31" stroke="#fff" stroke-width="1.5" opacity="0.6"/>
+  <line x1="28" y1="28" x2="28" y2="39" stroke="#fff" stroke-width="1.5" opacity="0.5"/>
+  <line x1="21" y1="37" x2="25" y2="41" stroke="#fff" stroke-width="1.2" opacity="0.4"/>
+  <line x1="35" y1="37" x2="31" y2="41" stroke="#fff" stroke-width="1.2" opacity="0.4"/>
+</svg>
