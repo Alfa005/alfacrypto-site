@@ -2102,9 +2102,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2212,8 +2217,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   </style>
 </head>
@@ -2796,7 +2807,7 @@
       {
         slug: 'digital-gold',
         name: 'Digital Gold',
-        icon: '🪙',
+        icon: 'icons/digital-gold.svg',
         color: '#F7931A',
         videoUrl: 'digital-gold-guide.mp4',
         examples: ['Bitcoin', 'Litecoin', 'Bitcoin Cash', 'Monero'],
@@ -2842,7 +2853,7 @@
       {
         slug: 'smart-contracts',
         name: 'Smart Contracts',
-        icon: '📜',
+        icon: 'icons/smart-contracts.svg',
         color: '#627EEA',
         videoUrl: 'smart-contracts-guide.mp4',
         examples: ['Ethereum', 'Avalanche', 'Cardano', 'Tezos'],
@@ -2888,7 +2899,7 @@
       {
         slug: 'layer-1',
         name: 'Layer 1',
-        icon: '⚡',
+        icon: 'icons/layer-1.svg',
         color: '#9945FF',
         videoUrl: 'layer-1-guide.mp4',
         examples: ['Solana', 'Avalanche', 'Sui', 'Aptos'],
@@ -2934,7 +2945,7 @@
       {
         slug: 'oracle-network',
         name: 'Oracle Network',
-        icon: '🔮',
+        icon: 'icons/oracle-network.svg',
         color: '#375BD2',
         videoUrl: 'oracle-network-guide.mp4',
         examples: ['Chainlink', 'Pyth Network', 'Band Protocol', 'API3'],
@@ -2980,7 +2991,7 @@
       {
         slug: 'defi-lending',
         name: 'DeFi Lending',
-        icon: '🏦',
+        icon: 'icons/defi-lending.svg',
         color: '#B6509E',
         videoUrl: 'defi-lending-guide.mp4',
         examples: ['Aave', 'Compound', 'Morpho', 'Spark'],
@@ -3026,7 +3037,7 @@
       {
         slug: 'exchange-token',
         name: 'Exchange Token',
-        icon: '🔄',
+        icon: 'icons/exchange-token.svg',
         color: '#F0B90B',
         videoUrl: 'exchange-token-guide.mp4',
         examples: ['BNB', 'OKB', 'KCS', 'CRO'],
@@ -3072,7 +3083,7 @@
       {
         slug: 'cross-border-payments',
         name: 'Cross-Border Payments',
-        icon: '🌐',
+        icon: 'icons/cross-border-payments.svg',
         color: '#00AAE4',
         videoUrl: 'cross-border-payments-guide.mp4',
         examples: ['XRP', 'Stellar', 'Ripple', 'SWIFT GPI'],
@@ -3118,7 +3129,7 @@
       {
         slug: 'stablecoin',
         name: 'Stablecoin',
-        icon: '🔒',
+        icon: 'icons/stablecoin.svg',
         color: '#26A17B',
         videoUrl: 'stablecoin-guide.mp4',
         examples: ['USDT', 'USDC', 'DAI', 'PYUSD'],
@@ -3164,7 +3175,7 @@
       {
         slug: 'perpetual-dex',
         name: 'Perpetual DEX',
-        icon: '📊',
+        icon: 'icons/perpetual-dex.svg',
         color: '#97FCE4',
         videoUrl: '',
         examples: ['Hyperliquid', 'dYdX', 'GMX', 'Aster'],
@@ -3210,7 +3221,7 @@
       {
         slug: 'dex',
         name: 'DEX',
-        icon: '🔄',
+        icon: 'icons/dex.svg',
         color: '#FF007A',
         videoUrl: '',
         examples: ['Uniswap', 'Curve Finance', 'SushiSwap', 'Balancer'],
@@ -4654,7 +4665,7 @@
         }).join('');
         var countText = t('learn.cryptos_count').replace('{n}', matchCount);
         return '<div class="learn-card" onclick="openCategory(\'' + cat.slug + '\')" style="--card-accent:' + cat.color + '" role="button" tabindex="0" aria-label="' + cat.name + ' guide">' +
-          '<div class="learn-card-icon" style="background:linear-gradient(135deg,' + cat.color + ',color-mix(in oklab,' + cat.color + ' 60%,#000))">' + cat.icon + '</div>' +
+          '<div class="learn-card-icon"><img src="' + cat.icon + '" alt="' + cat.name + '" width="56" height="56"></div>' +
           '<div class="learn-card-name">' + cat.name + '</div>' +
           '<div class="learn-card-tagline">' + data.tagline + '</div>' +
           '<div class="learn-card-meta">' +
@@ -5008,7 +5019,7 @@
             '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>' +
           '</button>' +
           '<div class="modal-eyebrow">' +
-            '<div class="category-modal-icon" style="background:linear-gradient(135deg,' + cat.color + ',color-mix(in oklab,' + cat.color + ' 60%,#000))">' + cat.icon + '</div>' +
+            '<div class="category-modal-icon"><img src="' + cat.icon + '" alt="' + cat.name + '" width="52" height="52" style="border-radius:12px;"></div>' +
             '<span class="badge ' + getCategoryBadge(cat.name) + '">' + (currentLang === 'fr' ? 'Guide' : 'Guide') + '</span>' +
           '</div>' +
           '<h2 id="modal-headline" class="modal-headline">' + cat.name + '</h2>' +
