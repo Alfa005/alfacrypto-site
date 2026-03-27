@@ -1,1 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="10" cy="5" rx="7" ry="3"/><path d="M3 5v6c0 1.66 3.13 3 7 3"/><path d="M3 11v6c0 1.66 3.13 3 7 3"/><path d="M17 5v3"/><circle cx="17" cy="17" r="4"/><path d="M20.2 20.2L22 22"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 56 56" fill="none">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="56" y2="56" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#9B7AFF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#4A20C9" stop-opacity="0.85"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="10" y1="8" x2="40" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff" stop-opacity="0.45"/>
+      <stop offset="0.5" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <rect width="56" height="56" rx="14" fill="url(#g)"/>
+  <rect width="56" height="56" rx="14" fill="url(#shine)"/>
+  <ellipse cx="25" cy="17" rx="10" ry="4" stroke="#fff" stroke-width="2" fill="none" opacity="0.9"/>
+  <path d="M15 17v8c0 2.2 4.5 4 10 4" stroke="#fff" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M15 25v8c0 2.2 4.5 4 10 4" stroke="#fff" stroke-width="2" fill="none" opacity="0.5"/>
+  <circle cx="38" cy="36" r="6" stroke="#fff" stroke-width="2" fill="none" opacity="0.9"/>
+  <path d="M42.5 40.5L46 44" stroke="#fff" stroke-width="2.2" stroke-linecap="round" opacity="0.9"/>
+  <circle cx="38" cy="36" r="2" fill="#fff" opacity="0.5"/>
+</svg>
