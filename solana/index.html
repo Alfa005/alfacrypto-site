@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/solana/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/solana/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/solana/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/solana/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2371,6 +2448,7 @@
       <h1>Solana</h1>
       <p class="page-hero-tagline lang-en">The fast and affordable blockchain built for speed</p>
       <p class="page-hero-tagline lang-fr">La blockchain rapide et abordable construite pour la vitesse</p>
+      <p class="page-hero-tagline lang-es">La blockchain rápida y asequible diseñada para la velocidad</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2415,20 +2493,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is Solana?</h2>
       <h2 class="lang-fr">Qu'est-ce que Solana ?</h2>
+      <h2 class="lang-es">¿Qué es Solana?</h2>
       <p class="lang-en">Solana is one of the fastest blockchains in the world. If Bitcoin is like sending a letter by mail and Ethereum is like sending an email, Solana is like sending an instant message — nearly instant and almost free. It was designed from the ground up to handle massive transaction volumes without sacrificing security.</p>
       <p class="lang-fr">Solana est l&#x27;une des blockchains les plus rapides au monde. Si Bitcoin c&#x27;est envoyer une lettre par la poste et Ethereum c&#x27;est envoyer un email, Solana c&#x27;est envoyer un message instantané — quasi instantané et presque gratuit.</p>
+      <p class="lang-es">Solana es una de las blockchains más rápidas del mundo. Si Bitcoin es como enviar una carta por correo y Ethereum es como enviar un correo electrónico, Solana es como enviar un mensaje instantáneo — casi inmediato y prácticamente gratuito. Fue diseñada desde cero para manejar enormes volúmenes de transacciones sin sacrificar la seguridad.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">Solana uses a unique technology called &quot;Proof of History&quot; combined with &quot;Proof of Stake.&quot; Think of it as a system that timestamps everything so the network doesn&#x27;t waste time figuring out the order of transactions. It&#x27;s like having a trusted clock that everyone on the network agrees on, which removes a huge bottleneck.</p>
       <p class="lang-fr">Solana utilise une technologie unique appelée &quot;Preuve d&#x27;Histoire&quot; combinée à la &quot;Preuve d&#x27;Enjeu&quot;. Pensez-y comme un système qui horodate tout pour que le réseau ne perde pas de temps à déterminer l&#x27;ordre des transactions.</p>
+      <p class="lang-es">Solana utiliza una tecnología única llamada &quot;Prueba de Historia&quot; combinada con &quot;Prueba de Participación&quot;. Imagínalo como un sistema que marca la hora de todo para que la red no pierda tiempo determinando el orden de las transacciones. Es como tener un reloj de confianza en el que todos los participantes de la red están de acuerdo, lo que elimina un enorme cuello de botella.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Fast payment processing and micropayments</li>
 <li>DeFi applications</li>
 <li>NFT marketplaces (the second largest after Ethereum)</li>
@@ -2439,11 +2522,17 @@
 <li>places de marché NFT</li>
 <li>applications crypto mobiles</li>
 <li>lancements de tokens et meme coins.</li></ul>
+      <ul class="lang-es"><li>Procesamiento rápido de pagos y micropagos</li>
+<li>aplicaciones DeFi</li>
+<li>mercados de NFT (el segundo más grande después de Ethereum)</li>
+<li>aplicaciones cripto móviles</li>
+<li>meme coins y lanzamientos de tokens</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lightning-fast transactions — thousands per second</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Extremely low fees (fractions of a cent per transaction)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Growing ecosystem with major apps and investors</li>
@@ -2452,42 +2541,55 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Frais extrêmement bas (fractions de centime par transaction)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Écosystème en pleine croissance</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Intérêt institutionnel via les futures CME</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Transacciones ultrarrápidas — miles por segundo</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Comisiones extremadamente bajas (fracciones de céntimo por transacción)</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ecosistema en crecimiento con grandes aplicaciones e inversores</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Interés institucional a través de los futuros del CME</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Has experienced network outages in the past</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>More centralized than Bitcoin or Ethereum</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Younger blockchain — less battle-tested and proven</li></ul>
       <ul class="lang-fr"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>A connu des pannes de réseau par le passé</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Plus centralisé que Bitcoin ou Ethereum</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Blockchain plus jeune — moins éprouvée</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ha experimentado interrupciones de red en el pasado</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Más centralizada que Bitcoin o Ethereum</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Blockchain más joven — menos probada en condiciones reales</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
+      <h2 class="lang-es">Nuestro veredicto</h2>
       <div class="verdict-box" style="border-color:#9945FF">
         <p class="lang-en">Solana is the speed demon of crypto. It&#x27;s perfect for anyone who finds Bitcoin too slow or Ethereum too expensive. Just keep in mind it&#x27;s younger and still proving itself — but the speed and low fees are genuinely impressive and hard to argue with.</p>
         <p class="lang-fr">Solana est le bolide de la crypto. C&#x27;est parfait pour quiconque trouve Bitcoin trop lent ou Ethereum trop cher. La vitesse et les faibles frais sont indéniables — mais gardez à l&#x27;esprit qu&#x27;il est plus jeune et doit encore faire ses preuves.</p>
+        <p class="lang-es">Solana es el cohete de velocidad de las criptomonedas. Es perfecta para quienes encuentran Bitcoin demasiado lento o Ethereum demasiado costoso. Ten en cuenta que es más joven y aún está demostrando su valía — pero la velocidad y las bajas comisiones son genuinamente impresionantes y difíciles de ignorar.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2499,6 +2601,12 @@
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/avalanche/">Avalanche (AVAX)</a>
         <a href="/uniswap/">Uniswap (UNI)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2514,25 +2622,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

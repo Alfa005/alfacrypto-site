@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/uniswap/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/uniswap/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/uniswap/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/uniswap/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2365,12 +2442,13 @@
     </nav>
 
     <div class="page-hero">
-      <div class="page-hero-badge" style="background:color-mix(in oklab, #FF007A 15%, transparent);color:#FF007A">
+      <div class="page-hero-badge" style="background:color-mix(in oklab, #FFD6E8 15%, transparent);color:#FFD6E8">
         DEX
       </div>
       <h1>Uniswap (UNI)</h1>
       <p class="page-hero-tagline lang-en">The decentralized exchange that invented token swapping</p>
       <p class="page-hero-tagline lang-fr">L&#x27;échange décentralisé qui a inventé le swap de tokens</p>
+      <p class="page-hero-tagline lang-es">El exchange descentralizado que inventó el intercambio de tokens</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2404,20 +2482,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is Uniswap (UNI)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Uniswap (UNI) ?</h2>
+      <h2 class="lang-es">¿Qué es Uniswap (UNI)?</h2>
       <p class="lang-en">Uniswap is the world&#x27;s largest decentralized exchange (DEX). It lets anyone trade cryptocurrencies directly from their own wallet — without signing up, providing ID, or trusting a company to hold their funds. Think of it as a fully automated currency exchange booth that runs 24/7 on the blockchain, governed by code instead of people. Unlike centralized exchanges like Coinbase or Binance, there is no company matching your trades — smart contracts handle everything automatically.</p>
       <p class="lang-fr">Uniswap est le plus grand échange décentralisé (DEX) au monde. Il permet à quiconque d&#x27;échanger des cryptomonnaies directement depuis son portefeuille — sans inscription, sans pièce d&#x27;identité, sans confier ses fonds à une entreprise. Imaginez un bureau de change entièrement automatisé fonctionnant 24h/24 sur la blockchain, gouverné par du code au lieu de personnes. Contrairement aux échanges centralisés comme Coinbase ou Binance, aucune entreprise ne gère vos trades — les smart contracts font tout automatiquement.</p>
+      <p class="lang-es">Uniswap es el mayor exchange descentralizado (DEX) del mundo. Permite a cualquier persona intercambiar criptomonedas directamente desde su propia billetera — sin registrarse, sin presentar identificación ni confiar en una empresa que custodie sus fondos. Imagínalo como una casa de cambio completamente automatizada que funciona 24/7 en la blockchain, gobernada por código en lugar de personas. A diferencia de los exchanges centralizados como Coinbase o Binance, no hay ninguna empresa que gestione tus operaciones — los contratos inteligentes lo hacen todo automáticamente.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">Uniswap uses an invention called an Automated Market Maker (AMM). Instead of matching buyers with sellers like a traditional exchange, it uses &quot;liquidity pools&quot; — pools of two tokens that anyone can deposit into. Imagine a vending machine with apples and oranges: you insert apples to get oranges, and the machine automatically adjusts prices based on supply. The math formula x × y = k keeps everything balanced. In v3, liquidity providers can concentrate their capital in specific price ranges for much higher returns. In v4, developers can add &quot;hooks&quot; — plugins that customize how each pool behaves.</p>
       <p class="lang-fr">Uniswap utilise une invention appelée Automated Market Maker (AMM). Au lieu de faire correspondre acheteurs et vendeurs comme une bourse traditionnelle, il utilise des « pools de liquidité » — des réserves de deux tokens dans lesquelles chacun peut déposer. Imaginez un distributeur avec des pommes et des oranges : vous insérez des pommes pour obtenir des oranges, et la machine ajuste les prix automatiquement. La formule x × y = k maintient l&#x27;équilibre. En v3, les fournisseurs de liquidité concentrent leur capital sur des plages de prix spécifiques. En v4, les développeurs ajoutent des « hooks » — des plugins personnalisant chaque pool.</p>
+      <p class="lang-es">Uniswap utiliza una invención llamada Automated Market Maker (AMM). En lugar de emparejar compradores con vendedores como un exchange tradicional, usa &quot;pools de liquidez&quot; — fondos de dos tokens en los que cualquiera puede depositar. Imagina una máquina expendedora con manzanas y naranjas: insertas manzanas para obtener naranjas y la máquina ajusta los precios automáticamente según la oferta. La fórmula matemática x × y = k mantiene todo en equilibrio. En v3, los proveedores de liquidez pueden concentrar su capital en rangos de precios específicos para obtener rendimientos mucho mayores. En v4, los desarrolladores pueden añadir &quot;hooks&quot; — complementos que personalizan el comportamiento de cada pool.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Swapping any token for another directly from your wallet</li>
 <li>earning fees by providing liquidity to pools</li>
 <li>voting on protocol upgrades through UNI governance</li>
@@ -2428,11 +2511,17 @@
 <li>voter sur les améliorations du protocole via la gouvernance UNI</li>
 <li>construire des apps DeFi en utilisant Uniswap comme couche de liquidité</li>
 <li>trader sur Unichain L2 avec des blocs sub-seconde et 95% de frais en moins.</li></ul>
+      <ul class="lang-es"><li>Intercambiar cualquier token por otro directamente desde tu billetera</li>
+<li>ganar comisiones proporcionando liquidez a los pools</li>
+<li>votar sobre actualizaciones del protocolo mediante la gobernanza UNI</li>
+<li>construir aplicaciones DeFi usando Uniswap como capa de liquidez</li>
+<li>operar en Unichain L2 con tiempos de bloque inferiores a un segundo y comisiones un 95% más bajas</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Truly permissionless — anyone can trade any token without an account</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>World&#x27;s #1 DEX by volume with $3T+ all-time and deepest liquidity</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Capital-efficient concentrated liquidity (v3) and customizable hooks (v4)</li>
@@ -2441,11 +2530,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Premier DEX mondial par volume avec 3 000 Md$+ et la liquidité la plus profonde</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Liquidité concentrée efficace en capital (v3) et hooks personnalisables (v4)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Smart contracts immuables et résistants à la censure depuis 2018</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Verdaderamente sin permisos — cualquiera puede operar con cualquier token sin una cuenta</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DEX n.° 1 del mundo por volumen con más de $3 billones acumulados y la liquidez más profunda</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Liquidez concentrada eficiente en capital (v3) y hooks personalizables (v4)</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Contratos inteligentes inmutables y resistentes a la censura en funcionamiento desde 2018</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>High gas fees on Ethereum mainnet make small trades expensive</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Liquidity providers face impermanent loss risk, amplified in v3</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Permissionless listings mean scam tokens are common — users must verify</li>
@@ -2454,31 +2548,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Les fournisseurs de liquidité font face au risque de perte impermanente, amplifié en v3</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Les listings sans permission signifient que les tokens arnaque sont fréquents</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>UX complexe pour les débutants : configuration du wallet, gas, approbations, slippage</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las altas comisiones de gas en la red principal de Ethereum encarecen las operaciones pequeñas</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Los proveedores de liquidez enfrentan el riesgo de pérdida impermanente, amplificado en v3</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Los listados sin permisos hacen que los tokens fraudulentos sean comunes — los usuarios deben verificar</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>UX compleja para principiantes: configuración de billetera, gas, aprobaciones, configuración de slippage</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
-      <div class="verdict-box" style="border-color:#FF007A">
+      <h2 class="lang-es">Nuestro veredicto</h2>
+      <div class="verdict-box" style="border-color:#FFD6E8">
         <p class="lang-en">Uniswap is the backbone of decentralized finance. It invented the AMM model, processed more volume than Canada&#x27;s GDP, and proved that code can replace centralized intermediaries. The UNIfication fee switch finally made UNI a revenue-generating asset. If you want to understand DeFi, start with Uniswap — it&#x27;s the most important protocol in the space.</p>
         <p class="lang-fr">Uniswap est la colonne vertébrale de la finance décentralisée. Il a inventé le modèle AMM, traité plus de volume que le PIB du Canada, et prouvé que le code peut remplacer les intermédiaires centralisés. Le fee switch UNIfication a enfin fait d&#x27;UNI un actif générateur de revenus. Si vous voulez comprendre la DeFi, commencez par Uniswap — c&#x27;est le protocole le plus important de l&#x27;écosystème.</p>
+        <p class="lang-es">Uniswap es la columna vertebral de las finanzas descentralizadas. Inventó el modelo AMM, procesó más volumen que el PIB de Canadá y demostró que el código puede reemplazar a los intermediarios centralizados. El fee switch de UNIfication finalmente convirtió a UNI en un activo generador de ingresos. Si quieres entender DeFi, empieza por Uniswap — es el protocolo más importante del ecosistema.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2490,6 +2593,12 @@
         <a href="/usdt/">Tether (USDT)</a>
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/avalanche/">Avalanche (AVAX)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2505,25 +2614,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

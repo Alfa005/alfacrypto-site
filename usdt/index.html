@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/usdt/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/usdt/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/usdt/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/usdt/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2371,6 +2448,7 @@
       <h1>Tether (USDT)</h1>
       <p class="page-hero-tagline lang-en">The digital dollar that powers the crypto world</p>
       <p class="page-hero-tagline lang-fr">Le dollar numérique qui alimente le monde crypto</p>
+      <p class="page-hero-tagline lang-es">El dólar digital que impulsa el mundo cripto</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2415,20 +2493,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is Tether (USDT)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Tether (USDT) ?</h2>
+      <h2 class="lang-es">¿Qué es Tether (USDT)?</h2>
       <p class="lang-en">USDT, also known as Tether, is the world&#x27;s most used stablecoin. Unlike Bitcoin or Ethereum, USDT doesn&#x27;t go up or down — one USDT always equals one US dollar. Think of it like a digital dollar bill that lives on the blockchain. It&#x27;s the bridge between traditional money and the crypto world, used by millions of people every day.</p>
       <p class="lang-fr">L&#x27;USDT, également connu sous le nom de Tether, est le stablecoin le plus utilisé au monde. Contrairement au Bitcoin ou à l&#x27;Ethereum, l&#x27;USDT ne monte ni ne descend — un USDT vaut toujours un dollar américain. Pensez-y comme un billet de dollar numérique qui vit sur la blockchain. C&#x27;est le pont entre l&#x27;argent traditionnel et le monde crypto, utilisé par des millions de personnes chaque jour.</p>
+      <p class="lang-es">USDT, también conocido como Tether, es el stablecoin más utilizado del mundo. A diferencia de Bitcoin o Ethereum, USDT no sube ni baja — un USDT siempre equivale a un dólar estadounidense. Imagínalo como un billete de dólar digital que vive en la blockchain. Es el puente entre el dinero tradicional y el mundo cripto, utilizado por millones de personas cada día.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">Tether (the company) issues USDT tokens and promises that each one is backed by real reserves — primarily US Treasury bills. When you buy 1 USDT, there should be $1 worth of real assets sitting in Tether&#x27;s vaults. The token exists on multiple blockchains (Ethereum, Tron, Solana, and more), making it available virtually everywhere in crypto.</p>
       <p class="lang-fr">Tether (l&#x27;entreprise) émet des tokens USDT et garantit que chacun est soutenu par des réserves réelles — principalement des bons du Trésor américain. Quand vous achetez 1 USDT, il devrait y avoir 1$ d&#x27;actifs réels dans les coffres de Tether. Le token existe sur plusieurs blockchains (Ethereum, Tron, Solana, et plus), le rendant disponible pratiquement partout dans la crypto.</p>
+      <p class="lang-es">Tether (la empresa) emite tokens USDT y garantiza que cada uno está respaldado por reservas reales — principalmente letras del Tesoro de EE. UU. Cuando compras 1 USDT, debería haber activos reales por valor de 1 dólar en las bóvedas de Tether. El token existe en múltiples blockchains (Ethereum, Tron, Solana y más), lo que lo hace disponible prácticamente en todo el ecosistema cripto.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Trading crypto without converting back to traditional currency</li>
 <li>sending money across borders instantly and cheaply</li>
 <li>protecting savings in countries with unstable currencies</li>
@@ -2437,11 +2520,16 @@
 <li>envoyer de l&#x27;argent à travers les frontières instantanément et à moindre coût</li>
 <li>protéger l&#x27;épargne dans les pays aux devises instables</li>
 <li>servir de paire de trading de base sur chaque grande plateforme.</li></ul>
+      <ul class="lang-es"><li>Operar en cripto sin convertir de vuelta a moneda tradicional</li>
+<li>enviar dinero al extranjero de forma instantánea y económica</li>
+<li>proteger los ahorros en países con monedas inestables</li>
+<li>servir como par de trading base en todos los principales exchanges</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Most liquid stablecoin — accepted everywhere in crypto</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Processes more annual volume than Visa ($33+ trillion)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Available on almost every blockchain and exchange</li>
@@ -2450,11 +2538,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Traite plus de volume annuel que Visa (33 000+ milliards $)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Disponible sur presque toutes les blockchains et plateformes</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Essentiel pour les traders ayant besoin d&#x27;une valeur stable entre les trades</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El stablecoin más líquido — aceptado en todas partes del ecosistema cripto</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Procesa más volumen anual que Visa (más de 33 billones de dólares)</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Disponible en casi todas las blockchains y exchanges</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Esencial para los traders que necesitan una reserva de valor estable entre operaciones</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Transparency concerns — reserves are not fully audited like USDC</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Not compliant with the new US GENIUS Act regulations</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Market share declining as regulated alternatives grow</li>
@@ -2463,31 +2556,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Non conforme aux nouvelles régulations américaines GENIUS Act</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Part de marché en déclin face aux alternatives régulées</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Centralisé — Tether peut geler ou bloquer des portefeuilles</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Preocupaciones de transparencia — las reservas no están totalmente auditadas como las de USDC</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No cumple con las nuevas regulaciones de la Ley GENIUS de EE. UU.</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La cuota de mercado está disminuyendo ante el crecimiento de alternativas reguladas</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Centralizado — la empresa Tether puede congelar o incluir en lista negra billeteras</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
+      <h2 class="lang-es">Nuestro veredicto</h2>
       <div class="verdict-box" style="border-color:#26A17B">
         <p class="lang-en">USDT is the cash of the crypto world. It&#x27;s not exciting — but without it, nothing else works. It&#x27;s the most widely used stablecoin for trading, remittances, and savings. However, increasing regulatory pressure and competitors like USDC mean its dominance may evolve. For now, USDT remains the heartbeat of crypto markets.</p>
         <p class="lang-fr">L&#x27;USDT est le cash du monde crypto. Ce n&#x27;est pas excitant — mais sans lui, rien d&#x27;autre ne fonctionne. C&#x27;est le stablecoin le plus utilisé pour le trading, les transferts et l&#x27;épargne. Cependant, la pression réglementaire croissante et les concurrents comme l&#x27;USDC signifient que sa domination pourrait évoluer. Pour l&#x27;instant, l&#x27;USDT reste le battement de cœur des marchés crypto.</p>
+        <p class="lang-es">USDT es el efectivo del mundo cripto. No es emocionante — pero sin él, nada más funciona. Es el stablecoin más utilizado para trading, remesas y ahorro. Sin embargo, la creciente presión regulatoria y competidores como USDC significan que su dominio podría evolucionar. Por ahora, USDT sigue siendo el latido de los mercados cripto.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2499,6 +2601,12 @@
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/avalanche/">Avalanche (AVAX)</a>
         <a href="/uniswap/">Uniswap (UNI)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2514,25 +2622,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/xrp/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/xrp/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/xrp/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/xrp/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2365,12 +2442,13 @@
     </nav>
 
     <div class="page-hero">
-      <div class="page-hero-badge" style="background:color-mix(in oklab, #23292F 15%, transparent);color:#23292F">
+      <div class="page-hero-badge" style="background:color-mix(in oklab, #E8ECF0 15%, transparent);color:#E8ECF0">
         Cross-Border Payments
       </div>
       <h1>XRP</h1>
       <p class="page-hero-tagline lang-en">The crypto built to fix how money moves around the world</p>
       <p class="page-hero-tagline lang-fr">La crypto conçue pour réparer la façon dont l&#x27;argent circule dans le monde</p>
+      <p class="page-hero-tagline lang-es">La cripto diseñada para mejorar cómo el dinero se mueve por el mundo</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2415,20 +2493,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is XRP?</h2>
       <h2 class="lang-fr">Qu'est-ce que XRP ?</h2>
+      <h2 class="lang-es">¿Qué es XRP?</h2>
       <p class="lang-en">XRP is the cryptocurrency created by Ripple to revolutionize cross-border payments. Imagine sending money abroad like sending a text message — nearly instant and almost free. While traditional bank transfers take 3 to 5 days and involve multiple intermediaries, XRP settles in under 5 seconds for a fraction of a cent.</p>
       <p class="lang-fr">XRP est la cryptomonnaie créée par Ripple pour révolutionner les paiements transfrontaliers. Imaginez envoyer de l&#x27;argent à l&#x27;étranger comme envoyer un SMS — quasi instantané et presque gratuit. Alors que les virements bancaires traditionnels prennent 3 à 5 jours et impliquent de multiples intermédiaires, XRP se règle en moins de 5 secondes pour une fraction de centime.</p>
+      <p class="lang-es">XRP es la criptomoneda creada por Ripple para revolucionar los pagos transfronterizos. Imagina enviar dinero al extranjero como si enviaras un mensaje de texto — casi instantáneo y prácticamente gratis. Mientras que las transferencias bancarias tradicionales tardan de 3 a 5 días e involucran múltiples intermediarios, XRP liquida en menos de 5 segundos por una fracción de centavo.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">The XRP Ledger uses a unique consensus protocol — instead of mining (like Bitcoin) or staking (like Ethereum), a network of trusted validators agrees on transactions in seconds. Think of it like a group of referees who all have to agree before a goal counts. This makes XRP incredibly fast and energy-efficient, processing 1,500+ transactions per second.</p>
       <p class="lang-fr">Le XRP Ledger utilise un protocole de consensus unique — au lieu du minage (comme Bitcoin) ou du staking (comme Ethereum), un réseau de validateurs de confiance s&#x27;accorde sur les transactions en quelques secondes. Pensez-y comme un groupe d&#x27;arbitres qui doivent tous être d&#x27;accord avant qu&#x27;un but soit validé. Cela rend XRP incroyablement rapide et économe en énergie.</p>
+      <p class="lang-es">El XRP Ledger utiliza un protocolo de consenso único — en lugar de minería (como Bitcoin) o staking (como Ethereum), una red de validadores de confianza acuerda las transacciones en segundos. Piénsalo como un grupo de árbitros que deben estar todos de acuerdo antes de que se valide un gol. Esto hace que XRP sea increíblemente rápido y eficiente energéticamente, procesando más de 1.500 transacciones por segundo.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Cross-border bank payments and international remittances</li>
 <li>real-time settlement between financial institutions</li>
 <li>bridge currency between different fiat currencies</li>
@@ -2437,11 +2520,16 @@
 <li>règlement en temps réel entre institutions financières</li>
 <li>devise pont entre différentes monnaies fiduciaires</li>
 <li>transactions rapides et peu coûteuses pour les entreprises.</li></ul>
+      <ul class="lang-es"><li>Pagos bancarios transfronterizos y remesas internacionales</li>
+<li>liquidación en tiempo real entre instituciones financieras</li>
+<li>moneda puente entre diferentes divisas fiat</li>
+<li>transacciones rápidas y de bajo coste para empresas</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Settles in under 5 seconds — faster than almost any other crypto</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Used by 300+ banks and financial institutions via RippleNet</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Extremely low transaction fees (fractions of a cent)</li>
@@ -2450,11 +2538,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Utilisé par plus de 300 banques et institutions financières via RippleNet</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Frais de transaction extrêmement bas (fractions de centime)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Offre massive le rendant pratique pour déplacer de grosses sommes</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Liquida en menos de 5 segundos — más rápido que casi cualquier otra cripto</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Utilizado por más de 300 bancos e instituciones financieras a través de RippleNet</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Comisiones de transacción extremadamente bajas (fracciones de centavo)</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gran suministro lo hace práctico para mover grandes sumas</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>More centralized than Bitcoin — Ripple holds a large portion of XRP</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Regulatory uncertainty persisted for years due to SEC lawsuit</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Token price heavily influenced by Ripple company news</li>
@@ -2463,31 +2556,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Incertitude réglementaire pendant des années à cause du procès SEC</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Le prix du token fortement influencé par les nouvelles de Ripple</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Pas conçu pour les contrats intelligents ou les applications DeFi</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Más centralizado que Bitcoin — Ripple controla una gran parte del XRP</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La incertidumbre regulatoria persistió durante años debido a la demanda de la SEC</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El precio del token está fuertemente influenciado por las noticias de la empresa Ripple</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No está diseñado para contratos inteligentes ni aplicaciones DeFi</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
-      <div class="verdict-box" style="border-color:#23292F">
+      <h2 class="lang-es">Nuestro veredicto</h2>
+      <div class="verdict-box" style="border-color:#E8ECF0">
         <p class="lang-en">XRP isn&#x27;t trying to replace your money — it&#x27;s trying to fix how your money moves. If SWIFT is the old highway, XRP is the bullet train. With 300+ bank partnerships and $15 billion in monthly volume, it&#x27;s already proving that crypto can solve real problems in traditional finance.</p>
         <p class="lang-fr">XRP n&#x27;essaie pas de remplacer votre argent — il essaie de réparer la façon dont votre argent circule. Si SWIFT est l&#x27;ancienne autoroute, XRP est le TGV. Avec plus de 300 partenariats bancaires et 15 milliards de dollars en volume mensuel, il prouve déjà que la crypto peut résoudre de vrais problèmes dans la finance traditionnelle.</p>
+        <p class="lang-es">XRP no pretende reemplazar tu dinero — pretende arreglar cómo se mueve tu dinero. Si SWIFT es la antigua autopista, XRP es el tren de alta velocidad. Con más de 300 alianzas bancarias y 15.000 millones de dólares en volumen mensual, ya está demostrando que la cripto puede resolver problemas reales en las finanzas tradicionales.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2499,6 +2601,12 @@
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/avalanche/">Avalanche (AVAX)</a>
         <a href="/uniswap/">Uniswap (UNI)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2514,25 +2622,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

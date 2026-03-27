@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/avalanche/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/avalanche/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/avalanche/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/avalanche/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2371,6 +2448,7 @@
       <h1>Avalanche (AVAX)</h1>
       <p class="page-hero-tagline lang-en">The blazing-fast blockchain where institutions build</p>
       <p class="page-hero-tagline lang-fr">La blockchain ultra-rapide où les institutions construisent</p>
+      <p class="page-hero-tagline lang-es">La blockchain ultrarrápida donde las instituciones construyen</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2404,20 +2482,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is Avalanche (AVAX)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Avalanche (AVAX) ?</h2>
+      <h2 class="lang-es">¿Qué es Avalanche (AVAX)?</h2>
       <p class="lang-en">Avalanche is a Layer 1 blockchain platform — the foundational layer of a blockchain network, like Ethereum or Solana, but designed to be faster, cheaper, and more flexible. Think of it as a high-speed highway for blockchain apps. Unlike older blockchains that get congested, Avalanche confirms transactions in under 2 seconds for fractions of a cent. Its most powerful feature is &quot;subnets&quot; (now called L1s) — custom mini-blockchains that any company or developer can create, tailored to their specific needs, all connected to the main network.</p>
       <p class="lang-fr">Avalanche est une plateforme blockchain Layer 1 — la couche fondamentale d&#x27;un réseau blockchain, comme Ethereum ou Solana, mais conçue pour être plus rapide, moins chère et plus flexible. Imaginez une autoroute à grande vitesse pour les applications blockchain. Contrairement aux blockchains plus anciennes qui se congestionnent, Avalanche confirme les transactions en moins de 2 secondes pour des fractions de centime. Sa fonctionnalité la plus puissante : les « subnets » (désormais appelés L1) — des mini-blockchains personnalisées que toute entreprise peut créer selon ses besoins.</p>
+      <p class="lang-es">Avalanche es una plataforma blockchain de Capa 1 — la capa fundamental de una red blockchain, como Ethereum o Solana, pero diseñada para ser más rápida, más barata y más flexible. Imagínala como una autopista de alta velocidad para aplicaciones blockchain. A diferencia de las blockchains más antiguas que se congestionan, Avalanche confirma transacciones en menos de 2 segundos por fracciones de centavo. Su característica más poderosa son las &quot;subnets&quot; (ahora llamadas L1) — mini-blockchains personalizadas que cualquier empresa o desarrollador puede crear, adaptadas a sus necesidades específicas, todas conectadas a la red principal.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">Avalanche uses a novel consensus called the Snow protocol. Imagine a room full of people deciding what to eat: instead of counting every vote, each person asks a random small group nearby. If most say pizza, that person adopts pizza. Everyone does this repeatedly, and within seconds the whole room agrees — without anyone being in charge. This is how Avalanche validators reach agreement: fast, efficient, and secure. The network is split into three chains: the X-Chain (fast transfers), P-Chain (validator management), and C-Chain (smart contracts, fully Ethereum-compatible).</p>
       <p class="lang-fr">Avalanche utilise un consensus novateur appelé le protocole Snow. Imaginez une salle remplie de personnes décidant quoi manger : au lieu de compter chaque vote, chacun demande à un petit groupe aléatoire. Si la majorité dit pizza, cette personne adopte pizza. Tout le monde fait pareil, et en quelques secondes la salle entière est d&#x27;accord — sans qu&#x27;un chef décide. C&#x27;est ainsi que les validateurs Avalanche atteignent un consensus : rapide, efficace et sécurisé. Le réseau est divisé en trois chaînes : X-Chain (transferts rapides), P-Chain (gestion des validateurs) et C-Chain (contrats intelligents, compatible Ethereum).</p>
+      <p class="lang-es">Avalanche utiliza un consenso innovador llamado protocolo Snow. Imagina una sala llena de personas decidiendo qué comer: en lugar de contar cada voto, cada persona pregunta a un pequeño grupo aleatorio cercano. Si la mayoría dice pizza, esa persona adopta pizza. Todos hacen esto repetidamente y en segundos toda la sala está de acuerdo — sin que nadie esté a cargo. Así es como los validadores de Avalanche alcanzan el consenso: rápido, eficiente y seguro. La red está dividida en tres cadenas: la X-Chain (transferencias rápidas), la P-Chain (gestión de validadores) y la C-Chain (contratos inteligentes, totalmente compatible con Ethereum).</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Building DeFi apps with instant finality</li>
 <li>launching AAA blockchain games on dedicated subnets</li>
 <li>tokenizing real-world assets like treasury bonds and real estate funds</li>
@@ -2428,11 +2511,17 @@
 <li>tokeniser des actifs réels comme des bons du Trésor et fonds immobiliers</li>
 <li>émettre des stablecoins gouvernementaux</li>
 <li>faire fonctionner des infrastructures blockchain pour banques et institutions.</li></ul>
+      <ul class="lang-es"><li>Construir aplicaciones DeFi con finalidad instantánea</li>
+<li>lanzar juegos blockchain AAA en subnets dedicadas</li>
+<li>tokenizar activos del mundo real como bonos del Tesoro y fondos inmobiliarios</li>
+<li>emitir stablecoins respaldadas por gobiernos</li>
+<li>ejecutar infraestructura blockchain empresarial para bancos e instituciones</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Sub-2-second transaction finality — one of the fastest blockchains</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom subnets let anyone launch a tailored blockchain at minimal cost</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fully Ethereum-compatible — same tools and smart contracts work out of the box</li>
@@ -2441,11 +2530,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Les subnets personnalisés permettent à quiconque de lancer une blockchain sur mesure</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Entièrement compatible Ethereum — mêmes outils et contrats intelligents</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tokenomics déflationniste : limite de 720M avec tous les frais brûlés définitivement</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Finalidad de transacción en menos de 2 segundos — una de las blockchains más rápidas</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Las subnets personalizadas permiten a cualquiera lanzar una blockchain a medida con un costo mínimo</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Totalmente compatible con Ethereum — las mismas herramientas y contratos inteligentes funcionan de inmediato</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tokenomics deflacionario: límite máximo de 720M con todas las comisiones quemadas permanentemente</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>High validator stake requirement: 2,000 AVAX needed to run a node</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Intense competition from Ethereum L2s, Solana, and other Layer 1s</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labs holds significant centralized influence over ecosystem direction</li>
@@ -2454,31 +2548,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Concurrence intense des L2 Ethereum, Solana et autres Layer 1</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labs détient une influence centralisée significative sur l&#x27;écosystème</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>L&#x27;architecture subnet peut fragmenter la liquidité entre les chaînes</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Alto requisito de stake para validadores: se necesitan 2.000 AVAX para ejecutar un nodo</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Fuerte competencia de los L2 de Ethereum, Solana y otras Capas 1</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labs ejerce una influencia centralizada significativa sobre la dirección del ecosistema</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La arquitectura de subnets puede fragmentar la liquidez entre cadenas separadas</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
+      <h2 class="lang-es">Nuestro veredicto</h2>
       <div class="verdict-box" style="border-color:#E84142">
         <p class="lang-en">Avalanche is the blockchain that institutions trust. From JPMorgan to FIFA to Wyoming’s state stablecoin, it has attracted the most impressive roster of real-world partners in all of crypto. The Avalanche9000 upgrade made custom blockchains accessible to everyone. While it faces fierce competition from Ethereum’s L2 ecosystem and Solana, no other chain combines enterprise credibility with DeFi speed quite like Avalanche.</p>
         <p class="lang-fr">Avalanche est la blockchain en laquelle les institutions ont confiance. De JPMorgan à la FIFA en passant par le stablecoin du Wyoming, elle a attiré les partenaires réels les plus impressionnants de toute la crypto. La mise à jour Avalanche9000 a rendu les blockchains personnalisées accessibles à tous. Face à la concurrence d&#x27;Ethereum L2 et Solana, aucune autre chaîne ne combine crédibilité institutionnelle et vitesse DeFi comme Avalanche.</p>
+        <p class="lang-es">Avalanche es la blockchain en la que confían las instituciones. Desde JPMorgan hasta la FIFA y el stablecoin estatal de Wyoming, ha atraído el conjunto más impresionante de socios del mundo real en todo el sector cripto. La actualización Avalanche9000 hizo que las blockchains personalizadas fueran accesibles para todos. Aunque enfrenta una feroz competencia del ecosistema L2 de Ethereum y de Solana, ninguna otra cadena combina credibilidad institucional con velocidad DeFi como Avalanche.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2490,6 +2593,12 @@
         <a href="/usdt/">Tether (USDT)</a>
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/uniswap/">Uniswap (UNI)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2505,25 +2614,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/hedera/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/hedera/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/hedera/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/hedera/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -2415,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2443,6 +2448,7 @@
       <h1>NEAR Protocol</h1>
       <p class="page-hero-tagline lang-en">The user-friendly Layer 1 built for AI agents and the next billion users</p>
       <p class="page-hero-tagline lang-fr">Le Layer 1 simple d&#x27;utilisation pensé pour les agents IA et le prochain milliard d&#x27;utilisateurs</p>
+      <p class="page-hero-tagline lang-es">El libro mayor empresarial gobernado por las mayores empresas del mundo</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2476,20 +2482,33 @@
     <section class="article-section">
       <h2 class="lang-en">What is NEAR Protocol?</h2>
       <h2 class="lang-fr">Qu'est-ce que NEAR Protocol ?</h2>
+      <h2 class="lang-es">¿Qué es Hedera?</h2>
       <p class="lang-en">NEAR Protocol is a blockchain that was built with one obsession: making crypto actually usable. While most blockchains are built by engineers for engineers, NEAR was designed so that a regular developer — even a JavaScript programmer — can build on it, and a regular person can use an app without even knowing they&#x27;re on a blockchain. Named after the phrase &quot;near by&quot; — as in, blockchain technology should feel near to everyone.</p>
       <p class="lang-fr">NEAR Protocol est une blockchain construite avec une obsession : rendre la crypto véritablement utilisable. Là où la plupart des blockchains sont construites par des ingénieurs pour des ingénieurs, NEAR a été conçu pour qu&#x27;un développeur ordinaire — même un programmeur JavaScript — puisse construire dessus, et qu&#x27;une personne ordinaire puisse utiliser une application sans même savoir qu&#x27;elle est sur une blockchain.</p>
+      <p class="lang-es">Hedera es un libro mayor público distribuido que adopta un enfoque fundamentalmente diferente al de la blockchain. Mientras la mayoría de las criptomonedas están construidas sobre tecnología blockchain — una cadena de bloques vinculados uno tras otro — Hedera utiliza una estructura de datos completamente diferente llamada hashgraph. Piénsalo así: si una blockchain es una autopista de un solo carril donde los autos deben viajar uno detrás del otro, un hashgraph es más como una red de carreteras interconectadas donde el tráfico fluye simultáneamente en muchas direcciones. Esta diferencia arquitectónica no es solo un detalle técnico — es la razón por la que Hedera puede procesar más de 10.000 transacciones por segundo mientras Bitcoin gestiona alrededor de 7.
+
+El proyecto nació en 2015 cuando el Dr. Leemon Baird, profesor de ciencias de la computación en la Academia de la Fuerza Aérea de EE. UU. con más de 100 publicaciones revisadas por pares en criptografía y seguridad, inventó el algoritmo hashgraph. Se asoció con Mance Harmon, un ejecutivo tecnológico que había dirigido programas en la Agencia de Defensa de Misiles. Ambos compartían la convicción de que las blockchains existentes estaban resolviendo el problema correcto — transacciones digitales sin confianza — pero con la arquitectura equivocada.
+
+La red principal de Hedera se lanzó el 24 de agosto de 2018, con todos los 50.000 millones de tokens HBAR acuñados en el génesis. Lo que verdaderamente distingue a Hedera de casi cualquier otro proyecto cripto es su gobernanza: la red está supervisada por el Consejo de Hedera, un organismo rotativo de hasta 39 organizaciones globales — incluyendo Google, IBM, Boeing, FedEx, Dell Technologies y Deutsche Telekom — cada una con iguales derechos de voto. En 2022, Hedera hizo que todo su código fuente fuera de código abierto bajo la licencia Apache 2.0, y en 2024 fue un paso más allá al donar su código a la Linux Foundation Decentralized Trust — el primer libro mayor público en entregar su tecnología a una fundación independiente.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">NEAR uses a technique called &quot;sharding&quot; through its Nightshade system. Imagine a highway that splits into multiple parallel lanes when traffic gets heavy — Nightshade does the same thing, splitting the network into parallel processing tracks so it never slows down. NEAR also has human-readable account names (like &quot;alice.near&quot; instead of long random addresses) and allows apps to pay for users&#x27; transaction fees — making the experience seamless for newcomers.</p>
       <p class="lang-fr">NEAR utilise une technique appelée « sharding » via son système Nightshade. Imaginez une autoroute qui se divise en plusieurs voies parallèles quand la circulation devient dense — Nightshade fait de même, divisant le réseau en pistes de traitement parallèles pour qu&#x27;il ne ralentisse jamais. NEAR propose aussi des noms de compte lisibles (comme « alice.near » au lieu de longues adresses aléatoires) et permet aux applications de payer les frais de transaction des utilisateurs.</p>
+      <p class="lang-es">En el corazón de la tecnología de Hedera hay dos mecanismos elegantes que trabajan juntos: &quot;gossip about gossip&quot; (chisme sobre el chisme) y &quot;votación virtual&quot;. Imagina una gran sala llena de personas, cada una con un fragmento de un rompecabezas. En lugar de que todos griten su pieza a toda la sala a la vez (lo que sería caótico), cada persona susurra a un vecino aleatorio: &quot;Esto es lo que sé, y esto es de quién lo escuché.&quot; Ese vecino luego susurra a otro vecino, añadiendo su propio conocimiento. En segundos, todos en la sala lo saben todo — y también saben exactamente quién le dijo a quién, creando un historial completo de cómo se difundió la información. Ese es el protocolo gossip-about-gossip.
+
+Ahora, aquí es donde se vuelve inteligente. En los sistemas tradicionales, una vez que todos tienen la información, necesitarían celebrar una votación formal para acordar un resultado — generando aún más mensajes. Hashgraph omite completamente este paso. Debido a que cada nodo tiene el historial completo del chisme, cada uno puede calcular independientemente cómo sería el voto de cada otro nodo, sin intercambiar votos realmente. Esto se llama votación virtual, y significa que el consenso se alcanza con cero tráfico de red adicional. El resultado es un sistema que logra lo que los criptógrafos llaman Tolerancia a Fallas Bizantinas Asíncrona (aBFT) — el más alto estándar de seguridad posible para los sistemas distribuidos, demostrado matemáticamente usando el sistema de verificación de pruebas Coq.
+
+Esta arquitectura da a Hedera varias ventajas concretas. Las transacciones alcanzan la finalidad absoluta en 3 a 5 segundos — una vez confirmadas, nunca pueden revertirse. Las comisiones están fijadas en aproximadamente $0,0001 por transacción, denominadas en USD en lugar de HBAR. Hedera ofrece a los desarrolladores tres servicios principales: el Hedera Token Service (HTS) para crear tokens fungibles o NFTs a más de 10.000 TPS por una fracción de centavo; el Hedera Consensus Service (HCS) para el sellado de tiempo a prueba de manipulaciones de cualquier flujo de datos; y el Smart Contract Service con compatibilidad completa con la Máquina Virtual de Ethereum a través de Hyperledger Besu.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>AI agent deployment and autonomous transactions</li>
 <li>DeFi applications</li>
 <li>social apps and gaming (Sweat Economy onboarded 13 million users)</li>
@@ -2500,11 +2519,25 @@
 <li>applications sociales et jeux (Sweat Economy a intégré 13 millions d&#x27;utilisateurs)</li>
 <li>interopérabilité inter-chaînes via la chain abstraction</li>
 <li>applications d&#x27;entreprise nécessitant un débit élevé et des coûts faibles.</li></ul>
+      <ul class="lang-es"><li>Los casos de uso del mundo real de Hedera abarcan finanzas</li>
+<li>cadena de suministro</li>
+<li>energía y gobierno. En tokenización de activos</li>
+<li>Lloyds Banking Group</li>
+<li>abrdn y Archax ejecutaron la primera operación de divisas del Reino Unido usando activos del mundo real tokenizados como garantía en Hedera</li>
+<li>mientras RedSwan tokeniza más de $2.200 millones en bienes raíces comerciales para propiedad fraccionaria. En finanzas gubernamentales</li>
+<li>el Banco de la Reserva de Australia seleccionó Hedera para el Proyecto Acacia — un piloto de CBDC mayorista. En cadena de suministro</li>
+<li>Avery Dennison conecta miles de millones de productos físicos a identidades digitales vía su plataforma atma.io</li>
+<li>y FedEx se unió al Consejo en 2026 para construir infraestructura confiable para el seguimiento global de envíos. En créditos de carbono</li>
+<li>Verra está digitalizando más de 20 metodologías en Hedera</li>
+<li>mientras EDF ejecuta proyectos de garantía de origen de energía con Google. El ecosistema DeFi ha crecido a más de $166 millones en TVL</li>
+<li>liderado por SaucerSwap</li>
+<li>Bonzo Finance y Stader Labs</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nightshade sharding enables near-unlimited scalability as demand grows</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Human-readable accounts and gasless transactions make it extremely beginner-friendly</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strong AI focus — NEAR is positioning itself as the Layer 1 for autonomous AI agents</li>
@@ -2513,11 +2546,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Comptes lisibles et transactions sans frais rendent la prise en main extrêmement facile</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fort ancrage dans l&#x27;IA — NEAR se positionne comme le Layer 1 pour les agents IA autonomes</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Rapide et économique — finalité en 600ms, frais inférieurs au centime</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Seguridad aBFT matemáticamente probada con finalidad absoluta en 3–5 segundos y comisiones fijas de ~$0,0001 — el tipo de previsibilidad que las empresas necesitan para construir sistemas de producción.</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gobernado por 31 empresas de Fortune 500 e instituciones globales con iguales derechos de voto y límites de mandato — el modelo de gobernanza más creíble y responsable en el cripto.</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ya ejecuta cargas de trabajo de producción reales: la primera operación de FX tokenizada del Reino Unido, pilotos de CBDC con bancos centrales y un ETF al contado operando en Nasdaq desde octubre de 2025.</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Operación con huella de carbono negativa — Hedera compensa más emisiones de las que genera, lo que la convierte en una de las redes de cadena de bloques más sostenibles desde el punto de vista medioambiental.</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Smaller DeFi ecosystem and TVL compared to Ethereum and Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Less name recognition makes it harder to attract developers and users</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Validator concentration is a concern for true decentralization</li>
@@ -2526,31 +2564,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Moins de notoriété, ce qui rend plus difficile l&#x27;attraction de développeurs et d&#x27;utilisateurs</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La concentration des validateurs soulève des questions sur la vraie décentralisation</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narration autour des agents IA est récente et non éprouvée à grande échelle</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No es una blockchain convencional — el hashgraph es una tecnología patentada que históricamente no ha sido de código abierto, lo que genera desconfianza entre los puristas de la descentralización.</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Gobernanza centralizada por diseño: el Consejo de Hedera toma decisiones unilateralmente, sin votos de la comunidad — a diferencia de los DAOs.</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ecosistema DeFi pequeño en comparación con Ethereum o Solana — la adopción empresarial y el crecimiento del usuario final siguen siendo dispares.</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La concentración de HBAR es alta: la Fundación Hedera y los miembros del Consejo controlan grandes porciones del suministro total.</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
+      <h2 class="lang-es">Nuestro veredicto</h2>
       <div class="verdict-box" style="border-color:#E0E0E0">
         <p class="lang-en">NEAR is the blockchain that gets out of its own way. While others pile on complexity, NEAR relentlessly focuses on usability — and it shows. With 13 million users joining via a single app, and a bold pivot toward AI agents, NEAR is quietly building something important. It may not have the brand recognition of Solana or Ethereum yet, but its combination of developer friendliness, speed, and AI ambition makes it one of the most interesting Layer 1 blockchains to watch.</p>
         <p class="lang-fr">NEAR est la blockchain qui ne se met pas dans son propre chemin. Là où d&#x27;autres accumulent la complexité, NEAR se concentre sans relâche sur la facilité d&#x27;utilisation — et ça se voit. Avec 13 millions d&#x27;utilisateurs rejoints via une seule application, et un pivot audacieux vers les agents IA, NEAR construit silencieusement quelque chose d&#x27;important. Il n&#x27;a peut-être pas encore la notoriété de Solana ou d&#x27;Ethereum, mais sa combinaison de facilité pour les développeurs, de rapidité et d&#x27;ambition IA en fait l&#x27;un des Layer 1 les plus intéressants à surveiller.</p>
+        <p class="lang-es">Hedera es la apuesta más segura del cripto para las empresas. Cuando Google, IBM, Boeing y FedEx no solo invierten sino que gobiernan activamente una red, eso no es publicidad — es convicción operativa. La arquitectura hashgraph resuelve problemas reales de rendimiento y finalidad que frustran a las blockchains tradicionales. El ecosistema sigue siendo pequeño comparado con Ethereum, y el enfoque centralizado en la gobernanza nunca ganará a los entusiastas de la descentralización. Pero para los inversores que creen que la adopción empresarial es el siguiente gran catalizador del cripto, Hedera es el mejor posicionado para capturarlo.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 17 cryptos</span>
-        <span class="lang-fr">Explorer les 17 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2583,25 +2630,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme

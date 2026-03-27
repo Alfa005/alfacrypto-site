@@ -15,6 +15,7 @@
   <!-- hreflang -->
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/chainlink/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/chainlink/?lang=fr">
+  <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/chainlink/?lang=es">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/chainlink/">
 
   <!-- Open Graph -->
@@ -28,6 +29,7 @@
   <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="es_ES">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -749,7 +751,12 @@
       font-size: 1.4rem;
       flex-shrink: 0;
       color: var(--color-text-inverse);
-      font-weight: 400;
+      overflow: hidden;
+    }
+    .card-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
     }
     .card-ticker {
       font-size: var(--text-xs);
@@ -1066,15 +1073,24 @@
     }
     .related-pill:hover { background: var(--color-primary-highlight); color: var(--color-primary); border-color: var(--color-primary); }
 
-    /* ============ FEATURED / CRYPTO OF THE WEEK ============ */
-    .featured-section { background: var(--color-surface-offset); }
-    .featured-inner {
+    /* ============ FEATURED CAROUSEL ============ */
+    .featured-section { background: var(--color-surface-offset); overflow: hidden; }
+    .carousel-wrapper {
+      position: relative;
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+    .carousel-slide {
+      min-width: 100%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(var(--space-8), 5vw, var(--space-16));
       align-items: center;
     }
-    @media (max-width: 767px) { .featured-inner { grid-template-columns: 1fr; } }
+    @media (max-width: 767px) { .carousel-slide { grid-template-columns: 1fr; } }
     .featured-icon-wrap {
       display: flex;
       justify-content: center;
@@ -1091,6 +1107,12 @@
       font-size: clamp(3rem, 8vw, 5.5rem);
       color: var(--color-text-inverse);
       box-shadow: var(--shadow-lg);
+      overflow: hidden;
+    }
+    .featured-icon img {
+      width: 70%;
+      height: 70%;
+      object-fit: contain;
     }
     .featured-eyebrow {
       font-size: var(--text-xs);
@@ -1112,6 +1134,47 @@
       max-width: 50ch;
       margin-bottom: var(--space-6);
       line-height: 1.7;
+    }
+    .carousel-controls {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-8);
+    }
+    .carousel-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      color: var(--color-text-muted);
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.18s;
+    }
+    .carousel-btn:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      background: var(--color-surface);
+    }
+    .carousel-dots {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+    }
+    .carousel-dot {
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--color-border);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.3s;
+    }
+    .carousel-dot.active {
+      background: var(--color-primary);
+      width: 24px;
+      border-radius: 4px;
     }
 
     /* ============ ABOUT SECTION ============ */
@@ -2056,9 +2119,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.75rem;
   flex-shrink: 0;
   margin-bottom: var(--space-2);
+  overflow: hidden;
+}
+.learn-card-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 14px;
 }
 .learn-card-name {
   font-family: 'Instrument Serif', serif;
@@ -2166,8 +2234,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
+  flex-shrink: 0;
   margin-bottom: var(--space-4);
+  overflow: hidden;
+}
+.category-modal-icon img {
+  width: 100%;
+  height: 100%;
+  border-radius: 16px;
 }
   
 
@@ -2343,6 +2417,9 @@
     .lang-fr { display: none; }
     [data-lang="fr"] .lang-en { display: none; }
     [data-lang="fr"] .lang-fr { display: block; }
+    [data-lang="es"] .lang-en { display: none; }
+    [data-lang="es"] .lang-fr { display: none; }
+    [data-lang="es"] .lang-es { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2365,12 +2442,13 @@
     </nav>
 
     <div class="page-hero">
-      <div class="page-hero-badge" style="background:color-mix(in oklab, #375BD2 15%, transparent);color:#375BD2">
+      <div class="page-hero-badge" style="background:color-mix(in oklab, #D6E0F8 15%, transparent);color:#D6E0F8">
         Oracle Network
       </div>
       <h1>Chainlink</h1>
       <p class="page-hero-tagline lang-en">The oracle network that connects the real world to blockchain</p>
       <p class="page-hero-tagline lang-fr">Le réseau d&#x27;oracles qui connecte le monde réel à la blockchain</p>
+      <p class="page-hero-tagline lang-es">La red de oráculos que conecta el mundo real con la blockchain</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2415,20 +2493,25 @@
     <section class="article-section">
       <h2 class="lang-en">What is Chainlink?</h2>
       <h2 class="lang-fr">Qu'est-ce que Chainlink ?</h2>
+      <h2 class="lang-es">¿Qué es Chainlink?</h2>
       <p class="lang-en">Chainlink is the bridge between the real world and blockchains. Smart contracts are powerful, but they can&#x27;t access outside information on their own — they don&#x27;t know today&#x27;s stock price, the weather, or sports scores. Chainlink solves this by securely delivering real-world data to blockchain applications through a decentralized network of &quot;oracles.&quot;</p>
       <p class="lang-fr">Chainlink est le pont entre le monde réel et les blockchains. Les contrats intelligents sont puissants, mais ils ne peuvent pas accéder aux informations extérieures par eux-mêmes — ils ne connaissent pas le cours d&#x27;une action, la météo ou les résultats sportifs. Chainlink résout ce problème en livrant de manière sécurisée des données du monde réel aux applications blockchain via un réseau décentralisé d&#x27;&quot;oracles.&quot;</p>
+      <p class="lang-es">Chainlink es el puente entre el mundo real y las blockchains. Los contratos inteligentes son poderosos, pero no pueden acceder por sí solos a información externa — no conocen el precio de las acciones de hoy, el clima ni los resultados deportivos. Chainlink resuelve esto al entregar de forma segura datos del mundo real a aplicaciones blockchain mediante una red descentralizada de &quot;oráculos&quot;.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
+      <h2 class="lang-es">¿Cómo funciona?</h2>
       <p class="lang-en">Think of smart contracts like vending machines — they follow rules automatically. But what if the machine needs to know today&#x27;s weather, or the price of gold? That&#x27;s where Chainlink comes in. It&#x27;s a network of independent data providers (called oracles) that fetch information from the real world and deliver it on-chain. Multiple oracles verify each piece of data, so no single source can lie or manipulate the result.</p>
       <p class="lang-fr">Pensez aux contrats intelligents comme des distributeurs automatiques — ils suivent des règles automatiquement. Mais que faire si la machine doit connaître la météo du jour ou le prix de l&#x27;or ? C&#x27;est là que Chainlink intervient. C&#x27;est un réseau de fournisseurs de données indépendants (appelés oracles) qui récupèrent des informations du monde réel et les livrent on-chain. Plusieurs oracles vérifient chaque donnée, de sorte qu&#x27;aucune source unique ne peut mentir ou manipuler le résultat.</p>
+      <p class="lang-es">Piensa en los contratos inteligentes como máquinas expendedoras — siguen reglas automáticamente. Pero ¿qué pasa si la máquina necesita saber el clima de hoy o el precio del oro? Ahí es donde entra Chainlink. Es una red de proveedores de datos independientes (llamados oráculos) que obtienen información del mundo real y la entregan en la blockchain. Múltiples oráculos verifican cada dato, por lo que ninguna fuente única puede mentir o manipular el resultado.</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
+      <h2 class="lang-es">¿Para qué sirve?</h2>
       <ul class="lang-en"><li>Providing price feeds for DeFi lending platforms like Aave</li>
 <li>enabling cross-chain communication between different blockchains (CCIP)</li>
 <li>delivering weather data for insurance smart contracts</li>
@@ -2437,11 +2520,16 @@
 <li>permettre la communication inter-chaînes entre différentes blockchains (CCIP)</li>
 <li>livrer des données météo pour les contrats intelligents d&#x27;assurance</li>
 <li>vérifier des événements réels pour les marchés de prédiction.</li></ul>
+      <ul class="lang-es"><li>Proporcionar fuentes de precios para plataformas de préstamos DeFi como Aave</li>
+<li>habilitar la comunicación entre diferentes blockchains (CCIP)</li>
+<li>entregar datos climáticos para contratos inteligentes de seguros</li>
+<li>verificar eventos del mundo real para mercados de predicción</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
+      <h2 class="lang-es">Ventajas</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Most widely used oracle network — powers the majority of DeFi</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Supported on 15+ blockchains, not limited to one ecosystem</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Backed by major institutions like Google Cloud and SWIFT</li>
@@ -2450,11 +2538,16 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Supporté sur plus de 15 blockchains</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Soutenu par des institutions majeures comme Google Cloud et SWIFT</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Infrastructure critique — la plupart des protocoles DeFi en dépendent</li></ul>
+      <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Red de oráculos más utilizada — impulsa la mayoría del DeFi</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Compatible con más de 15 blockchains, no limitada a un solo ecosistema</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Respaldada por grandes instituciones como Google Cloud y SWIFT</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Infraestructura crítica — la mayoría de los protocolos DeFi dependen de ella</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
+      <h2 class="lang-es">Desventajas</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>LINK token price doesn&#x27;t always reflect the protocol&#x27;s importance</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Technical concept can be hard to grasp for beginners</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Competes with newer oracle solutions</li>
@@ -2463,31 +2556,40 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Concept technique difficile à saisir pour les débutants</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>En concurrence avec des solutions oracle plus récentes</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Préoccupations de centralisation autour de certaines sources de données</li></ul>
+      <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El precio del token LINK no siempre refleja la importancia del protocolo</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El concepto técnico puede ser difícil de entender para principiantes</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Compite con soluciones de oráculos más nuevas</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Preocupaciones de centralización en torno a algunas fuentes de datos</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
-      <div class="verdict-box" style="border-color:#375BD2">
+      <h2 class="lang-es">Nuestro veredicto</h2>
+      <div class="verdict-box" style="border-color:#D6E0F8">
         <p class="lang-en">Chainlink is the invisible plumbing that makes DeFi work. Without reliable oracles, lending platforms couldn&#x27;t set prices, insurance contracts couldn&#x27;t verify claims, and cross-chain transfers would be impossible. It&#x27;s not flashy — but it&#x27;s absolutely essential. If blockchains are the engine, Chainlink is the fuel line.</p>
         <p class="lang-fr">Chainlink est la plomberie invisible qui fait fonctionner le DeFi. Sans oracles fiables, les plateformes de prêt ne pourraient pas fixer les prix, les contrats d&#x27;assurance ne pourraient pas vérifier les sinistres, et les transferts inter-chaînes seraient impossibles. Ce n&#x27;est pas tape-à-l&#x27;œil — mais c&#x27;est absolument essentiel.</p>
+        <p class="lang-es">Chainlink es la infraestructura invisible que hace funcionar al DeFi. Sin oráculos fiables, las plataformas de préstamo no podrían fijar precios, los contratos de seguros no podrían verificar reclamaciones y las transferencias entre cadenas serían imposibles. No es vistoso — pero es absolutamente esencial. Si las blockchains son el motor, Chainlink es la línea de combustible.</p>
       </div>
     </section>
 
     <div class="page-cta">
       <a href="/">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
-        <span class="lang-en">Explore all 11 cryptos</span>
-        <span class="lang-fr">Explorer les 11 cryptos</span>
+        <span class="lang-en">Explore all 38 cryptos</span>
+        <span class="lang-fr">Explorer les 38 cryptos</span>
+        <span class="lang-es">Explora las 38 criptos</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
+      <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
     </div>
 
     <!-- Cross-links for SEO -->
     <nav class="related-articles" aria-label="Related crypto guides">
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
+    <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2499,6 +2601,12 @@
         <a href="/hyperliquid/">Hyperliquid (HYPE)</a>
         <a href="/avalanche/">Avalanche (AVAX)</a>
         <a href="/uniswap/">Uniswap (UNI)</a>
+        <a href="/cardano/">Cardano (ADA)</a>
+        <a href="/usdc/">USDC</a>
+        <a href="/litecoin/">Litecoin (LTC)</a>
+        <a href="/bittensor/">Bittensor (TAO)</a>
+        <a href="/near/">NEAR Protocol</a>
+        <a href="/ondo/">Ondo Finance (ONDO)</a>
       </div>
     </nav>
 
@@ -2514,25 +2622,38 @@
     // Language toggle
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
+    if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
     updateLangBtn();
     
-    function toggleLang() {
-      currentLang = currentLang === 'en' ? 'fr' : 'en';
-      if (currentLang === 'fr') {
+    function setLang(lang) {
+      currentLang = lang;
+      if (lang === 'fr') {
         document.documentElement.setAttribute('data-lang', 'fr');
+      } else if (lang === 'es') {
+        document.documentElement.setAttribute('data-lang', 'es');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
       updateLangBtn();
       var url = new URL(window.location);
-      if (currentLang === 'fr') url.searchParams.set('lang', 'fr');
+      if (lang !== 'en') url.searchParams.set('lang', lang);
       else url.searchParams.delete('lang');
       history.replaceState(null, '', url);
+    }
+
+    function toggleLang() {
+      if (currentLang === 'en') setLang('fr');
+      else if (currentLang === 'fr') setLang('es');
+      else setLang('en');
     }
     
     function updateLangBtn() {
       var btn = document.getElementById('lang-btn');
-      btn.textContent = currentLang === 'en' ? 'FR' : 'EN';
+      if (btn) {
+        if (currentLang === 'en') btn.textContent = 'FR';
+        else if (currentLang === 'fr') btn.textContent = 'ES';
+        else btn.textContent = 'EN';
+      }
     }
     
     // Theme
