@@ -8403,7 +8403,7 @@
     ];
 
     /* ==========================================
-       i18n — All UI strings in EN and FR
+       i18n — All UI strings in EN, FR and ES
        ========================================== */
     var i18n = {
       en: {
@@ -8499,7 +8499,11 @@
         'learn.sub': 'Before diving into individual cryptos, understand the different types that exist. Each guide explains a category in plain language.',
         'learn.read': 'Read guide',
         'learn.cryptos_count': '{n} cryptos on the site',
-        'ticker.news': 'News'
+        'ticker.news': 'News',
+        'article.stat.mcap': 'Market Cap',
+        'article.stat.supply': 'Supply',
+        'article.stat.consensus': 'Consensus',
+        'article.stat.founder': 'Founder'
       },
       fr: {
         'nav.cryptos': 'Toutes les cryptos',
@@ -8594,7 +8598,11 @@
         'learn.sub': 'Avant de plonger dans les cryptos individuelles, comprenez les différents types qui existent. Chaque guide explique une catégorie en langage simple.',
         'learn.read': 'Lire le guide',
         'learn.cryptos_count': '{n} cryptos sur le site',
-        'ticker.news': 'Actualités'
+        'ticker.news': 'Actualités',
+        'article.stat.mcap': 'Cap. marché',
+        'article.stat.supply': 'Offre',
+        'article.stat.consensus': 'Consensus',
+        'article.stat.founder': 'Fondateur'
       },
       es: {
         'nav.cryptos': 'Todas las criptos',
@@ -8689,7 +8697,11 @@
         'learn.sub': 'Antes de explorar criptomonedas individuales, entiende los diferentes tipos que existen. Cada guía explica una categoría en lenguaje sencillo.',
         'learn.read': 'Leer guía',
         'learn.cryptos_count': '{n} criptos en el sitio',
-        'ticker.news': 'Noticias'
+        'ticker.news': 'Noticias',
+        'article.stat.mcap': 'Cap. mercado',
+        'article.stat.supply': 'Oferta',
+        'article.stat.consensus': 'Consenso',
+        'article.stat.founder': 'Fundador'
       }
     };
 
@@ -9264,10 +9276,10 @@
         '</div>' +
         '<div class="modal-stats-row">' +
           '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stats') + '</div></div>' +
-          '<div class="modal-stat-item"><div class="modal-stat-label">Market Cap</div><div class="modal-stat-value">' + (article.marketCap || '—') + '</div></div>' +
-          '<div class="modal-stat-item"><div class="modal-stat-label">Supply</div><div class="modal-stat-value">' + (article.supply || '—') + '</div></div>' +
-          '<div class="modal-stat-item"><div class="modal-stat-label">Consensus</div><div class="modal-stat-value">' + (article.consensus || '—') + '</div></div>' +
-          '<div class="modal-stat-item"><div class="modal-stat-label">Founder</div><div class="modal-stat-value">' + (article.founder || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stat.mcap') + '</div><div class="modal-stat-value">' + (article.marketCap || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stat.supply') + '</div><div class="modal-stat-value">' + (article.supply || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stat.consensus') + '</div><div class="modal-stat-value">' + (article.consensus || '—') + '</div></div>' +
+          '<div class="modal-stat-item"><div class="modal-stat-label">' + t('article.stat.founder') + '</div><div class="modal-stat-value">' + (article.founder || '—') + '</div></div>' +
         '</div>' +
         '<div class="modal-content">' +
           (article.videoUrl ?
