@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/solana/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/solana/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/solana/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/solana/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/solana/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The fast and affordable blockchain built for speed</p>
       <p class="page-hero-tagline lang-fr">La blockchain rapide et abordable construite pour la vitesse</p>
       <p class="page-hero-tagline lang-es">La blockchain rápida y asequible diseñada para la velocidad</p>
+      <p class="page-hero-tagline lang-ja">スピードのために作られた高速・低コストのブロックチェーン</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is Solana?</h2>
       <h2 class="lang-fr">Qu'est-ce que Solana ?</h2>
       <h2 class="lang-es">¿Qué es Solana?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Solana is one of the fastest blockchains in the world. If Bitcoin is like sending a letter by mail and Ethereum is like sending an email, Solana is like sending an instant message — nearly instant and almost free. It was designed from the ground up to handle massive transaction volumes without sacrificing security.</p>
       <p class="lang-fr">Solana est l&#x27;une des blockchains les plus rapides au monde. Si Bitcoin c&#x27;est envoyer une lettre par la poste et Ethereum c&#x27;est envoyer un email, Solana c&#x27;est envoyer un message instantané — quasi instantané et presque gratuit.</p>
       <p class="lang-es">Solana es una de las blockchains más rápidas del mundo. Si Bitcoin es como enviar una carta por correo y Ethereum es como enviar un correo electrónico, Solana es como enviar un mensaje instantáneo — casi inmediato y prácticamente gratuito. Fue diseñada desde cero para manejar enormes volúmenes de transacciones sin sacrificar la seguridad.</p>
+      <p class="lang-ja">ソラナは世界最速クラスのブロックチェーンのひとつです。ビットコインが手紙を郵便で送るようなもの、イーサリアムがメールを送るようなものとすれば、ソラナはインスタントメッセージを送るようなもの — ほぼ瞬時で、ほぼ無料です。セキュリティを犠牲にせず大量のトランザクション処理ができるように、最初から設計されています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Solana uses a unique technology called &quot;Proof of History&quot; combined with &quot;Proof of Stake.&quot; Think of it as a system that timestamps everything so the network doesn&#x27;t waste time figuring out the order of transactions. It&#x27;s like having a trusted clock that everyone on the network agrees on, which removes a huge bottleneck.</p>
       <p class="lang-fr">Solana utilise une technologie unique appelée &quot;Preuve d&#x27;Histoire&quot; combinée à la &quot;Preuve d&#x27;Enjeu&quot;. Pensez-y comme un système qui horodate tout pour que le réseau ne perde pas de temps à déterminer l&#x27;ordre des transactions.</p>
       <p class="lang-es">Solana utiliza una tecnología única llamada &quot;Prueba de Historia&quot; combinada con &quot;Prueba de Participación&quot;. Imagínalo como un sistema que marca la hora de todo para que la red no pierda tiempo determinando el orden de las transacciones. Es como tener un reloj de confianza en el que todos los participantes de la red están de acuerdo, lo que elimina un enorme cuello de botella.</p>
+      <p class="lang-ja">ソラナは「プルーフ・オブ・ヒストリー（PoH）」と「プルーフ・オブ・ステーク（PoS）」を組み合わせたユニークな技術を使っています。ネットワークがトランザクションの順序を把握するために時間を無駄にしないよう、すべてにタイムスタンプを付けるシステムだと考えてください。ネットワーク全員が合意できる信頼性の高い時計を持つようなもので、巨大なボトルネックを解消します。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Fast payment processing and micropayments</li>
 <li>DeFi applications</li>
 <li>NFT marketplaces (the second largest after Ethereum)</li>
@@ -2527,12 +2546,14 @@
 <li>mercados de NFT (el segundo más grande después de Ethereum)</li>
 <li>aplicaciones cripto móviles</li>
 <li>meme coins y lanzamientos de tokens</li></ul>
+      <ul class="lang-ja"><li>高速な決済処理とマイクロペイメント、DeFiアプリケーション、NFTマーケットプレイス（イーサリアムに次ぐ第2位）、モバイル暗号通貨アプリ、ミームコインとトークンローンチ。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lightning-fast transactions — thousands per second</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Extremely low fees (fractions of a cent per transaction)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Growing ecosystem with major apps and investors</li>
@@ -2545,12 +2566,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Comisiones extremadamente bajas (fracciones de céntimo por transacción)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ecosistema en crecimiento con grandes aplicaciones e inversores</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Interés institucional a través de los futuros del CME</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>超高速トランザクション — 1秒あたり数千件</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>極めて低い手数料（1トランザクションあたり1セントの何分の1か）</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>主要アプリや投資家を集めて成長するエコシステム</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>CME先物を通じた機関投資家の関心</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Has experienced network outages in the past</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>More centralized than Bitcoin or Ethereum</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Younger blockchain — less battle-tested and proven</li></ul>
@@ -2560,16 +2586,21 @@
       <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ha experimentado interrupciones de red en el pasado</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Más centralizada que Bitcoin o Ethereum</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Blockchain más joven — menos probada en condiciones reales</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>過去にネットワーク障害が発生したことがある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ビットコインやイーサリアムより中央集権的</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>新しいブロックチェーン — 実績と信頼性がまだ発展途上</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#9945FF">
         <p class="lang-en">Solana is the speed demon of crypto. It&#x27;s perfect for anyone who finds Bitcoin too slow or Ethereum too expensive. Just keep in mind it&#x27;s younger and still proving itself — but the speed and low fees are genuinely impressive and hard to argue with.</p>
         <p class="lang-fr">Solana est le bolide de la crypto. C&#x27;est parfait pour quiconque trouve Bitcoin trop lent ou Ethereum trop cher. La vitesse et les faibles frais sont indéniables — mais gardez à l&#x27;esprit qu&#x27;il est plus jeune et doit encore faire ses preuves.</p>
         <p class="lang-es">Solana es el cohete de velocidad de las criptomonedas. Es perfecta para quienes encuentran Bitcoin demasiado lento o Ethereum demasiado costoso. Ten en cuenta que es más joven y aún está demostrando su valía — pero la velocidad y las bajas comisiones son genuinamente impresionantes y difíciles de ignorar.</p>
+      <p class="lang-ja">ソラナは暗号通貨世界のスピードの申し子です。ビットコインが遅すぎたりイーサリアムが高すぎると感じる方に最適です。新しいブロックチェーンでありまだ実力を証明中であることは念頭に置いてください — ただ、そのスピードと低手数料は本当に印象的で、否定しようのない魅力があります。</p>
       </div>
     </section>
 
@@ -2579,10 +2610,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2623,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2623,6 +2657,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2631,6 +2666,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2644,16 +2681,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

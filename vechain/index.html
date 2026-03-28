@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/vechain/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/vechain/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/vechain/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/vechain/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/vechain/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/vechain/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2015-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The blockchain that tracks real things — from luxury bags to food safety</p>
       <p class="page-hero-tagline lang-fr">La blockchain qui suit les vraies choses — des sacs de luxe à la sécurité alimentaire</p>
       <p class="page-hero-tagline lang-es">La blockchain que rastrea objetos reales — desde bolsos de lujo hasta seguridad alimentaria</p>
+      <p class="page-hero-tagline lang-ja">現実の物を追跡するブロックチェーン — ブランドバッグから食の安全まで</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is VeChain?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que VeChain ?</h2>
       <h2 class="lang-es">¿Qué es VeChain?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">VeChain is a blockchain platform built specifically for enterprise supply chain management and real-world asset tracking. If most blockchains are trying to reinvent money, VeChain is trying to reinvent trust in physical goods — making it possible to verify that a luxury handbag is genuine, that food was stored at the right temperature, or that carbon emissions were properly offset.</p>
       <p class="lang-en">Founded in 2015 by Sunny Lu, a former CIO of Louis Vuitton China, VeChain was designed from day one to solve real business problems. Lu spent years watching luxury counterfeiting destroy brand value and saw blockchain as the solution. VeChain started as a subsidiary of the Chinese tech company BitSE before becoming an independent foundation.</p>
       <p class="lang-en">VeChain has positioned itself as the &quot;blockchain for business&quot; by focusing on enterprise partnerships. It has working relationships with names like Walmart China, BMW, DNV, PwC, and the Chinese government. What makes VeChain unusual in crypto is that it already has real enterprise customers using the technology in production — not just proof-of-concepts.</p>
@@ -2490,6 +2506,13 @@ El proyecto fue fundado en 2015 por Sunny Lu, exdirector de Información de Loui
 VeChain comenzó como una blockchain privada en 2015, realizó una ICO en 2017 que recaudó $20 millones y lanzó el mainnet público VeChainThor en junio de 2018. El proyecto logró asociaciones que la mayoría de los proyectos blockchain solo sueñan: PwC se convirtió en socio en 2017, DNV (un gigante mundial de la garantía de calidad) en 2018, y Walmart China desplegó una plataforma de trazabilidad alimentaria en 2019.
 
 Lo que hace única a VeChain en la cripto es su enfoque implacable en la utilidad real por encima de la especulación. Mientras otras cadenas persiguen DeFi y NFTs, VeChain construye infraestructura para rastrear la seguridad alimentaria, verificar bienes de lujo, gestionar créditos de carbono y crear Pasaportes Digitales de Producto para el cumplimiento normativo de la UE. En 2025, la iniciativa VeBetterDAO alcanzó 5.5 millones de usuarios con aplicaciones de sostenibilidad que recompensan los comportamientos ecológicos.</p>
+      <p class="lang-ja">ヴィチェーンは、エンタープライズのサプライチェーン管理と製品認証に特化して構築されたブロックチェーンです。ほとんどの暗号プロジェクトが金融や投機に焦点を当てている中、ヴィチェーンは最初から非常に具体的な問題を解決するために設計されました。手にしている製品が本物で安全であり、主張通りの産地から来たことをどうやって証明するか？
+
+プロジェクトは2015年に、ルイ・ヴィトン中国の元最高情報責任者サニー・ルーによって設立されました。ラグジュアリー商品での業務経験により、ルーは偽造品蔓延の最前線を目の当たりにしました — 偽のバッグ、偽の時計、あらゆる偽物。ブロックチェーンの不変・透明な記録を作成する能力が、サプライチェーンの追跡可能性に最適なツールであることに気づきました。製品の全行程が改ざん不可能な台帳に記録されれば、偽造はほぼ不可能になります。
+
+ヴィチェーンは2015年にプライベートブロックチェーンとしてスタートし、2017年に2000万ドルを調達するICOを実施、2018年6月にパブリックのVeChainThorメインネットを立ち上げました。ほとんどのブロックチェーンプロジェクトが夢見るような提携を勝ち取りました。PwCが2017年にパートナーとなり、DNV（世界的な品質保証大手）が2018年、ウォルマート中国が2019年に食品追跡プラットフォームを導入しました。共同創設者のジェイ・チャンと深い企業ルーツを持つチームが、ヴィチェーンに企業世界での類稀な信頼性をもたらしました。
+
+暗号界でヴィチェーンをユニークにしているのは、投機ではなく現実世界のユーティリティへの一貫した焦点です。他のチェーンがDeFiやNFTを追う中、ヴィチェーンは食品安全の追跡、ラグジュアリー商品の認証、カーボンクレジット管理、EU規制コンプライアンス向けデジタル製品パスポートのインフラを構築しています。2025年にはVeBetterDAOイニシアティブが環境配慮型行動を報酬で促すサステナビリティアプリで550万ユーザーに達しました。</p>
       <p class="lang-fr">Lu a passé des années à observer la contrefaçon de luxe détruire la valeur des marques et a vu la blockchain comme la solution. VeChain a des partenariats avec des noms comme Walmart China, BMW, DNV, PwC et le gouvernement chinois. Ce qui rend VeChain inhabituel en crypto, c&#x27;est qu&#x27;elle a déjà de vrais clients entreprises utilisant la technologie en production.</p>
       <p class="lang-es">VeChain utiliza el consenso Proof of Authority (PoA) — un enfoque fundamentalmente diferente al minado de Bitcoin o al staking de Ethereum. En lugar de mineros anónimos compitiendo por resolver puzzles, VeChain cuenta con 101 Authority Masternodes conocidos y verificados que se turnan para producir bloques cada 10 segundos. Pienséalo como una junta directiva en lugar de una votación colectiva: cada miembro está identificado mediante KYC (Conoce a tu Cliente) y ha comprometido tanto reputación como capital.
 
@@ -2504,6 +2527,7 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">VeChain uses a Proof of Authority (PoA) consensus mechanism, which means instead of thousands of anonymous miners competing, a select group of pre-approved validators (101 Authority Masternodes) process transactions. This makes VeChain extremely fast (10,000+ TPS) and cheap to use, at the cost of being less decentralized than chains like Bitcoin or Ethereum.</p>
       <p class="lang-en">VeChain has a unique dual-token system. VET is the main value token, while VTHO (VeThor) is the &quot;gas&quot; token used to pay for transactions. If you hold VET, you automatically generate VTHO over time — like earning interest. This separates speculation from usage costs, so companies can budget their blockchain costs predictably.</p>
       <p class="lang-en">For tracking physical goods, VeChain uses a combination of NFC chips, QR codes, RFID tags, and IoT sensors that link physical products to their digital records on the blockchain. When a luxury bag is manufactured, an NFC chip is embedded in it with a unique ID recorded on VeChain. At every step of the supply chain, the item is scanned and its journey recorded immutably.</p>
@@ -2516,6 +2540,7 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Supply chain verification and product authentication for luxury goods</li>
 <li>Food safety tracking from farm to table</li>
 <li>Carbon credit certification and sustainability compliance</li>
@@ -2528,12 +2553,14 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
 <li>el monitoreo de sostenibilidad y ESG (gestión de créditos de carbono, recompensas por comportamientos ecológicos a través de VeBetterDAO)</li>
 <li>los Pasaportes Digitales de Producto para el cumplimiento normativo de la UE y el mantenimiento de registros empresariales para industrias como la energética (Shanghai Gas rastrea entregas de GNL) y la automotriz (BMW exploró la gestión de datos vehiculares). Con 5.5 millones de usuarios en aplicaciones de sostenibilidad VeBetterDAO y despliegues en producción real en Walmart China</li>
 <li>VeChain cuenta con una de las adopciones reales más tangibles de cualquier proyecto blockchain</li></ul>
+      <ul class="lang-ja"><li>ヴィチェーンの主要ユースケースはサプライチェーンの追跡可能性（食品安全検証、ラグジュアリー商品認証、医薬品追跡）、サステナビリティ・ESGモニタリング（カーボンクレジット管理、VeBetterDAO経由の環境配慮型行動報酬）、EU規制コンプライアンス向けデジタル製品パスポート、エネルギー（上海ガスがLNG配送を追跡）や自動車（BMWが車両データ管理を検討）といった業界向けのエンタープライズ記録管理にわたります。VeBetterDAOサステナビリティアプリで550万ユーザーが活動し、ウォルマート中国での本番稼働により、ヴィチェーンはブロックチェーンプロジェクトの中で最も具体的な現実世界採用を実現したひとつです。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Real enterprise adoption with major companies like Walmart China and BMW</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Dual-token system separates speculation from transaction costs</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Proof of Authority makes transactions fast (10,000+ TPS) and cheap</li>
@@ -2546,12 +2573,17 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Proof of Authority proporciona la velocidad, el bajo costo y la previsibilidad que las empresas necesitan — bloques de 10 segundos y tarifas de menos de un centavo lo hacen práctico para millones de transacciones de cadena de suministro</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El sistema de doble token (VET/VTHO) estabiliza los costos de transacción para las empresas, separando la especulación de los gastos operativos</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Una fuerte alineación regulatoria con los requisitos del Pasaporte Digital de Producto de la UE posiciona a VeChain para un enorme mercado impulsado por el cumplimiento normativo</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fortune 500企業による実証済みの採用 — ウォルマート中国、BMW、PwC、DNVはプレスリリースだけでなく、実際の導入実績を持つ真のパートナーです</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Proof of Authorityはエンタープライズが必要とする速度、低コスト、予測可能性を提供 — 10秒のブロックと1セント未満の手数料が数百万件のサプライチェーントランザクションに対応します</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>デュアルトークンシステム（VET/VTHO）がビジネスの取引コストを安定化し、投機とオペレーションコストを分離します</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>EU デジタル製品パスポート要件との強い規制整合性が、コンプライアンス主導の巨大市場に向けてヴィチェーンを有利に位置付けています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Proof of Authority is centralized — only 101 validators control the network</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Heavy reliance on Chinese market partnerships raises geopolitical risk</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Dual-token model can be confusing for newcomers</li>
@@ -2564,16 +2596,28 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Muy poca actividad DeFi y TVL en comparación con las cadenas de propósito general, lo que limita su atractivo para especuladores y desarrolladores que buscan aplicaciones financieras</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El precio ha caído más del 95% desde los máximos históricos, reflejando la dificultad de traducir la adopción empresarial en apreciación del valor del token</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Enfrenta la competencia de otras cadenas orientadas a empresas como Hedera y XRP, así como soluciones de blockchain privadas de IBM y otros</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>101の既知マスターノードのみによるProof of Authorityは、ほとんどのブロックチェーンより分散化が著しく低く、純粋主義者は根本的な妥協と見なしています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>汎用チェーンと比較してDeFiの活動とTVLが非常に低く、金融アプリケーションを求める投機家や開発者への訴求が限られています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>過去最高値から95%以上価格が下落しており、エンタープライズ採用をトークン価値向上につなげる難しさが反映されています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>HederaやXRPなど他のエンタープライズ向けチェーン、IBMなどのプライベートブロックチェーンソリューションとの競合があります</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#15BDFF">
         <p class="lang-en">VeChain is the blockchain that most closely resembles traditional enterprise software — it&#x27;s practical, business-focused, and already deployed with major companies. If you believe blockchain&#x27;s biggest impact will be in supply chains and sustainability rather than financial speculation, VeChain is one of the strongest bets. The trade-off is centralization and geographic concentration, but for enterprises that need speed, cost predictability, and reliability, those are acceptable compromises.</p>
         <p class="lang-fr">VeChain est la blockchain qui ressemble le plus à un logiciel d&#x27;entreprise traditionnel — pratique, orienté business, et déjà déployé avec des entreprises majeures. Si vous croyez que le plus grand impact de la blockchain sera dans les chaînes d&#x27;approvisionnement et la durabilité plutôt que la spéculation financière, VeChain est l&#x27;un des paris les plus solides.</p>
         <p class="lang-es">VeChain es el raro proyecto blockchain que puede señalar despliegues reales en empresas Fortune 500 y decir &quot;esto realmente se está usando&quot;. La plataforma de trazabilidad alimentaria de Walmart China por sí sola representa más adopción real que la mayoría de los proyectos cripto del top 100 combinados. El desafío siempre ha sido traducir la utilidad empresarial en apreciación del valor del token. Pero con las regulaciones de Pasaporte Digital de Producto de la UE creando demanda obligatoria para exactamente lo que VeChain hace, y 5.5 millones de usuarios en VeBetterDAO, VeChain puede finalmente ver su paciencia recompensada. Esta es una apuesta a largo plazo sobre la blockchain como infraestructura invisible.</p>
+      <p class="lang-ja">ヴィチェーンはProof of Authority（PoA）コンセンサスを使用しており、ビットコインのマイニングやイーサリアムのステーキングとは根本的に異なるアプローチです。パズル解決を競う匿名のマイナーの代わりに、ヴィチェーンには10秒ごとにブロックを生成する101の既知・認証済みAuthority Masternodesがあります。群衆投票ではなく取締役会のようなものです。各メンバーはKYC（顧客確認）で身元が確認されており、評判と資本の両方を担保に入れています。
+
+この設計はエンタープライズ利用を意図したものです。企業は匿名マイナーが理論上共謀したり処理を遅らせたりする可能性のあるブロックチェーンには構築したくありません。速度、予測可能性、法的説明責任が必要です — まさにPoAが提供するものです。トレードオフは分散化の低下ですが、検閲耐性よりも速度と信頼性が重要なサプライチェーンアプリケーションにとっては賢明なエンジニアリング上の選択です。
+
+ヴィチェーンは巧みなデュアルトークンシステムを使用しています。VETは価値・ガバナンストークンで、VETを保有すると取引手数料の支払いに使うガストークンVTHOが自動的に生成されます。ゆっくりとタンクを無料で満たしてくれるガスステーションを所有するようなものです。この分離により企業はオペレーションコストを予測・安定化できます。取引所でVETの価格が激しく変動しても、VTHO供給量の調整によりブロックチェーン利用コストは管理可能な状態に保たれます。
+
+ブロックチェーンはNFCチップ、RFIDタグ、QRコードなどIoT（モノのインターネット）デバイスと統合されています。ラグジュアリーバッグには工場でNFCチップが埋め込まれ、製造・出荷・通関・小売という全行程がVeChainThorに記録されます。顧客はチップをスキャンして全履歴を確認できます。この物理・デジタルの橋梁が、ヴィチェーンを純粋にデジタルなブロックチェーンから差別化する要素です。</p>
       </div>
     </section>
 
@@ -2583,10 +2627,12 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2594,6 +2640,7 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2635,6 +2682,7 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2643,6 +2691,8 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2656,16 +2706,15 @@ La blockchain se integra con dispositivos IoT (Internet de las Cosas) como chips
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

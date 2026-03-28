@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/ethereum/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/ethereum/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/ethereum/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/ethereum/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/ethereum/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2015-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The world computer that runs apps without middlemen</p>
       <p class="page-hero-tagline lang-fr">L&#x27;ordinateur mondial qui fait tourner des applications sans intermédiaires</p>
       <p class="page-hero-tagline lang-es">La computadora mundial que ejecuta aplicaciones sin intermediarios</p>
+      <p class="page-hero-tagline lang-ja">仲介者なしでアプリを動かす世界のコンピューター</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is Ethereum?</h2>
       <h2 class="lang-fr">Qu'est-ce que Ethereum ?</h2>
       <h2 class="lang-es">¿Qué es Ethereum?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">If Bitcoin is digital gold, Ethereum is a digital world computer. Created by Vitalik Buterin, Ethereum doesn&#x27;t just transfer money — it runs programs called &quot;smart contracts&quot; that execute automatically without any middleman. It&#x27;s the platform that powers most of the decentralized internet.</p>
       <p class="lang-fr">Si le Bitcoin est de l&#x27;or numérique, l&#x27;Ethereum est un ordinateur mondial numérique. Créé par Vitalik Buterin, Ethereum ne se contente pas de transférer de l&#x27;argent — il exécute des programmes appelés &quot;contrats intelligents&quot; qui fonctionnent automatiquement sans aucun intermédiaire.</p>
       <p class="lang-es">Si Bitcoin es oro digital, Ethereum es una computadora mundial digital. Creado por Vitalik Buterin, Ethereum no solo transfiere dinero — ejecuta programas llamados &quot;contratos inteligentes&quot; que se cumplen automáticamente sin ningún intermediario. Es la plataforma que impulsa la mayor parte de la internet descentralizada.</p>
+      <p class="lang-ja">ビットコインがデジタルゴールドなら、イーサリアムはデジタル世界のコンピューターです。ヴィタリック・ブテリンが生み出したイーサリアムは、お金を送るだけでなく、仲介者なしで自動的に実行される「スマートコントラクト」と呼ばれるプログラムを動かします。分散型インターネットの大部分を支えるプラットフォームです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Imagine a vending machine: you put money in, press a button, and get your drink — no cashier needed. Ethereum works the same way but for any kind of agreement or application. These are called &quot;decentralized applications&quot; or dApps. Once a smart contract is deployed, it runs exactly as programmed — no one can change it or stop it.</p>
       <p class="lang-fr">Imaginez un distributeur automatique : vous mettez de l&#x27;argent, appuyez sur un bouton et recevez votre boisson — pas besoin de caissier. Ethereum fonctionne de la même manière mais pour tout type d&#x27;accord ou d&#x27;application. Ces programmes s&#x27;appellent des &quot;applications décentralisées&quot; ou dApps.</p>
       <p class="lang-es">Imagina una máquina expendedora: introduces dinero, pulsas un botón y obtienes tu bebida — sin necesidad de cajero. Ethereum funciona de la misma manera, pero para cualquier tipo de acuerdo o aplicación. Estos programas se llaman &quot;aplicaciones descentralizadas&quot; o dApps. Una vez que un contrato inteligente se despliega, se ejecuta exactamente como fue programado — nadie puede modificarlo ni detenerlo.</p>
+      <p class="lang-ja">自動販売機を想像してください。お金を入れてボタンを押せば飲み物が出てくる — レジ係は不要です。イーサリアムはあらゆる種類の合意や申請に対して同じように機能します。これらは「分散型アプリケーション」またはdAppsと呼ばれます。スマートコントラクトは一度デプロイされると、プログラム通りに正確に動き — 誰も変更したり止めたりすることはできません。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Decentralized finance (lending</li>
 <li>borrowing without banks)</li>
 <li>NFTs and digital art ownership</li>
@@ -2526,12 +2545,14 @@
 <li>NFTs y propiedad de arte digital</li>
 <li>tokenización de activos del mundo real como propiedades inmobiliarias</li>
 <li>soporte para miles de proyectos cripto construidos sobre su plataforma</li></ul>
+      <ul class="lang-ja"><li>分散型金融（銀行なしで貸し借り）、NFTとデジタルアート所有権、不動産などのリアルワールドアセットのトークン化、その上に構築された数千のプロジェクトの運用。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Largest developer community in crypto</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Powers most of DeFi and the NFT ecosystem</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Staking rewards for holders (around 4% APY)</li>
@@ -2544,12 +2565,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Impulsa la mayor parte del ecosistema DeFi y NFT</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Recompensas de staking para los poseedores (alrededor del 4% APY)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mejora continua — importantes actualizaciones planificadas</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>暗号通貨業界最大の開発者コミュニティ</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DeFiとNFTエコシステムの大部分を支える</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>保有者へのステーキング報酬（年利約4% APY）</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>継続的な改善 — 大型アップグレードが予定されている</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Gas fees can be very expensive during busy periods</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Slower than newer blockchains like Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Complexity can confuse beginners</li></ul>
@@ -2559,16 +2585,21 @@
       <ul class="lang-es"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las tarifas de gas pueden ser muy elevadas en períodos de alta demanda</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Más lento que blockchains más recientes como Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La complejidad puede confundir a los principiantes</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>混雑時にガス手数料が非常に高くなる可能性がある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ソラナなど新しいブロックチェーンより処理が遅い</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>複雑さが初心者を混乱させることがある</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#627EEA">
         <p class="lang-en">Ethereum is the foundation of the crypto ecosystem. Most innovations in crypto happen here first. If Bitcoin is lesson one, Ethereum is lesson two — and it opens the door to everything else. Understanding Ethereum means understanding most of modern crypto.</p>
         <p class="lang-fr">Ethereum est la fondation de l&#x27;écosystème crypto. La plupart des innovations en crypto se produisent ici en premier. Si le Bitcoin est la leçon un, Ethereum est la leçon deux — et il ouvre la porte à tout le reste.</p>
         <p class="lang-es">Ethereum es la base del ecosistema cripto. La mayoría de las innovaciones en cripto ocurren aquí primero. Si Bitcoin es la lección uno, Ethereum es la lección dos — y abre la puerta a todo lo demás. Entender Ethereum significa entender la mayor parte de la cripto moderna.</p>
+      <p class="lang-ja">イーサリアムは暗号通貨エコシステムの基盤です。暗号通貨のほとんどの革新はここから始まります。ビットコインが第一の授業なら、イーサリアムは第二の授業 — そして他のすべてへの扉を開きます。イーサリアムを理解することは、現代の暗号通貨の大部分を理解することを意味します。</p>
       </div>
     </section>
 
@@ -2578,10 +2609,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2589,6 +2622,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/solana/">Solana (SOL)</a>
@@ -2622,6 +2656,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2630,6 +2665,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2643,16 +2680,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

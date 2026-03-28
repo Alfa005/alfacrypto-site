@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/bitcoin/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/bitcoin/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/bitcoin/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/bitcoin/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/bitcoin/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2009-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The original cryptocurrency that started it all</p>
       <p class="page-hero-tagline lang-fr">La cryptomonnaie originale qui a tout lancé</p>
       <p class="page-hero-tagline lang-es">La criptomoneda original que lo inició todo</p>
+      <p class="page-hero-tagline lang-ja">すべての始まりとなったオリジナルの暗号通貨</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is Bitcoin?</h2>
       <h2 class="lang-fr">Qu'est-ce que Bitcoin ?</h2>
       <h2 class="lang-es">¿Qué es Bitcoin?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Bitcoin is the world&#x27;s first cryptocurrency, created by the mysterious Satoshi Nakamoto. Think of it as digital gold — a form of money that exists only online, with no bank or government controlling it. It was the first time anyone had solved the problem of creating a scarce digital asset — one that can&#x27;t be copied or faked.</p>
       <p class="lang-fr">Le Bitcoin est la toute première cryptomonnaie au monde, créée par le mystérieux Satoshi Nakamoto. Imaginez-le comme de l&#x27;or numérique — une forme d&#x27;argent qui n&#x27;existe qu&#x27;en ligne, sans banque ni gouvernement pour le contrôler. C&#x27;était la première fois que quelqu&#x27;un résolvait le problème de créer un actif numérique rare — impossible à copier ou à falsifier.</p>
       <p class="lang-es">Bitcoin es la primera criptomoneda del mundo, creada por el misterioso Satoshi Nakamoto. Imagínala como oro digital — una forma de dinero que existe únicamente en línea, sin ningún banco ni gobierno que la controle. Fue la primera vez que alguien resolvió el problema de crear un activo digital escaso — uno que no puede copiarse ni falsificarse.</p>
+      <p class="lang-ja">ビットコインは世界初の暗号通貨で、謎の人物サトシ・ナカモトによって生み出されました。デジタルゴールドとも呼ばれ、インターネット上にのみ存在するお金の形であり、銀行も政府も管理しません。希少性のあるデジタル資産――コピーも偽造もできない資産――を作るという問題を初めて解決したものです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Bitcoin uses a technology called blockchain — imagine a giant notebook that thousands of computers around the world share. Every transaction is written in this notebook, and once written, it can never be erased. New bitcoins are created through &quot;mining,&quot; where powerful computers solve complex mathematical puzzles. This process secures the network and ensures no one can cheat the system.</p>
       <p class="lang-fr">Le Bitcoin utilise une technologie appelée blockchain — imaginez un immense cahier partagé par des milliers d&#x27;ordinateurs à travers le monde. Chaque transaction est inscrite dans ce cahier, et une fois écrite, elle ne peut jamais être effacée. De nouveaux bitcoins sont créés par le &quot;minage&quot;, où de puissants ordinateurs résolvent des puzzles mathématiques complexes.</p>
       <p class="lang-es">Bitcoin utiliza una tecnología llamada blockchain — imagina un cuaderno gigante que miles de computadoras en todo el mundo comparten. Cada transacción queda registrada en ese cuaderno y, una vez escrita, nunca puede borrarse. Los nuevos bitcoins se crean a través de la &quot;minería&quot;, donde potentes computadoras resuelven complejos rompecabezas matemáticos. Este proceso asegura la red y garantiza que nadie pueda hacer trampa.</p>
+      <p class="lang-ja">ビットコインはブロックチェーンと呼ばれる技術を使っています。世界中の何千ものコンピューターが共有する巨大なノートを想像してください。すべての取引はそのノートに記録され、一度書かれたら絶対に消せません。新しいビットコインは「マイニング」によって生み出されます。強力なコンピューターが複雑な数学パズルを解くことで、ネットワークを守り、誰も不正を行えない仕組みを実現しています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Store of value (digital savings and long-term wealth)</li>
 <li>international payments without banks</li>
 <li>protection against inflation in countries with unstable currencies</li>
@@ -2524,12 +2543,14 @@
 <li>pagos internacionales sin bancos</li>
 <li>protección contra la inflación en países con monedas inestables</li>
 <li>aceptado por grandes empresas como Tesla y Microsoft</li></ul>
+      <ul class="lang-ja"><li>価値の保存手段（デジタル貯蓄・長期的な資産形成）、銀行を介さない国際送金、通貨が不安定な国でのインフレ対策、テスラやマイクロソフトなど大手企業での決済に対応。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Most established and trusted crypto in the world</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Highest liquidity — easy to buy and sell anywhere</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Limited supply of 21 million creates natural scarcity</li>
@@ -2542,12 +2563,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Mayor liquidez — fácil de comprar y vender en cualquier lugar</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Suministro limitado de 21 millones genera escasez natural</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Creciente adopción institucional (ETFs, tesorerías corporativas)</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>世界で最も信頼性が高く実績のある暗号通貨</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>流動性が最高水準 — 世界中どこでも売買しやすい</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2100万枚という発行上限が自然な希少性を生み出す</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>機関投資家の採用が拡大中（ETF・企業財務など）</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Slow transactions — only 7 per second compared to thousands for newer chains</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>High energy consumption from the mining process</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Volatile price swings can be dramatic</li>
@@ -2560,16 +2586,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Alto consumo energético derivado del proceso de minería</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las oscilaciones de precio pueden ser muy drásticas</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No es ideal para pequeños pagos cotidianos debido a las comisiones</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>取引が遅い — 新しいチェーンの数千件に対して1秒あたりわずか7件</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>マイニングによるエネルギー消費が大きい</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>価格変動が激しい場合がある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>手数料のため少額の日常払いには向かない</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#F7931A">
         <p class="lang-en">Bitcoin is the entry point for anyone curious about crypto. It&#x27;s the most proven, most widely accepted, and easiest to understand. If crypto were a school, Bitcoin would be the first lesson. Whatever happens in the crypto world, Bitcoin has already changed finance forever.</p>
         <p class="lang-fr">Le Bitcoin est le point d&#x27;entrée pour quiconque s&#x27;intéresse à la crypto. C&#x27;est le plus éprouvé, le plus largement accepté et le plus facile à comprendre. Si la crypto était une école, le Bitcoin serait la première leçon.</p>
         <p class="lang-es">Bitcoin es el punto de entrada para cualquier persona curiosa sobre las criptomonedas. Es la más probada, la más ampliamente aceptada y la más fácil de entender. Si la cripto fuera una escuela, Bitcoin sería la primera lección. Pase lo que pase en el mundo cripto, Bitcoin ya ha cambiado las finanzas para siempre.</p>
+      <p class="lang-ja">ビットコインは暗号通貨に興味を持つすべての人の入口です。最も実績があり、最も広く受け入れられ、最も理解しやすい暗号通貨です。暗号通貨が学校だとすれば、ビットコインは最初の授業です。暗号通貨の世界で何が起ころうとも、ビットコインはすでに金融の歴史を永遠に変えました。</p>
       </div>
     </section>
 
@@ -2579,10 +2611,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2624,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/ethereum/">Ethereum (ETH)</a>
         <a href="/solana/">Solana (SOL)</a>
@@ -2623,6 +2658,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2631,6 +2667,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2644,16 +2682,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

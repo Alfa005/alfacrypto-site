@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/bonk/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/bonk/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/bonk/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/bonk/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/bonk/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/bonk/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2022-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The dog coin that brought Solana back from the dead.</p>
       <p class="page-hero-tagline lang-fr">Le coin chien qui a ramené Solana d&#x27;entre les morts.</p>
       <p class="page-hero-tagline lang-es">La moneda perro que resucitó a Solana.</p>
+      <p class="page-hero-tagline lang-ja">Solanaを死の淵から救い出した犬コイン。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Bonk?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Bonk ?</h2>
       <h2 class="lang-es">¿Qué es Bonk?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">In December 2022, the Solana ecosystem was in crisis. FTX — the exchange that had been Solana&#x27;s biggest backer — had just collapsed spectacularly, taking billions in user funds with it. Developer morale was at rock bottom. Then, on Christmas Day 2022, an anonymous group of 22 community members launched BONK: a dog-themed memecoin that airdropped 50% of its entire supply directly to Solana NFT holders, developers, and artists. No VC allocation. No team reserve cliff. Just vibes and Shiba Inus.</p>
       <p class="lang-en">That act of community-first generosity worked. BONK injected life back into a demoralized ecosystem. The token spread virally because the recipients actually wanted to trade, tip, and play with it. Fast-forward to 2026, and BONK has over 1 million holders, integrations across 400+ Solana dApps, and a market cap of approximately $525 million. It&#x27;s not just a meme anymore — it&#x27;s become the social currency of Solana.</p>
       <p class="lang-en">What makes BONK interesting beyond the meme is the ecosystem it&#x27;s built. LetsBonk.fun (previously Bonk.fun) became the top memecoin launchpad on Solana in 2025, generating $28 million in quarterly revenue and surpassing the previously dominant Pump.fun. Fees from the launchpad are used to burn BONK tokens, making the total supply deflationary over time. The original 100 trillion supply has already been reduced to roughly 88 trillion through burns.</p>
@@ -2491,6 +2507,13 @@ Ese acto de generosidad comunitaria funcionó. BONK inyectó vida en un ecosiste
 Lo que hace interesante a BONK más allá del meme es el ecosistema que ha construido. LetsBonk.fun (anteriormente Bonk.fun) se convirtió en el principal launchpad de memecoins en Solana en 2025, generando $28 millones en ingresos trimestrales y superando al anteriormente dominante Pump.fun. Las tarifas del launchpad se usan para quemar tokens BONK, haciendo el suministro total deflacionario con el tiempo. El suministro original de 100 billones ya se ha reducido a aproximadamente 88 billones mediante quemas.
 
 Quizás lo más sorprendente: Bonk Inc. — una empresa que cotiza en el NASDAQ (símbolo: BNKK) — posee BONK como activo de tesoría y opera LetsBonk.fun, proyectando un crecimiento de ingresos del 100% para 2026. Una memecoin con una filial cotizada en el NASDAQ es lo más nativo de Web3 que jamás le ha ocurrido a los mercados tradicionales.</p>
+      <p class="lang-ja">2022年12月、Solanaエコシステムは危機に陥っていました。Solanaの最大支援者だったFTXが劇的に崩壊し、数十億ドルのユーザー資金とともに沈んでいました。開発者のモラルは底を打っていました。そしてクリスマスの2022年12月25日に、22人のコミュニティメンバーからなる匿名グループがBONKをローンチしました。犬をモチーフにしたミームコインで、総供給量の50%をSolana NFTホルダー、開発者、アーティストに直接エアドロップしました。VCへのアロケーションなし。チームリザーブのクリフなし。ただバイブスとシバイヌだけ。
+
+コミュニティファーストというその姿勢は功を奏しました。BONKは落ち込んだエコシステムに活力を吹き込みました。受け取ったユーザーが実際に取引・チップ・遊びたかったため、トークンはバイラルに広まりました。2026年に時を進めると、BONKは100万人以上のホルダー、400以上のSolana dAppsへの統合、約5億2500万ドルの時価総額を持ちます。単なるミームではもはやありません — Solanaのソーシャル通貨になっています。
+
+ミームを超えてBONKを面白くするのはそのエコシステムです。LetsBonk.fun（以前はBonk.fun）は2025年にSolanaのトップミームコインローンチパッドになり、四半期収益2800万ドルを生成し、以前支配的だったPump.funを凌駕しました。ローンチパッドからの手数料はBONKトークンをバーンするために使用され、総供給量は時間とともにデフレ傾向になっています。元の100兆の供給量はバーンによりすでに約88兆に削減されています。
+
+最も驚くべき点として、Bonk Inc. — NASDAQ上場企業（ティッカー：BNKK）— がBONKを財務資産として保有し、LetsBonk.funを運営し、2026年に100%の収益成長を予測しています。NASDAQに上場した子会社を持つミームコインは、伝統的市場でこれまで起きた中で最もWeb3ネイティブな出来事です。</p>
       <p class="lang-fr">Cet acte de générosité communautaire a fonctionné. BONK a insufflé de la vie dans un écosystème démoralisé. Le token s&#x27;est propagé de façon virale parce que les destinataires voulaient vraiment le trader, l&#x27;offrir et jouer avec. En 2026, BONK compte plus d&#x27;un million de détenteurs, des intégrations dans plus de 400 dApps Solana et une capitalisation boursière d&#x27;environ 525 millions de dollars. Ce n&#x27;est plus seulement un mème — c&#x27;est devenu la monnaie sociale de Solana.</p>
       <p class="lang-es">BONK es un token SPL de Solana — lo que significa que vive nativamente en Solana y hereda todas las ventajas técnicas de Solana: las transacciones se confirman en unos 400 milisegundos y cuestan fracciones de centavo. A diferencia de las memecoins basadas en Ethereum que pueden costar entre $5 y $50 en tarifas de gas para enviar, las transferencias de BONK son esencialmente gratuitas.
 
@@ -2505,6 +2528,7 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">BONK is a Solana SPL token — meaning it lives natively on Solana and inherits all of Solana&#x27;s technical advantages: transactions confirm in about 400 milliseconds and cost fractions of a cent. Unlike Ethereum-based memecoins that can cost $5–50 in gas fees to send, BONK transfers are essentially free.</p>
       <p class="lang-en">The deflationary mechanics are built around multiple burn mechanisms. When users launch tokens on LetsBonk.fun, a percentage of trading fees are used to buy and burn BONK from the open market. BonkBot, the Telegram trading bot, similarly directs a portion of its trading fees toward burns. BONK DAO votes on additional burn initiatives funded from the community treasury. This creates a system where platform usage directly reduces the token supply.</p>
       <p class="lang-en">Governance works through BONK DAO — token holders propose and vote on how to spend the community treasury, which initiatives to fund, and which partnerships to pursue. This is lightweight governance: it&#x27;s not running a L1 blockchain, so decisions are simpler and faster than in more complex protocols. Staking is available through BonkSOL, a liquid staking product where BONK holders stake SOL via Solana validators and earn staking rewards.</p>
@@ -2517,15 +2541,22 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">BONK is used as a tipping currency for Solana creators, as in-app currency across 400+ Solana dApps (gaming, DeFi, NFTs), for trading via BonkBot on Telegram, as a launchpad fee currency on LetsBonk.fun, for staking rewards via BonkSOL, as a Solana Pay merchant payment option, and for governance voting on community treasury decisions through BONK DAO.</p>
       <p class="lang-fr">BONK est utilisé comme monnaie de pourboire pour les créateurs Solana, comme monnaie in-app dans plus de 400 dApps Solana (jeux, DeFi, NFT), pour le trading via BonkBot sur Telegram, comme monnaie de frais sur LetsBonk.fun, pour les récompenses de staking via BonkSOL, comme option de paiement marchands Solana Pay et pour les votes de gouvernance via BONK DAO.</p>
       <p class="lang-es">BONK se usa como moneda de propina para los creadores de Solana, como moneda dentro de la aplicación en más de 400 dApps de Solana (juegos, DeFi, NFTs), para trading a través de BonkBot en Telegram, como moneda de tarifas en LetsBonk.fun, para recompensas de staking vía BonkSOL, como opción de pago para comerciantes a través de Solana Pay y para la votación de gobernanza sobre decisiones del tesoro comunitario mediante el BONK DAO.</p>
+      <p class="lang-ja">BONKはSolana SPLトークンです — つまりSolanaネイティブに存在し、Solanaのすべての技術的優位性を継承します。トランザクションは約400ミリ秒で確認され、費用は1セントの端数です。Ethereumベースのミームコインが送信に5〜50ドルのガス料金がかかるのと異なり、BONK転送は実質的に無料です。
+
+デフレメカニズムは複数のバーン機構の上に構築されています。ユーザーがLetsBonk.funでトークンをローンチすると、取引手数料の一定割合がオープンマーケットからBONKを買い戻してバーンするために使用されます。TelegramトレーディングボットのBonkBotも同様に取引手数料の一部をバーンに向けます。BONK DAOはコミュニティ財務から資金調達される追加のバーンイニシアティブに投票します。これによりプラットフォームの使用がトークン供給量を直接減少させるシステムが生まれます。
+
+ガバナンスはBONK DAOを通じて機能します — トークンホルダーがコミュニティ財務の使途、資金提供イニシアティブ、パートナーシップの追求に提案・投票します。これは軽量なガバナンスです。Layer 1ブロックチェーンを運営しているわけではないので、より複雑なプロトコルより決定がシンプルで速いです。ステーキングはBonkSOL経由で利用可能で、BONKホルダーがSolanaバリデーター経由でSOLをステーキングしてステーキング報酬を得られるリキッドステーキング製品です。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strongest community-driven token on Solana with 1M+ holders and genuine grassroots adoption, not VC allocation</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>LetsBonk.fun generates real revenue ($28M quarterly) that is used to buy back and burn supply</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Integrated into 400+ Solana dApps, giving it actual utility beyond speculation</li>
@@ -2538,12 +2569,14 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>LetsBonk.fun genera ingresos reales ($28 millones trimestrales) que se usan para recomprar y quemar el suministro</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Integrado en más de 400 dApps de Solana, otorgándole utilidad real más allá de la especulación</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Bonk Inc. (NASDAQ: BNKK) crea un puente sin precedentes entre las memecoins cripto y los mercados de renta variable tradicionales</li></ul>
+      <ul class="lang-ja"><li>BONKはSolanaクリエイターへのチップ通貨、400以上のSolana dApps（ゲーム、DeFi、NFT）内のアプリ内通貨、Telegram上のBonkBot経由のトレーディング、LetsBonk.funでのローンチパッド手数料通貨、BonkSOL経由のステーキング報酬、Solana Payの商業決済オプション、BONK DAOを通じたコミュニティ財務決定へのガバナンス投票に使用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Fundamentally speculative — value depends almost entirely on community sentiment and Solana ecosystem activity</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Enormous supply (~88 trillion tokens) creates psychological resistance and requires massive capital to move price significantly</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Completely anonymous founding team means no accountability if things go wrong</li>
@@ -2556,16 +2589,22 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Suministro enorme (~88 billones de tokens) que crea resistencia psicológica y requiere un capital masivo para mover el precio de forma significativa</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Equipo fundador completamente anónimo, sin responsabilidad si las cosas salen mal</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Como memecoin, BONK está muy correlacionado con el sentimiento cripto y puede perder más del 80% de su valor en mercados bajistas</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>本質的に投機的 — 価値はほぼ完全にコミュニティのセンチメントとSolanaエコシステム活動に依存しています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>巨大な供給量（約88兆トークン）が心理的抵抗を生み出し、価格を大きく動かすために膨大な資本が必要です</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>完全に匿名の創設チームは何か問題が起きた場合の説明責任がありません</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ミームコインとして、BONKは暗号センチメントと高度に相関しており、弱気市場では価値の80%以上を失う可能性があります</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#F5A623">
         <p class="lang-en">BONK started as a joke and became Solana&#x27;s social glue — the token that revived the ecosystem after FTX nearly killed it. With real revenue from LetsBonk.fun, a NASDAQ-listed company holding it, and 400+ dApp integrations, it has more legitimate utility than most memecoins ever achieve. Still, it remains fundamentally a community token: if Solana loses its momentum or the memecoin cycle turns, BONK turns with it.</p>
         <p class="lang-fr">BONK a commencé comme une blague et est devenu le liant social de Solana — le token qui a relancé l&#x27;écosystème après que FTX ait failli le détruire. Avec de vrais revenus provenant de LetsBonk.fun, une société cotée au NASDAQ le détenant et plus de 400 intégrations de dApps, il a plus d&#x27;utilité légitime que la plupart des memecoins n&#x27;en atteignent jamais. Il reste néanmoins fondamentalement un token communautaire : si Solana perd son élan ou que le cycle des memecoins se retourne, BONK se retourne avec lui.</p>
         <p class="lang-es">BONK comenzó como una broma y se convirtió en el aglutinante social de Solana — el token que revivió el ecosistema después de que FTX casi lo destruyera. Con ingresos reales de LetsBonk.fun, una empresa cotizada en el NASDAQ que lo posee y más de 400 integraciones de dApps, tiene más utilidad legítima de la que la mayoría de las memecoins alcanzan alguna vez. Sin embargo, sigue siendo fundamentalmente un token comunitario: si Solana pierde su impulso o el ciclo de memecoins se da la vuelta, BONK se da la vuelta con él.</p>
+      <p class="lang-ja">BONKはジョークとして始まり、Solanaのソーシャル接着剤になりました — FTXが滅ぼしかけた後にエコシステムを復活させたトークンです。LetsBonk.funからの実収益、NASDAQに上場した企業が保有、400以上のdApp統合により、ほとんどのミームコインが決して達成しない以上の正当なユーティリティを持ちます。それでも本質的にコミュニティトークンのままです。Solanaがモメンタムをなくすかミームコインサイクルが転換すれば、BONKも同様に転換します。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ La gobernanza funciona a través del BONK DAO — los tenedores de tokens propon
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/render/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/render/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/render/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/render/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/render/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/render/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2017-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The Airbnb for GPUs — powering 3D rendering and AI with decentralized compute</p>
       <p class="page-hero-tagline lang-fr">L&#x27;Airbnb des GPU — alimentant le rendu 3D et l&#x27;IA avec le calcul décentralisé</p>
       <p class="page-hero-tagline lang-es">El Airbnb de las GPU — potenciando el renderizado 3D y la IA con cómputo descentralizado</p>
+      <p class="page-hero-tagline lang-ja">GPUのAirbnb — 分散コンピューティングで3DレンダリングとAIを加速する</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Render Network?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Render Network ?</h2>
       <h2 class="lang-es">¿Qué es Render Network?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Render Network is a decentralized marketplace that connects people who need massive GPU computing power — 3D artists, film studios, AI researchers — with people who have idle GPUs sitting in their computers. Think of it as Airbnb for graphics cards: instead of empty rooms, GPU owners rent out their unused processing power to creators who need it, and get paid in RENDER tokens.</p>
       <p class="lang-en">The project was born inside OTOY, the company behind OctaneRender, one of the most respected GPU rendering engines in Hollywood and the VFX industry. Jules Urbach saw a fundamental problem: 3D rendering is incredibly GPU-hungry, but most of the world&#x27;s graphics cards sit idle most of the time. Render Network was created to bridge that gap.</p>
       <p class="lang-en">In a major move, Render migrated from Ethereum to Solana in 2023, rebranding its token from RNDR to RENDER, driven by the need for faster, cheaper transaction settlement as the network scaled. The network sits at the crossroads of two massive trends: the explosion of AI (which needs enormous GPU power) and the growth of decentralized physical infrastructure networks (DePIN).</p>
@@ -2490,6 +2506,13 @@ El proyecto nació dentro de OTOY, la empresa detrás de OctaneRender, uno de lo
 El proyecto publicó su whitepaper en 2017 y realizó una venta de tokens en octubre de ese año a $0.25 por RNDR. El mainnet génesis se lanzó en junio de 2019, y la red ha crecido de forma constante desde entonces. En un movimiento importante, Render migró de Ethereum a Solana en 2023, rebautizando su token de RNDR a RENDER, impulsado por la necesidad de liquidaciones más rápidas y económicas a medida que la red escaló.
 
 Render se sitúa en la intersección de dos tendencias masivas: la explosión de la IA (que necesita una enorme potencia GPU para el entrenamiento y la inferencia) y el crecimiento de las redes de infraestructura física descentralizada (DePIN). Con la escasez de GPU convirtiéndose en un verdadero cuello de botella para las empresas de IA en todo el mundo, el modelo de mercado de Render nunca ha sido más relevante.</p>
+      <p class="lang-ja">レンダー・ネットワークは、膨大なGPU演算能力を必要とする人々 — 3Dアーティスト、映画スタジオ、AI研究者 — と、使われていないGPUを持つ人々をつなぐ分散型マーケットプレイスです。グラフィックカード版のAirbnbと考えると分かりやすいでしょう。空き部屋の代わりに、GPU所有者が使われていない処理能力をクリエイターに貸し出し、RENDERトークンで報酬を受け取ります。
+
+このプロジェクトは、ハリウッドやVFX業界で最も評価の高いGPUレンダリングエンジンのひとつ「OctaneRender」を手がけるOTOY社の内部から生まれました。OTOY CEOのジュールス・ウルバッハは根本的な問題を見抜いていました。3Dレンダリングは莫大なGPUリソースを消費しますが、世界中のほとんどのグラフィックカードは大半の時間、アイドル状態にあります。ピクサー映画の1フレームを1台のマシンでレンダリングするだけで何時間もかかることがあります。一方、世界中の何百万台ものゲーミングPCには、何もしていない高性能GPUが搭載されています。レンダー・ネットワークはそのギャップを埋めるために誕生しました。
+
+プロジェクトは2017年にホワイトペーパーを公開し、同年10月に1RNDR＝0.25ドルでトークンセールを実施しました。ジェネシスメインネットは2019年6月に稼働し、ネットワークは着実に成長を続けています。2023年には、ネットワーク拡大に伴いより高速・低コストな決済を実現するため、EthereumからSolanaへと移行し、トークン名をRNDRからRENDERへと変更しました。
+
+レンダーは、AIの爆発的普及（学習・推論に莫大なGPUを必要とする）と分散型物理インフラネットワーク（DePIN）の成長という、2つの巨大なトレンドの交差点に位置しています。GPU不足が世界中のAI企業にとって真のボトルネックになりつつある中、レンダーのマーケットプレイスモデルはかつてないほど大きな存在意義を持っています。</p>
       <p class="lang-fr">Le projet est né au sein d&#x27;OTOY, l&#x27;entreprise derrière OctaneRender, l&#x27;un des moteurs de rendu GPU les plus respectés d&#x27;Hollywood et de l&#x27;industrie VFX. Jules Urbach a identifié un problème fondamental : le rendu 3D est extrêmement gourmand en GPU, mais la plupart des cartes graphiques du monde restent inactives la majorité du temps.</p>
       <p class="lang-es">En su núcleo, Render Network funciona como un mercado de dos lados. Por un lado, están los Creadores — artistas, estudios y equipos de IA que envían trabajos de renderizado o cómputo. Por el otro, los Operadores de Nodos — personas con GPUs potentes que prestan su capacidad de procesamiento a la red y ganan tokens RENDER a cambio. La red empareja automáticamente los trabajos con las GPUs disponibles.
 
@@ -2505,6 +2528,7 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">At its core, Render Network works like a two-sided marketplace. On one side, you have Creators — artists, studios, and AI teams who submit rendering or compute jobs. On the other side, you have Node Operators — people with powerful GPUs who lend their processing power to the network and earn RENDER tokens in return.</p>
       <p class="lang-en">Render plugs directly into the tools creators already use. If you&#x27;re a 3D artist working in OctaneRender, Redshift, or Blender Cycles, you can submit a render job to the network through a plugin. Your scene gets split across multiple GPUs around the world, rendered in parallel, and sent back to you.</p>
       <p class="lang-en">Instead of traditional blockchain consensus, Render uses &quot;Proof of Render&quot; — a verification system that confirms GPU jobs were completed correctly before payment is released. The network also uses a Burn-and-Mint Equilibrium (BME) model where tokens are burned when used and minted as rewards, creating natural scarcity linked to actual demand.</p>
@@ -2517,6 +2541,7 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>3D rendering for film, television, VFX, motion design, and gaming</li>
 <li>AI and machine learning compute as GPU shortages push teams to decentralized alternatives</li>
 <li>XR and immersive media production requiring burst GPU capacity</li>
@@ -2533,12 +2558,14 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
 <li>incluidos los pipelines de producción virtual que necesitan capacidad GPU de ráfaga para contenido de alta fidelidad. El usuario típico va desde artistas 3D independientes y pequeños estudios que necesitan cómputo puntual</li>
 <li>hasta equipos creativos profesionales que ya usan OctaneRender o Redshift</li>
 <li>pasando por desarrolladores de IA que buscan suministro adicional de GPU más allá de los principales proveedores de nube</li></ul>
+      <ul class="lang-ja"><li>レンダー・ネットワークは3つの主要ユースケースに対応しています。最も確立されているのは、映画・テレビ・VFX・モーションデザイン・ゲーム向けの3Dレンダリングです。ローカルのワークステーションが遅すぎる場合や、従来のレンダーファームが高すぎる・キャパが足りない場面で活躍します。次にAI・機械学習の演算で、世界的なGPU不足によりAIチームが学習・推論ワークロード向けの分散型代替手段を求めています。3つ目はXR・イマーシブメディア制作で、高精細コンテンツのためにバースト的なGPUキャパが必要な仮想制作パイプラインが含まれます。典型的なユーザーは、バースト演算を必要とする独立した3DアーティストやスモールスタジオからOctaneRenderやRedshiftを使用するプロのクリエイティブチーム、大手クラウドプロバイダー以外のGPU供給を求めるAI開発者まで多岐にわたります。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Solves a real-world GPU scarcity bottleneck for creators and AI teams</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Deep integration with professional tools (OctaneRender, Redshift, Blender)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Burn-and-Mint model ties token value directly to real usage</li>
@@ -2551,12 +2578,17 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Se integra en flujos de trabajo profesionales existentes a través de OctaneRender, Redshift y Blender Cycles — los creadores no necesitan aprender sobre cripto para usarlo</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El modelo Burn-and-Mint vincula el valor del token directamente al uso de la red, creando demanda orgánica en lugar de pura especulación</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La migración a Solana permite liquidaciones rápidas y económicas capaces de manejar grandes volúmenes de trabajos sin comisiones excesivas</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>現実のボトルネックを解決 — GPU不足はクリエイターやAIチームにとって切実な問題であり、レンダーのマーケットプレイスはすぐに役立ちます</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>OctaneRender、Redshift、Blender Cyclesを通じて既存のプロフェッショナルワークフローに統合 — クリエイターは暗号を学ばなくても利用できます</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Burn-and-Mint Equilibriumによってトークン価値がネットワーク利用に直結し、純粋な投機ではなく有機的な需要が生まれます</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Solanaへの移行により高速・低コストな決済が可能になり、過剰な手数料なしに大量のジョブ処理に対応できます</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Network is still heavily tied to OTOY — centralization risk remains</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>GPU compute is a commodity market with fierce competition from centralized providers</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Token price has been extremely volatile despite growing usage</li>
@@ -2569,16 +2601,28 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Compite con proveedores de nube centralizados bien financiados (AWS, Google Cloud) y granjas de renderizado especializadas que pueden igualar precio y rendimiento</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las emisiones de tokens podrían superar las quemas por demanda, creando presión vendedora incluso si el producto mejora</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Los riesgos de la migración entre cadenas quedaron de manifiesto cuando el RNDR heredado en Polygon fue descontinuado tras un incidente de acceso no autorizado en 2025</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>数千の異質なサードパーティGPUを調整しながらレンダリング品質と信頼性を維持するのは、運用上非常に難しい課題です</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>価格とパフォーマンスで競合できる、資金力のある集中型クラウドプロバイダー（AWS、Google Cloud）や専門レンダーファームとの競合があります</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークン発行量が需要バーンを上回る可能性があり、製品が改善されても売り圧力が生じることがあります</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>2025年のポリゴン上の旧RNDRが不正アクセスインシデントを受けて廃止された際に、クロスチェーン移行リスクが浮き彫りになりました</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#FF6B35">
         <p class="lang-en">Render Network is one of the most tangible use cases in crypto — it solves a real, growing problem at the intersection of AI, creative industries, and decentralized infrastructure. If DePIN is the future, Render is one of its strongest bets. The risk lies in execution: can a decentralized GPU marketplace truly compete with AWS and Google Cloud at scale? The early signs are promising, but it&#x27;s still a bet on the long game.</p>
         <p class="lang-fr">Render Network est l&#x27;un des cas d&#x27;utilisation les plus tangibles en crypto — il résout un vrai problème croissant à l&#x27;intersection de l&#x27;IA, des industries créatives et de l&#x27;infrastructure décentralisée. Si le DePIN est l&#x27;avenir, Render est l&#x27;un de ses meilleurs paris. Le risque réside dans l&#x27;exécution : une place de marché GPU décentralisée peut-elle vraiment concurrencer AWS et Google Cloud à grande échelle ?</p>
         <p class="lang-es">Render Network es uno de los proyectos más prácticamente fundamentados de la cripto — resuelve un problema real (la escasez de GPU) con un modelo de mercado que los creadores realmente usan. La integración con herramientas estándar de la industria como OctaneRender y Blender hace que la adopción sea sin fricción, y el auge del cómputo de IA le da un impulso masivo. Los riesgos son reales (competidores centralizados, economía del token, control de calidad), pero si algún proyecto DePIN tiene posibilidades de adopción masiva, Render está cerca de la cima de la lista. Para quienes creen que el futuro de la computación es distribuido, Render es una apuesta convincente.</p>
+      <p class="lang-ja">レンダー・ネットワークの核心は双方向マーケットプレイスです。一方にはクリエイター — アーティスト、スタジオ、AIチーム — がレンダリングやコンピュートジョブを投入し、もう一方にはノードオペレーター — 高性能GPUを持つ人々 — が処理能力をネットワークに提供してRENDERトークンを獲得します。ネットワークはジョブと利用可能なGPUを自動でマッチングします。
+
+真髄は統合にあります。レンダーは抽象的な暗号プロトコルではなく、クリエイターがすでに使っているツールに直接組み込まれています。OctaneRender、Redshift、Blender Cyclesで作業している3Dアーティストなら、プリンターにファイルを送るような感覚で、プラグインからネットワークにレンダリングジョブを投入できます。シーンは世界中の複数のGPUに分散され、並列でレンダリングされて返ってきます。スーパーコンピューターを購入することなく、オンデマンドで利用できるようなものです。
+
+Proof of WorkやProof of Stakeのような従来のブロックチェーンコンセンサスの代わりに、レンダーは「Proof of Render」と呼ばれる仕組みを使っています。これは支払いリリース前にGPUジョブが正しく完了したことを確認する検証システムです。実際のトークン決済はSolana上で行われ、高速・低コストのトランザクション層を活用しています。そのため、クリエイターはガス代に押しつぶされることなく、レンダリングごとにマイクロペイメントで支払えます。
+
+ネットワークはBurn-and-Mint Equilibrium（BME）と呼ばれる巧みなトークンモデルも採用しています。クリエイターがレンダリング代金を支払うと、一部のRENDERトークンがバーン（消却）され、新しいトークンがノードオペレーターへの報酬として発行されます。これによってトークンの経済性は実際の利用に直結します。レンダリングが増えるほどトークンが焼却され、投機ではなく実需に連動した自然な希少性が生まれます。</p>
       </div>
     </section>
 
@@ -2588,10 +2632,12 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2599,6 +2645,7 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2640,6 +2687,7 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2648,6 +2696,8 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2661,16 +2711,15 @@ La red también usa un modelo de token ingenioso llamado Burn-and-Mint Equilibri
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

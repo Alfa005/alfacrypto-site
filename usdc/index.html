@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/usdc/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/usdc/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/usdc/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/usdc/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/usdc/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2018-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The digital dollar that keeps its value</p>
       <p class="page-hero-tagline lang-fr">Le dollar numérique qui conserve sa valeur</p>
       <p class="page-hero-tagline lang-es">El dólar digital que mantiene su valor</p>
+      <p class="page-hero-tagline lang-ja">価値を維持するデジタルドル</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is USDC?</h2>
       <h2 class="lang-fr">Qu'est-ce que USDC ?</h2>
       <h2 class="lang-es">¿Qué es USDC?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">USDC is a stablecoin — a type of cryptocurrency that is always worth exactly $1. Issued by Circle, every single USDC is backed by a real US dollar (or equivalent US Treasury bill) held in a regulated bank account. Think of it as a poker chip at a casino: you exchange your dollars for chips, use them at the table, and can always redeem them back for the same amount. No volatility, no surprises.</p>
       <p class="lang-fr">L&#x27;USDC est un stablecoin — un type de cryptomonnaie qui vaut toujours exactement 1 dollar. Émis par Circle, chaque USDC est garanti par un vrai dollar américain (ou un bon du Trésor équivalent) détenu dans un compte bancaire réglementé. Pensez-y comme à un jeton de casino : vous échangez vos dollars contre des jetons, vous jouez, et vous pouvez toujours les récupérer au même montant. Zéro volatilité, zéro mauvaise surprise.</p>
       <p class="lang-es">USDC es un stablecoin — un tipo de criptomoneda que siempre vale exactamente $1. Emitido por Circle, cada USDC está respaldado por un dólar estadounidense real (o un bono del Tesoro de EE. UU. equivalente) depositado en una cuenta bancaria regulada. Imagínalo como una ficha de casino: cambias tus dólares por fichas, las usas en la mesa y siempre puedes canjearlas por el mismo monto. Sin volatilidad, sin sorpresas.</p>
+      <p class="lang-ja">USDCはステーブルコインです。常に正確に1ドルの価値を持つ暗号資産の一種です。Circleが発行し、すべてのUSDCは規制された銀行口座に保管された実際の米ドル（または同等の米国債）によって裏付けられています。カジノのチップのようなものと考えてください。ドルをチップに交換し、テーブルで使用し、いつでも同額で交換できます。価格変動なし、驚きなし。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Every time someone deposits $1 with Circle, one new USDC is minted. When they want their dollar back, the USDC is destroyed. The reserves are managed by BlackRock and independently audited every month by Deloitte, so you can verify at any time that every USDC in circulation is covered. USDC runs on over 30 blockchains including Ethereum and Solana, so it moves anywhere instantly.</p>
       <p class="lang-fr">Chaque fois qu&#x27;un utilisateur dépose 1 dollar auprès de Circle, un USDC est créé. Quand il veut récupérer son dollar, l&#x27;USDC est détruit. Les réserves sont gérées par BlackRock et auditées chaque mois par Deloitte — vous pouvez vérifier à tout moment que chaque USDC en circulation est couvert. L&#x27;USDC fonctionne sur plus de 30 blockchains, dont Ethereum et Solana.</p>
       <p class="lang-es">Cada vez que alguien deposita $1 con Circle, se acuña un nuevo USDC. Cuando quiere recuperar su dólar, el USDC es destruido. Las reservas son gestionadas por BlackRock y auditadas de forma independiente cada mes por Deloitte, por lo que puedes verificar en cualquier momento que cada USDC en circulación está cubierto. USDC funciona en más de 30 blockchains, incluyendo Ethereum y Solana, por lo que se mueve a cualquier lugar al instante.</p>
+      <p class="lang-ja">誰かがCircleに1ドルを預け入れるたびに、新しいUSDCが1つ発行されます。ドルを取り戻したい場合、USDCは消却されます。準備金はBlackRockが管理し、Deloitteが毎月独立監査を実施するため、流通しているすべてのUSDCがカバーされていることをいつでも確認できます。USDCはイーサリアムやソラナを含む30以上のブロックチェーン上で動作し、どこへでも瞬時に移動できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Sending money internationally without fees or delays</li>
 <li>protecting crypto profits without converting to fiat</li>
 <li>earning yield on DeFi lending platforms</li>
@@ -2516,12 +2535,14 @@
 <li>ganar rendimiento en plataformas de préstamos DeFi</li>
 <li>pagar bienes y servicios en línea</li>
 <li>habilitar servicios financieros para personas sin acceso bancario en todo el mundo</li></ul>
+      <ul class="lang-ja"><li>手数料や遅延なしで国際的に送金すること、法定通貨に変換せずに暗号資産の利益を保護すること、DeFi貸し出しプラットフォームでリターンを得ること、オンラインで商品やサービスの支払いをすること、世界中の銀行口座を持たない人々への金融サービスの実現。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Always worth $1 — zero price volatility by design</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fully regulated and audited monthly by Deloitte — the most transparent stablecoin</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Works on 30+ blockchains, transfers in seconds for near-zero fees</li>
@@ -2533,7 +2554,11 @@
       <ul class="lang-es"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Siempre vale <ul class="lang-fr"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Toujours à 1 $ — zéro volatilité par conception</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Entièrement régulé et audité mensuellement par Deloitte — le stablecoin le plus transparent</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fonctionne sur 30+ blockchains, transferts en secondes pour des frais quasi nuls</li>
-<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Réserves gérées par le plus grand gestionnaire d&#x27;actifs au monde (BlackRock)</li></ul> — sin volatilidad de precio por diseño</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Réserves gérées par le plus grand gestionnaire d&#x27;actifs au monde (BlackRock)</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>常に1ドル — 設計上ゼロの価格変動</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>完全に規制されDeloitteが毎月監査 — 最も透明性の高いステーブルコイン</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>30以上のブロックチェーンで動作し、ほぼゼロの手数料で数秒で送金</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>世界最大のアセットマネージャー（BlackRockが準備金を管理）に裏付けられている</li></ul> — sin volatilidad de precio por diseño</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Totalmente regulado y auditado mensualmente por Deloitte — el stablecoin más transparente</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Funciona en más de 30 blockchains, transferencias en segundos por comisiones casi nulas</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Respaldado por el mayor gestor de activos del mundo (BlackRock gestiona las reservas)</li></ul>
@@ -2543,6 +2568,7 @@
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No price appreciation — you will never make a return on USDC itself</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Relies on Circle remaining solvent and compliant — a centralized counterparty risk</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Regulatory changes could restrict or freeze USDC in certain jurisdictions</li>
@@ -2555,16 +2581,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Depende de que Circle se mantenga solvente y en cumplimiento — un riesgo de contraparte centralizado</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Los cambios regulatorios podrían restringir o congelar USDC en ciertas jurisdicciones</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No es verdaderamente descentralizado — Circle puede incluir direcciones en listas negras y congelar fondos</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>価格上昇なし — USDC自体でリターンを得ることは決してない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Circleの支払能力とコンプライアンスに依存 — 中央集権的なカウンターパーティリスク</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>規制の変更により特定の管轄区域でUSDCが制限または凍結される可能性がある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>真に分散型ではない — Circleはアドレスをブラックリストに登録し資金を凍結できる</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#0052FF">
         <p class="lang-en">USDC is the most important stablecoin you&#x27;ve probably never thought about. It&#x27;s the invisible infrastructure that makes modern crypto useful — enabling DeFi, powering remittances, and giving billions of people access to a stable dollar regardless of where they live. It won&#x27;t make you rich, but it might be the most practically useful thing in your crypto wallet.</p>
         <p class="lang-fr">L&#x27;USDC est l&#x27;infrastructure la plus importante de la crypto que vous n&#x27;avez probablement jamais remarquée. C&#x27;est le rouage invisible qui rend la crypto moderne utile — alimentant la DeFi, facilitant les transferts de fonds et donnant à des milliards de personnes accès à un dollar stable peu importe où elles vivent. Il ne vous rendra pas riche, mais c&#x27;est peut-être la chose la plus concrètement utile de votre portefeuille crypto.</p>
         <p class="lang-es">USDC es el stablecoin más importante en el que probablemente nunca has pensado. Es la infraestructura invisible que hace útil al cripto moderno — habilitando DeFi, impulsando las remesas y dando a miles de millones de personas acceso a un dólar estable sin importar dónde vivan. No te hará rico, pero podría ser lo más práctico de tu billetera cripto.</p>
+      <p class="lang-ja">USDCはおそらく気にしたことがなかった最も重要なステーブルコインです。DeFiを実現し、送金を支え、世界中の何十億もの人々が住んでいる場所に関わらず安定したドルにアクセスできるようにする現代の暗号資産を機能させる目に見えないインフラです。あなたを金持ちにすることはありませんが、暗号資産ウォレットの中で最も実用的なものかもしれません。</p>
       </div>
     </section>
 
@@ -2574,10 +2606,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2585,6 +2619,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2618,6 +2653,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2626,6 +2662,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2639,16 +2677,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

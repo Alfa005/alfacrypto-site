@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/xrp/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/xrp/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/xrp/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/xrp/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/xrp/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2012-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The crypto built to fix how money moves around the world</p>
       <p class="page-hero-tagline lang-fr">La crypto conçue pour réparer la façon dont l&#x27;argent circule dans le monde</p>
       <p class="page-hero-tagline lang-es">La cripto diseñada para mejorar cómo el dinero se mueve por el mundo</p>
+      <p class="page-hero-tagline lang-ja">世界中のお金の流れを変えるために作られた暗号通貨</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is XRP?</h2>
       <h2 class="lang-fr">Qu'est-ce que XRP ?</h2>
       <h2 class="lang-es">¿Qué es XRP?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">XRP is the cryptocurrency created by Ripple to revolutionize cross-border payments. Imagine sending money abroad like sending a text message — nearly instant and almost free. While traditional bank transfers take 3 to 5 days and involve multiple intermediaries, XRP settles in under 5 seconds for a fraction of a cent.</p>
       <p class="lang-fr">XRP est la cryptomonnaie créée par Ripple pour révolutionner les paiements transfrontaliers. Imaginez envoyer de l&#x27;argent à l&#x27;étranger comme envoyer un SMS — quasi instantané et presque gratuit. Alors que les virements bancaires traditionnels prennent 3 à 5 jours et impliquent de multiples intermédiaires, XRP se règle en moins de 5 secondes pour une fraction de centime.</p>
       <p class="lang-es">XRP es la criptomoneda creada por Ripple para revolucionar los pagos transfronterizos. Imagina enviar dinero al extranjero como si enviaras un mensaje de texto — casi instantáneo y prácticamente gratis. Mientras que las transferencias bancarias tradicionales tardan de 3 a 5 días e involucran múltiples intermediarios, XRP liquida en menos de 5 segundos por una fracción de centavo.</p>
+      <p class="lang-ja">XRPはRippleが国際送金に革命を起こすために作った暗号通貨です。海外への送金をテキストメッセージを送るように — ほぼ瞬時でほぼ無料に — することを想像してください。従来の銀行送金が3〜5日かかり複数の仲介者を経由するのに対し、XRPは1セントの何分の1かで5秒以内に決済されます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">The XRP Ledger uses a unique consensus protocol — instead of mining (like Bitcoin) or staking (like Ethereum), a network of trusted validators agrees on transactions in seconds. Think of it like a group of referees who all have to agree before a goal counts. This makes XRP incredibly fast and energy-efficient, processing 1,500+ transactions per second.</p>
       <p class="lang-fr">Le XRP Ledger utilise un protocole de consensus unique — au lieu du minage (comme Bitcoin) ou du staking (comme Ethereum), un réseau de validateurs de confiance s&#x27;accorde sur les transactions en quelques secondes. Pensez-y comme un groupe d&#x27;arbitres qui doivent tous être d&#x27;accord avant qu&#x27;un but soit validé. Cela rend XRP incroyablement rapide et économe en énergie.</p>
       <p class="lang-es">El XRP Ledger utiliza un protocolo de consenso único — en lugar de minería (como Bitcoin) o staking (como Ethereum), una red de validadores de confianza acuerda las transacciones en segundos. Piénsalo como un grupo de árbitros que deben estar todos de acuerdo antes de que se valide un gol. Esto hace que XRP sea increíblemente rápido y eficiente energéticamente, procesando más de 1.500 transacciones por segundo.</p>
+      <p class="lang-ja">XRPレジャーはユニークなコンセンサスプロトコルを使用しています — ビットコインのようなマイニングでも、イーサリアムのようなステーキングでもなく、信頼できるバリデーターのネットワークが数秒以内にトランザクションに合意します。ゴールが認められる前に全員の審判が同意しなければならないようなものです。これによりXRPは驚異的に高速でエネルギー効率が高く、毎秒1,500件以上のトランザクションを処理します。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Cross-border bank payments and international remittances</li>
 <li>real-time settlement between financial institutions</li>
 <li>bridge currency between different fiat currencies</li>
@@ -2524,12 +2543,14 @@
 <li>liquidación en tiempo real entre instituciones financieras</li>
 <li>moneda puente entre diferentes divisas fiat</li>
 <li>transacciones rápidas y de bajo coste para empresas</li></ul>
+      <ul class="lang-ja"><li>銀行間の国際送金と国際送金、金融機関間のリアルタイム決済、異なる法定通貨間のブリッジ通貨、企業向けの高速・低コストのトランザクション。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Settles in under 5 seconds — faster than almost any other crypto</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Used by 300+ banks and financial institutions via RippleNet</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Extremely low transaction fees (fractions of a cent)</li>
@@ -2542,12 +2563,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Utilizado por más de 300 bancos e instituciones financieras a través de RippleNet</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Comisiones de transacción extremadamente bajas (fracciones de centavo)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Gran suministro lo hace práctico para mover grandes sumas</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>5秒以内に決済 — ほぼあらゆる暗号通貨より高速</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>RippleNetを通じて300以上の銀行・金融機関が利用</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>極めて低い取引手数料（1セントの何分の1か）</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>大量の供給が大きな送金を実用的にする</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>More centralized than Bitcoin — Ripple holds a large portion of XRP</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Regulatory uncertainty persisted for years due to SEC lawsuit</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Token price heavily influenced by Ripple company news</li>
@@ -2560,16 +2586,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La incertidumbre regulatoria persistió durante años debido a la demanda de la SEC</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El precio del token está fuertemente influenciado por las noticias de la empresa Ripple</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No está diseñado para contratos inteligentes ni aplicaciones DeFi</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ビットコインより中央集権的 — RippleがXRPの大部分を保有</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>SECの訴訟により長年にわたり規制の不確実性が続いた</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークン価格がRipple社のニュースに大きく左右される</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>スマートコントラクトやDeFiアプリケーションには設計されていない</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E8ECF0">
         <p class="lang-en">XRP isn&#x27;t trying to replace your money — it&#x27;s trying to fix how your money moves. If SWIFT is the old highway, XRP is the bullet train. With 300+ bank partnerships and $15 billion in monthly volume, it&#x27;s already proving that crypto can solve real problems in traditional finance.</p>
         <p class="lang-fr">XRP n&#x27;essaie pas de remplacer votre argent — il essaie de réparer la façon dont votre argent circule. Si SWIFT est l&#x27;ancienne autoroute, XRP est le TGV. Avec plus de 300 partenariats bancaires et 15 milliards de dollars en volume mensuel, il prouve déjà que la crypto peut résoudre de vrais problèmes dans la finance traditionnelle.</p>
         <p class="lang-es">XRP no pretende reemplazar tu dinero — pretende arreglar cómo se mueve tu dinero. Si SWIFT es la antigua autopista, XRP es el tren de alta velocidad. Con más de 300 alianzas bancarias y 15.000 millones de dólares en volumen mensual, ya está demostrando que la cripto puede resolver problemas reales en las finanzas tradicionales.</p>
+      <p class="lang-ja">XRPはあなたのお金を置き換えようとしているのではなく — お金の流れを改善しようとしています。SWIFTが古い高速道路なら、XRPは新幹線です。300以上の銀行パートナーシップと毎月150億ドルの取引量で、暗号通貨が伝統的金融の本質的な問題を解決できることをすでに証明しています。</p>
       </div>
     </section>
 
@@ -2579,10 +2611,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2624,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2623,6 +2658,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2631,6 +2667,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2644,16 +2682,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

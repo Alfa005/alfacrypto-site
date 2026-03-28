@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/iota/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/iota/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/iota/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/iota/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/iota/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/iota/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2015-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">A blockchain for machines — where your fridge pays your solar panel automatically.</p>
       <p class="page-hero-tagline lang-fr">Une blockchain pour les machines — où votre frigo paie votre panneau solaire automatiquement.</p>
       <p class="page-hero-tagline lang-es">Una blockchain para máquinas — donde tu refrigerador le paga a tu panel solar automáticamente.</p>
+      <p class="page-hero-tagline lang-ja">マシンのためのブロックチェーン — 冷蔵庫がソーラーパネルへ自動的に支払いをする世界。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is IOTA?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que IOTA ?</h2>
       <h2 class="lang-es">¿Qué es IOTA?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">The Internet of Things (IoT) is the idea that everyday objects — your refrigerator, your car, your electricity meter — are connected to the internet and can share data and make small transactions automatically. The problem is that traditional blockchains are terrible at this: Bitcoin and Ethereum charge fees that are worth more than the transaction value when a sensor wants to send three cents of data payment. IOTA was built to fix this.</p>
       <p class="lang-en">Founded in 2015 by David Sønstebø, Dominik Schiener, Sergey Ivancheglo, and Serguei Popov, IOTA originally used a completely different data structure than a blockchain. Instead of a linear chain of blocks, it used something called the Tangle — a Directed Acyclic Graph (DAG) where every new transaction validates two previous ones. Think of it like a web instead of a chain. This allowed feeless microtransactions: a temperature sensor could pay one-tenth of a cent to submit a data reading without the fee eating the entire value.</p>
       <p class="lang-en">In 2025, IOTA underwent the most significant upgrade in its history: the &quot;Rebased&quot; mainnet launch. This replaced the Tangle architecture with a more conventional but dramatically faster system — 50,000+ TPS with MoveVM smart contracts (the same framework used by Aptos and Sui), delegated Proof-of-Stake consensus, and full decentralization. The upgrade also removed the &quot;Coordinator&quot; — the centralized safety node that had been a long-standing criticism of the network — which had already been removed in 2023.</p>
@@ -2491,6 +2507,13 @@ Fundado en 2015 por David Sønstebø, Dominik Schiener, Sergey Ivancheglo y Serg
 En 2025, IOTA experimentó la actualización más significativa de su historia: el lanzamiento del mainnet &quot;Rebased&quot;. Esto reemplazó la arquitectura Tangle por un sistema más convencional pero dramáticamente más rápido — más de 50,000 TPS con smart contracts MoveVM (el mismo framework usado por Aptos y Sui), consenso Delegated Proof-of-Stake y descentralización completa. La actualización también eliminó el &quot;Coordinador&quot; — el nodo de seguridad centralizado que había sido una crítica duradera de la red — que ya había sido removido en 2023.
 
 En marzo de 2026, IOTA tiene una capitalización de mercado de aproximadamente 255 millones de dólares y una oferta circulante de 4,350 millones de tokens. Su portafolio de despliegues en el mundo real es impresionante: seguimiento de cadena de suministro en la UE, financiación comercial en mercados africanos respaldada por el Foro Económico Mundial y el Tony Blair Institute, y soluciones de identidad digital utilizadas en entornos empresariales.</p>
+      <p class="lang-ja">モノのインターネット（IoT）とは、冷蔵庫・自動車・電力メーターといった日常の物体がインターネットに接続され、データを共有したり小額の取引を自動的に行ったりできるという考え方です。問題は、従来のブロックチェーンがこれに向いていないことです。センサーが3セントのデータ送金をしようとすると、BitcoinやEthereumは取引額より高い手数料を請求してしまいます。IOTA(アイオータ)はその問題を解決するために設計されました。
+
+2015年にDavid Sønstebø、Dominik Schiener、Sergey Ivancheglo、Serguei Popovによって設立されたIOTA(アイオータ)は、当初、ブロックチェーンとはまったく異なるデータ構造を採用していました。ブロックの直線的な連鎖ではなく、「タングル」と呼ばれる有向非巡回グラフ（DAG）を使用し、新しいすべてのトランザクションが過去の2つのトランザクションを検証する仕組みです。チェーンではなくウェブのようなイメージです。これにより手数料ゼロのマイクロペイメントが実現しました。温度センサーが0.001セントでデータを送信しても、手数料で価値が消えることはありません。
+
+2025年、IOTA(アイオータ)は史上最大のアップグレードを実施しました。「Rebased」メインネットの立ち上げです。これによりタングルアーキテクチャは、より標準的でありながら劇的に高速なシステムに置き換えられました。MoveVMスマートコントラクト（AptosやSuiと同じフレームワーク）による5万以上のTPS、委任型PoSコンセンサス、そして完全な分散化を実現しました。このアップグレードでは「コーディネーター」も除去されました。2016年からネットワークを保護してきた集中型の安全ノードで、すでに2023年に削除されていました。
+
+2026年3月時点で、IOTA(アイオータ)の時価総額は約2億5500万ドルで、流通供給量は43億5000万トークンです。現実世界への展開実績は印象的です。EUでのサプライチェーン追跡、世界経済フォーラムとトニー・ブレア研究所が支援するアフリカ市場での貿易金融、そして企業向けデジタルアイデンティティソリューションが導入されています。</p>
       <p class="lang-fr">Fondé en 2015, IOTA utilisait à l&#x27;origine une structure de données complètement différente d&#x27;une blockchain : le Tangle — un Graphe Acyclique Dirigé (DAG) où chaque nouvelle transaction valide deux transactions précédentes. Pensez à une toile plutôt qu&#x27;une chaîne. Cela permettait des microtransactions sans frais.</p>
       <p class="lang-es">Tras la actualización Rebased, IOTA utiliza un consenso Delegated Proof-of-Stake (dPoS) con los protocolos Mysticeti y Starfish BFT. En dPoS, los titulares de tokens delegan su participación a validadores de confianza, y esos validadores se turnan para proponer y confirmar bloques. Mysticeti es un protocolo de consenso de baja latencia desarrollado originalmente para la blockchain Sui — permite que múltiples validadores propongan bloques simultáneamente en lugar de hacerlo secuencialmente, aumentando drásticamente el rendimiento. El resultado es una finalidad de transacción en menos de un segundo con más de 50,000 TPS.
 
@@ -2505,6 +2528,7 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">After the Rebased upgrade, IOTA uses a Delegated Proof-of-Stake (dPoS) consensus with Mysticeti and Starfish BFT protocols. In dPoS, token holders delegate their stake to validators they trust, and those validators take turns proposing and confirming blocks. Mysticeti is a low-latency consensus protocol originally developed for the Sui blockchain — it allows multiple validators to propose blocks simultaneously rather than sequentially, dramatically increasing throughput. The result is sub-second transaction finality at 50,000+ TPS.</p>
       <p class="lang-en">Smart contracts on IOTA now use the Move programming language via MoveVM. Move was designed by Facebook&#x27;s blockchain team with safety as the primary goal — it uses an &quot;ownership model&quot; that prevents common smart contract bugs like reentrancy attacks that have caused hundreds of millions in DeFi hacks. This makes IOTA&#x27;s smart contract environment significantly safer than Ethereum&#x27;s Solidity at the architectural level.</p>
       <p class="lang-en">The Layer-2 ecosystem is growing rapidly. IOTA EVM runs an Ethereum-compatible environment on top of the base layer, letting Solidity developers deploy their existing contracts without rewriting them. Cross-chain connectivity comes from LayerZero and Stargate integrations, connecting IOTA to 30+ chains. The feeless base layer remains a key differentiator for IoT use cases: a supply chain sensor submitting 1,000 readings per day incurs zero transaction costs, making data integrity tracking economically viable at scale.</p>
@@ -2517,15 +2541,22 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">IOTA is used for machine-to-machine micropayments in IoT networks, supply chain provenance tracking (seafood, luxury goods, automotive parts), trade finance automation in emerging markets (Africa via ADAPT), digital identity and verifiable credentials (Impierce), DeFi lending and yield farming on IOTA EVM, real-world asset tokenization, decentralized storage (EdgeStore-compatible), and cross-chain DeFi via LayerZero bridges.</p>
       <p class="lang-fr">IOTA est utilisé pour les micropaiements machine-à-machine dans les réseaux IoT, le suivi de provenance des chaînes d&#x27;approvisionnement (fruits de mer, produits de luxe, pièces automobiles), l&#x27;automatisation du financement du commerce dans les marchés émergents (Afrique via ADAPT), l&#x27;identité numérique et les justificatifs vérifiables, la DeFi sur IOTA EVM, la tokenisation d&#x27;actifs réels et la DeFi cross-chain via les bridges LayerZero.</p>
       <p class="lang-es">IOTA se usa para micropagos máquina a máquina en redes IoT, seguimiento de procedencia en cadenas de suministro (mariscos, bienes de lujo, piezas automotrices), automatización de financiación comercial en mercados emergentes (África a través de ADAPT), identidad digital y credenciales verificables (Impierce), préstamos y yield farming DeFi en IOTA EVM, tokenización de activos del mundo real, almacenamiento descentralizado (compatible con EdgeStore) y DeFi entre cadenas mediante puentes LayerZero.</p>
+      <p class="lang-ja">Rebasedアップグレード後、IOTA(アイオータ)はMysticeti/Starfish BFTプロトコルを採用した委任型PoS（dPoS）コンセンサスを使用しています。dPoSでは、トークン保有者が信頼するバリデーターにステークを委任し、バリデーターが順番にブロックを提案・承認します。Mysticeti は元々Suiブロックチェーン向けに開発された低レイテンシコンセンサスプロトコルで、複数のバリデーターが順番ではなく同時にブロックを提案できるため、スループットが劇的に向上します。その結果、5万TPS超でサブ秒のトランザクション確定を実現しています。
+
+IOTA(アイオータ)のスマートコントラクトはMoveVMを通じてMoveプログラミング言語を使用しています。MoveはFacebookのブロックチェーンチームが安全性を最優先に設計したもので、「所有権モデル」によりDeFiハックで数億ドルの被害をもたらした再入攻撃などのスマートコントラクトの一般的なバグを防ぎます。これによりIOTA(アイオータ)のスマートコントラクト環境は、アーキテクチャレベルでEthereumのSolidityより大幅に安全です。
+
+Layer-2エコシステムも急速に成長しています。IOTA EVMはベースレイヤーの上でEthereumと互換性のある環境を実行し、Solidity開発者はコードを書き直すことなく既存のコントラクトをデプロイできます。クロスチェーン接続はLayerZeroとStargateの統合により実現し、IOTA(アイオータ)は30以上のチェーンと接続しています。手数料ゼロのベースレイヤーはIoTユースケースにおける重要な差別化要因です。サプライチェーンセンサーが1日1,000件のデータを送信しても取引コストはゼロであり、データ整合性の追跡を大規模に経済的に実現できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Only major DLT platform purpose-built for IoT with feeless microtransactions viable at machine-to-machine scale</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Rebased upgrade delivers 50,000+ TPS with MoveVM smart contracts — dramatically improving developer tooling and DeFi potential</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Real-world deployments across supply chain, trade finance, and digital identity create genuine non-speculative use cases</li>
@@ -2538,12 +2569,14 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La actualización Rebased ofrece más de 50,000 TPS con smart contracts MoveVM — mejorando drásticamente las herramientas para desarrolladores y el potencial DeFi</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Despliegues en el mundo real en cadena de suministro, financiación comercial e identidad digital crean casos de uso genuinamente no especulativos</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El lenguaje de smart contracts Move es arquitectónicamente más seguro que Solidity, reduciendo el riesgo de vulnerabilidades en smart contracts</li></ul>
+      <ul class="lang-ja"><li>IOTA(アイオータ)は、IoTネットワークにおけるマシン間マイクロペイメント、サプライチェーンの来歴追跡（水産物・高級品・自動車部品）、新興市場（ADAPTプロジェクトを通じたアフリカ）での貿易金融自動化、デジタルアイデンティティと検証可能クレデンシャル（Impierce）、IOTA EVM上でのDeFiレンディングとイールドファーミング、現実世界の資産のトークン化、分散型ストレージ（EdgeStore互換）、そしてLayerZeroブリッジを通じたクロスチェーンDeFiに利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Nine years of development and multiple major pivots have damaged developer trust and delayed ecosystem growth significantly</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Market cap of $255M is low for a network with this ambition, suggesting the market is pricing in continued execution risk</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>The transition from the Tangle DAG to a conventional blockchain undermines the original technical thesis that differentiated IOTA</li>
@@ -2556,16 +2589,22 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Una capitalización de mercado de 255 millones de dólares es baja para una red con esta ambición, lo que sugiere que el mercado está valorando el riesgo de ejecución continua</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La transición del DAG Tangle a una blockchain convencional socava la tesis técnica original que diferenciaba a IOTA</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La adopción empresarial ha sido más lenta de lo proyectado, con muchas alianzas piloto tempranas (Bosch, Volkswagen) sin escalar a producción</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>9年間の開発と複数の大幅な方針転換により、開発者の信頼が損なわれ、エコシステムの成長が著しく遅れた</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>時価総額2億5500万ドルは、この規模の野心を持つネットワークとしては低く、市場が継続的な実行リスクを織り込んでいることを示している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>タングルDAGから従来型ブロックチェーンへの移行は、IOTA(アイオータ)を差別化していた元々の技術的な主張を損なうものだ</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>企業導入は予測より遅く、初期のパイロットパートナーシップ（Bosch、Volkswagen）の多くが本番環境へのスケールに至っていない</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#131F37">
         <p class="lang-en">IOTA has spent nine years being the blockchain that was &quot;almost there&quot; — technically innovative but perpetually delayed. The Rebased upgrade finally delivers the scalable, smart-contract-capable, fully decentralized network the roadmap always promised. If the IoT and trade finance use cases gain traction on the upgraded stack, IOTA&#x27;s first-mover advantage in feeless machine payments could create real value. The market is rightfully skeptical after years of pivots — but 2025-2026 is genuinely the first time IOTA has had the technical foundation to prove itself.</p>
         <p class="lang-fr">IOTA a passé neuf ans à être la blockchain qui était &quot;presque là&quot; — techniquement innovante mais perpétuellement retardée. La mise à niveau Rebased délivre enfin le réseau évolutif, capable de smart contracts et entièrement décentralisé que la feuille de route avait toujours promis. Si les cas d&#x27;usage IoT et de financement du commerce gagnent du terrain sur la pile mise à niveau, l&#x27;avantage du premier entrant d&#x27;IOTA dans les paiements machine sans frais pourrait créer une vraie valeur. Le marché est à juste titre sceptique après des années de pivots — mais 2025-2026 est genuinement la première fois qu&#x27;IOTA dispose des fondations techniques pour se prouver.</p>
         <p class="lang-es">IOTA ha pasado nueve años siendo la blockchain que estaba &quot;casi lista&quot; — técnicamente innovadora pero perpetuamente retrasada. La actualización Rebased finalmente entrega la red escalable, capaz de smart contracts y completamente descentralizada que la hoja de ruta siempre prometió. Si los casos de uso de IoT y financiación comercial ganan tracción en la pila actualizada, la ventaja de ser el pionero de IOTA en pagos máquina sin comisiones podría generar valor real. El mercado es justificadamente escéptico tras años de cambios de rumbo — pero 2025-2026 es genuinamente la primera vez que IOTA tiene la base técnica para demostrarlo.</p>
+      <p class="lang-ja">IOTA(アイオータ)は9年間、「もうすぐ完成する」ブロックチェーンであり続けました。技術的には革新的でしたが、常に遅延していました。Rebasedアップグレードにより、ロードマップが常に約束してきたスケーラブルで、スマートコントラクト対応の、完全に分散化されたネットワークがついに実現しました。アップグレードされたスタック上でIoTと貿易金融のユースケースが軌道に乗れば、IOTA(アイオータ)の手数料ゼロのマシン決済における先行者優位が真の価値を生み出す可能性があります。市場は数年の方針転換を経て当然ながら懐疑的ですが、2025〜2026年はIOTA(アイオータ)が技術的基盤を持って自らを証明できる本当の初めての機会です。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ El ecosistema Layer-2 está creciendo rápidamente. IOTA EVM ejecuta un entorno 
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

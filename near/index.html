@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/near/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/near/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/near/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/near/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/near/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The user-friendly Layer 1 built for AI agents and the next billion users</p>
       <p class="page-hero-tagline lang-fr">Le Layer 1 simple d&#x27;utilisation pensé pour les agents IA et le prochain milliard d&#x27;utilisateurs</p>
       <p class="page-hero-tagline lang-es">La Capa 1 fácil de usar construida para agentes de IA y el próximo mil millones de usuarios</p>
+      <p class="page-hero-tagline lang-ja">AIエージェントと次の10億ユーザー向けに構築されたユーザーフレンドリーなLayer 1</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is NEAR Protocol?</h2>
       <h2 class="lang-fr">Qu'est-ce que NEAR Protocol ?</h2>
       <h2 class="lang-es">¿Qué es NEAR Protocol?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">NEAR Protocol is a blockchain that was built with one obsession: making crypto actually usable. While most blockchains are built by engineers for engineers, NEAR was designed so that a regular developer — even a JavaScript programmer — can build on it, and a regular person can use an app without even knowing they&#x27;re on a blockchain. Named after the phrase &quot;near by&quot; — as in, blockchain technology should feel near to everyone.</p>
       <p class="lang-fr">NEAR Protocol est une blockchain construite avec une obsession : rendre la crypto véritablement utilisable. Là où la plupart des blockchains sont construites par des ingénieurs pour des ingénieurs, NEAR a été conçu pour qu&#x27;un développeur ordinaire — même un programmeur JavaScript — puisse construire dessus, et qu&#x27;une personne ordinaire puisse utiliser une application sans même savoir qu&#x27;elle est sur une blockchain.</p>
       <p class="lang-es">NEAR Protocol es una blockchain que fue construida con una obsesión: hacer que el cripto sea realmente usable. Mientras la mayoría de las blockchains son construidas por ingenieros para ingenieros, NEAR fue diseñado para que un desarrollador común — incluso un programador de JavaScript — pueda construir sobre ella, y una persona común pueda usar una aplicación sin saber siquiera que está en una blockchain. Nombrada así por la frase &quot;near by&quot; (cerca) — es decir, la tecnología blockchain debería sentirse cercana para todos.</p>
+      <p class="lang-ja">NEARプロトコルは一つの執念で構築されたブロックチェーンです。暗号資産を実際に使いやすくすることです。ほとんどのブロックチェーンはエンジニアがエンジニアのために構築しているのに対し、NEARは一般の開発者（JavaScriptプログラマーでも）が構築でき、一般の人がブロックチェーン上にいることを知らずにアプリを使用できるよう設計されました。「ニア・バイ」（近くに）というフレーズにちなんで命名され、ブロックチェーン技術が誰にとっても身近に感じられるべきという意味です。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">NEAR uses a technique called &quot;sharding&quot; through its Nightshade system. Imagine a highway that splits into multiple parallel lanes when traffic gets heavy — Nightshade does the same thing, splitting the network into parallel processing tracks so it never slows down. NEAR also has human-readable account names (like &quot;alice.near&quot; instead of long random addresses) and allows apps to pay for users&#x27; transaction fees — making the experience seamless for newcomers.</p>
       <p class="lang-fr">NEAR utilise une technique appelée « sharding » via son système Nightshade. Imaginez une autoroute qui se divise en plusieurs voies parallèles quand la circulation devient dense — Nightshade fait de même, divisant le réseau en pistes de traitement parallèles pour qu&#x27;il ne ralentisse jamais. NEAR propose aussi des noms de compte lisibles (comme « alice.near » au lieu de longues adresses aléatoires) et permet aux applications de payer les frais de transaction des utilisateurs.</p>
       <p class="lang-es">NEAR usa una técnica llamada &quot;sharding&quot; a través de su sistema Nightshade. Imagina una autopista que se divide en múltiples carriles paralelos cuando el tráfico se vuelve intenso — Nightshade hace lo mismo, dividiendo la red en pistas de procesamiento paralelas para que nunca se ralentice. NEAR también tiene nombres de cuenta legibles (como &quot;alice.near&quot; en lugar de largas direcciones aleatorias) y permite que las aplicaciones paguen las comisiones de transacción de los usuarios — haciendo la experiencia fluida para los recién llegados.</p>
+      <p class="lang-ja">NEARはNightshadeシステムを通じた「シャーディング」と呼ばれる手法を使用しています。交通量が多くなったときに複数の並行車線に分割する高速道路を想像してください。Nightshadeも同じことをし、ネットワークを並行処理トラックに分割することで速度が低下しないようにします。NEARはまた人間が読めるアカウント名（長いランダムなアドレスの代わりに「alice.near」など）を持ち、アプリがユーザーのトランザクション手数料を支払えるため、新参者にとってシームレスな体験が可能です。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>AI agent deployment and autonomous transactions</li>
 <li>DeFi applications</li>
 <li>social apps and gaming (Sweat Economy onboarded 13 million users)</li>
@@ -2516,12 +2535,14 @@
 <li>aplicaciones sociales y gaming (Sweat Economy incorporó a 13 millones de usuarios)</li>
 <li>interoperabilidad entre cadenas mediante chain abstraction</li>
 <li>aplicaciones empresariales que requieren alto rendimiento y bajos costos</li></ul>
+      <ul class="lang-ja"><li>AIエージェントのデプロイと自律的なトランザクション、DeFiアプリケーション、ソーシャルアプリとゲーミング（Sweat Economyが1300万ユーザーを獲得）、チェーン抽象化によるクロスチェーン相互運用性、高いスループットと低コストを必要とするエンタープライズアプリケーション。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nightshade sharding enables near-unlimited scalability as demand grows</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Human-readable accounts and gasless transactions make it extremely beginner-friendly</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strong AI focus — NEAR is positioning itself as the Layer 1 for autonomous AI agents</li>
@@ -2534,12 +2555,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Las cuentas legibles y las transacciones sin gas lo hacen extremadamente amigable para principiantes</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fuerte enfoque en IA — NEAR se posiciona como la Capa 1 para agentes de IA autónomos</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Rápido y barato — finalidad en 600ms, comisiones por debajo de un centavo</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nightshadeシャーディングにより需要の増加に応じてほぼ無制限のスケーラビリティを実現</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>人間が読めるアカウントとガスレストランザクションにより非常に初心者フレンドリー</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>強いAIフォーカス — NEARは自律AIエージェント向けのLayer 1として自身を位置づけている</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>高速で低コスト — 600msのファイナリティ、1セント以下の手数料</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Smaller DeFi ecosystem and TVL compared to Ethereum and Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Less name recognition makes it harder to attract developers and users</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Validator concentration is a concern for true decentralization</li>
@@ -2552,16 +2578,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Menor reconocimiento de marca dificulta atraer desarrolladores y usuarios</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La concentración de validadores es una preocupación para la verdadera descentralización</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narrativa de los agentes de IA es nueva y no está probada a escala</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>イーサリアムやソラナと比べてDeFiエコシステムとTVLが小規模</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>知名度の低さにより開発者やユーザーの誘致が難しい</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>バリデーターの集中が真の分散化の懸念材料</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>AIエージェントのナラティブは新しく、大規模では未実証</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E0E0E0">
         <p class="lang-en">NEAR is the blockchain that gets out of its own way. While others pile on complexity, NEAR relentlessly focuses on usability — and it shows. With 13 million users joining via a single app, and a bold pivot toward AI agents, NEAR is quietly building something important. It may not have the brand recognition of Solana or Ethereum yet, but its combination of developer friendliness, speed, and AI ambition makes it one of the most interesting Layer 1 blockchains to watch.</p>
         <p class="lang-fr">NEAR est la blockchain qui ne se met pas dans son propre chemin. Là où d&#x27;autres accumulent la complexité, NEAR se concentre sans relâche sur la facilité d&#x27;utilisation — et ça se voit. Avec 13 millions d&#x27;utilisateurs rejoints via une seule application, et un pivot audacieux vers les agents IA, NEAR construit silencieusement quelque chose d&#x27;important. Il n&#x27;a peut-être pas encore la notoriété de Solana ou d&#x27;Ethereum, mais sa combinaison de facilité pour les développeurs, de rapidité et d&#x27;ambition IA en fait l&#x27;un des Layer 1 les plus intéressants à surveiller.</p>
         <p class="lang-es">NEAR es la blockchain que no se interpone en su propio camino. Mientras otros acumulan complejidad, NEAR se centra implacablemente en la usabilidad — y se nota. Con 13 millones de usuarios que se unen a través de una sola aplicación, y un audaz giro hacia los agentes de IA, NEAR está construyendo silenciosamente algo importante. Puede que aún no tenga el reconocimiento de marca de Solana o Ethereum, pero su combinación de facilidad para desarrolladores, velocidad y ambición en IA lo convierte en una de las blockchains de Capa 1 más interesantes a seguir.</p>
+      <p class="lang-ja">NEARは自分自身の邪魔をしないブロックチェーンです。他が複雑さを積み重ねる中、NEARは使いやすさに徹底的にフォーカスしており、それが表れています。一つのアプリを通じて1300万ユーザーが参加し、AIエージェントへの大胆な転換により、NEARは静かに重要なものを構築しています。まだSolanaやEthereumのブランド認知度はないかもしれませんが、開発者への親しみやすさ、スピード、AIの野心の組み合わせにより、最も注目に値するLayer 1ブロックチェーンの一つです。</p>
       </div>
     </section>
 
@@ -2571,10 +2603,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2582,6 +2616,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2615,6 +2650,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2623,6 +2659,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2636,16 +2674,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

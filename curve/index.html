@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/curve/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/curve/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/curve/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/curve/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/curve/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/curve/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The stablecoin superhighway — where DeFi&#x27;s biggest trades happen with the smallest slippage</p>
       <p class="page-hero-tagline lang-fr">L&#x27;autoroute des stablecoins — où les plus grosses transactions DeFi se font avec le moindre slippage</p>
       <p class="page-hero-tagline lang-es">La superautopista de los stablecoins — donde ocurren los mayores trades DeFi con el menor slippage</p>
+      <p class="page-hero-tagline lang-ja">ステーブルコインの高速道路 — DeFiの最大の取引が最小のスリッページで行われる場所</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Curve Finance?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Curve Finance ?</h2>
       <h2 class="lang-es">¿Qué es Curve Finance?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Curve Finance is the specialized decentralized exchange (DEX) that dominates stablecoin trading in DeFi. While Uniswap is the general-purpose DEX for trading any token, Curve was specifically designed for swapping assets that should be nearly the same price — stablecoins (USDT, USDC, DAI), wrapped Bitcoin variants, and liquid staking tokens (stETH, rETH).</p>
       <p class="lang-en">Founded by Russian physicist Michael Egorov in January 2020, Curve pioneered a custom AMM (Automated Market Maker) formula called StableSwap that achieves dramatically lower slippage than standard DEXes when trading similarly-priced assets. If Uniswap is like a regular currency exchange booth that works for anything, Curve is like a specialized FX desk that handles massive institutional trades with precision.</p>
       <p class="lang-en">Curve became the backbone of DeFi&#x27;s stablecoin liquidity, with total value locked (TVL) reaching $24 billion at its peak. It also invented the &quot;vote-escrowed&quot; tokenomics model (veCRV) that has been copied by dozens of protocols across DeFi — locking tokens for up to 4 years to earn boosted rewards and governance power.</p>
@@ -2490,6 +2506,13 @@ El protocolo fue creado por Michael Egorov, un físico nacido en Rusia que publi
 El protocolo se lanzó en Ethereum en enero de 2020, y el token CRV llegó en agosto de 2020 en circunstancias inusuales: un desarrollador anónimo desplegó los contratos del token antes de que el equipo estuviera listo, y el equipo simplemente lo adoptó. Este lanzamiento caótico se convirtió en leyenda de la cripto. Los hitos clave siguieron: Curve v2 en junio de 2021 extendió el protocolo a activos volátiles, y crvUSD se lanzó en mayo de 2023 con el innovador mecanismo LLAMMA para liquidaciones progresivas.
 
 Hoy, Curve es la columna vertebral de la economía de stablecoins con más de $2,500 millones en valor total bloqueado en múltiples cadenas. El protocolo se ha vuelto tan fundamental que una subcultura DeFi completa — las &quot;Curve Wars&quot; — surgió en torno a protocolos que compiten por influir en la gobernanza de Curve y dirigir las emisiones de tokens hacia sus pools. Cuando activos vinculados a BlackRock se negocian a través de pools de Curve, estás viendo infraestructura crítica.</p>
+      <p class="lang-ja">カーブ・ファイナンスは、DeFi全体で最も重要な仕事のひとつを担う特化型分散型取引所です。同じ価値であるべき資産の交換です。USDCをUSDTに交換したり、Wrapped Bitcoinのある形式を別の形式に交換したりする際、カーブは汎用取引所であるUniswapでは到底かなわないほど少ないスリッページと手数料でそれを実現します。その他のDeFiはその上に構築された金融配管なのです。
+
+プロトコルは、2019年11月1日にStableSwapホワイトペーパーを公開したロシア出身の物理学者マイケル・エゴロフによって作られました。エゴロフは汎用AMM（Automated Market Maker）であるUniswapが類似資産の取引において非効率であることを見抜きました。2つのトークンが大体同じ価値であるべき時 — 異なるドルステーブルコインのように — 汎用AMMは、ほとんど発生しない価格差に備えて流動性を無駄にします。カーブの革新は、こうしたペッグ資産取引に特化して最適化された数学的公式です。
+
+プロトコルは2020年1月にEthereum上でローンチし、CRVトークンは2020年8月に異例の経緯で登場しました。チームの準備が整う前に匿名の開発者がトークンコントラクトをデプロイし、チームはそれをそのまま採用しました。この混乱したローンチは暗号の伝説になりました。その後の主要マイルストーン：2021年6月のCurve v2でプロトコルがボラタイル資産に拡張され、2023年5月のcrvUSDは画期的なLLAMMAメカニズムによるソフト清算で登場しました。
+
+現在、カーブは複数のチェーンで25億ドル超のTVLを持つステーブルコイン経済の基盤です。プロトコルはDeFiサブカルチャー全体 — 「カーブウォーズ」 — が出現するほど基礎的なものになりました。ブラックロックのトークン化ファンドがカーブの流動性プールを通じてDeFiに接続するとなれば、重要なインフラを見ていることが分かります。</p>
       <p class="lang-fr">Curve a inventé une formule AMM personnalisée appelée StableSwap qui offre un slippage considérablement plus faible que les DEX standard lors du trading d&#x27;actifs à prix similaire. Il a aussi inventé le modèle de tokenomics « vote-escrowed » (veCRV) qui a été copié par des dizaines de protocoles — verrouiller des tokens jusqu&#x27;à 4 ans pour gagner des récompenses boostées et du pouvoir de gouvernance.</p>
       <p class="lang-es">El arma secreta de Curve es su invariante StableSwap — una fórmula matemática híbrida entre dos enfoques. Una fórmula de suma constante (x + y = K) daría cero slippage pero fallaría si un pool se desequilibra. Una fórmula de producto constante (x * y = K, usada por Uniswap) maneja cualquier desequilibrio pero da un slippage terrible para activos similares. La fórmula de Curve combina ambas, controlada por un &quot;factor de amplificación&quot; llamado A.
 
@@ -2504,6 +2527,7 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Curve&#x27;s innovation is its AMM formula. Standard DEXes like Uniswap use a simple &quot;constant product&quot; formula (x × y = k) which works for any two tokens but creates significant price impact on large trades. Curve&#x27;s StableSwap formula acts more like a flat line near the 1:1 price point for similarly-priced assets, allowing huge swaps with minimal slippage.</p>
       <p class="lang-en">The veCRV (vote-escrowed CRV) system is Curve&#x27;s governance and incentive engine. Users can lock CRV tokens for 1 week up to 4 years to receive veCRV. The longer you lock, the more veCRV you get. veCRV holders earn a share of trading fees, boost their LP rewards by up to 2.5x, and vote on which pools receive CRV emissions — creating the famous &quot;Curve Wars&quot; where protocols compete to direct liquidity to their pools.</p>
       <p class="lang-en">In November 2022, Curve launched crvUSD, its own overcollateralized stablecoin that uses a novel &quot;soft liquidation&quot; mechanism called LLAMMA. Instead of sudden catastrophic liquidations, crvUSD gradually converts collateral to stablecoins as prices drop and back again if prices recover.</p>
@@ -2516,6 +2540,7 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>High-volume stablecoin swaps with minimal slippage for treasuries and protocols</li>
 <li>Yield farming through liquidity provision on Curve pools</li>
 <li>Governance participation via veCRV locking for fee share and voting power</li>
@@ -2529,12 +2554,14 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
 <li>protocolos de préstamo como Aave y Compound</li>
 <li>y proyectos de stablecoin que necesitan liquidez profunda para mantener sus anclas. crvUSD ofrece préstamos con protección de liquidación progresiva</li>
 <li>y el despliegue multicadena (Ethereum, Arbitrum, Base, Polygon) hace a Curve accesible en todo el panorama DeFi</li></ul>
+      <ul class="lang-ja"><li>カーブ・ファイナンスの主な用途は、ステーブルコイン（USDC/USDT/DAI）、Wrapped資産（wBTC/renBTC）、LSD（stETH/ETH）間の効率的な低スリッページスワップです。流動性提供者はveCRV経由で最大2.5倍のブーストとともに取引手数料とCRV排出を獲得します。プロトコルはYearn、Aave、Compound、ペグ維持に深い流動性が必要なステーブルコインプロジェクトのコアインフラとして機能します。crvUSDはソフト清算保護付きの借入を提供し、マルチチェーン展開（Ethereum、アービトラム、Base、Polygon）でDeFiランドスケープ全体でカーブにアクセスできます。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Dominates stablecoin trading with the most efficient AMM for like-kind swaps</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Innovative veCRV tokenomics model has been widely copied across DeFi</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Battle-tested protocol handling billions in volume through multiple market cycles</li>
@@ -2547,12 +2574,17 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Infraestructura probada en batalla con más de $2,500 millones en TVL en múltiples cadenas — Curve ha sobrevivido caídas de mercado, exploits y años de condiciones adversas</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El modelo de gobernanza veCRV alinea a los tenedores a largo plazo con el éxito del protocolo y ha inspirado todo un ecosistema (Convex, Yearn) de protocolos construidos encima</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Expansión hacia nuevos territorios con crvUSD, Llamalend, CryptoSwap para pares volátiles y liquidez RWA — mucho más que un simple lugar de intercambio de stablecoins</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DeFiのステーブルコインおよびペッグ資産取引で最低のスリッページと手数料 — StableSwap公式は汎用AMMより効率的であることが数学的に証明されています</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>複数のチェーンで25億ドル超のTVLを持つバトルテスト済みのインフラ — カーブは市場暴落、エクスプロイト、何年もの敵対的な状況を生き残ってきました</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>veCRVガバナンスモデルが長期保有者とプロトコルの成功を整合させ、その上に構築するプロトコル（Convex、Yearn）のエコシステム全体を生み出しました</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>crvUSD、Llamalend、ボラタイルペアのCryptoSwap、RWA流動性で新領域に拡大 — 単なるステーブルコインスワップ会場を遥かに超えています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Michael Egorov&#x27;s personal leverage crisis in mid-2023 raised concerns about governance</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Protocol complexity makes it intimidating for newcomers</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CRV token inflation through ongoing emissions creates constant sell pressure</li>
@@ -2565,16 +2597,28 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La fuerte dependencia de las emisiones de CRV significa que el atractivo del protocolo para los LP está ligado al precio del token — una caída sostenida de CRV podría reducir la liquidez</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La centralización de la gobernanza a través de grandes tenedores de veCRV como Convex (46% de veCRV) plantea preguntas sobre si la gobernanza está verdaderamente descentralizada</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La complejidad es una barrera — entender veCRV, la votación por gauge, el boosting y las Curve Wars requiere conocimientos DeFi significativos, haciéndolo inaccesible para principiantes</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>スマートコントラクトリスクは現実のものです — 2023年7月の6170万ドルのVyperリエントランシーエクスプロイトと以前のDNS攻撃は、バトルテスト済みのプロトコルでも脆弱性があることを示しました</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CRV排出への強い依存は、プロトコルのLPへの魅力がトークン価格に連動することを意味します — 持続的なCRV下落は流動性を減らす可能性があります</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Convex（veCRVの46%）などの大口veCRV保有者によるガバナンス集中が、ガバナンスが真に分散しているかどうかに疑問を投げかけます</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>複雑さが障壁です — veCRV、ゲージ投票、ブースト、カーブウォーズを理解するには相当なDeFi知識が必要で、初心者には敷居が高いです</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#FF0000">
         <p class="lang-en">Curve Finance is DeFi infrastructure — the invisible plumbing through which billions of dollars flow every day. It&#x27;s not flashy, it&#x27;s not beginner-friendly, but it&#x27;s essential. The veCRV model created an entirely new paradigm for protocol governance and incentive design. For advanced DeFi users, Curve is a must-understand protocol. For beginners, it&#x27;s a signal of how deep and sophisticated decentralized finance has become.</p>
         <p class="lang-fr">Curve Finance est l&#x27;infrastructure DeFi — la plomberie invisible à travers laquelle des milliards de dollars circulent chaque jour. Ce n&#x27;est pas flashy, ce n&#x27;est pas adapté aux débutants, mais c&#x27;est essentiel. Le modèle veCRV a créé un paradigme entièrement nouveau pour la gouvernance et la conception d&#x27;incitations. Pour les utilisateurs DeFi avancés, Curve est un protocole incontournable.</p>
         <p class="lang-es">Curve Finance es la columna vertebral invisible de la DeFi — el protocolo del que dependen otros protocolos. Cuando billones de dólares en volumen de stablecoins necesitan fluir con la mínima fricción, fluyen a través de Curve. El modelo de gobernanza veCRV es uno de los diseños de tokenomics más innovadores de la cripto, y el hecho de que activos vinculados a BlackRock ahora se negocien a través de pools de Curve muestra cuánto ha avanzado. Los riesgos (vulnerabilidades de contratos inteligentes, dependencia de emisiones, concentración de gobernanza) son reales, pero la posición de Curve como infraestructura DeFi esencial es casi imposible de replicar. Es una elección avanzada para quienes entienden la DeFi en profundidad.</p>
+      <p class="lang-ja">カーブの秘密兵器はStableSwap不変量です — 2つのアプローチのハイブリッドである数学的公式です。一定和公式（x + y = K）はゼロスリッページを与えますが、プールが不均衡になると機能しなくなります。一定積公式（x * y = K、Uniswapが使用）はどんな不均衡も扱えますが、類似資産では酷いスリッページを生じます。カーブの公式は両方をブレンドし、「A」と呼ばれる「増幅係数」で制御されます。
+
+例えは高速道路です。都市中心部（資産が期待される1:1比率近くで取引）の近くではカーブが追加レーンを加え、ほぼゼロのスリッページでスムーズに流れます。しかし中心から遠ざかる（価格が大きく乖離）につれ、道路は通常幅に狭まり、より従来のAMMのように振る舞います。増幅係数Aが高いほど滑らかなゾーンが広がります — 価格レンジを手動管理することなく最も必要な場所に流動性を集中させるようなものです。
+
+カーブのガバナンスモデルはDeFiで最も影響力のあるもののひとつです。ユーザーはCRVトークンを最大4年間ロックしてvote-escrowed CRV（veCRV）を受け取れます。これにより3つの権限を得ます：どのプールがCRV排出を受けるかへの投票（数億ドルの報酬を誘導）、自身のLP報酬を最大2.5倍にブースト、全取引手数料の50%を獲得できます。長くロックするほどより多くの投票権を得ます — 長期保有者がプロトコルの成功と利害を一致させます。
+
+このシステムが「カーブウォーズ」を引き起こしました — Convex FinanceやYearn Financeなどのプロトコルが排出フローを制御するために大規模なveCRVポジションを積み上げ、カーブの上にメタエコノミー全体を作りました。プロトコルはステーブルコインを超えても拡大しています。Curve v2（CryptoSwap）はボラタイルペアを動的なリペッギングで扱い、crvUSDはソフト清算のためにLLAMMAを使用（急激な清算イベントの代わりに段階的に担保を変換）し、Llamalendがこれを貸付に拡張しています。</p>
       </div>
     </section>
 
@@ -2584,10 +2628,12 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2595,6 +2641,7 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2636,6 +2683,7 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2644,6 +2692,8 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2657,16 +2707,15 @@ Este sistema desencadenó las &quot;Curve Wars&quot; — protocolos como Convex 
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

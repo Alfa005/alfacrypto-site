@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/chiliz/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/chiliz/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/chiliz/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/chiliz/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/chiliz/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/chiliz/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2018-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">Your team loyalty, now with a blockchain receipt.</p>
       <p class="page-hero-tagline lang-fr">Votre fidélité à votre équipe, désormais avec un justificatif blockchain.</p>
       <p class="page-hero-tagline lang-es">Tu lealtad al equipo, ahora con comprobante en blockchain.</p>
+      <p class="page-hero-tagline lang-ja">あなたのチームへの情熱に、ブロックチェーンの証明書を。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Chiliz?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Chiliz ?</h2>
       <h2 class="lang-es">¿Qué es Chiliz?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Being a sports fan has always been a one-way street: you buy the jersey, renew the season ticket, watch every match, and the club... doesn&#x27;t know you exist. Chiliz flips that relationship. It&#x27;s a blockchain platform that lets sports teams issue &quot;Fan Tokens&quot; — digital assets that give holders real voting power on club decisions, exclusive rewards, and VIP experiences. Think of it as turning passive fandom into active membership.</p>
       <p class="lang-en">Founded in 2018 by Alexandre Dreyfus (the same entrepreneur who built Winamax, one of Europe&#x27;s biggest poker platforms), Chiliz operates through its consumer app Socios.com. Fans use CHZ — the platform&#x27;s native token — to buy Fan Tokens for their favorite clubs. These tokens aren&#x27;t just collectibles: BAR holders voted on FC Barcelona&#x27;s locker room music, PSG holders chose a Champions League message printed on team buses, and UFC holders influence fighter interaction formats. Over 70 major teams across football, basketball, MMA, and esports have launched tokens.</p>
       <p class="lang-en">The Chiliz Chain — its own EVM-compatible Layer-1 blockchain — launched in 2023, cutting transaction costs and reducing dependence on external infrastructure. By March 2026, CHZ has a market cap of approximately $370 million and a circulating supply of around 10.27 billion tokens. The project is also one of the first major blockchain platforms to publish a MiCA-compliant whitepaper, positioning it well for European regulatory clarity.</p>
@@ -2491,6 +2507,13 @@ Fundado en 2018 por Alexandre Dreyfus (el mismo empresario que construyó Winama
 La Chiliz Chain — su propia blockchain Layer-1 compatible con EVM — se lanzó en 2023, reduciendo los costos de transacción y la dependencia de infraestructura externa. En marzo de 2026, CHZ tiene una capitalización de mercado de aproximadamente $370 millones y un suministro circulante de alrededor de 10,270 millones de tokens. El proyecto es también uno de los primeros proyectos blockchain importantes en publicar un whitepaper conforme a MiCA, posicionándolo bien para la claridad regulatoria europea.
 
 El modelo de negocio es inteligente: Chiliz toma un porcentaje de las ventas de Fan Tokens y los ingresos de trading, que revierten en la economía del token CHZ a través de las recompensas de staking de los validadores y el desarrollo del ecosistema. Los validadores incluyen instituciones importantes como OKX, Animoca Brands e incluso clubes deportivos como el PSG — alineando la seguridad del ecosistema con las partes interesadas de la industria deportiva.</p>
+      <p class="lang-ja">スポーツファンであることは常に一方通行でした。ジャージを買い、シーズンチケットを更新し、全試合を観て、それでもクラブはあなたの存在を知らない。チリーズはその関係を逆転させます。スポーツチームが「ファントークン」を発行できるブロックチェーンプラットフォームで、保有者はクラブの決定への実際の投票権、限定特典、VIP体験を得られます。受動的なファンから能動的なメンバーへの変換と考えてください。
+
+2018年にAlexandre Dreyfus（ヨーロッパ最大のポーカープラットフォームのひとつWinamaxを構築した同じ起業家）によって設立され、チリーズはコンシューマーアプリSocios.comを通じて運営されます。ファンはプラットフォームのネイティブトークンCHZを使用してお気に入りのクラブのファントークンを購入します。これらのトークンは単なるコレクティブルではありません。BARホルダーがFCバルセロナのロッカールームの音楽に投票し、PSGホルダーがチームバスに印刷されるCLメッセージを選び、UFCホルダーが選手のインタラクション形式に影響を与えます。サッカー、バスケットボール、MMA、eスポーツにわたる70以上の主要チームがトークンをローンチしています。
+
+Chiliz Chain — 独自のEVM互換Layer-1ブロックチェーン — は2023年にローンチし、トランザクションコストを削減して外部インフラへの依存を低減しました。2026年3月時点で、CHZは約3億7000万ドルの時価総額と約102.7億トークンの流通供給量を持ちます。プロジェクトはまたMiCA準拠のホワイトペーパーを発行した最初の主要ブロックチェーンプラットフォームのひとつでもあり、欧州の規制明確化に向けて有利な立場にあります。
+
+ビジネスモデルは巧みです。チリーズはファントークン売上と取引収益の一定割合を取り、それはバリデーターステーキング報酬とエコシステム開発を通じてCHZトークン経済に還流します。バリデーターにはOKX、Animoca Brands、さらにPSGのようなスポーツクラブなど主要機関が含まれており、エコシステムのセキュリティとスポーツ業界ステークホルダーの利益を一致させています。</p>
       <p class="lang-fr">Fondé en 2018 par Alexandre Dreyfus, Chiliz opère via son application grand public Socios.com. Les fans utilisent le CHZ — le token natif de la plateforme — pour acheter des Fan Tokens de leurs clubs favoris. Ces tokens ne sont pas de simples objets de collection : les détenteurs du BAR ont voté sur la musique du vestiaire du FC Barcelone, les détenteurs du PSG ont choisi un message de Ligue des Champions imprimé sur les bus d&#x27;équipe. Plus de 70 grands clubs dans le football, le basket, les arts martiaux et l&#x27;esport ont lancé des tokens.</p>
       <p class="lang-es">Chiliz Chain usa un mecanismo de consenso Proof-of-Staked-Authority (PoSA) — un hírido de Proof-of-Stake y Proof-of-Authority. Hay 11 validadores que deben hacer staking de CHZ para participar y son entidades conocidas y de buena reputación (exchanges, clubes deportivos, empresas de blockchain). Esto crea tiempos de bloque más rápidos (aproximadamente 3 segundos) y mayor rendimiento que las redes completamente sin permisos, a costa de cierta descentralización. Es un equilibrio pragmático para una plataforma que prioriza las interacciones rápidas y económicas con los aficionados por encima de la resistencia a la censura.
 
@@ -2505,6 +2528,7 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Chiliz Chain uses a Proof-of-Staked-Authority (PoSA) consensus mechanism — a hybrid of Proof-of-Stake and Proof-of-Authority. There are 11 validators who must stake CHZ to participate and are known, reputable entities (exchanges, sports clubs, blockchain firms). This creates faster block times (about 3 seconds) and higher throughput than fully permissionless networks, at the cost of some decentralization. It&#x27;s a pragmatic trade-off for a platform prioritizing fast, cheap fan interactions over censorship resistance.</p>
       <p class="lang-en">Fan Tokens are ERC-20-compatible tokens (on the Chiliz Chain, technically CFT-20) issued by sports organizations in partnership with Chiliz. Clubs set the total supply, and tokens enter circulation through Socios.com. Fans buy them with CHZ, and the token price then floats on the open market based on demand. Clubs periodically launch polls exclusively accessible to token holders — the more tokens you hold, the more votes you have.</p>
       <p class="lang-en">CHZ itself functions as the gas token for all Chiliz Chain transactions. When users transact, fees are paid in CHZ — and 65% of newly issued CHZ goes to validators and delegators as staking rewards. The tokenomics follow an inflationary model starting at 8.8% annual inflation decaying to a 1.88% floor, with perpetual gas fee burns creating partial offset. This EIP-1559-style fee burning means transaction volume directly reduces net supply growth.</p>
@@ -2517,15 +2541,22 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">CHZ powers Fan Token purchases on Socios.com, pays gas fees for all Chiliz Chain transactions, enables staking for validator rewards and governance participation, and underpins a growing ecosystem of sports DeFi applications including prediction markets, NFT ticketing, fantasy sports, and VIP experience auctions across 70+ major sports organizations worldwide.</p>
       <p class="lang-fr">Le CHZ alimente les achats de Fan Tokens sur Socios.com, paye les frais de gaz pour toutes les transactions Chiliz Chain, permet le staking pour les récompenses de validateurs et la participation à la gouvernance, et soutient un écosystème croissant d&#x27;applications DeFi sportives incluant les marchés de prédiction, la billetterie NFT, le fantasy sports et les enchères d&#x27;expériences VIP dans plus de 70 grandes organisations sportives mondiales.</p>
       <p class="lang-es">CHZ impulsa las compras de Fan Tokens en Socios.com, paga las tarifas de gas para todas las transacciones en la Chiliz Chain, habilita el staking para las recompensas de validadores y la participación en la gobernanza, y sustenta un ecosistema creciente de aplicaciones DeFi deportivas que incluyen mercados de predicción, taquilla NFT, fantasy sports y subastas de experiencias VIP en más de 70 grandes organizaciones deportivas en todo el mundo.</p>
+      <p class="lang-ja">Chiliz ChainはProof-of-Staked-Authority（PoSA）コンセンサスメカニズムを使用しています — Proof-of-StakeとProof-of-Authorityのハイブリッドです。参加のためにCHZをステーキングする必要があり、既知の評判ある実体（取引所、スポーツクラブ、ブロックチェーン企業）である11人のバリデーターがいます。これにより完全に無許可のネットワークより速いブロックタイム（約3秒）と高いスループットを実現し、分散化の一部を犠牲にします。検閲耐性よりも高速で安価なファンインタラクションを優先するプラットフォームにとって実用的なトレードオフです。
+
+ファントークンはERC-20互換トークン（Chiliz Chain上では技術的にCFT-20）で、スポーツ組織がチリーズとのパートナーシップで発行します。クラブが総供給量を設定し、トークンはSocios.comを通じて流通します。ファンはCHZで購入し、トークン価格はその後需要に基づいてオープンマーケットで変動します。クラブはトークンホルダー限定の投票を定期的に開始します — 保有するトークンが多いほど投票権が多くなります。
+
+CHZ自体はChiliz Chainのすべてのトランザクションのガストークンとして機能します。ユーザーが取引すると手数料はCHZで支払われ — 新規発行CHZの65%がバリデーターとデレゲーターへのステーキング報酬として割り当てられます。トークノミクスは年8.8%のインフレから1.88%のフロアまで減少するインフレモデルに従い、永続的なガス料金バーンが一部相殺を生み出します。このEIP-1559スタイルの手数料バーンにより取引量が純供給量の成長を直接削減します。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Only blockchain platform with 70+ major sports club partnerships (FC Barcelona, PSG, UFC, Arsenal, Man City, AC Milan)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>MiCA-compliant whitepaper published in 2025, giving it strong regulatory positioning in the world&#x27;s largest regulated market</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>EVM-compatible chain with 3-second blocks makes it practical for real-time fan engagement during live events</li>
@@ -2538,12 +2569,14 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Whitepaper conforme a MiCA publicado en 2025, otorgándole un sólido posicionamiento regulatorio en el mayor mercado regulado del mundo</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Cadena compatible con EVM con bloques de 3 segundos que la hace práctica para la interacción con los aficionados en tiempo real durante eventos en vivo</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El modelo de ingresos está probado: las ventas de Fan Tokens y el trading en Socios.com generan ingresos sostenibles para el ecosistema</li></ul>
+      <ul class="lang-ja"><li>CHZはSocios.comでのファントークン購入、Chiliz Chain全トランザクションのガス料金支払い、バリデーター報酬とガバナンス参加のためのステーキング、そして世界中の70以上の主要スポーツ組織にわたる予測市場、NFTチケット、ファンタジースポーツ、VIP体験オークションを含む成長するスポーツDeFiアプリケーションのエコシステムを支えるために利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Fan Token prices have historically been extremely volatile and often decline after initial hype from new club launches</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>The voting power offered is largely cosmetic — clubs rarely let fans influence genuinely important decisions</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Concentrated validator set of just 11 entities is highly centralized compared to most public blockchains</li>
@@ -2556,16 +2589,22 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El poder de voto ofrecido es en gran medida cosmético — los clubes rara vez dejan que los aficionados influyan en decisiones genuinamente importantes</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El conjunto concentrado de solo 11 validadores está muy centralizado en comparación con la mayoría de las blockchains públicas</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El suministro de CHZ es inflacionario sin un tope duro, lo que significa una dilución a largo plazo para los tenedores sin un crecimiento sostenido de la adopción</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ファントークン価格は歴史的に非常にボラタイルで、新クラブローンチ後の初期の盛り上がりの後に下落する傾向があります</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>提供される投票権は概ね表面的なものです — クラブが真に重要な決定にファンを関与させることは稀です</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>11エンティティのみの集中したバリデーターセットは、ほとんどのパブリックブロックチェーンと比べて高度に集中しています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CHZの供給量はハードキャップなしでインフレ的であり、持続的な採用成長なしには長期的なホルダーの希薄化が生じます</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#CD0124">
         <p class="lang-en">Chiliz solved a real problem — sports fans have no voice or ownership stake in the clubs they&#x27;re emotionally invested in — and built a sustainable business model around it. The 70+ major club partnerships are genuine moats; competing platforms can&#x27;t easily replicate years of relationship-building with the world&#x27;s most valuable sports brands. The ceiling depends on whether fan token engagement evolves from novelty polls into genuinely meaningful participation.</p>
         <p class="lang-fr">Chiliz a résolu un vrai problème — les supporters sportifs n&#x27;ont aucune voix ni aucune participation dans les clubs dans lesquels ils investissent émotionnellement — et a construit un modèle commercial durable autour de lui. Les plus de 70 partenariats majeurs avec des clubs constituent de véritables avantages concurrentiels difficiles à reproduire. Le potentiel dépend de l&#x27;évolution de l&#x27;engagement des fan tokens, des sondages anecdotiques vers une participation vraiment significative.</p>
         <p class="lang-es">Chiliz resolvió un problema real — los aficionados deportivos no tienen voz ni participación en los clubes en los que invierten emocionalmente — y construyó un modelo de negocio sostenible a su alrededor. Las más de 70 asociaciones con grandes clubes son ventajas competitivas genuinas; las plataformas competidoras no pueden replicar fácilmente años de construcción de relaciones con las marcas deportivas más valiosas del mundo. El potencial depende de si la interacción con los fan tokens evoluciona de encuestas anecdóticas hacia una participación verdaderamente significativa.</p>
+      <p class="lang-ja">チリーズは現実の問題を解決しました — スポーツファンには深く感情的に投資しているクラブへの発言権も所有権持分もない — そしてその周りに持続可能なビジネスモデルを構築しました。70以上の主要クラブとのパートナーシップは真の参入障壁です。競合プラットフォームは世界で最も価値あるスポーツブランドとの数年にわたる関係構築を簡単には再現できません。天井はファントークンエンゲージメントが物珍しいアンケートから真に意味ある参加へと進化するかどうかにかかっています。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ El propio CHZ funciona como el token de gas para todas las transacciones en la C
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

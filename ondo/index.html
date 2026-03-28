@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/ondo/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/ondo/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/ondo/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/ondo/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/ondo/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2021-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">Bringing Wall Street assets on-chain — stocks, bonds, and beyond</p>
       <p class="page-hero-tagline lang-fr">Wall Street on-chain — actions, obligations et bien plus</p>
       <p class="page-hero-tagline lang-es">Llevando los activos de Wall Street a la cadena — acciones, bonos y más</p>
+      <p class="page-hero-tagline lang-ja">ウォール街の資産をオンチェーンへ — 株式、債券、そしてそれ以上</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is Ondo Finance?</h2>
       <h2 class="lang-fr">Qu'est-ce que Ondo Finance ?</h2>
       <h2 class="lang-es">¿Qué es Ondo Finance?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Ondo Finance is on a mission to tokenize the real world. Today, if you want to invest in US Treasury bonds or Apple stock, you need a broker, a bank account, and often a local stock exchange. Ondo removes all of that friction by creating digital versions of these assets that run on blockchain 24/7 — no brokers, no borders, no business hours. Think of it as putting Wall Street in a crypto wallet.</p>
       <p class="lang-fr">Ondo Finance a pour mission de tokeniser le monde réel. Aujourd&#x27;hui, si vous voulez investir dans des bons du Trésor américain ou des actions Apple, il vous faut un courtier, un compte bancaire et souvent une bourse locale. Ondo supprime toutes ces frictions en créant des versions numériques de ces actifs qui fonctionnent sur la blockchain 24h/24 — sans courtiers, sans frontières, sans horaires d&#x27;ouverture. Imaginez mettre Wall Street dans un portefeuille crypto.</p>
       <p class="lang-es">Ondo Finance tiene la misión de tokenizar el mundo real. Hoy, si quieres invertir en bonos del Tesoro de EE. UU. o acciones de Apple, necesitas un corredor, una cuenta bancaria y, a menudo, una bolsa de valores local. Ondo elimina toda esa fricción creando versiones digitales de estos activos que funcionan en blockchain las 24 horas del día, los 7 días de la semana — sin corredores, sin fronteras, sin horarios de negocio. Imagina poner Wall Street en una billetera cripto.</p>
+      <p class="lang-ja">オンド・ファイナンスは実世界をトークン化するミッションを持っています。今日、米国債やApple株に投資したい場合、ブローカー、銀行口座、そして多くの場合は地元の証券取引所が必要です。オンドはこれらの摩擦をすべて除去し、24時間365日ブロックチェーン上で動作するこれらの資産のデジタルバージョンを作成します。ブローカーなし、国境なし、営業時間なし。ウォール街を暗号資産ウォレットに入れるようなものです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Ondo works by buying real financial assets — like US Treasury bills or shares of Apple — through regulated custodians, then issuing blockchain tokens that represent ownership of those assets. For example, one OUSG token represents a share in a US Treasury fund managed by BlackRock. When you hold OUSG, you earn real Treasury yield deposited daily. These tokens can then be used across DeFi protocols just like any other crypto asset.</p>
       <p class="lang-fr">Ondo fonctionne en achetant de vrais actifs financiers — comme des bons du Trésor américain ou des actions Apple — via des dépositaires réglementés, puis en émettant des tokens blockchain qui représentent la propriété de ces actifs. Par exemple, un token OUSG représente une part dans un fonds Treasury américain géré par BlackRock. En détenant des OUSG, vous gagnez un vrai rendement Treasury déposé quotidiennement. Ces tokens peuvent ensuite être utilisés dans les protocoles DeFi comme n&#x27;importe quel autre actif crypto.</p>
       <p class="lang-es">Ondo funciona comprando activos financieros reales — como letras del Tesoro de EE. UU. o acciones de Apple — a través de custodios regulados, y luego emitiendo tokens blockchain que representan la propiedad de esos activos. Por ejemplo, un token OUSG representa una participación en un fondo del Tesoro de EE. UU. gestionado por BlackRock. Cuando tienes OUSG, ganas rendimiento real del Tesoro depositado diariamente. Estos tokens pueden entonces usarse en protocolos DeFi como cualquier otro activo cripto.</p>
+      <p class="lang-ja">オンドは規制されたカストディアンを通じて米国債やApple株などの実際の金融資産を購入し、それらの資産の所有権を表すブロックチェーントークンを発行することで機能します。例えば、1つのOUSGトークンはBlackRockが管理する米国トレジャリーファンドの持分を表します。OUSGを保有すると、毎日入金される実際のトレジャリー利回りを得られます。これらのトークンは他の暗号資産と同様にDeFiプロトコル全体で使用できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Earning US Treasury bond yields (4–5% annually) directly in a crypto wallet</li>
 <li>trading tokenized stocks like Apple and Tesla 24/7 without a broker</li>
 <li>using real-world assets as collateral in DeFi lending protocols</li>
@@ -2513,12 +2532,14 @@
 <li>operar con acciones tokenizadas como Apple y Tesla las 24/7 sin un corredor</li>
 <li>usar activos del mundo real como garantía en protocolos de préstamo DeFi</li>
 <li>proporcionar a las instituciones productos de renta fija en cadena</li></ul>
+      <ul class="lang-ja"><li>暗号資産ウォレットで直接米国債の利回り（年率4〜5%）を得ること、ブローカーなしで24時間365日AppleやTeslaなどのトークン化された株式を取引すること、DeFi貸し出しプロトコルで実世界の資産を担保として使用すること、機関投資家向けにオンチェーン固定収益商品を提供すること。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Market leader in tokenized real-world assets with over $2.5 billion in TVL</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Backed by the biggest names in finance — BlackRock and JPMorgan as infrastructure partners</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Opens US Treasury yields and stock market access to anyone with a crypto wallet, globally</li>
@@ -2531,12 +2552,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Respaldado por los mayores nombres en finanzas — BlackRock y JPMorgan como socios de infraestructura</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Abre el acceso a los rendimientos del Tesoro de EE. UU. y el mercado de valores a cualquiera con una billetera cripto, globalmente</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ondo Chain proporciona infraestructura dedicada para la emisión de RWA con cumplimiento de nivel institucional</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>TVL25億ドル超を持つトークン化実世界資産の市場リーダー</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>金融界の最大手に支えられている — BlackRockとJPMorganがインフラパートナー</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>世界中の暗号資産ウォレットを持つ誰でも米国債利回りと株式市場へのアクセスを開く</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ondo Chainが機関グレードのコンプライアンスを持つRWA発行のための専用インフラを提供</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Token unlocks scheduled over time will increase supply, creating potential sell pressure</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Regulatory landscape for tokenized securities is still evolving and uncertain</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Currently requires KYC for many products — not fully permissionless</li>
@@ -2549,16 +2575,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El panorama regulatorio para los valores tokenizados aún está evolucionando e incierto</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Actualmente requiere KYC para muchos productos — no es totalmente sin permisos</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La fuerte dependencia de los socios de las finanzas tradicionales implica un riesgo de contraparte centralizado</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>時間をかけたトークンのアンロックにより供給が増加し、売り圧力の可能性がある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークン化証券の規制環境はまだ進化中で不確実</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>現在多くの商品でKYCが必要 — 完全にパーミッションレスではない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>伝統的金融パートナーへの強い依存は中央集権的なカウンターパーティリスクを意味する</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#D6E4FF">
         <p class="lang-en">Ondo Finance is building the bridge between Wall Street and blockchain — and the biggest institutions in the world are helping lay the bricks. If tokenized real-world assets become the next major wave in crypto, Ondo is positioned to lead it. It&#x27;s one of the few crypto projects where the more traditional finance adopts it, the stronger it becomes. For investors who believe the future of finance is on-chain, Ondo is the clearest expression of that thesis.</p>
         <p class="lang-fr">Ondo Finance construit le pont entre Wall Street et la blockchain — et les plus grandes institutions financières au monde aident à poser les briques. Si les actifs réels tokenisés deviennent la prochaine grande vague de la crypto, Ondo est positionné pour la mener. C&#x27;est l&#x27;un des rares projets crypto où plus la finance traditionnelle l&#x27;adopte, plus il se renforce. Pour les investisseurs qui croient que l&#x27;avenir de la finance est on-chain, Ondo est l&#x27;expression la plus claire de cette thèse.</p>
         <p class="lang-es">Ondo Finance está construyendo el puente entre Wall Street y la blockchain — y las mayores instituciones del mundo están ayudando a colocar los ladrillos. Si los activos del mundo real tokenizados se convierten en la próxima gran ola del cripto, Ondo está posicionado para liderarla. Es uno de los pocos proyectos cripto donde cuanto más lo adoptan las finanzas tradicionales, más se fortalece. Para los inversores que creen que el futuro de las finanzas está en la cadena, Ondo es la expresión más clara de esa tesis.</p>
+      <p class="lang-ja">オンド・ファイナンスはウォール街とブロックチェーンの間に橋を構築しています。世界最大の金融機関がレンガを敷くのを手伝っています。トークン化された実世界の資産が暗号資産における次の大きな波になるなら、オンドはそれをリードする立場にあります。伝統的な金融が採用するほど強くなる数少ない暗号資産プロジェクトの一つです。金融の未来はオンチェーンにあると信じる投資家にとって、オンドはその論拠の最も明確な表現です。</p>
       </div>
     </section>
 
@@ -2568,10 +2600,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2579,6 +2613,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2612,6 +2647,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2620,6 +2656,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2633,16 +2671,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

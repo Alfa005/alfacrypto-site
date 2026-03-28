@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/filecoin/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/filecoin/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/filecoin/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/filecoin/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/filecoin/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/filecoin/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2017-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The decentralized hard drive of the internet — store anything, trust no one</p>
       <p class="page-hero-tagline lang-fr">Le disque dur décentralisé d&#x27;internet — stockez tout, ne faites confiance à personne</p>
       <p class="page-hero-tagline lang-es">El disco duro descentralizado de internet — almacena cualquier cosa, no confíes en nadie</p>
+      <p class="page-hero-tagline lang-ja">インターネットの分散型ハードドライブ — 何でも保存、誰も信頼しない</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Filecoin?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Filecoin ?</h2>
       <h2 class="lang-es">¿Qué es Filecoin?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Filecoin is a decentralized storage network that lets anyone rent out their unused hard drive space and earn FIL tokens in return. Think of it as Airbnb for storage: instead of renting rooms, storage providers rent out disk space to people who need to store files — documents, images, videos, entire datasets — without relying on a single company like Amazon, Google, or Microsoft.</p>
       <p class="lang-en">The project was created by Juan Benet and Protocol Labs, the same team behind IPFS (InterPlanetary File System), which is a peer-to-peer protocol for addressing and routing content on the web. While IPFS handles how files are found and retrieved, Filecoin adds the missing piece: economic incentives for people to actually store those files reliably, long-term.</p>
       <p class="lang-en">Filecoin raised $257 million in its 2017 ICO, making it one of the largest token sales in crypto history. The mainnet launched in October 2020 after years of development. As of early 2026, the network stores over 2.9 exabytes of data from more than 3,800 active storage providers across the globe.</p>
@@ -2490,6 +2506,13 @@ El proyecto fue descrito por primera vez en un whitepaper en 2014 por Juan Benet
 Filecoin realizó una de las ICOs más grandes de la historia de la cripto, recaudando más de $200 millones en agosto de 2017. Tras años de investigación e ingeniería rigurosas, el mainnet se lanzó el 15 de octubre de 2020. La Filecoin Foundation se estableció ese mismo año para apoyar el desarrollo y el ecosistema web descentralizado en general. En 2023, la red añadió programabilidad a través de la Filecoin Virtual Machine (FVM), habilitando contratos inteligentes y el desarrollo de dApps sobre la capa de almacenamiento.
 
 Hoy, Filecoin se posiciona en la intersección del almacenamiento descentralizado y la revolución de la IA. Con los modelos de IA que requieren conjuntos de datos masivos para el entrenamiento, y las instituciones cada vez más preocupadas por la soberanía de los datos y el bloqueo de proveedores, la propuesta de Filecoin — almacenamiento verificable, distribuido y resistente a la censura — nunca ha sido más relevante.</p>
+      <p class="lang-ja">ファイルコインは、世界中のハードドライブをデータストレージのグローバルマーケットプレイスへと変える分散型ストレージネットワークです。ハードドライブ版のAirbnbと考えると分かりやすいでしょう。余剰ディスク容量を持つ人は誰でもストレージプロバイダーになってFILトークンを稼げ、信頼性の高い検閲耐性のあるストレージが必要な人は、分散したプロバイダーのネットワーク全体にファイルを保存する対価を支払います。
+
+このプロジェクトは2014年に、IPFS（InterPlanetary File System）の創設者でもあるファン・ベネットによってホワイトペーパーが最初に記述されました。IPFSは集中型サーバーに依存せずウェブ上でコンテンツをアドレス指定・移動できるプロトコルです。ファイルコインはIPFSの上に乗る経済的インセンティブ層です。IPFSがアドレス指定と取得を担う一方で、ファイルコインは金銭的動機と暗号証明を加え、データが時間をかけて実際に保存され続けることを保証します。
+
+ファイルコインは暗号史上最大規模のICOのひとつを実施し、2017年8月に2億ドル超を調達しました。数年にわたる厳格な研究と開発を経て、メインネットは2020年10月15日に稼働しました。同年、開発支援と広範な分散型ウェブエコシステム育成のためFilecoin Foundationが設立されました。2023年にはFilecoin Virtual Machine（FVM）を通じてプログラマビリティが追加され、ストレージ層の上でのスマートコントラクトやdApps開発が可能になりました。
+
+現在、ファイルコインは分散型ストレージとAI革命の交差点に自らを位置付けています。AIモデルのトレーニングに膨大なデータセットが必要とされ、機関がデータ主権とベンダーロックインをますます懸念する中、ファイルコインの提案 — 検証可能で分散した検閲耐性のあるストレージ — はかつてないほど重要性を増しています。2026年戦略は、AIエラのストレージ需要に牽引される転換点の年であることを明示しています。</p>
       <p class="lang-fr">Le projet a été créé par Juan Benet et Protocol Labs, la même équipe derrière IPFS (InterPlanetary File System). Tandis qu&#x27;IPFS gère la recherche et la récupération de fichiers, Filecoin ajoute la pièce manquante : des incitations économiques pour que les gens stockent réellement ces fichiers de manière fiable et durable.</p>
       <p class="lang-es">La idea central es elegante: en lugar de confiar en Amazon o Google para almacenar tus archivos, Filecoin crea un mercado abierto donde los proveedores de almacenamiento compiten por tu negocio. Los proveedores deben demostrar que realmente están almacenando tus datos mediante dos innovaciones criptográficas revolucionarias.
 
@@ -2505,6 +2528,7 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Filecoin works through a marketplace where storage providers compete for deals from clients who want to store data. When you want to store a file, you make a storage deal specifying how long you want it stored and how much you&#x27;re willing to pay. Storage miners (providers) accept these deals and earn FIL tokens over time for keeping the data safe.</p>
       <p class="lang-en">What makes Filecoin unique is its consensus mechanism: Proof of Spacetime. Unlike Bitcoin&#x27;s Proof of Work, which proves you spent energy, Proof of Spacetime proves that you&#x27;re actually storing data over a period of time. The network cryptographically verifies at regular intervals that storage providers still have the data they promised to keep.</p>
       <p class="lang-en">There&#x27;s also Proof of Replication, which verifies that a provider has created a unique physical copy of the data — preventing someone from pretending to store multiple copies while only keeping one. These two mechanisms together ensure that data is genuinely stored and continuously maintained.</p>
@@ -2516,6 +2540,7 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Decentralized cloud storage as an alternative to AWS S3 or Google Cloud Storage</li>
 <li>Archival and preservation of important public datasets, scientific data, and cultural heritage</li>
 <li>NFT and Web3 application data storage where decentralization matters</li>
@@ -2531,12 +2556,14 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
 <li>con la Proof of Data Possession que habilita la verificación bajo demanda de datos en caliente</li>
 <li>e integraciones como Akave que se conecta con Snowflake para pipelines de análisis empresarial. La Filecoin Virtual Machine también ha habilitado contratos inteligentes</li>
 <li>DeFi y aplicaciones de almacenamiento programable sobre la red</li></ul>
+      <ul class="lang-ja"><li>ファイルコインはいくつかの主要なユースケースに対応しています。最も実績があるのはアーカイブと保存で、Internet Archiveは1ペタバイト以上のコンテンツを保存し、スミソニアン博物館は文化遺産データセットを保護し、Starling Labはジェノサイド生存者の証言を保存しています。Web3向けにはNFT.StorageがファイルコインでNFTコンテンツとメタデータの永続性を保証しています。ネットワークはAIやエンタープライズワークロードへの対応も強化しており、Proof of Data PossessionによるホットデータのオンデマンドVerification、AkaveとSnowflakeの統合によるエンタープライズ分析パイプラインなどが挙げられます。Filecoin Virtual Machineはスマートコントラクト、DeFi、プログラマブルストレージアプリケーションも可能にしました。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Backed by Protocol Labs ecosystem including IPFS — deep technical foundations</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Over 2.9 exabytes stored with 3,800+ active storage providers globally</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Proof of Spacetime consensus is genuinely innovative — cryptographically verifiable storage</li>
@@ -2549,12 +2576,17 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La competencia en un mercado abierto entre proveedores de almacenamiento reduce costos, elimina el bloqueo de proveedor y permite a los clientes elegir sus propios equilibrios entre precio, velocidad y redundancia</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Adopción probada por instituciones de primer nivel — Internet Archive, Smithsonian, MIT, Starling Lab — otorgando a Filecoin una credibilidad que ningún otro token de almacenamiento puede igualar</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Expansión más allá del almacenamiento puro con contratos inteligentes FVM, Proof of Data Possession para datos en caliente y la emergente suite Onchain Cloud</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>暗号証明（PoRep/PoSt）による検証可能なストレージ — ネットワークは実際にデータが保存されていることを証明できます。信頼に頼る集中型プロバイダーとは異なります</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>ストレージプロバイダー間のオープンマーケット競争によりコストが低減し、ベンダーロックインがなくなり、価格・速度・冗長性のトレードオフを自ら選択できます</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>世界クラスの機関による実証済みの採用 — Internet Archive、スミソニアン、MIT、Starling Lab — ファイルコインに他のストレージトークンが持てない信頼性を与えています</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>FVMスマートコントラクト、ホットデータ向けProof of Data Possession、新興のOnchain Cloudプロダクトスイートで純粋なストレージを超えた領域に拡大しています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Storage retrieval speeds can be slow compared to centralized cloud services</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Complex onboarding for storage providers requiring specialized hardware setup</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Token economics have been criticized for heavy vesting schedules and miner selling pressure</li>
@@ -2567,16 +2599,28 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Operar un proveedor de almacenamiento es complejo e intensivo en capital (requisitos de colateral, hardware especializado, gestión de disponibilidad), lo que concentra la oferta entre operadores sofisticados</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las dinámicas de emisión y adquisición de tokens crean una presión vendedora continua, contribuyendo a caídas de precio significativas desde los máximos históricos</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Compite con los hiperescaladores (AWS, Google Cloud, Azure) por las cargas de trabajo convencionales y con otras redes de almacenamiento descentralizado por los casos de uso nativos de Web3</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>供給が有料需要の成長を上回る可能性 — ファイルコイン自身の2026年戦略も、キャパ拡大から実際の有料利用促進へのピボットの必要性を認めています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ストレージプロバイダーの運営は複雑で資本集約的（コラテラル要件、専用ハードウェア、稼働率管理）であり、供給が洗練されたオペレーターに集中しています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークン発行・ベスティングのダイナミクスが継続的な売り圧力を生み出し、過去最高値からの大幅な価格下落の一因となっています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>メインストリームワークロードではハイパースケーラー（AWS、Google Cloud、Azure）と、Web3ネイティブのユースケースでは他の分散型ストレージネットワークと競合しています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#0090FF">
         <p class="lang-en">Filecoin is the most serious attempt to build a decentralized alternative to Big Tech cloud storage. Its technical foundations are strong, with Protocol Labs behind it. The challenge is bridging the gap between crypto-native idealism and enterprise-grade reliability. If Filecoin can solve retrieval speed and user experience, it has the potential to reshape how the world stores data.</p>
         <p class="lang-fr">Filecoin est la tentative la plus sérieuse de construire une alternative décentralisée au stockage cloud des géants technologiques. Ses fondations techniques sont solides. Le défi est de combler l&#x27;écart entre l&#x27;idéalisme crypto-natif et la fiabilité de niveau entreprise. Si Filecoin résout la vitesse de récupération et l&#x27;expérience utilisateur, il a le potentiel de remodeler la façon dont le monde stocke les données.</p>
         <p class="lang-es">Filecoin es el intento más ambicioso de descentralizar el almacenamiento de datos, y su sistema de pruebas criptográficas es genuinamente innovador — ningún otro proyecto puede demostrar de forma verificable que los datos están almacenados como lo hace Filecoin. La adopción institucional es real e impresionante. El desafío es convertir la enorme capacidad disponible en demanda pagada sostenida. Si la ola de almacenamiento de datos para IA se materializa como se espera, Filecoin está perfectamente posicionado para capturarla. Es una apuesta de infraestructura a largo plazo sobre la idea de que los datos del mundo no deberían vivir en un puñado de servidores corporativos.</p>
+      <p class="lang-ja">核心的なアイデアはエレガントです。ファイルの保管をAmazonやGoogleに信頼する代わりに、ファイルコインはストレージプロバイダーがあなたのビジネスを競い合うオープンマーケットを作り出します。プロバイダーは2つの画期的な暗号的革新によって、実際にあなたのデータを保存していることを証明しなければなりません。
+
+第一に、Proof of Replication（PoRep）：ストレージプロバイダーがあなたのデータを受け入れる際、その固有のエンコードコピーを作成したことを証明しなければなりません。これにより不正を防ぎます — プロバイダーはファイルを保存しているふりをしながら、秘密裏にオンデマンドで再生成したり、他人のコピーを指したりすることができません。あなたの特定データを物理的に保有していることを証明する公証済みの受領書のようなものです。
+
+第二に、Proof of Spacetime（PoSt）：プロバイダーはあなたのデータが今もなお保存されていることを時間をかけて繰り返し証明しなければなりません。教師が学生を抜き打ちチェックするようなもので、PoStはあなたのデータに対して同じことをします。プロバイダーに何も削除していないことをランダムに証明させます。失敗すればペナルティが科され、預けたコラテラルを失います。
+
+ブロックチェーンコンセンサスにはExpected Consensusを使用しており、ブロック生成に選ばれる確率はネットワークに提供したストレージ量に比例します。つまりブロック生成は、単純な計算能力やトークン保有量ではなく、実際の有用なストレージで重み付けされます。ストレージプロバイダーはコラテラルとしてFILトークンをロックする必要もあり、財務的インセンティブが信頼性の高いパフォーマンスと一致します。証明に失敗すれば損失を被ります。</p>
       </div>
     </section>
 
@@ -2586,10 +2630,12 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2597,6 +2643,7 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2638,6 +2685,7 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2646,6 +2694,8 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2659,16 +2709,15 @@ El consenso blockchain usa Expected Consensus, donde la probabilidad de ser sele
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

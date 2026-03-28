@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/conflux/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/conflux/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/conflux/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/conflux/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/conflux/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/conflux/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2018-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">China&#x27;s blockchain gateway to the world — legally compliant, technically formidable.</p>
       <p class="page-hero-tagline lang-fr">La passerelle blockchain de la Chine vers le monde — légalement conforme, techniquement redoutable.</p>
       <p class="page-hero-tagline lang-es">La puerta de enlace blockchain de China hacia el mundo — legalmente compatible, técnicamente formidable.</p>
+      <p class="page-hero-tagline lang-ja">中国のブロックチェーンゲートウェイ — 法規制準拠で、技術的にも強力。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Conflux Network?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Conflux Network ?</h2>
       <h2 class="lang-es">¿Qué es Conflux Network?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Most major blockchains operate in a kind of legal gray zone in China. Bitcoin mining was banned in 2021. Most crypto trading is prohibited. But Conflux is different: it is the only public blockchain explicitly sanctioned by the Chinese government, backed by Shanghai authorities, and developed with academic support from Tsinghua University and MIT. This unique position makes Conflux something almost no other blockchain can claim — a genuine bridge between China&#x27;s 1.4 billion people and the global Web3 ecosystem.</p>
       <p class="lang-en">Founded in 2018 by Fan Long and a team of researchers, Conflux was built to solve the classic blockchain trilemma — balancing security, decentralization, and scalability — using a genuinely novel approach. Instead of processing blocks in a single linear chain (like Bitcoin or Ethereum do), Conflux uses a structure called a Tree-Graph, where multiple blocks can be created in parallel like branches on a tree. This allows thousands of transactions per second without the bottlenecks of sequential block processing.</p>
       <p class="lang-en">The China angle gives Conflux a real-world advantage that money can&#x27;t simply buy. When China Telecom — one of the world&#x27;s largest telecoms with hundreds of millions of subscribers — chose Conflux to build blockchain SIM cards (BSIM) that embed crypto wallets directly into mobile phones, it wasn&#x27;t a marketing stunt. It was a government-backed infrastructure play at a scale most projects can only dream of. McDonald&#x27;s China, Little Red Book (Xiaohongshu), and Oreo have all launched NFT campaigns on Conflux, treating it as the legitimate blockchain layer for Chinese digital commerce.</p>
@@ -2491,6 +2507,13 @@ Fundada en 2018 por Fan Long y un equipo de investigadores, Conflux fue creada p
 El factor China le da a Conflux una ventaja real que el dinero simplemente no puede comprar. Cuando China Telecom — uno de los mayores operadores de telecomunicaciones del mundo con cientos de millones de suscriptores — eligió a Conflux para construir tarjetas SIM blockchain (BSIM) que integran carteras cripto directamente en los teléfonos móviles, no fue un truco de marketing. Fue un despliegue de infraestructura respaldado por el gobierno a una escala de la que la mayoría de los proyectos solo pueden soñar. McDonald&#x27;s China, Little Red Book (Xiaohongshu) y Oreo han lanzado campañas de NFT en Conflux, tratándolo como la capa blockchain legítima para el comercio digital chino.
 
 A marzo de 2026, Conflux tiene una capitalización de mercado de alrededor de 322 millones de dólares con 5,190 millones de tokens CFX en circulación. El consenso híbrido PoW+PoS, añadido mediante una actualización, incorporó un &quot;eSpace&quot; compatible con EVM que permite a los desarrolladores de Ethereum desplegar su código en Conflux sin modificaciones — combinando cumplimiento regulatorio con accesibilidad para desarrolladores.</p>
+      <p class="lang-ja">ほとんどの主要ブロックチェーンは、どの国の政府当局とも意図的に距離を置いた一種の規制的グレーゾーンで動作しています。コンフラックスはこれとは正反対のアプローチを取り、中国の規制当局から正式な承認を受けた唯一の主要パブリックブロックチェーンとして位置付けており、中国の機関と世界のブロックチェーンエコシステムをつなぐコンプライアンス準拠の橋渡し役を目指しています。
+
+コンフラックスは2018年に清華大学とトロント大学の研究者チーム（Long Fan、Ming Wu、Guang Yang、Yuanjie Tangを含む）によって設立されました。後援された学術的出自は、技術的な信頼性と中国の機関とのパートナーシップを促進する人脈を提供しています。コンフラックスの主要な技術的革新はTree-Graph（TG）と呼ばれるもので、ブロックの構造にDAGスタイルのアーキテクチャを使用します。従来のブロックチェーンが一度に1つのブロックのみを確認するのとは異なり、Tree-Graphは並行して複数のブロックを確認できるため、競合トランザクションを捨てることなくスループットを向上させます。
+
+コンフラックスの独自の位置付けは2つのネットワークにわたっています。コアスペース（コンフラックスのネイティブレイヤー、独自のVM）とeSpace（完全なEthereumの互換性）です。この2層構造により、eSpaceのEthereumエコシステムを活用しながらコアスペースで中国向けのコンプライアンスユースケースを構築できます。
+
+2026年3月時点で、コンフラックスはカントンデジタル人民元のブロックチェーンインフラに関わっており、Bankcomm（交通銀行）と中国上海市の各種機関向けにエンタープライズブロックチェーンプロジェクトを進めています。CFXトークンの時価総額は約2億ドルです。</p>
       <p class="lang-fr">Fondée en 2018 par Fan Long et une équipe de chercheurs, Conflux a été construite pour résoudre le trilemme classique de la blockchain — équilibrer sécurité, décentralisation et scalabilité — en utilisant une approche genuinement novatrice. Au lieu de traiter les blocs dans une chaîne linéaire unique (comme Bitcoin ou Ethereum), Conflux utilise une structure appelée Tree-Graph, où plusieurs blocs peuvent être créés en parallèle comme des branches sur un arbre. Cela permet des milliers de transactions par seconde sans les goulots d&#x27;étranglement du traitement séquentiel.</p>
       <p class="lang-es">El consenso Tree-Graph es la invención técnica central de Conflux. En una blockchain tradicional, los bloques forman una cadena única: uno tras otro. Si dos mineros crean bloques al mismo tiempo, solo uno sobrevive y el otro se descarta como &quot;huérfano&quot;. El Tree-Graph de Conflux conserva todos los bloques producidos concurrentemente, organizándolos en una estructura de árbol donde cada bloque es válido. Un algoritmo especial llamado GHAST (Greedy Heaviest Adaptive SubTree) determina luego el orden canónico de las transacciones en este árbol, creando un orden total sin descartar bloques.
 
@@ -2505,6 +2528,7 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">The Tree-Graph consensus is Conflux&#x27;s core technical invention. In a traditional blockchain, blocks form a single chain: one after another. If two miners create blocks at the same time, only one survives and the other is discarded as &quot;orphaned.&quot; Conflux&#x27;s Tree-Graph keeps all concurrently produced blocks, organizing them into a tree structure where every block is valid. A special algorithm called GHAST (Greedy Heaviest Adaptive SubTree) then determines the canonical ordering of transactions across this tree, creating a total order without discarding blocks.</p>
       <p class="lang-en">The network has two spaces running in parallel. Core Space is Conflux&#x27;s native environment with its own virtual machine, smart contract language, and token standard. eSpace is fully EVM-compatible — any Solidity contract that runs on Ethereum runs identically on eSpace. The two spaces are connected via a cross-space bridge, allowing assets to move between them. This architecture lets Conflux serve both its native developer community and Ethereum&#x27;s vast developer ecosystem simultaneously.</p>
       <p class="lang-en">Conflux uses a hybrid consensus combining Proof-of-Work (for security and decentralization) with Proof-of-Stake (for finality). The PoW component means mining provides Sybil resistance — it&#x27;s expensive to attack the network — while PoS validators stake CFX to quickly finalize blocks and prevent reorgs. A Fee Sponsorship model is particularly useful for onboarding: dApp developers can pay gas fees on behalf of their users, so users with zero CFX balance can still interact with applications.</p>
@@ -2517,15 +2541,22 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">Conflux powers blockchain SIM cards (BSIM with China Telecom) embedding wallets in mobile phones, NFT campaigns for global brands in China (McDonald&#x27;s, Oreo), cross-border stablecoin payments (AxCNH), DeFi via Swappi DEX and Flux lending, decentralized identity (Space ID), supply chain tracking, RWA tokenization, digital government services in Shanghai&#x27;s Free Trade Zone, and PayFi integrations for Asia-Pacific payment corridors.</p>
       <p class="lang-fr">Conflux alimente les cartes SIM blockchain (BSIM avec China Telecom) intégrant des wallets dans les téléphones mobiles, les campagnes NFT pour les marques mondiales en Chine (McDonald&#x27;s, Oreo), les paiements en stablecoin transfrontaliers (AxCNH), la DeFi via Swappi DEX et le prêt Flux, l&#x27;identité décentralisée (Space ID), le suivi de la chaîne d&#x27;approvisionnement, la tokenisation d&#x27;actifs réels, les services gouvernementaux numériques dans la Zone de Libre-Échange de Shanghai et les intégrations PayFi pour les corridors de paiement Asie-Pacifique.</p>
       <p class="lang-es">Conflux impulsa las tarjetas SIM blockchain (BSIM con China Telecom) que integran carteras en teléfonos móviles, campañas de NFT para marcas globales en China (McDonald&#x27;s, Oreo), pagos en stablecoin transfronterizos (AxCNH), DeFi a través de Swappi DEX y préstamos Flux, identidad descentralizada (Space ID), seguimiento de cadena de suministro, tokenización de activos del mundo real, servicios gubernamentales digitales en la Zona de Libre Comercio de Shanghái, e integraciones PayFi para corredores de pago en Asia-Pacífico.</p>
+      <p class="lang-ja">コンフラックスのTree-Graphコンセンサスは2つの革新を組み合わせています。GHAST（Greedy Heaviest Adaptive SubTree）コンセンサスルールとDAGベースのブロック構造です。仕組みはこうです。従来のブロックチェーンでは、2人のマイナーが同時にブロックを見つけた場合、1つだけが受け入れられ（通常は最初のもの）、もう一方は廃棄されます（アンクルブロック）。これはネットワークのスループットの最大20〜40%を無駄にします。
+
+Tree-GraphではすべてのブロックがDAGに組み込まれます。「競合」ブロックは廃棄されず、ツリーグラフ内のエントリとして組み込まれます。これらのブロックからのトランザクションは最終的にリニアライズ（順番付け）される処理であり、GHASTアルゴリズムがどのトランザクションを優先するかを決定します。廃棄しないことでネットワークのスループットが向上し、処理できるトランザクション数が増えます。
+
+コンフラックスのeSpaceはEVM互換の環境で、Solidityで書かれた任意のEthereumスマートコントラクトを再デプロイできます。コアスペースとeSpaceの間はクロスチェーンブリッジで接続されており、資産を2つのレイヤー間で移動できます。このアーキテクチャにより、中国の機関はコアスペースのコンプライアンス機能（KYCホワイトリスト、ガバナンス、規制対応機能）を使用しながら、eSpaceで動作するEthereumエコシステムとも接続できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Only regulatory-compliant public blockchain in China, giving it exclusive access to Chinese enterprise and government partnerships</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>China Telecom BSIM cards embed Conflux wallets in physical SIM cards — a distribution channel reaching hundreds of millions of users with zero app friction</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tree-Graph consensus achieves thousands of TPS without sacrificing decentralization, with hybrid PoW+PoS providing robust security</li>
@@ -2538,12 +2569,14 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Las tarjetas BSIM de China Telecom integran las carteras Conflux en tarjetas SIM físicas — un canal de distribución que llega a cientos de millones de usuarios sin fricción</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El consenso Tree-Graph alcanza miles de TPS sin sacrificar la descentralización, con el PoW+PoS híbrido proporcionando una seguridad sólida</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El eSpace compatible con EVM significa que cualquier desarrollador de Ethereum puede desplegar en Conflux al instante, accediendo al mercado chino sin reescribir código</li></ul>
+      <ul class="lang-ja"><li>コンフラックスは、中国市場へのeSpaceを通じたEthereumDAppのデプロイ、デジタル人民元（デジタル人民元）のインフラ実験、コンプライアンス準拠の企業ブロックチェーンユースケース（KYC、サプライチェーン、貿易金融）、国境を越えた資産移転と決済、中国の機関投資家向けのNFTと文化的資産のトークン化、分散型金融とコアスペースでのDeFiプロトコル、そしてChinaの規制要件に準拠したウェブ3.0サービスに利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>The China-dependent moat is also a China-dependent risk: regulatory changes in Beijing could reverse Conflux&#x27;s privileged status overnight</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Limited global DeFi ecosystem compared to Ethereum, Solana, or BNB Chain — most international developers still overlook it</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CFX has no hard supply cap, with storage rent burns and block reward halving as the main deflationary mechanisms — less straightforward than fixed-supply tokens</li>
@@ -2556,16 +2589,22 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ecosistema DeFi global limitado en comparación con Ethereum, Solana o BNB Chain — la mayoría de los desarrolladores internacionales aún lo pasan por alto</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CFX no tiene un límite de oferta fijo, con las quemas de renta de almacenamiento y la reducción de recompensas de bloque como los principales mecanismos deflacionarios — menos claro que los tokens de oferta fija</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narrativa sobre BSIM y las alianzas gubernamentales ha sido prominente desde 2021 — las métricas de adopción aún están por detrás del entusiasmo en términos de actividad real on-chain</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>中国の規制的コンプライアンスへの強い依存は戦略的な利点でもあり制約でもある — 規制の変化やChinaの政策シフトがネットワークのユーティリティに直接影響する</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>CFXの時価総額2億ドルは、主張されている中国市場での影響力に比べて相対的に小規模であり、アクセス可能であっても国際的な強い採用が証明されていないことを示している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>EVM以外の技術イノベーション（Tree-Graph）は現実世界のユースケースで中央集権型インフラより大幅に優位性があるとは未だ証明されていない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>規制リスクは双方向に働く — 中国の暗号資産規制の変化がコンフラックスを独自の法的地位から不利な地位に追い込む可能性がある</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#1A1A2E">
         <p class="lang-en">Conflux occupies a position no other blockchain can replicate: government-sanctioned, technically solid, and enterprise-adopted in the world&#x27;s largest market. The China Telecom BSIM partnership alone represents a distribution advantage that even Ethereum cannot access due to regulatory friction. The honest question is whether Chinese Web3 activity will meaningfully accelerate — because right now, Conflux&#x27;s unique position hasn&#x27;t yet translated into dominant on-chain metrics. If it does, early CFX holders will look prescient.</p>
         <p class="lang-fr">Conflux occupe une position qu&#x27;aucune autre blockchain ne peut répliquer : sanctionnée par le gouvernement, techniquement solide et adoptée par les entreprises dans le plus grand marché du monde. Le partenariat BSIM de China Telecom représente à lui seul un avantage de distribution auquel même Ethereum ne peut pas accéder en raison des frictions réglementaires. La question honnête est de savoir si l&#x27;activité Web3 chinoise va s&#x27;accélérer de manière significative — car pour l&#x27;instant, la position unique de Conflux ne s&#x27;est pas encore traduite en métriques dominantes on-chain. Si c&#x27;est le cas, les premiers détenteurs de CFX auront été clairvoyants.</p>
         <p class="lang-es">Conflux ocupa una posición que ninguna otra blockchain puede replicar: sancionada por el gobierno, técnicamente sólida y adoptada por empresas en el mayor mercado del mundo. La alianza BSIM de China Telecom por sí sola representa una ventaja de distribución a la que incluso Ethereum no puede acceder debido a las fricciones regulatorias. La pregunta honesta es si la actividad Web3 china se acelerará de manera significativa — porque ahora mismo, la posición única de Conflux aún no se ha traducido en métricas dominantes on-chain. Si lo hace, los primeros titulares de CFX habrán sido claros visionarios.</p>
+      <p class="lang-ja">コンフラックスが埋めようとしているニッチは本物です。中国の機関がブロックチェーンエコシステムとやり取りしたい場合、準拠したパブリックネットワークとしての位置付けは唯一無二のアクセスを提供します。デジタル人民元実験との関わりとBankcommとのパートナーシップは単なる売り込みではなく、実際のエンタープライズ牽引力です。課題は規制環境が変わりやすいことです。中国の暗号資産政策は予測不可能で、コンフラックスの最大の強みが瞬時に制約になる可能性があります。中国のブロックチェーン採用の増加に投資したい人にとっては、CFXが直接的なエクスポージャーを提供します。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ Conflux usa un consenso híbrido que combina Proof-of-Work (para seguridad y des
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

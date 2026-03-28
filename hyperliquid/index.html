@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/hyperliquid/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/hyperliquid/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/hyperliquid/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/hyperliquid/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/hyperliquid/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2023-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The on-chain exchange that rivals Wall Street speed</p>
       <p class="page-hero-tagline lang-fr">L&#x27;échange on-chain qui rivalise avec la vitesse de Wall Street</p>
       <p class="page-hero-tagline lang-es">El exchange en cadena que rivaliza con la velocidad de Wall Street</p>
+      <p class="page-hero-tagline lang-ja">ウォール街のスピードに匹敵するオンチェーン取引所</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is Hyperliquid (HYPE)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Hyperliquid (HYPE) ?</h2>
       <h2 class="lang-es">¿Qué es Hyperliquid (HYPE)?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Hyperliquid is a decentralized exchange built on its own custom blockchain. Think of it as a stock exchange — but fully transparent, open to anyone in the world, and running on blockchain technology. It lets people trade &quot;perpetual futures&quot; (bets on whether a crypto&#x27;s price will go up or down) without trusting a centralized company like Coinbase or Binance. What makes it special is that every single trade happens on-chain, meaning anyone can verify what happened — no hidden processes, no manipulation.</p>
       <p class="lang-fr">Hyperliquid est un échange décentralisé construit sur sa propre blockchain. Imaginez une bourse — mais entièrement transparente, ouverte à tous et fonctionnant sur la blockchain. Il permet de trader des « futures perpétuels » (des paris sur la hausse ou la baisse d&#x27;une crypto) sans faire confiance à une entreprise centralisée comme Coinbase ou Binance. Sa particularité : chaque trade se fait on-chain, ce qui signifie que tout est vérifiable — aucun processus caché, aucune manipulation.</p>
       <p class="lang-es">Hyperliquid es un exchange descentralizado construido sobre su propia blockchain personalizada. Imagínalo como una bolsa de valores — pero completamente transparente, abierta a cualquier persona en el mundo y funcionando sobre tecnología blockchain. Permite a las personas operar con &quot;futuros perpetuos&quot; (apuestas sobre si el precio de una cripto subirá o bajará) sin confiar en una empresa centralizada como Coinbase o Binance. Lo que lo hace especial es que cada operación ocurre en la cadena, lo que significa que cualquiera puede verificar lo que sucedió — sin procesos ocultos ni manipulación.</p>
+      <p class="lang-ja">Hyperliquidは独自のカスタムブロックチェーン上に構築された分散型取引所です。証券取引所をイメージしてください — ただし完全に透明で、世界中の誰にでも開かれており、ブロックチェーン技術で動いています。CoinbaseやBinanceのような中央集権的な企業を信頼せずに「無期限先物」（暗号通貨の価格が上がるか下がるかへの賭け）を取引できます。特別なのは、すべての取引がオンチェーンで行われること — つまり誰でも何が起きたか検証できます。隠れたプロセスも操作もありません。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Hyperliquid built its own blockchain (the Hyperliquid L1) specifically designed for trading. At its core is HyperBFT — a custom consensus system where dozens of computers verify every trade almost instantly (0.2 seconds). Unlike most DEXes that use automated pools, Hyperliquid runs a full order book on-chain, just like a stock exchange: buyers place bids, sellers place asks, best price wins. It handles 200,000 orders per second with zero gas fees. On top of this, HyperEVM lets developers build any Ethereum-style app with direct access to the trading engine.</p>
       <p class="lang-fr">Hyperliquid a construit sa propre blockchain (Hyperliquid L1) spécialement conçue pour le trading. Au cœur se trouve HyperBFT — un système de consensus où des dizaines d&#x27;ordinateurs vérifient chaque trade presque instantanément (0,2 seconde). Contrairement à la plupart des DEX qui utilisent des pools automatisés, Hyperliquid utilise un carnet d&#x27;ordres complet on-chain, comme une bourse : acheteurs et vendeurs placent des ordres, le meilleur prix gagne. Il gère 200 000 ordres par seconde sans frais de gas. En plus, HyperEVM permet aux développeurs de construire toute application Ethereum avec accès direct au moteur de trading.</p>
       <p class="lang-es">Hyperliquid construyó su propia blockchain (el Hyperliquid L1) diseñada específicamente para el trading. En su núcleo está HyperBFT — un sistema de consenso personalizado donde decenas de computadoras verifican cada operación casi al instante (0,2 segundos). A diferencia de la mayoría de los DEXes que utilizan pools automatizados, Hyperliquid ejecuta un libro de órdenes completo en cadena, igual que una bolsa: los compradores colocan ofertas, los vendedores colocan preguntas, y gana el mejor precio. Maneja 200.000 órdenes por segundo sin comisiones de gas. Además, HyperEVM permite a los desarrolladores construir cualquier aplicación estilo Ethereum con acceso directo al motor de trading.</p>
+      <p class="lang-ja">Hyperliquidは取引専用に設計した独自のブロックチェーン（Hyperliquid L1）を構築しました。核心はHyperBFT — 数十台のコンピューターがほぼ瞬時（0.2秒）にすべての取引を検証するカスタムコンセンサスシステムです。自動プールを使う大多数のDEXと異なり、Hyperliquidは証券取引所のように完全なオーダーブックをオンチェーンで動かしています。買い手がビッドを、売り手がアスクを出し、最良値が勝ちます。毎秒20万件の注文をガス手数料ゼロで処理します。さらにHyperEVMによって開発者はトレーディングエンジンに直接アクセスできるEthereumスタイルのアプリを構築できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Trading perpetual futures with up to 50x leverage</li>
 <li>spot trading new tokens</li>
 <li>earning yield by providing liquidity to the HLP vault</li>
@@ -2516,12 +2535,14 @@
 <li>ganar rendimiento proporcionando liquidez al vault HLP</li>
 <li>desplegar mercados perpetuos personalizados para acciones y materias primas vía HIP-3</li>
 <li>hacer staking de HYPE para recompensas y descuentos en comisiones</li></ul>
+      <ul class="lang-ja"><li>最大50倍のレバレッジでの無期限先物取引、新しいトークンのスポット取引、HLPボールトへの流動性提供による利回り獲得、HIP-3を通じた株式・商品向けカスタム無期限市場の展開、報酬と手数料割引のためのHYPEのステーキング。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Lightning-fast execution (0.2s) with full on-chain transparency</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Zero gas fees on trades — only tiny maker/taker fees</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Largest community airdrop ever: $1.2B to 94K users, zero VC allocation</li>
@@ -2534,12 +2555,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Sin comisiones de gas en las operaciones — solo pequeñas comisiones maker/taker</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El mayor airdrop comunitario de la historia: 1.200 millones de dólares para 94.000 usuarios, sin asignación a capital de riesgo</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Equipo autofinanciado que alcanzó más de 650 millones de dólares en ingresos sin capital de riesgo</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>超高速実行（0.2秒）とフルオンチェーン透明性</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>取引のガス手数料ゼロ — わずかなMaker/Taker手数料のみ</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>史上最大のコミュニティエアドロップ：94,000ユーザーへ12億ドル、VCへの割り当てゼロ</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>自己資金調達チームがVCマネーなしで650億ドル以上の収益を達成</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Centralization concerns — small validator set can make unilateral decisions</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Security incidents including the JELLY attack and $21M private key breach</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Intense competition from dYdX, GMX, Aster, and expanding centralized exchanges</li>
@@ -2552,16 +2578,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Incidentes de seguridad, incluyendo el ataque JELLY y el robo de 21 millones de dólares por clave privada</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Intensa competencia de dYdX, GMX, Aster y los exchanges centralizados en expansión</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La ausencia de KYC en el trading de derivados apalancados atrae el escrutinio regulatorio</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>中央集権化の懸念 — 少数のバリデーターが単独で決定できる</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>JELLYアタックや2,100万ドルの秘密鍵流出を含むセキュリティインシデント</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>dYdX・GMX・Aster・拡大する中央集権取引所との激しい競合</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>レバレッジドデリバティブ取引にKYCがないことが規制当局の注目を集める</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#97FCE4">
         <p class="lang-en">Hyperliquid is the fastest and most transparent decentralized exchange ever built. It proved that a small, self-funded team could build something that rivals Wall Street in speed while keeping everything on-chain. The zero-VC, community-first approach created extraordinary loyalty. However, centralization risks and security incidents remind us it&#x27;s still early. If you&#x27;re interested in the future of on-chain trading, Hyperliquid is impossible to ignore.</p>
         <p class="lang-fr">Hyperliquid est l&#x27;échange décentralisé le plus rapide et le plus transparent jamais construit. Il a prouvé qu&#x27;une petite équipe autofinancée pouvait construire quelque chose qui rivalise avec Wall Street en vitesse tout en gardant tout on-chain. L&#x27;approche zéro-VC et orientée communauté a créé une loyauté extraordinaire. Cependant, les risques de centralisation et les incidents de sécurité rappellent que c&#x27;est encore le début. Si le futur du trading on-chain vous intéresse, Hyperliquid est impossible à ignorer.</p>
         <p class="lang-es">Hyperliquid es el exchange descentralizado más rápido y transparente jamás construido. Demostró que un equipo pequeño y autofinanciado puede construir algo que rivaliza con Wall Street en velocidad manteniendo todo en la cadena. El enfoque sin capital de riesgo y centrado en la comunidad generó una lealtad extraordinaria. Sin embargo, los riesgos de centralización y los incidentes de seguridad nos recuerdan que aún es temprano. Si te interesa el futuro del trading en cadena, Hyperliquid es imposible de ignorar.</p>
+      <p class="lang-ja">Hyperliquidは今まで構築された中で最も高速かつ透明な分散型取引所です。自己資金調達の小さなチームが、すべてをオンチェーンに保ちながらウォール街に匹敵するスピードを実現できることを証明しました。VCゼロ・コミュニティファーストのアプローチが類まれなロイヤリティを生み出しました。しかし、中央集権化リスクとセキュリティインシデントはまだ初期段階であることを思い起こさせます。オンチェーン取引の未来に興味があるなら、Hyperliquidは無視できません。</p>
       </div>
     </section>
 
@@ -2571,10 +2603,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2582,6 +2616,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2615,6 +2650,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2623,6 +2659,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2636,16 +2674,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

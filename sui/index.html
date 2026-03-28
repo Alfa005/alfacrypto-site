@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/sui/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/sui/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/sui/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/sui/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/sui/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The user-friendly Layer 1 built for AI agents and the next billion users</p>
       <p class="page-hero-tagline lang-fr">Le Layer 1 simple d&#x27;utilisation pensé pour les agents IA et le prochain milliard d&#x27;utilisateurs</p>
       <p class="page-hero-tagline lang-es">La blockchain construida para la velocidad, por las mentes detrás del Diem de Meta</p>
+      <p class="page-hero-tagline lang-ja">MetaのDiemを生み出した頭脳によって構築された、スピードのためのブロックチェーン</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,6 +2497,7 @@
       <h2 class="lang-en">What is NEAR Protocol?</h2>
       <h2 class="lang-fr">Qu'est-ce que NEAR Protocol ?</h2>
       <h2 class="lang-es">¿Qué es Sui?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">NEAR Protocol is a blockchain that was built with one obsession: making crypto actually usable. While most blockchains are built by engineers for engineers, NEAR was designed so that a regular developer — even a JavaScript programmer — can build on it, and a regular person can use an app without even knowing they&#x27;re on a blockchain. Named after the phrase &quot;near by&quot; — as in, blockchain technology should feel near to everyone.</p>
       <p class="lang-fr">NEAR Protocol est une blockchain construite avec une obsession : rendre la crypto véritablement utilisable. Là où la plupart des blockchains sont construites par des ingénieurs pour des ingénieurs, NEAR a été conçu pour qu&#x27;un développeur ordinaire — même un programmeur JavaScript — puisse construire dessus, et qu&#x27;une personne ordinaire puisse utiliser une application sans même savoir qu&#x27;elle est sur une blockchain.</p>
       <p class="lang-es">Sui es una blockchain de Capa 1 de próxima generación que nació de las cenizas de uno de los proyectos tecnológicos más ambiciosos — y más controvertidos — de la historia: el Diem de Meta (originalmente llamado Libra). En 2019, Facebook anunció planes para crear una moneda digital global para sus miles de millones de usuarios. El proyecto atrajo una feroz reacción regulatoria en todo el mundo, y Meta finalmente lo cerró a principios de 2022. Pero los ingenieros que construyeron su tecnología central no tenían intención de dejar morir su trabajo. Cinco ingenieros senior de Diem — liderados por Evan Cheng, el ex jefe de I+D de la división cripto de Meta — se fueron para fundar Mysten Labs a finales de 2021 y comenzaron a construir Sui desde cero.
@@ -2492,12 +2507,20 @@ El equipo fundador es un compendio de la ingeniería blockchain de primer nivel.
 Sui lanzó su red principal el 3 de mayo de 2023, y se distinguió inmediatamente con una elección arquitectónica radical: en lugar de organizar los datos en torno a cuentas de usuario (como Ethereum y la mayoría de las demás blockchains), Sui organiza todo en torno a objetos individuales. Piensa en la diferencia así: en Ethereum, tienes una cuenta bancaria con un saldo que se actualiza cada vez que envías o recibes dinero. En Sui, posees objetos digitales específicos, como monedas físicas en una billetera. Cuando envías una moneda a un amigo, solo esa moneda específica cambia de manos, y nadie más en la red necesita saberlo. Este cambio aparentemente simple desbloquea una capacidad que ninguna otra blockchain importante puede igualar: el verdadero procesamiento paralelo de transacciones independientes.
 
 El crecimiento desde el lanzamiento ha sido notable. En menos de dos años, el ecosistema DeFi de Sui pasó de cero a un máximo de $2.600 millones en valor total bloqueado, con más de 200 aplicaciones descentralizadas, más de 500.000 usuarios activos diarios y productos institucionales de Grayscale, 21Shares y Bitwise. SUI alcanzó un precio máximo histórico de $5,35 en enero de 2025.</p>
+      <p class="lang-ja">スイは次世代Layer 1ブロックチェーンであり、暗号資産の歴史上最も野心的かつ物議を醸したテックプロジェクトの一つ、MetaのDiem（元々Libraと呼ばれた）の廃墟から生まれました。2019年にFacebookが数十億ユーザー向けのグローバルデジタル通貨の計画を発表しましたが、世界中で激しい規制の反発を招き、Metaは2022年初頭にプロジェクトを終了しました。しかし、そのコア技術を構築したエンジニアたちは自分たちの仕事を廃れさせるつもりはありませんでした。5人のシニアDiemエンジニア（MetaのクリプトR&amp;D部門元責任者のエバン・チェン率いる）が2021年末にMysten Labsを設立し、スイをゼロから構築し始めました。
+
+創業チームはブロックチェーンエンジニアリングの名士録のようです。エバン・チェン（CEO）はAppleで10年間働いた後にMetaのブロックチェーン研究を率いました。サム・ブラックシア（CTO）はスイを動かすセキュリティファーストなスマートコントラクト言語であるMoveプログラミング言語を文字通り発明しました。ジョージ・ダネジス（チーフサイエンティスト）はユニバーシティ・カレッジ・ロンドンの著名な暗号学教授です。コスタス・チャルキアス（チーフクリプトグラファー）は以前R3とMetaで暗号システムを設計しました。Andreessen Horowitz、Binance Labs、Coinbase Venturesを含む投資家から3億3600万ドルの資金を持つMysten Labsは、ブロックチェーンを基本原理から再考するための才能とリソースの両方を持っていました。
+
+スイは2023年5月3日にメインネットをローンチし、即座に根本的なアーキテクチャの選択により際立ちました。イーサリアムや他のほとんどのブロックチェーンのようにユーザーアカウントの周りにデータを整理する代わりに、スイは全ての処理を個々のオブジェクトの周りに整理します。この違いを考えてみましょう。イーサリアムではお金を送受信するたびに残高が更新される銀行口座を持っています。スイでは財布の中の物理的なコインのような特定のデジタルオブジェクトを所有しています。友人に一枚のコインを送ると、その特定のコインだけが手を変え、ネットワーク上の誰もそれを知る必要がありません。この一見単純な変化が、他の主要ブロックチェーンには匹敵できない能力を解き放ちます。独立したトランザクションの真の並列処理です。
+
+ローンチ以来の成長は注目に値します。2年も経たないうちに、スイのDeFiエコシステムはゼロから総ロック価値のピーク26億ドルへ成長し、200以上の分散型アプリケーション、50万人以上の日次アクティブユーザー、Grayscale、21Shares、Bitwiseからの機関商品が生まれました。SUIは2025年1月に5.35ドルの史上最高値を記録しました。その後大幅に調整され（2026年3月時点で約1ドル前後で取引）ていますが、基盤技術はSolanaさえ超えるペースで開発者を惹きつけ続けており、2026年初頭時点で週間アクティブ開発者数は1,300〜1,400人です。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">NEAR uses a technique called &quot;sharding&quot; through its Nightshade system. Imagine a highway that splits into multiple parallel lanes when traffic gets heavy — Nightshade does the same thing, splitting the network into parallel processing tracks so it never slows down. NEAR also has human-readable account names (like &quot;alice.near&quot; instead of long random addresses) and allows apps to pay for users&#x27; transaction fees — making the experience seamless for newcomers.</p>
       <p class="lang-fr">NEAR utilise une technique appelée « sharding » via son système Nightshade. Imaginez une autoroute qui se divise en plusieurs voies parallèles quand la circulation devient dense — Nightshade fait de même, divisant le réseau en pistes de traitement parallèles pour qu&#x27;il ne ralentisse jamais. NEAR propose aussi des noms de compte lisibles (comme « alice.near » au lieu de longues adresses aléatoires) et permet aux applications de payer les frais de transaction des utilisateurs.</p>
       <p class="lang-es">Para entender qué hace especial a la tecnología de Sui, imagina una oficina de correos muy concurrida. En una blockchain tradicional como Ethereum, cada carta y paquete debe pasar por un único empleado en una única ventanilla, de uno en uno, en estricto orden. Si alguien delante de ti tiene un paquete complicado, todos los que están detrás esperan. Ese es el procesamiento secuencial, y es el cuello de botella fundamental de la mayoría de las blockchains. Ahora imagina la oficina de correos de Sui: tiene cientos de ventanillas abiertas simultáneamente. Las cartas dirigidas a diferentes personas se procesan instantáneamente en diferentes ventanillas porque no tienen nada que ver entre sí. Solo cuando dos cartas necesitan modificar el mismo buzón deben esperar en la misma ventanilla. Este es el modelo de ejecución paralela centrado en objetos de Sui.
@@ -2505,12 +2528,20 @@ El crecimiento desde el lanzamiento ha sido notable. En menos de dos años, el e
 Sui logra esto a través de su arquitectura de datos única. Cada elemento en la red — tus tokens, tus NFTs, tus personajes de juego, incluso partes del estado de los contratos inteligentes — es un &quot;objeto&quot; distinto con su propia identidad y registro de propiedad. Los objetos vienen en cuatro variantes: propiedad por dirección (tus tokens personales), propiedad por objeto (un elemento dentro de otro elemento, como una espada dentro de un personaje de juego), inmutable (código publicado que nunca puede cambiar) y compartido (recursos a los que múltiples personas necesitan acceder, como un pool de liquidez DEX). La idea clave es que las transacciones que involucran solo objetos propios no requieren consenso global en absoluto — eluden completamente la cola principal y se finalizan en aproximadamente 250 milisegundos a través de un proceso ligero llamado Byzantine Consistent Broadcast. Solo las transacciones que tocan objetos compartidos necesitan el mecanismo de consenso completo, y ese también se completa en unos 390 milisegundos gracias al motor de consenso Mysticeti de Sui.
 
 Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tecnología de consenso de Sui. El resultado: la latencia de consenso bajó de ~2 segundos a 390 milisegundos, y el rendimiento superó las 50.000 transacciones por segundo con finalidad por debajo de un segundo. Además, Sui resuelve tres problemas críticos de experiencia de usuario: zkLogin permite a los usuarios iniciar sesión con sus cuentas existentes de Google, Facebook o Apple; las transacciones patrocinadas permiten a los desarrolladores pagar las comisiones de gas en nombre de sus usuarios; y los Programmable Transaction Blocks (PTBs) permiten agrupar hasta 1.024 operaciones distintas en una sola transacción atómica.</p>
+      <p class="lang-ja">スイの技術を特別なものにしているものを理解するために、忙しい郵便局を想像してください。イーサリアムのような従来のブロックチェーンでは、全ての手紙と小包が厳格な順序で一度に一つずつ、一つの窓口の一人の係員を通らなければなりません。あなたの前にいる人が複雑な処理をする場合、後ろの全員が待ちます。これが逐次処理であり、ほとんどのブロックチェーンの根本的なボトルネックです。スイの郵便局を想像してください。何百もの窓口が同時に開いています。異なる人宛ての手紙は互いに何の関係もないため、異なる窓口で瞬時に処理されます。二つの手紙が同じ郵便受けを変更する必要がある場合のみ、同じ窓口で待つ必要があります。これがスイのオブジェクト中心の並列実行モデルです。
+
+スイはユニークなデータアーキテクチャによってこれを実現しています。ネットワーク上の全てのアイテム（トークン、NFT、ゲームキャラクター、スマートコントラクトの状態の断片）は、固有のアイデンティティと所有権記録を持つ個別の「オブジェクト」です。オブジェクトには4種類あります。アドレス所有（個人トークン）、オブジェクト所有（ゲームキャラクター内の剣などの別のオブジェクト内のアイテム）、不変（決して変更できない公開コード）、共有（DEX流動性プールなど複数の人がアクセスする必要があるリソース）。鍵となる洞察は、所有オブジェクトのみに関わるトランザクションはグローバルコンセンサスを全く必要としないということです。メインキューを完全にバイパスし、Byzantine Consistent Broadcastと呼ばれる軽量プロセスを通じて約250ミリ秒でファイナライズします。共有オブジェクトに触れるトランザクションのみが完全なコンセンサスメカニズムを必要とし、スイのMysticeti コンセンサスエンジンのおかげでそれさえも約390ミリ秒で完了します。
+
+2024年4月にローンチしたMysticeti は、スイのコンセンサス技術の第2世代です。オリジナルシステム（Narwhal/Bullshark）は全てのブロックに対してバリデーターの高コストな署名が必要でした。Mysticeti はこの要件を排除し、各ラウンドで複数のバリデーターが同時にブロックを提案できるマルチリーダーアプローチを導入しました。結果：コンセンサスレイテンシが約2秒から390ミリ秒に低下し、スループットがサブ秒ファイナリティで毎秒5万件以上のトランザクションを超えました。制御環境での理論的ピーク性能は297,000 TPSに達しています。これはスイを今まで構築された中で最速のブロックチェーンの一つにし、ファイナリティタイムが中央集権型決済システムに匹敵するか上回っています。
+
+しかしスピードは話の半分に過ぎません。スイはまたブロックチェーン採用を妨げてきた3つの重要なユーザーエクスペリエンス問題も解決します。まず、zkLogin によりユーザーは既存のGoogle、Facebook、またはAppleアカウントを使用してスイアプリにサインインできます。ウォレットのインストール不要、シードフレーズ不要、ゼロ知識証明によりオンチェーン活動がユーザーのソーシャルアイデンティティに紐付けられないことが保証されます。次に、スポンサードトランザクションによりアプリ開発者がユーザーの代わりにガス手数料を支払えるため、完全に「ガスレス」なエクスペリエンスが実現できます。暗号資産を買ったり知ることさえなくブロックチェーンゲームをプレイすることを想像してください。第3に、プログラマブルトランザクションブロック（PTB）により最大1,024の独立した操作を一つのアトミックトランザクションにバンドルできます。一つの手数料、全か無かの実行。イーサリアムで数十の別々のトランザクションを必要とする複雑なDeFi戦略が、スイでは一ステップで実行可能です。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>AI agent deployment and autonomous transactions</li>
 <li>DeFi applications</li>
 <li>social apps and gaming (Sweat Economy onboarded 13 million users)</li>
@@ -2530,12 +2561,14 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
 <li>un libro central de órdenes límite de bien público integrado directamente en el protocolo de Sui</li>
 <li>proporciona la capa de liquidez en cadena más profunda con más de $82.000 millones en volumen acumulado. USDC nativo (vía Circle) y USDY (stablecoin con rendimiento) añaden liquidez profunda de calidad institucional. La adopción institucional está creciendo: Grayscale lanzó un Sui Trust</li>
 <li>21Shares listó un producto SUI apalancado en el Nasdaq y Canary Funds presentó la solicitud para el primer ETF al contado de SUI</li></ul>
+      <ul class="lang-ja"><li>スイは、オブジェクトモデルがゲームのインベントリに自然にマッピングされるため、Web3ゲーミングの主要プラットフォームとして台頭しています。キャラクターNFTが実際のゲームバックパックのように中に武器NFTを文字通り含むことができます。スポンサードトランザクションにより無料プレイモデルが実現し、zkLogin がウォレットの摩擦を取り除き、サブ秒ファイナリティがリアルタイムゲームプレイを可能にします。Blockus（30以上のゲームスタジオパートナーシップ、a16zアクセラレーター）やSuiPlay0X1ポータブルゲームデバイスといったプロジェクトがブロックチェーンゲームの境界を押し広げています。DeFiでは、エコシステムが爆発的に成長しました。SuilendがTVL7億4500万ドルで貸し出しをリードし、NAVI Protocolが5億8400万ドルで続き、Cetus Protocolが月間数十億ドルの取引量でDEX取引を支配しています。スイのプロトコルに直接組み込まれた公共財の中央限注文板であるDeepBookは、累計820億ドル以上の取引量で最も深いオンチェーン流動性レイヤーを提供しています。ネイティブUSDC（Circle経由）とUSDY（利回り付きステーブルコイン）により深い機関グレードの流動性が加わっています。インフラ面では、Walrus Protocolがプログラマブル分散ストレージをもたらし、SuiNSが人間が読めるNFT名を提供し、SealがオンチェーンデータのためのPOT条件付き暗号化を実現します。機関採用が進んでいます。GrayscaleがSuiトラストをローンチし、21Sharesがナスダックにレバレッジド SUI商品をリスティングし、BitwiseがSUIをその暗号資産インデックスETFに追加し、Canary Fundsが初のスポットSUI ETFを申請しました。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nightshade sharding enables near-unlimited scalability as demand grows</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Human-readable accounts and gasless transactions make it extremely beginner-friendly</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strong AI focus — NEAR is positioning itself as the Layer 1 for autonomous AI agents</li>
@@ -2548,12 +2581,17 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Finalidad por debajo de un segundo (~390ms), la más rápida entre las principales blockchains de Capa 1, con el consenso Mysticeti entregando más de 50.000 TPS a escala de producción.</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>zkLogin, las transacciones patrocinadas y los Programmable Transaction Blocks resuelven las tres mayores barreras para la adopción mainstream de la blockchain: la complejidad de la billetera, las comisiones de gas y la fricción de las transacciones de múltiples pasos.</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fundado por los verdaderos creadores del lenguaje de programación Move — el equipo que construyó el Diem de Meta — con $336 millones en financiación de a16z, Binance Labs y Coinbase Ventures.</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>オブジェクト中心モデルによる真の並列トランザクション処理 — スイはイーサリアムやソラナを悩ませる「一つの混雑したアプリが全員を遅らせる」問題がアーキテクチャ上不可能。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>サブ秒ファイナリティ（約390ms）は主要Layer 1ブロックチェーンの中で最速で、Mysticeti コンセンサスが本番スケールで50,000以上のTPSを実現。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>zkLogin 、スポンサードトランザクション、プログラマブルトランザクションブロックがブロックチェーン大衆採用の3大障壁を解決：ウォレットの複雑さ、ガス手数料、マルチステップのトランザクション摩擦。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Moveプログラミング言語の実際の作成者（MetaのDiemを構築したチーム）が創設し、a16z、Binance Labs、Coinbase Venturesから3億3600万ドルの資金調達。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Smaller DeFi ecosystem and TVL compared to Ethereum and Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Less name recognition makes it harder to attract developers and users</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Validator concentration is a concern for true decentralization</li>
@@ -2566,7 +2604,11 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>A pesar de la impresionante tecnología, el TPS real (~1.800 en el pico observado) queda muy por debajo de la capacidad teórica (297.000), y los ingresos por comisiones anualizados de ~<ul class="lang-fr"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Écosystème DeFi et TVL plus modestes qu&#x27;Ethereum et Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Moins de notoriété, ce qui rend plus difficile l&#x27;attraction de développeurs et d&#x27;utilisateurs</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La concentration des validateurs soulève des questions sur la vraie décentralisation</li>
-<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narration autour des agents IA est récente et non éprouvée à grande échelle</li></ul>5M son 33 veces menores que los de Solana o Ethereum.</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narration autour des agents IA est récente et non éprouvée à grande échelle</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>現在SUIトークンの約38.5%しか流通しておらず、61.5%がまだロックされている — 年間インフレ率約55%は主要ブロックチェーンの中で最も高い部類に入り、持続的な売り圧力を生む。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>印象的な技術にもかかわらず、実際のTPS（観測されたピーク約1,800）は理論上の容量（297,000）に大きく及ばず、年換算の手数料収入約1500万ドルはSolanaやEthereumの33倍低い。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ネットワークは顕著な信頼性の問題を経験している：2024年11月の2.5時間停止、2026年1月の6時間停止、2025年5月のCetusプロトコルハック2億2300万ドル。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>最低ステーク要件3000万SUIを持つバリデーターが約122人のみで、検閲を調整する能力（Cetusハック復旧時に実証）が真の分散化への懸念を引き起こす。</li></ul>5M son 33 veces menores que los de Solana o Ethereum.</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La red ha experimentado problemas de fiabilidad notables: una interrupción de 2,5 horas en noviembre de 2024, una parada de 6 horas en enero de 2026 y el hackeo de $223 millones del Protocolo Cetus en mayo de 2025.</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Solo ~122 validadores con un requisito mínimo de stake de 30 millones de SUI — y la capacidad de coordinar la censura (demostrada durante la recuperación del hackeo de Cetus) — plantean serias preocupaciones de descentralización.</li></ul>
     </section>
@@ -2575,10 +2617,12 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E0E0E0">
         <p class="lang-en">NEAR is the blockchain that gets out of its own way. While others pile on complexity, NEAR relentlessly focuses on usability — and it shows. With 13 million users joining via a single app, and a bold pivot toward AI agents, NEAR is quietly building something important. It may not have the brand recognition of Solana or Ethereum yet, but its combination of developer friendliness, speed, and AI ambition makes it one of the most interesting Layer 1 blockchains to watch.</p>
         <p class="lang-fr">NEAR est la blockchain qui ne se met pas dans son propre chemin. Là où d&#x27;autres accumulent la complexité, NEAR se concentre sans relâche sur la facilité d&#x27;utilisation — et ça se voit. Avec 13 millions d&#x27;utilisateurs rejoints via une seule application, et un pivot audacieux vers les agents IA, NEAR construit silencieusement quelque chose d&#x27;important. Il n&#x27;a peut-être pas encore la notoriété de Solana ou d&#x27;Ethereum, mais sa combinaison de facilité pour les développeurs, de rapidité et d&#x27;ambition IA en fait l&#x27;un des Layer 1 les plus intéressants à surveiller.</p>
         <p class="lang-es">Sui representa la blockchain de Capa 1 más técnicamente ambiciosa lanzada desde Solana — y en muchos aspectos la supera. La arquitectura centrada en objetos, las garantías de seguridad de Move e innovaciones como zkLogin no son mejoras incrementales sino verdaderos saltos adelante en cómo pueden funcionar las blockchains. El riesgo central es sencillo: los agresivos desbloqueos de tokens podrían suprimir el precio durante años, y el ecosistema debe demostrar que puede mantener el crecimiento sin campañas de incentivos. Si la ventaja tecnológica de Sui se traduce en una adopción duradera por parte de los desarrolladores y una actividad real de los usuarios, tiene la arquitectura para convertirse en un elemento permanente del primer nivel del cripto. Los próximos dos años nos dirán si esto es el futuro de la ingeniería blockchain o una solución elegante aún en busca de su momento masivo.</p>
+      <p class="lang-ja">スイはSolanaローンチ以来の最も技術的に野心的なLayer 1ブロックチェーンを代表しており、多くの点でそれを超えています。オブジェクト中心のアーキテクチャ、Moveの安全性保証、zkLogin のようなイノベーションは段階的な改善ではなく、ブロックチェーンの仕組みにおける真の飛躍です。核心リスクは明確です。積極的なトークンアンロックが何年もかけて価格を抑制する可能性があり、エコシステムはインセンティブキャンペーンなしに成長を維持できることを証明しなければなりません。スイの技術的優位性が持続的な開発者採用と実際のユーザー活動に変換されれば、暗号資産のトップティアに永続的に定着するアーキテクチャを持っています。今後2年間で、これがブロックチェーンエンジニアリングの未来なのか、それともまだ大衆市場の瞬間を探しているエレガントなソリューションなのかが明らかになるでしょう。</p>
       </div>
     </section>
 
@@ -2588,10 +2632,12 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2599,6 +2645,7 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2632,6 +2679,7 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2640,6 +2688,8 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2653,16 +2703,15 @@ Mysticeti, lanzado en abril de 2024, representa la segunda generación de la tec
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

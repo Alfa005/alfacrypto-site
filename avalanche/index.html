@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/avalanche/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/avalanche/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/avalanche/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/avalanche/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/avalanche/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The blazing-fast blockchain where institutions build</p>
       <p class="page-hero-tagline lang-fr">La blockchain ultra-rapide où les institutions construisent</p>
       <p class="page-hero-tagline lang-es">La blockchain ultrarrápida donde las instituciones construyen</p>
+      <p class="page-hero-tagline lang-ja">機関投資家が構築する超高速ブロックチェーン</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is Avalanche (AVAX)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Avalanche (AVAX) ?</h2>
       <h2 class="lang-es">¿Qué es Avalanche (AVAX)?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Avalanche is a Layer 1 blockchain platform — the foundational layer of a blockchain network, like Ethereum or Solana, but designed to be faster, cheaper, and more flexible. Think of it as a high-speed highway for blockchain apps. Unlike older blockchains that get congested, Avalanche confirms transactions in under 2 seconds for fractions of a cent. Its most powerful feature is &quot;subnets&quot; (now called L1s) — custom mini-blockchains that any company or developer can create, tailored to their specific needs, all connected to the main network.</p>
       <p class="lang-fr">Avalanche est une plateforme blockchain Layer 1 — la couche fondamentale d&#x27;un réseau blockchain, comme Ethereum ou Solana, mais conçue pour être plus rapide, moins chère et plus flexible. Imaginez une autoroute à grande vitesse pour les applications blockchain. Contrairement aux blockchains plus anciennes qui se congestionnent, Avalanche confirme les transactions en moins de 2 secondes pour des fractions de centime. Sa fonctionnalité la plus puissante : les « subnets » (désormais appelés L1) — des mini-blockchains personnalisées que toute entreprise peut créer selon ses besoins.</p>
       <p class="lang-es">Avalanche es una plataforma blockchain de Capa 1 — la capa fundamental de una red blockchain, como Ethereum o Solana, pero diseñada para ser más rápida, más barata y más flexible. Imagínala como una autopista de alta velocidad para aplicaciones blockchain. A diferencia de las blockchains más antiguas que se congestionan, Avalanche confirma transacciones en menos de 2 segundos por fracciones de centavo. Su característica más poderosa son las &quot;subnets&quot; (ahora llamadas L1) — mini-blockchains personalizadas que cualquier empresa o desarrollador puede crear, adaptadas a sus necesidades específicas, todas conectadas a la red principal.</p>
+      <p class="lang-ja">Avalancheはレイヤー1ブロックチェーンプラットフォームです — イーサリアムやソラナと同じブロックチェーンネットワークの基盤レイヤーですが、より高速・低コスト・柔軟に設計されています。ブロックチェーンアプリのための高速道路をイメージしてください。渋滞する古いブロックチェーンと違い、Avalancheは数セントの何分の1かで2秒以内にトランザクションを確定します。最も強力な機能は「サブネット」（現在はL1と呼ばれる）— あらゆる企業や開発者が特定ニーズに合わせて作れるカスタムのミニブロックチェーンで、すべてメインネットワークに接続されています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Avalanche uses a novel consensus called the Snow protocol. Imagine a room full of people deciding what to eat: instead of counting every vote, each person asks a random small group nearby. If most say pizza, that person adopts pizza. Everyone does this repeatedly, and within seconds the whole room agrees — without anyone being in charge. This is how Avalanche validators reach agreement: fast, efficient, and secure. The network is split into three chains: the X-Chain (fast transfers), P-Chain (validator management), and C-Chain (smart contracts, fully Ethereum-compatible).</p>
       <p class="lang-fr">Avalanche utilise un consensus novateur appelé le protocole Snow. Imaginez une salle remplie de personnes décidant quoi manger : au lieu de compter chaque vote, chacun demande à un petit groupe aléatoire. Si la majorité dit pizza, cette personne adopte pizza. Tout le monde fait pareil, et en quelques secondes la salle entière est d&#x27;accord — sans qu&#x27;un chef décide. C&#x27;est ainsi que les validateurs Avalanche atteignent un consensus : rapide, efficace et sécurisé. Le réseau est divisé en trois chaînes : X-Chain (transferts rapides), P-Chain (gestion des validateurs) et C-Chain (contrats intelligents, compatible Ethereum).</p>
       <p class="lang-es">Avalanche utiliza un consenso innovador llamado protocolo Snow. Imagina una sala llena de personas decidiendo qué comer: en lugar de contar cada voto, cada persona pregunta a un pequeño grupo aleatorio cercano. Si la mayoría dice pizza, esa persona adopta pizza. Todos hacen esto repetidamente y en segundos toda la sala está de acuerdo — sin que nadie esté a cargo. Así es como los validadores de Avalanche alcanzan el consenso: rápido, eficiente y seguro. La red está dividida en tres cadenas: la X-Chain (transferencias rápidas), la P-Chain (gestión de validadores) y la C-Chain (contratos inteligentes, totalmente compatible con Ethereum).</p>
+      <p class="lang-ja">Avalancheはスノープロトコルと呼ばれる革新的なコンセンサスを使っています。何を食べるか決める人々でいっぱいの部屋を想像してください。全員の票を数える代わりに、各人が近くの小さなランダムグループに聞きます。多数派がピザと言えばその人もピザを選びます。全員がこれを繰り返し、数秒以内に部屋全体が合意します — 誰かが指揮をとることなく。これがAvalancheのバリデーターが合意に達する方法です：高速・効率的・安全。ネットワークは3つのチェーンに分かれています：X-Chain（高速送金）、P-Chain（バリデーター管理）、C-Chain（スマートコントラクト、イーサリアム完全互換）。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Building DeFi apps with instant finality</li>
 <li>launching AAA blockchain games on dedicated subnets</li>
 <li>tokenizing real-world assets like treasury bonds and real estate funds</li>
@@ -2516,12 +2535,14 @@
 <li>tokenizar activos del mundo real como bonos del Tesoro y fondos inmobiliarios</li>
 <li>emitir stablecoins respaldadas por gobiernos</li>
 <li>ejecutar infraestructura blockchain empresarial para bancos e instituciones</li></ul>
+      <ul class="lang-ja"><li>DeFiアプリの即時ファイナリティでの構築、専用サブネット上でのAAAブロックチェーンゲームのローンチ、国債や不動産ファンドなどの現実世界資産のトークン化、政府支援ステーブルコインの発行、銀行・機関向けエンタープライズブロックチェーンインフラの運用。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Sub-2-second transaction finality — one of the fastest blockchains</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Custom subnets let anyone launch a tailored blockchain at minimal cost</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Fully Ethereum-compatible — same tools and smart contracts work out of the box</li>
@@ -2534,12 +2555,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Las subnets personalizadas permiten a cualquiera lanzar una blockchain a medida con un costo mínimo</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Totalmente compatible con Ethereum — las mismas herramientas y contratos inteligentes funcionan de inmediato</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tokenomics deflacionario: límite máximo de 720M con todas las comisiones quemadas permanentemente</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>2秒未満のトランザクションファイナリティ — 最速クラスのブロックチェーン</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>カスタムサブネットで誰でも最小コストで専用ブロックチェーンを立ち上げられる</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>イーサリアム完全互換 — 同じツールとスマートコントラクトがそのまま使える</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>デフレクション型トークノミクス：720万枚のハードキャップとすべての手数料の永久バーン</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>High validator stake requirement: 2,000 AVAX needed to run a node</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Intense competition from Ethereum L2s, Solana, and other Layer 1s</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labs holds significant centralized influence over ecosystem direction</li>
@@ -2552,16 +2578,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Fuerte competencia de los L2 de Ethereum, Solana y otras Capas 1</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labs ejerce una influencia centralizada significativa sobre la dirección del ecosistema</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La arquitectura de subnets puede fragmentar la liquidez entre cadenas separadas</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>高いバリデーターステーク要件：ノード運用に2,000 AVAXが必要</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>イーサリアムL2・ソラナ・他のレイヤー1との激しい競争</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ava Labsがエコシステムの方向性に対して大きな中央集権的影響力を持つ</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>サブネットアーキテクチャにより異なるチェーン間で流動性が分断される可能性がある</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E84142">
         <p class="lang-en">Avalanche is the blockchain that institutions trust. From JPMorgan to FIFA to Wyoming’s state stablecoin, it has attracted the most impressive roster of real-world partners in all of crypto. The Avalanche9000 upgrade made custom blockchains accessible to everyone. While it faces fierce competition from Ethereum’s L2 ecosystem and Solana, no other chain combines enterprise credibility with DeFi speed quite like Avalanche.</p>
         <p class="lang-fr">Avalanche est la blockchain en laquelle les institutions ont confiance. De JPMorgan à la FIFA en passant par le stablecoin du Wyoming, elle a attiré les partenaires réels les plus impressionnants de toute la crypto. La mise à jour Avalanche9000 a rendu les blockchains personnalisées accessibles à tous. Face à la concurrence d&#x27;Ethereum L2 et Solana, aucune autre chaîne ne combine crédibilité institutionnelle et vitesse DeFi comme Avalanche.</p>
         <p class="lang-es">Avalanche es la blockchain en la que confían las instituciones. Desde JPMorgan hasta la FIFA y el stablecoin estatal de Wyoming, ha atraído el conjunto más impresionante de socios del mundo real en todo el sector cripto. La actualización Avalanche9000 hizo que las blockchains personalizadas fueran accesibles para todos. Aunque enfrenta una feroz competencia del ecosistema L2 de Ethereum y de Solana, ninguna otra cadena combina credibilidad institucional con velocidad DeFi como Avalanche.</p>
+      <p class="lang-ja">Avalancheは機関投資家が信頼するブロックチェーンです。JPMorganからFIFA、ワイオミング州のステーブルコインまで、暗号通貨全体で最も印象的なリアルワールドパートナーのリストを引き付けています。Avalanche9000アップグレードにより、カスタムブロックチェーンが誰にでもアクセス可能になりました。イーサリアムのL2エコシステムとソラナとの激しい競合に直面しながらも、エンタープライズの信頼性とDeFiスピードをAvalancheほど兼ね備えたチェーンは他にありません。</p>
       </div>
     </section>
 
@@ -2571,10 +2603,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2582,6 +2616,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2615,6 +2650,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2623,6 +2659,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2636,16 +2674,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

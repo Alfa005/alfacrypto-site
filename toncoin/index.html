@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/toncoin/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/toncoin/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/toncoin/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/toncoin/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/toncoin/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The user-friendly Layer 1 built for AI agents and the next billion users</p>
       <p class="page-hero-tagline lang-fr">Le Layer 1 simple d&#x27;utilisation pensé pour les agents IA et le prochain milliard d&#x27;utilisateurs</p>
       <p class="page-hero-tagline lang-es">La blockchain dentro de Telegram, al alcance de 950 millones de personas</p>
+      <p class="page-hero-tagline lang-ja">Telegram内のブロックチェーン、9億5000万人へリーチ</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,6 +2497,7 @@
       <h2 class="lang-en">What is NEAR Protocol?</h2>
       <h2 class="lang-fr">Qu'est-ce que NEAR Protocol ?</h2>
       <h2 class="lang-es">¿Qué es Toncoin?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">NEAR Protocol is a blockchain that was built with one obsession: making crypto actually usable. While most blockchains are built by engineers for engineers, NEAR was designed so that a regular developer — even a JavaScript programmer — can build on it, and a regular person can use an app without even knowing they&#x27;re on a blockchain. Named after the phrase &quot;near by&quot; — as in, blockchain technology should feel near to everyone.</p>
       <p class="lang-fr">NEAR Protocol est une blockchain construite avec une obsession : rendre la crypto véritablement utilisable. Là où la plupart des blockchains sont construites par des ingénieurs pour des ingénieurs, NEAR a été conçu pour qu&#x27;un développeur ordinaire — même un programmeur JavaScript — puisse construire dessus, et qu&#x27;une personne ordinaire puisse utiliser une application sans même savoir qu&#x27;elle est sur une blockchain.</p>
       <p class="lang-es">Toncoin es la criptomoneda nativa de The Open Network (TON) — una blockchain con una de las historias de origen más dramáticas de todo el cripto. Todo comienza con dos hermanos: Pavel y Nikolai Durov, los fundadores de Telegram, la aplicación de mensajería cifrada usada por casi mil millones de personas en todo el mundo. A finales de 2017, los Durov publicaron un libro blanco técnico para el Telegram Open Network y luego recaudaron la impresionante suma de $1.700 millones de 171 inversores institucionales — la segunda mayor recaudación de fondos cripto de la historia en ese momento. La visión era de una ambición vertiginosa: construir una blockchain capaz de servir a cientos de millones de usuarios directamente a través de la aplicación Telegram, con pagos integrados, almacenamiento descentralizado y sitios web resistentes a la censura.
@@ -2492,12 +2507,20 @@ Luego llegó el choque con los reguladores. En octubre de 2019, justo una semana
 Pero no lo fue. Un grupo de desarrolladores de código abierto, llamándose la TON Community, recogió el código abandonado y siguió construyendo. Renombraron el proyecto de &quot;Telegram Open Network&quot; a &quot;The Open Network&quot; para reflejar su independencia de Telegram. En un gesto notablemente justo, eligieron no asignar tokens a personas de dentro: el 98,55% del suministro inicial de 5.000 millones de TON se distribuyó a través de contratos de minería Proof-of-Work en los que cualquiera podía participar — solo el 1,45% fue para testers y desarrolladores. Esto dio a TON una de las distribuciones de tokens más equitativas de la historia de la blockchain.
 
 El giro llegó en septiembre de 2023, cuando Telegram dio un cambio de posición: declaró oficialmente a TON como su socio de infraestructura Web3. En enero de 2025, TON se convirtió en la blockchain exclusiva para todas las Mini Apps de Telegram, y Toncoin fue designado como la única moneda no fiduciaria aceptada para los servicios de Telegram — suscripciones Premium, publicidad, pagos a desarrolladores y más. Con 950 millones de usuarios activos mensuales y una billetera con autocustodia integrada directamente en la aplicación, TON tiene algo que ninguna otra blockchain puede reclamar: una audiencia integrada de casi mil millones de personas que pueden empezar a usar cripto sin descargar nada nuevo.</p>
+      <p class="lang-ja">トンコインはThe Open Network（TON）のネイティブ暗号資産です。暗号資産の歴史の中で最も劇的な誕生物語を持つブロックチェーンです。二人の兄弟から始まります。世界中で約10億人が使用する暗号化メッセージングアプリTelegramの創設者、パベルとニコライ・ドゥーロフ兄弟です。2017年末、ドゥーロフ兄弟はTelegram Open Networkの技術白書を公開し、171人の機関投資家から驚異的な17億ドルを調達しました。当時の暗号資産史上2番目に大きな調達規模です。ビジョンは壮大でした。Telegramアプリを通じて数億人のユーザーに直接サービスを提供できるブロックチェーンを構築し、ビルトインの決済、分散ストレージ、検閲耐性ウェブサイトを実現することです。
+
+そして規制当局との衝突がやってきました。2019年10月、予定されていたトークンローンチの一週間前に、米国証券取引委員会が「Gram」トークンの販売が未登録の有価証券の提供にあたると主張する緊急訴訟を提起しました。連邦裁判官はSECの主張を認め、差止命令を発しました。2020年5月、パベル・ドゥーロフはTelegramがプロジェクトから正式に撤退することを発表し、SECに1850万ドルで和解し、12億ドルを投資家に返還しました。「TelegramのTONへの積極的な関与が終了したことを正式にお知らせするためにこれを書いています」とドゥーロフは投稿しました。ほとんどの人にとって、それが話の終わりでした。
+
+しかしそうではありませんでした。TON Communityと名乗るオープンソース開発者グループが放棄されたコードベースを引き継ぎ、構築を続けました。彼らはTelegramからの独立性を反映するためにプロジェクトを「Telegram Open Network」から「The Open Network」に改名しました。注目すべき公平な動きとして、彼らはインサイダーにトークンを割り当てないことを選択しました。最初の50億TON供給量の98.55%が誰でも参加できるプルーフオブワークマイニングコントラクトを通じて配布されました。テスターと開発者に渡ったのはわずか1.45%です。これによりTONはブロックチェーン史上最も公平なトークン配布の一つとなりました。
+
+転機は2023年9月に訪れました。TelegramがWeb3インフラパートナーとして正式にTONを宣言したのです。2025年1月、TONは全てのTelegram Mini Appの専用ブロックチェーンとなり、トンコインはTelegramサービス（プレミアム購読、広告、開発者支払いなど）で唯一受け付けられる非法定通貨として指定されました。950万の月間アクティブユーザーとアプリに直接組み込まれた自己カストディウォレットを持ち、TONは他のどのブロックチェーンも主張できないものを持っています。何も新しくダウンロードせずに暗号資産を使い始められる約10億人のビルトインオーディエンスです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">NEAR uses a technique called &quot;sharding&quot; through its Nightshade system. Imagine a highway that splits into multiple parallel lanes when traffic gets heavy — Nightshade does the same thing, splitting the network into parallel processing tracks so it never slows down. NEAR also has human-readable account names (like &quot;alice.near&quot; instead of long random addresses) and allows apps to pay for users&#x27; transaction fees — making the experience seamless for newcomers.</p>
       <p class="lang-fr">NEAR utilise une technique appelée « sharding » via son système Nightshade. Imaginez une autoroute qui se divise en plusieurs voies parallèles quand la circulation devient dense — Nightshade fait de même, divisant le réseau en pistes de traitement parallèles pour qu&#x27;il ne ralentisse jamais. NEAR propose aussi des noms de compte lisibles (comme « alice.near » au lieu de longues adresses aléatoires) et permet aux applications de payer les frais de transaction des utilisateurs.</p>
       <p class="lang-es">TON fue diseñado desde cero para manejar tráfico a escala de internet — el tipo de volumen de transacciones que esperarías si cientos de millones de usuarios de Telegram estuvieran enviando pagos simultáneamente. La forma en que lo logra es a través de un concepto llamado el &quot;Paradigma de Sharding Infinito&quot;, y la mejor analogía es un sistema de autopistas. Imagina una autopista que construye automáticamente nuevos carriles cuando el tráfico aumenta. Si la hora punta duplica los autos, la autopista duplica sus carriles. Si el tráfico cae a medianoche, los carriles adicionales se fusionan en menos carriles. No hay límite teórico en cuántos carriles pueden existir — el sistema escala infinitamente con la demanda.
@@ -2505,12 +2528,18 @@ El giro llegó en septiembre de 2023, cuando Telegram dio un cambio de posición
 En términos técnicos, TON usa una arquitectura de tres capas que su libro blanco describe como una &quot;blockchain de blockchains&quot;. En la cima está la masterchain — el coordinador central que almacena el conjunto de validadores, la configuración global y las referencias a todas las demás cadenas. Debajo están las workchains — blockchains independientes que pueden tener sus propias reglas, formatos de transacción y máquinas virtuales. TON admite hasta 4.000 millones de workchains, aunque actualmente solo existen dos. Cada workchain se divide en shardchains, que manejan subconjuntos de cuentas. Aquí es donde ocurre la magia: cuando el volumen de transacciones en una shardchain supera un umbral, los validadores la dividen automáticamente en dos. Cuando el volumen baja, las shardchains se fusionan. Esta división puede en cascada hasta 2^60 niveles de profundidad — efectivamente infinito. En una prueba de carga en vivo, esta arquitectura alcanzó 104.715 transacciones por segundo, un récord mundial de rendimiento blockchain.
 
 El consenso se logra a través de un protocolo llamado Catchain, que implementa la Prueba de Participación con Tolerancia a Fallas Bizantinas. Los validadores son seleccionados cada ~36 horas a través de un proceso de elección gestionado por un contrato inteligente de gobernanza. El tiempo de bloque es de aproximadamente 3 segundos con una finalidad de 5 segundos, y la red está asegurada por 395 validadores en 40 países. TON también cuenta con blockchains &quot;auto-reparadoras&quot; — si un validador produce un bloque inválido, la red puede corregirlo usando pruebas de Merkle sin interrumpir el resto de la cadena.</p>
+      <p class="lang-ja">TONはインターネット規模のトラフィックを処理するためにゼロから設計されました。何億人ものTelegramユーザーが全員同時に支払いを送るとしたら期待されるような取引量です。これを実現する方法は「無限シャーディングパラダイム」と呼ばれる概念で、最良のアナロジーは高速道路システムです。交通量が増えると自動的に新しい車線を作る高速道路を想像してください。ラッシュアワーで車が倍になれば、高速道路は車線を倍にします。真夜中に交通量が落ちれば、余分な車線は少ない車線に統合されます。理論的には何本でも車線を作れます。システムは需要に応じて無限にスケールします。
+
+技術的には、TONは白書が「ブロックチェーンのブロックチェーン」と表現する3層アーキテクチャを使用しています。上層にはマスターチェーンがあります。バリデーターセット、グローバル設定、他の全チェーンへの参照を格納する中央コーディネーターです。その下にはワークチェーンがあります。それぞれが独自のルール、トランザクション形式、仮想マシンを持てる独立したブロックチェーンです。TONは最大40億のワークチェーンをサポートしますが、現在は2つのみ存在します。各ワークチェーンはアカウントのサブセットを処理するシャードチェーンに分割されます。ここで魔法が起きます。シャードチェーンのトランザクション量が閾値を超えると、バリデーターが自動的に2つに分割します。量が落ちるとシャードチェーンが統合されます。この分割は最大2の60乗レベルの深さまで連鎖できます。実質的に無限です。ライブのストレステストでは、このアーキテクチャが毎秒104,715件のトランザクションを達成し、ブロックチェーンのパフォーマンスの世界記録となりました。
+
+コンセンサスはBizantine Fault Tolerant Proof-of-Stakeを実装したCatchainと呼ばれるプロトコルによって達成されます。バリデーターはガバナンススマートコントラクトが管理する選挙プロセスを通じて約36時間ごとに選出されます。ブロックタイムは約3秒でファイナリティは5秒、ネットワークは40カ国の395バリデーターによってセキュリティで守られています。TON上のスマートコントラクトは各コントラクトがメッセージを通じて非同期にやり取りする独立したエンティティである「アクターモデル」を使用しています。イーサリアムのアトミック実行モデルとは異なりますが、真のクロスシャード並列性を実現するために不可欠です。開発者はFunC（C類似言語）、Tact（アクセスしやすいTypeScript類似言語）、または新しいTolk言語でコントラクトを書きます。TONは「自己修復」ブロックチェーンも特徴としています。バリデーターが無効なブロックを生成しても、ネットワークはチェーンの残りを乱すことなくMerkle証明を使用してそれを修正できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>AI agent deployment and autonomous transactions</li>
 <li>DeFi applications</li>
 <li>social apps and gaming (Sweat Economy onboarded 13 million users)</li>
@@ -2529,12 +2558,14 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
 <li>STON.fi domina como el DEX líder con $6.300 millones en volumen de trading de por vida</li>
 <li>mientras que Tonstakers lidera el staking líquido con ~65 millones de TON bloqueados. USDT está disponible de forma nativa con más de $1.430 millones emitidos en la red. En el ámbito institucional</li>
 <li>empresas cotizadas en el Nasdaq como TON Strategy Co. han adquirido cientos de millones de dólares en Toncoin como reservas de tesorería</li></ul>
+      <ul class="lang-ja"><li>TONの最も強力なユースケースは最も明白なものでもあります。Telegram内での決済です。ユーザーはテキストメッセージを送るのと同じくらい簡単に、どのTelegramの連絡先にもトンコインまたはUSDTを送ることができます。これは2022年4月から@wallet botを通じて可能であり、2025年中頃以降はフルのTONウォレットが8700万人の米国ユーザーに利用可能となっています。米国の主要ソーシャルプラットフォームで最初の自己カストディ暗号資産ウォレットです。ウォレットはスプリットキーバックアップシステムを使用しており、一つのキーはユーザーのTelegramアカウントに、もう一つはメールに紐付けられており、シードフレーズ管理の複雑さなしに真の自己カストディが可能です。Telegramの中で動くインタラクティブなウェブアプリケーションであるTelegram Mini Appは、2025年2月以降TON上だけで構築されており、囲まれた開発者エコシステムを作り出しています。ゲーミング分野は特に爆発的でした。Notcoinはシンプルなタップトゥアーンの仕組みで3500万人のプレイヤーを惹きつけ、Hamster Kombatはピーク時に5億人の登録ユーザーに到達しました。これらのゲームは前例のないことを行いました。カジュアルゲームプレイを通じて何億もの人々をブロックチェーンウォレットにオンボードしたのです。DeFiでは、STON.fiが累計取引量63億ドルで主要DEXとして支配しており、Tonstakersが約6500万TONをロックして流動性ステーキングをリードしています。USDTは13億ドル以上がネットワーク上で発行されてネイティブに利用可能です。Telegramの公式マーケットプレイスであるFragmentを通じて、ユーザーは独自のTelegramユーザー名や匿名番号を売買できます。ほとんどのユーザーがブロックチェーンを使用していることに気づかないNFTマーケットプレイスです。機関側では、Nasdaq上場のTON Strategy Co.などの企業がトレジャリー準備金として数億ドル相当のトンコインを取得し、Zodia Custody（Standard Chartered）とCrypto.comが機関グレードのカストディとステーキングを提供しています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nightshade sharding enables near-unlimited scalability as demand grows</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Human-readable accounts and gasless transactions make it extremely beginner-friendly</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strong AI focus — NEAR is positioning itself as the Layer 1 for autonomous AI agents</li>
@@ -2547,12 +2578,17 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El Paradigma de Sharding Infinito permite una escalabilidad verdaderamente ilimitada — demostró 104.715 TPS en pruebas de carga — con comisiones por debajo de un centavo y finalidad de 5 segundos con usabilidad de nivel consumidor.</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Una de las distribuciones de tokens más justas en el cripto: 98,55% minado públicamente vía PoW con solo 1,45% para los desarrolladores, e inflación actual de solo ~0,6% anual con un mecanismo de quema del 50% de las comisiones.</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Integración profunda con la plataforma Telegram — blockchain exclusiva para Mini Apps, único método de pago no fiduciario para los servicios de Telegram — creando un bucle de demanda estructural que ningún competidor puede replicar.</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>別途ダウンロード不要の自己カストディウォレットを持つ9億5000万人のTelegramユーザーへのビルトイン配布 — あらゆるブロックチェーンが持つ中で最も強力なオンボーディングチャンネル。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>無限シャーディングパラダイムにより真に無限のスケーラビリティが実現 — ストレステストで104,715 TPSを実証 — 消費者グレードの使いやすさで1セント以下の手数料と5秒のファイナリティ。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>暗号資産における最も公平なトークン配布の一つ：98.55%がPoWを通じて公にマイニングされ、開発者への配布はわずか1.45%、現在の年間インフレは約0.6%で50%の手数料バーンメカニズムあり。</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Telegramプラットフォームとの深い統合 — Mini Appの専用ブロックチェーン、Telegramサービスの唯一の非法定通貨支払い方法 — 競合他社が再現できない構造的な需要ループを生み出している。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Smaller DeFi ecosystem and TVL compared to Ethereum and Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Less name recognition makes it harder to attract developers and users</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Validator concentration is a concern for true decentralization</li>
@@ -2567,17 +2603,23 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El ecosistema DeFi sigue siendo inmaduro con ~<ul class="lang-fr"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Écosystème DeFi et TVL plus modestes qu&#x27;Ethereum et Solana</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Moins de notoriété, ce qui rend plus difficile l&#x27;attraction de développeurs et d&#x27;utilisateurs</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La concentration des validateurs soulève des questions sur la vraie décentralisation</li>
-<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narration autour des agents IA est récente et non éprouvée à grande échelle</li></ul>58M en TVL — muy por debajo de Ethereum o Solana — y gran parte del crecimiento de 2024 fue impulsado por la moda insostenible del gaming tap-to-earn que desde entonces se ha desvanecido.</li></ul>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La narration autour des agents IA est récente et non éprouvée à grande échelle</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>TONの運命はTelegramと深く結びついている：Telegramの戦略変更、プラットフォームへの規制措置、またはAppleとGoogleとの対立はTONの主要競争優位性を一夜にして損なう可能性がある。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>パベル・ドゥーロフの2024年8月のTelegramコンテンツモデレーションに関連する容疑でのフランスでの逮捕が、投資家の信頼に直接影響する継続的な法的・評判的不確実性をもたらしている。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>深刻なトークン集中：一つのウォレットが供給量の約25.7%を保有し、上位5つのウォレットが約40%をコントロール — 中央集権化リスクとクジラ主導の市場変動の可能性を生む。</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>DeFiエコシステムはTVL約1億5800万ドルでまだ未成熟 — EthereumやSolanaよりはるかに低く、2024年の成長の多くはその後薄れた持続不可能なタップトゥアーンゲームの話題性に牽引されていた。</li></ul>58M en TVL — muy por debajo de Ethereum o Solana — y gran parte del crecimiento de 2024 fue impulsado por la moda insostenible del gaming tap-to-earn que desde entonces se ha desvanecido.</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E0E0E0">
         <p class="lang-en">NEAR is the blockchain that gets out of its own way. While others pile on complexity, NEAR relentlessly focuses on usability — and it shows. With 13 million users joining via a single app, and a bold pivot toward AI agents, NEAR is quietly building something important. It may not have the brand recognition of Solana or Ethereum yet, but its combination of developer friendliness, speed, and AI ambition makes it one of the most interesting Layer 1 blockchains to watch.</p>
         <p class="lang-fr">NEAR est la blockchain qui ne se met pas dans son propre chemin. Là où d&#x27;autres accumulent la complexité, NEAR se concentre sans relâche sur la facilité d&#x27;utilisation — et ça se voit. Avec 13 millions d&#x27;utilisateurs rejoints via une seule application, et un pivot audacieux vers les agents IA, NEAR construit silencieusement quelque chose d&#x27;important. Il n&#x27;a peut-être pas encore la notoriété de Solana ou d&#x27;Ethereum, mais sa combinaison de facilité pour les développeurs, de rapidité et d&#x27;ambition IA en fait l&#x27;un des Layer 1 les plus intéressants à surveiller.</p>
         <p class="lang-es">TON es la apuesta más audaz del cripto: la idea de que una blockchain puede alcanzar a mil millones de usuarios no construyendo la mejor tecnología (aunque la tecnología de TON es genuinamente impresionante) sino incrustándose en una aplicación de mensajería que ya usan todos los días. Ningún otro proyecto tiene una ventaja de distribución comparable, y los números son asombrosos — 176 millones de cuentas en cadena, 51 millones de billeteras activadas, USDT nativo a escala. Los riesgos son igualmente dramáticos: procedimientos legales contra Durov, extrema concentración de tokens y un ecosistema que aún debe demostrar que puede generar valor duradero más allá de la euforia del gaming. Si los casi mil millones de usuarios de Telegram adoptan gradualmente TON para los pagos cotidianos y los servicios digitales, podría convertirse en la blockchain más utilizada del mundo. Esa es tanto la promesa como la apuesta.</p>
+      <p class="lang-ja">TONは暗号資産において最も大胆な賭けです。ブロックチェーンが10億人のユーザーに到達できるのは最高の技術を構築するからではなく（TONの技術は真に印象的ですが）、彼らが毎日すでに使っているメッセージングアプリに自身を埋め込むからという考えです。他のどのプロジェクトも比較可能な配布優位性を持ちません。数字は驚異的です。1億7600万のオンチェーンアカウント、5100万のアクティベートされたウォレット、規模のあるネイティブUSDT。リスクも同様に劇的です。ドゥーロフへの規制上の手続き、極端なトークン集中、そしてゲームの話題性を超えた持続的な価値を生み出せることをまだ証明できていないエコシステム。Telegramの約10億人のユーザーが徐々に日常の決済とデジタルサービスにTONを採用すれば、地球上で最も広く使用されるブロックチェーンになる可能性があります。それが約束であり同時に賭けです。</p>
       </div>
     </section>
 
@@ -2587,10 +2629,12 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2598,6 +2642,7 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2631,6 +2676,7 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2639,6 +2685,8 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2652,16 +2700,15 @@ El consenso se logra a través de un protocolo llamado Catchain, que implementa 
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

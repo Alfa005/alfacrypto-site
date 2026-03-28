@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/injective/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/injective/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/injective/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/injective/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/injective/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/injective/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2018-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">A financial blockchain that actually wants to be used — zero gas, infinite markets.</p>
       <p class="page-hero-tagline lang-fr">Une blockchain financière qui veut vraiment être utilisée — zéro gas, marchés infinis.</p>
       <p class="page-hero-tagline lang-es">Una blockchain financiera que realmente quiere ser usada — cero gas, mercados infinitos.</p>
+      <p class="page-hero-tagline lang-ja">本当に使われることを求める金融ブロックチェーン — ガスゼロ、無限のマーケット。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Injective?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Injective ?</h2>
       <h2 class="lang-es">¿Qué es Injective?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Most blockchains are general-purpose computers — you can build anything on them, but they weren&#x27;t designed with finance in mind. Injective is different: it&#x27;s a Layer-1 blockchain built from the ground up specifically for financial applications. Every technical decision, from consensus speed to the on-chain orderbook architecture, was made with trading, lending, and derivatives in mind.</p>
       <p class="lang-en">Launched in 2018 by Eric Chen and Albert Chon, both of whom came from trading backgrounds, Injective&#x27;s flagship product is Helix — a fully decentralized exchange with a real on-chain orderbook (not an AMM) offering spot, perpetuals, and options trading with zero gas fees. This is a big deal: on-chain orderbooks on other chains are too slow and expensive to be practical, so most DEXs use AMMs instead. Injective&#x27;s custom consensus layer (0.6-second block times, 25,000+ TPS) makes real-time order matching viable.</p>
       <p class="lang-en">By 2025, Injective has accumulated $30 billion in total trading volume and $6.1 billion in RWA (Real World Asset) volume. The RWA story is particularly compelling: Pineapple Financial has tokenized over $716 million in US mortgages on-chain, and Injective hosted the world&#x27;s first pre-IPO perpetuals for OpenAI and SpaceX — letting anyone trade against private company valuations before they go public. The INJ token is deflationary: every week, 60% of all dApp fees are used in buyback-and-burn auctions that permanently reduce supply. As of mid-2025, 6.78 million INJ had been burned.</p>
@@ -2491,6 +2507,13 @@ Lanzado en 2018 por Eric Chen y Albert Chon, ambos provenientes del mundo del tr
 En 2025, Injective ha acumulado $30,000 millones en volumen de trading total y $6,100 millones en volumen de RWA (activos del mundo real). La historia de los RWA es particularmente convincente: Pineapple Financial ha tokenizado más de $716 millones en hipotecas de EE.UU. en cadena, e Injective albergó los primeros perpetuos pre-OPI del mundo para OpenAI y SpaceX — permitiendo que cualquiera opere contra las valoraciones de empresas privadas antes de que salgan a bolsa. El token INJ es deflacionario: cada semana, el 60% de todas las tarifas de dApps se usan en subastas de recompra y quema que reducen permanentemente el suministro. A mediados de 2025, se habían quemado 6.78 millones de INJ.
 
 El ecosistema sigue expandíndose: iAgent 2.0 habilita agentes de trading de IA autónomos, el soporte MultiVM permite que tanto los desarrolladores de Ethereum como de Cosmos construyan en la cadena, y el depósito del ETF de INJ en staking de Canary Capital señalan un creciente interés institucional.</p>
+      <p class="lang-ja">ほとんどのブロックチェーンは汎用コンピューターです — あらゆるものを構築できますが、金融を念頭に設計されていません。インジェクティブは違います。金融アプリケーションに特化してゼロから構築されたLayer-1ブロックチェーンです。コンセンサス速度からオンチェーンのオーダーブックアーキテクチャに至るまで、あらゆる技術的決定がトレーディング、レンディング、デリバティブを意識して行われています。
+
+2018年にトレーディング出身のエリック・チェンとアルバート・チョンによってローンチされ、インジェクティブの主力製品はHelix — ガスゼロでのスポット、無期限、オプション取引を提供するAMMではなく真のオンチェーンオーダーブックを持つ完全分散型取引所です。これは重大なことです。他のチェーンでのオンチェーンオーダーブックは実用的に使うには遅すぎてコストが高すぎるため、ほとんどのDEXはAMMを使います。インジェクティブのカスタムコンセンサス層（0.6秒のブロックタイム、理論上25,000TPS以上）がリアルタイムの注文マッチングを実現可能にしています。
+
+2025年までに、インジェクティブは累計3兆円（約300億ドル）の取引量と約6100億円（61億ドル）のRWA（現実世界の資産）取引量を積み上げました。RWAのストーリーは特に注目すべきです。Pineapple Financialが7160億円超の米国住宅ローンをオンチェーンでトークン化し、インジェクティブはOpenAIやSpaceXの世界初のプレIPO無期限先物をホストしました — IPO前に未公開企業のバリュエーションに対してトレードできるようになりました。INJトークンはデフレ傾向にあります。毎週、全dAppsの手数料の60%が供給を永続的に削減する買い戻し・バーンオークションに使用されます。2025年半ばまでに678万INJがバーンされています。
+
+エコシステムは拡大を続けています。iAgent 2.0が自律型AIトレーディングエージェントを可能にし、MultiVMサポートによりEthereumとCosmosの両方の開発者がチェーン上に構築でき、Canary CapitalのステーキングINJ ETF申請が機関の関心の高まりを示しています。</p>
       <p class="lang-fr">Lancé en 2018 par Eric Chen et Albert Chon, tous deux issus du milieu du trading, le produit phare d&#x27;Injective est Helix — un exchange entièrement décentralisé avec un vrai carnet d&#x27;ordres on-chain (pas un AMM) offrant le trading spot, perpétuel et d&#x27;options avec zéro frais de gas. Sur d&#x27;autres chaînes, les carnets d&#x27;ordres on-chain sont trop lents et trop chers. La couche de consensus personnalisée d&#x27;Injective (blocs de 0,6 seconde, 25 000+ TPS) rend la correspondance d&#x27;ordres en temps réel viable.</p>
       <p class="lang-es">El consenso de Injective es una implementación Tendermint Proof-of-Stake personalizada con tiempos de bloque de 0.6 segundos y más de 25,000 TPS teóricos. Tendermint es un algoritmo de consenso Byzantine Fault Tolerant académicamente probado — significa que mientras dos tercios de los validadores sean honestos, la cadena finaliza los bloques definitivamente sin bloques huérfanos ni reorganizaciones. Comparado con la finalidad de aproximadamente 12 segundos de Ethereum: Injective se liquida 20 veces más rápido.
 
@@ -2505,6 +2528,7 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Injective&#x27;s consensus is a custom Tendermint Proof-of-Stake implementation with 0.6-second block times and 25,000+ theoretical TPS. Tendermint is an academically proven Byzantine Fault Tolerant consensus algorithm — it means that as long as two-thirds of validators are honest, the chain finishes blocks definitively with no orphans or reorgs. Compare this to Ethereum&#x27;s ~12 second finality: Injective settles 20x faster.</p>
       <p class="lang-en">The on-chain orderbook is Injective&#x27;s most distinctive technical feature. Rather than using Automated Market Makers (where prices are determined by a mathematical formula), Injective runs a traditional limit order book directly on the blockchain — the same model used by professional exchanges like the NYSE. A Frequent Batch Auction (FBA) mechanism processes orders in batches rather than first-come-first-served, which mathematically eliminates front-running. This is important: on Ethereum, bots routinely steal value from traders by observing pending transactions and inserting themselves ahead of them.</p>
       <p class="lang-en">MultiVM is Injective&#x27;s architectural bridge: smart contracts written in both CosmWasm (the standard for Cosmos chains) and EVM (the standard for Ethereum) can run simultaneously on the same blockchain. For developers, this means you can port an Ethereum DeFi protocol to Injective without rewriting your codebase. The INJ token fuels everything: gas fees, governance voting, staking to secure the network, and the weekly buyback-and-burn auctions that create deflationary pressure.</p>
@@ -2517,15 +2541,22 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">Injective is used for decentralized spot and derivatives trading on Helix DEX, on-chain perpetual futures for crypto and real-world assets (including pre-IPO perpetuals for private companies), RWA tokenization (mortgages, yield assets), AI-powered autonomous trading via iAgent 2.0, lending and borrowing on Hydro, cross-chain DeFi via IBC and Wormhole bridges, and governance participation through INJ staking.</p>
       <p class="lang-fr">Injective est utilisé pour le trading spot et dérivés décentralisé sur Helix DEX, les futures perpétuelles on-chain pour actifs crypto et réels (y compris les perpétuels pré-IPO), la tokenisation RWA (prêts hypothécaires, actifs à rendement), le trading autonome alimenté par IA via iAgent 2.0, le prêt et l&#x27;emprunt sur Hydro, la DeFi cross-chain via les bridges IBC et Wormhole, et la participation à la gouvernance via le staking INJ.</p>
       <p class="lang-es">Injective se usa para el trading descentralizado al contado y de derivados en Helix DEX, futuros perpetuos en cadena para activos cripto y del mundo real (incluidos perpetuos pre-OPI para empresas privadas), tokenización de RWA (hipotecas, activos con rendimiento), trading autónomo impulsado por IA vía iAgent 2.0, préstamos en Hydro, DeFi entre cadenas a través de los puentes IBC y Wormhole, y participación en la gobernanza mediante el staking de INJ.</p>
+      <p class="lang-ja">インジェクティブのコンセンサスは、0.6秒のブロックタイムと理論上25,000TPS以上を持つカスタムTendermint Proof-of-Stake実装です。Tendermintは学術的に実証されたByzantine Fault Tolerantコンセンサスアルゴリズムです — バリデーターの3分の2以上が誠実であれば、オーファンブロックや再編成なしにチェーンが確定的にブロックをファイナライズすることを意味します。Ethereumの約12秒のファイナリティと比較すると、インジェクティブは20倍速く決済します。
+
+オンチェーンオーダーブックがインジェクティブの最も顕著な技術的特徴です。AMM（価格が数学的公式で決定される）の代わりに、インジェクティブはブロックチェーン上に直接従来の指値注文板を実行します — NYSEなどプロのエクスチェンジと同じモデルです。Frequent Batch Auction（FBA）メカニズムが先着順ではなくバッチで注文を処理し、フロントランニングを数学的に排除します。これは重要なことです。Ethereumでは、ボットが日常的に保留中のトランザクションを監視して前に割り込むことでトレーダーから価値を奪います。
+
+MultiVMはインジェクティブのアーキテクチャ上の橋梁です。CosmWasm（Cosmosチェーンの標準）でもEVM（Ethereumの標準）でも書かれたスマートコントラクトが同じブロックチェーン上で同時に実行できます。開発者にとって、コードベースを書き直すことなくEthereumのDeFiプロトコルをインジェクティブに移植できることを意味します。INJトークンが全てを動かします。ガス料金、ガバナンス投票、ネットワークを保護するためのステーキング、供給に永続的なデフレ圧力をもたらす毎週の買い戻し・バーンオークションです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>On-chain orderbook with frequent batch auctions makes front-running mathematically impossible — a critical DeFi safety feature</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>0.6-second block times and zero gas fees for users make Injective genuinely competitive with centralized exchanges on UX</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Deflationary tokenomics: 6.78M INJ burned by mid-2025 through weekly fee auctions, with circulating supply capped at 100M</li>
@@ -2538,12 +2569,14 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tiempos de bloque de 0.6 segundos y cero tarifas de gas para los usuarios hacen que Injective sea genuinamente competitivo con los exchanges centralizados en términos de experiencia de usuario</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Tokenomía deflacionaria: 6.78 millones de INJ quemados a mediados de 2025 a través de subastas de tarifas semanales, con el suministro circulante limitado a 100 millones</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Primer entrante en perpetuos pre-OPI y plataforma RWA líder con $6,100 millones en volumen tokenizado que abre segmentos de mercado completamente nuevos</li></ul>
+      <ul class="lang-ja"><li>インジェクティブはHelix DEXでの分散型スポットとデリバティブ取引、暗号と現実世界の資産（未公開企業のプレIPO無期限先物含む）のオンチェーン先物、RWAのトークン化（住宅ローン、利回り資産）、iAgent 2.0経由のAI駆動の自律型トレーディング、Hydroでのレンディング、IBCとWormholeブリッジを通じたクロスチェーンDeFi、INJのステーキングによるガバナンス参加に使用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Despite impressive tech, Injective&#x27;s TVL and user numbers lag significantly behind Ethereum L1/L2 competitors like dYdX and Hyperliquid</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Custom consensus and orderbook architecture creates a steep learning curve for developers familiar with EVM patterns</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Concentrated early backing from Binance Labs raises questions about long-term independence from exchange-specific interests</li>
@@ -2556,16 +2589,22 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La arquitectura de consenso y libro de órdenes personalizada crea una curva de aprendizaje pronunciada para los desarrolladores familiarizados con los patrones EVM</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El respaldo temprano concentrado de Binance Labs plantea preguntas sobre la independencia a largo plazo respecto a los intereses específicos del exchange</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Los perpetuos pre-OPI son legalmente ambiguos en muchas jurisdicciones, creando una potencial exposición regulatoria para la plataforma</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>印象的な技術にもかかわらず、インジェクティブのTVLとユーザー数はdYdXやHyperliquidなどEthereum L1/L2の競合に大きく劣っています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>カスタムコンセンサスとオーダーブックアーキテクチャがEVMパターンに慣れた開発者の急な学習曲線を生み出します</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Binance Labsの初期集中支援が、長期的なエクスチェンジ固有の利益への独立性に疑問を投げかけます</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>プレIPO無期限先物は多くの法域で法的に曖昧で、プラットフォームに潜在的な規制リスクをもたらしています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#00F2FE">
         <p class="lang-en">Injective is the most technically sophisticated DeFi chain that most crypto users haven&#x27;t heard of. The combination of zero-gas trading, front-running-resistant orderbooks, and real-world asset tokenization at institutional scale is genuinely differentiated. The gap between its technology and its market recognition is either a buying opportunity or evidence of a product-market fit problem — the answer will become clear as RWA adoption grows in 2026 and beyond.</p>
         <p class="lang-fr">Injective est la chaîne DeFi la plus techniquement sophistiquée que la plupart des utilisateurs crypto n&#x27;ont pas entendu parler. La combinaison du trading sans gas, des carnets d&#x27;ordres résistants au front-running et de la tokenisation d&#x27;actifs réels à l&#x27;échelle institutionnelle est genuinement différenciée. L&#x27;écart entre sa technologie et sa reconnaissance de marché est soit une opportunité d&#x27;achat, soit la preuve d&#x27;un problème d&#x27;adéquation produit-marché — la réponse deviendra claire à mesure que l&#x27;adoption des RWA progressera en 2026 et au-delà.</p>
         <p class="lang-es">Injective es la cadena DeFi técnicamente más sofisticada que la mayoría de los usuarios de cripto no han escuchado. La combinación de trading sin gas, libros de órdenes resistentes al front-running y tokenización de activos del mundo real a escala institucional está genuinamente diferenciada. La brecha entre su tecnología y su reconocimiento en el mercado es una oportunidad de compra o evidencia de un problema de encaje producto-mercado — la respuesta se aclarará a medida que la adopción de RWA crezca en 2026 y más allá.</p>
+      <p class="lang-ja">インジェクティブは、ほとんどの暗号ユーザーがまだ知らない、技術的に最も洗練されたDeFiチェーンです。ガスなし取引、フロントランニング耐性のオーダーブック、機関規模でのRWAトークン化の組み合わせは真に差別化されています。技術と市場認知のギャップは買いのチャンスか、プロダクトマーケットフィットの問題の証拠か — 2026年以降にRWA採用が成長するにつれて答えが明らかになるでしょう。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ MultiVM es el puente arquitectónico de Injective: los contratos inteligentes es
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

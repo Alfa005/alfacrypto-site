@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/usdt/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/usdt/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/usdt/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/usdt/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/usdt/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2014-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The digital dollar that powers the crypto world</p>
       <p class="page-hero-tagline lang-fr">Le dollar numérique qui alimente le monde crypto</p>
       <p class="page-hero-tagline lang-es">El dólar digital que impulsa el mundo cripto</p>
+      <p class="page-hero-tagline lang-ja">暗号通貨世界を支えるデジタルドル</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is Tether (USDT)?</h2>
       <h2 class="lang-fr">Qu'est-ce que Tether (USDT) ?</h2>
       <h2 class="lang-es">¿Qué es Tether (USDT)?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">USDT, also known as Tether, is the world&#x27;s most used stablecoin. Unlike Bitcoin or Ethereum, USDT doesn&#x27;t go up or down — one USDT always equals one US dollar. Think of it like a digital dollar bill that lives on the blockchain. It&#x27;s the bridge between traditional money and the crypto world, used by millions of people every day.</p>
       <p class="lang-fr">L&#x27;USDT, également connu sous le nom de Tether, est le stablecoin le plus utilisé au monde. Contrairement au Bitcoin ou à l&#x27;Ethereum, l&#x27;USDT ne monte ni ne descend — un USDT vaut toujours un dollar américain. Pensez-y comme un billet de dollar numérique qui vit sur la blockchain. C&#x27;est le pont entre l&#x27;argent traditionnel et le monde crypto, utilisé par des millions de personnes chaque jour.</p>
       <p class="lang-es">USDT, también conocido como Tether, es el stablecoin más utilizado del mundo. A diferencia de Bitcoin o Ethereum, USDT no sube ni baja — un USDT siempre equivale a un dólar estadounidense. Imagínalo como un billete de dólar digital que vive en la blockchain. Es el puente entre el dinero tradicional y el mundo cripto, utilizado por millones de personas cada día.</p>
+      <p class="lang-ja">USDTはテザーとも呼ばれ、世界で最も使われているステーブルコインです。ビットコインやイーサリアムと違い、USDTは上下しません — 1 USDTは常に1米ドルです。ブロックチェーン上に存在するデジタルドル紙幣のようなものです。伝統的なお金と暗号通貨世界をつなぐ橋として、毎日何百万もの人々に使われています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Tether (the company) issues USDT tokens and promises that each one is backed by real reserves — primarily US Treasury bills. When you buy 1 USDT, there should be $1 worth of real assets sitting in Tether&#x27;s vaults. The token exists on multiple blockchains (Ethereum, Tron, Solana, and more), making it available virtually everywhere in crypto.</p>
       <p class="lang-fr">Tether (l&#x27;entreprise) émet des tokens USDT et garantit que chacun est soutenu par des réserves réelles — principalement des bons du Trésor américain. Quand vous achetez 1 USDT, il devrait y avoir 1$ d&#x27;actifs réels dans les coffres de Tether. Le token existe sur plusieurs blockchains (Ethereum, Tron, Solana, et plus), le rendant disponible pratiquement partout dans la crypto.</p>
       <p class="lang-es">Tether (la empresa) emite tokens USDT y garantiza que cada uno está respaldado por reservas reales — principalmente letras del Tesoro de EE. UU. Cuando compras 1 USDT, debería haber activos reales por valor de 1 dólar en las bóvedas de Tether. El token existe en múltiples blockchains (Ethereum, Tron, Solana y más), lo que lo hace disponible prácticamente en todo el ecosistema cripto.</p>
+      <p class="lang-ja">Tether（企業）はUSDTトークンを発行し、それぞれが主に米国短期国債などのリアル資産で裏付けられていることを保証しています。1 USDTを購入すると、テザーの金庫に1ドル相当の実資産があるはずです。トークンはイーサリアム・Tron・ソラナなど複数のブロックチェーン上に存在し、暗号通貨世界のほぼあらゆる場所で利用できます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Trading crypto without converting back to traditional currency</li>
 <li>sending money across borders instantly and cheaply</li>
 <li>protecting savings in countries with unstable currencies</li>
@@ -2524,12 +2543,14 @@
 <li>enviar dinero al extranjero de forma instantánea y económica</li>
 <li>proteger los ahorros en países con monedas inestables</li>
 <li>servir como par de trading base en todos los principales exchanges</li></ul>
+      <ul class="lang-ja"><li>法定通貨に換えずに暗号通貨を取引する、即時かつ低コストで国際送金をする、不安定な通貨を持つ国での貯蓄保護、すべての主要取引所での基軸取引ペアとして機能する。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Most liquid stablecoin — accepted everywhere in crypto</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Processes more annual volume than Visa ($33+ trillion)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Available on almost every blockchain and exchange</li>
@@ -2542,12 +2563,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Procesa más volumen anual que Visa (más de 33 billones de dólares)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Disponible en casi todas las blockchains y exchanges</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Esencial para los traders que necesitan una reserva de valor estable entre operaciones</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>最も流動性の高いステーブルコイン — 暗号通貨界のどこでも受け入れられる</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>年間取引量がVisaを超える（33兆ドル以上）</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>ほぼすべてのブロックチェーンと取引所で利用可能</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>取引間で安定した価値の保存を必要とするトレーダーに不可欠</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Transparency concerns — reserves are not fully audited like USDC</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Not compliant with the new US GENIUS Act regulations</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Market share declining as regulated alternatives grow</li>
@@ -2560,16 +2586,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>No cumple con las nuevas regulaciones de la Ley GENIUS de EE. UU.</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La cuota de mercado está disminuyendo ante el crecimiento de alternativas reguladas</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Centralizado — la empresa Tether puede congelar o incluir en lista negra billeteras</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>透明性への懸念 — 準備金はUSDCのように完全に監査されていない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>新しい米国GENIUS法の規制に準拠していない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>規制された代替手段の成長でシェアが低下中</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>中央集権的 — テザー社はウォレットを凍結・ブラックリスト化できる</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#26A17B">
         <p class="lang-en">USDT is the cash of the crypto world. It&#x27;s not exciting — but without it, nothing else works. It&#x27;s the most widely used stablecoin for trading, remittances, and savings. However, increasing regulatory pressure and competitors like USDC mean its dominance may evolve. For now, USDT remains the heartbeat of crypto markets.</p>
         <p class="lang-fr">L&#x27;USDT est le cash du monde crypto. Ce n&#x27;est pas excitant — mais sans lui, rien d&#x27;autre ne fonctionne. C&#x27;est le stablecoin le plus utilisé pour le trading, les transferts et l&#x27;épargne. Cependant, la pression réglementaire croissante et les concurrents comme l&#x27;USDC signifient que sa domination pourrait évoluer. Pour l&#x27;instant, l&#x27;USDT reste le battement de cœur des marchés crypto.</p>
         <p class="lang-es">USDT es el efectivo del mundo cripto. No es emocionante — pero sin él, nada más funciona. Es el stablecoin más utilizado para trading, remesas y ahorro. Sin embargo, la creciente presión regulatoria y competidores como USDC significan que su dominio podría evolucionar. Por ahora, USDT sigue siendo el latido de los mercados cripto.</p>
+      <p class="lang-ja">USDTは暗号通貨世界の現金です。興味深くはありませんが — これなしでは何も動きません。取引・送金・貯蓄で最も広く使われているステーブルコインです。ただし規制圧力の高まりとUSDCなどの競合により、その優位性は変化していく可能性があります。今のところ、USDTは暗号通貨市場の鼓動であり続けています。</p>
       </div>
     </section>
 
@@ -2579,10 +2611,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2624,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2623,6 +2658,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2631,6 +2667,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2644,16 +2682,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

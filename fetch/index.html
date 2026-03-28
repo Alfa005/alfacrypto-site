@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/fetch/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/fetch/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/fetch/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/fetch/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/fetch/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/fetch/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2017-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">The world&#x27;s largest open-source AI army — and it answers to no one corporation.</p>
       <p class="page-hero-tagline lang-fr">La plus grande armée d&#x27;IA open-source au monde — et elle ne répond à aucune corporation.</p>
       <p class="page-hero-tagline lang-es">El mayor ejército de IA de código abierto del mundo — y no responde a ninguna corporación.</p>
+      <p class="page-hero-tagline lang-ja">世界最大のオープンソースAI軍団 — そして、いかなる企業にも従いません。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Artificial Superintelligence Alliance?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Artificial Superintelligence Alliance ?</h2>
       <h2 class="lang-es">¿Qué es Artificial Superintelligence Alliance?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Imagine if the world&#x27;s top AI research labs — instead of competing in secret — decided to pool their best work into a single open platform. That&#x27;s essentially what the Artificial Superintelligence Alliance is. Formed in 2024 by the merger of Fetch.ai, SingularityNET, Ocean Protocol, and CUDOS, it&#x27;s a decentralized coalition building the infrastructure for artificial general intelligence (AGI) and beyond. The FET token ties the whole ecosystem together.</p>
       <p class="lang-en">At its core, the Alliance is tackling a problem that matters enormously: today&#x27;s most powerful AI is controlled by a handful of companies — OpenAI, Google, Anthropic. If you want to use their models, you play by their rules, their pricing, and their data policies. The Alliance argues that AI this powerful should be owned by nobody and accessible to everybody.</p>
       <p class="lang-en">The ecosystem has four pillars: Fetch.ai contributes autonomous AI agents — software bots that can negotiate, trade, and make decisions on your behalf without asking for permission every step. SingularityNET adds a marketplace where AI services can be bought, sold, and composed like Lego bricks. Ocean Protocol handles the data layer, letting people monetize their datasets in a privacy-preserving way. CUDOS supplies the raw GPU horsepower to run it all. Together, they form a complete stack — from raw compute to finished intelligence.</p>
@@ -2491,6 +2507,13 @@ En su núcleo, la Alliance aborda un problema que importa enormemente: la IA má
 El ecosistema tiene cuatro pilares: Fetch.ai aporta agentes de IA autónomos — bots de software que pueden negociar, operar y tomar decisiones en tu nombre sin pedir permiso en cada paso. SingularityNET añade un mercado donde los servicios de IA pueden comprarse, venderse y combinarse como bloques de Lego. Ocean Protocol gestiona la capa de datos, permitiendo a las personas monetizar sus conjuntos de datos de forma que preserve la privacidad. CUDOS suministra la potencia GPU bruta para que todo funcione. Juntos forman una pila completa — desde el cómputo bruto hasta la inteligencia terminada.
 
 En marzo de 2026, la Alliance tiene un suministro circulante de 2,250 millones de tokens FET y una capitalización de mercado de aproximadamente $573 millones. El lanzamiento de ASI:Cloud en septiembre de 2025 hizo realidad el alquiler asequible de GPU, y el ASI-1 Mini LLM dio a los desarrolladores su primer modelo de lenguaje nativo de la Alliance para construir sobre él.</p>
+      <p class="lang-ja">世界トップのAI研究機関が競争をやめ、最高の成果をひとつのオープンプラットフォームに結集させたとしたら？それが実質的にArtificial Superintelligence Allianceです。2024年にFetch.ai、SingularityNET、Ocean Protocol、CUDOSの合併によって結成され、人工汎用知能（AGI）以降のインフラを構築する分散型連合です。FETトークンがエコシステム全体を結びつけています。
+
+アライアンスの核心は、非常に重要な問題に取り組んでいます。今日最も強力なAIはOpenAI、Google、Anthropicという一握りの企業に管理されています。そのモデルを使うためには、彼らのルール、価格設定、データポリシーに従わなければなりません。アライアンスはこれほど強力なAIは誰のものでもなく、誰もがアクセスできるべきだと主張します。
+
+エコシステムは4つの柱で構成されています。Fetch.aiは自律型AIエージェントを提供します — 一歩ごとに許可を求めることなく、あなたのために交渉、取引、意思決定できるソフトウェアボットです。SingularityNETはAIサービスをレゴブロックのように売買・組み合わせできるマーケットプレイスを加えます。Ocean Protocolはデータ層を担当し、プライバシーを保護しながらデータセットを収益化できるようにします。CUDOSはそれら全てを動かすGPUパワーを供給します。合わせると、生の演算から完成した知性まで完全なスタックを形成します。
+
+2026年3月時点で、アライアンスは22.5億FETの流通供給量と約5億7300万ドルの時価総額を持ちます。2025年9月のASI:Cloudリリースにより低コストGPUレンタルが現実になり、ASI-1 Mini LLMはデベロッパーに最初のアライアンスネイティブな言語モデルを提供しました。</p>
       <p class="lang-fr">Au cœur, l&#x27;Alliance s&#x27;attaque à un problème qui compte énormément : l&#x27;IA la plus puissante d&#x27;aujourd&#x27;hui est contrôlée par une poignée d&#x27;entreprises — OpenAI, Google, Anthropic. L&#x27;Alliance soutient qu&#x27;une IA aussi puissante ne devrait appartenir à personne et être accessible à tous.</p>
       <p class="lang-es">La columna vertebral técnica es ASI Chain — una blockchain Layer-1 modular construida sobre el Cosmos SDK con un mecanismo de consenso Proof-of-Stake. Pienséalo como el Cosmos SDK como un conjunto de bloques de construcción profesionales: en lugar de reinventar la rueda, la Alliance ensambla una blockchain con componentes probados, luego la personaliza para cargas de trabajo de IA. Los validadores hacen staking de FET para asegurar la red y procesar transacciones.
 
@@ -2505,6 +2528,7 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">The technical backbone is the ASI Chain — a modular Layer-1 blockchain built on the Cosmos SDK with a Proof-of-Stake consensus mechanism. Think of the Cosmos SDK like a set of professional-grade building blocks: instead of reinventing the wheel, the Alliance assembled a blockchain from proven components, then customized it for AI workloads. Validators stake FET to secure the network and process transactions.</p>
       <p class="lang-en">The agent layer is where things get genuinely exciting. Fetch.ai&#x27;s Autonomous Economic Agents (AEAs) are software entities that live on the blockchain, communicate via a peer-to-peer message protocol, and can be programmed to negotiate deals, execute trades, or manage IoT sensors — all without a human in the loop. Picture a self-driving supply chain where agents for a shipping company, a port authority, and a customs office negotiate clearance and routing in real time, 24/7.</p>
       <p class="lang-en">ASI:Cloud connects this ecosystem to real GPU hardware. Contributors plug their machines into the network and earn FET for providing compute. Applications that need to train or run AI models request resources from this pool — it&#x27;s like AWS EC2 but decentralized, censorship-resistant, and governed by token holders. The FET token is used for gas fees, staking, governance votes, and paying for compute and data services across the entire Alliance stack.</p>
@@ -2517,15 +2541,22 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">The Alliance&#x27;s technology is applied in logistics and energy optimization (autonomous agents rerouting deliveries and balancing grids), decentralized AI model training via ASI:Cloud, data monetization for AI datasets through Ocean Protocol markets, agentic workflows powered by the ASI-1 Mini LLM, prediction markets, research automation, and self-modifying AI systems that improve autonomously over time.</p>
       <p class="lang-fr">La technologie de l&#x27;Alliance est appliquée dans l&#x27;optimisation logistique et énergétique (agents autonomes réorganisant les livraisons et équilibrant les réseaux), l&#x27;entraînement décentralisé de modèles IA via ASI:Cloud, la monétisation de données via les marchés Ocean Protocol, les workflows agentiques alimentés par l&#x27;ASI-1 Mini LLM, les marchés de prédiction, l&#x27;automatisation de la recherche et les systèmes IA auto-modifiants qui s&#x27;améliorent de façon autonome.</p>
       <p class="lang-es">La tecnología de la Alliance se aplica en la optimización logística y energética (agentes autónomos que redirigen entregas y equilibran redes eléctricas), el entrenamiento descentralizado de modelos de IA vía ASI:Cloud, la monetización de datos para conjuntos de datos de IA a través de los mercados de Ocean Protocol, los flujos de trabajo agténticos impulsados por el ASI-1 Mini LLM, los mercados de predicción, la automatización de la investigación y los sistemas de IA auto-modificables que mejoran de forma autónoma con el tiempo.</p>
+      <p class="lang-ja">技術的バックボーンはASI Chain — Cosmos SDKの上に構築され、Proof-of-Stakeコンセンサスメカニズムを持つモジュラーLayer-1ブロックチェーンです。Cosmos SDKはプロフェッショナルグレードのビルディングブロックセットのようなものです。車輪の再発明をする代わりに、アライアンスは実績あるコンポーネントからブロックチェーンを組み立て、AIワークロード向けにカスタマイズしました。バリデーターはネットワークを保護してトランザクションを処理するためにFETをステーキングします。
+
+エージェント層こそが本当にエキサイティングな領域です。Fetch.aiの自律経済エージェント（AEA）は、ブロックチェーン上に存在し、P2Pメッセージプロトコルで通信し、取引交渉、売買実行、IoTセンサー管理を人間の介入なしに実行するようプログラムできるソフトウェア実体です。輸送会社、港湾当局、税関のエージェントが24時間365日、リアルタイムで通関手続きとルーティングを交渉する自動化されたサプライチェーンを想像してください。
+
+ASI:Cloudはこのエコシステムを実際のGPUハードウェアに接続します。コントリビューターはマシンをネットワークに接続してコンピュートを提供するFETを獲得します。AIモデルのトレーニングや実行が必要なアプリケーションはこのプールからリソースを要求します — AWS EC2のようですが、分散型で検閲耐性があり、トークン保有者によって統治されています。FETトークンはガス料金、ステーキング、ガバナンス投票、アライアンス全体のスタック上でのコンピュートやデータサービスの支払いに使用されます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Only major decentralized AI platform combining agents, data markets, and GPU compute in one ecosystem</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>ASI:Cloud offers GPU rental at significantly lower cost than centralized alternatives like AWS or Google Cloud</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Strong institutional signal: Interactive Strength&#x27;s $500M FET acquisition plan in early 2026</li>
@@ -2538,12 +2569,14 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>ASI:Cloud ofrece alquiler de GPU a un costo significativamente menor que las alternativas centralizadas como AWS o Google Cloud</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Señal institucional sólida: el plan de adquisición de FET por $500 millones de Interactive Strength a principios de 2026</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El código base de código abierto significa que cualquier desarrollador puede auditar, bifurcar o construir sobre la tecnología</li></ul>
+      <ul class="lang-ja"><li>アライアンスの技術はロジスティクスやエネルギー最適化（自律エージェントが配送ルートを変更しグリッドを均衡させる）、ASI:Cloud経由の分散型AIモデルトレーニング、Ocean Protocolマーケット経由のAIトレーニングデータセットの収益化、ASI-1 Mini LLMによるエージェントワークフロー、予測市場、研究自動化、時間をかけて自律的に改善する自己修正AIシステムに適用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Extremely complex architecture — understanding all four merged ecosystems requires serious technical effort</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Market cap of $573M is modest relative to the scope of ambition, meaning execution risk is high</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Competing against well-funded centralized AI giants (OpenAI, Google) with vastly larger resources</li>
@@ -2556,16 +2589,22 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La capitalización de mercado de $573 millones es modesta en relación con la ambición del proyecto, lo que significa que el riesgo de ejecución es alto</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Competencia contra gigantes centralizados de IA bien financiados (OpenAI, Google) con recursos vastamente mayores</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La complejidad de los tokenomics aumentó tras la fusión, con mecánicas de migración que confundieron a muchos tenedores minoristas</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>非常に複雑なアーキテクチャ — 合併した4つのエコシステム全てを理解するには相当な技術的努力が必要です</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>野心の規模に対して5億7300万ドルの時価総額は控えめで、実行リスクが高いことを意味します</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>遥かに大きなリソースを持つ、十分な資金を持つ集中型AIの巨人（OpenAI、Google）との競合があります</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークノミクスの複雑さが合併後に増し、多くのリテールホルダーを混乱させた移行メカニズムがありました</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#1C1C3D">
         <p class="lang-en">The Artificial Superintelligence Alliance is the most ambitious bet in the AI-crypto space: an open-source counter to Big Tech&#x27;s AI monopoly. If autonomous agents and decentralized compute become as foundational as cloud computing, FET holders will have picked the right horse very early. The risk is that building AGI infrastructure is extraordinarily hard, and coordination across four merged communities is messy — but no other project is attempting this at this scale.</p>
         <p class="lang-fr">L&#x27;Artificial Superintelligence Alliance est le pari le plus ambitieux dans l&#x27;espace IA-crypto : un contre-pouvoir open-source au monopole de l&#x27;IA des Big Tech. Si les agents autonomes et le calcul décentralisé deviennent aussi fondamentaux que le cloud computing, les détenteurs de FET auront parié sur le bon cheval très tôt. Le risque est que construire une infrastructure AGI est extraordinairement difficile et que la coordination entre quatre communautés fusionnées est complexe — mais aucun autre projet ne tente cela à cette échelle.</p>
         <p class="lang-es">La Artificial Superintelligence Alliance es la apuesta más ambiciosa en el espacio IA-cripto: un contrapeso de código abierto al monopolio de la IA de las grandes tecnológicas. Si los agentes autónomos y el cómputo descentralizado se vuelven tan fundamentales como la computación en la nube, los tenedores de FET habrán elegido el caballo correcto muy temprano. El riesgo es que construir infraestructura para AGI es extraordinariamente difícil, y coordinar cuatro comunidades fusionadas es complicado — pero ningún otro proyecto intenta esto a esta escala.</p>
+      <p class="lang-ja">Artificial Superintelligence Allianceは、AI暗号スペースで最も野心的な賭けです。ビッグテックのAI独占に対抗するオープンソースです。自律エージェントと分散型コンピュートがクラウドコンピューティングと同様に基礎的なものになれば、FET保有者はかなり早い段階で正しい馬を選んでいたことになります。リスクはAGIインフラの構築が非常に困難であり、4つの合併したコミュニティ間の調整が混乱しがちであることです — しかし他のプロジェクトはこの規模で試みていません。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ ASI:Cloud conecta este ecosistema a hardware GPU real. Los contribuyentes enchuf
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/aave/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/aave/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/aave/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/aave/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/aave/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The decentralized bank with no bankers</p>
       <p class="page-hero-tagline lang-fr">La banque décentralisée sans banquiers</p>
       <p class="page-hero-tagline lang-es">El banco descentralizado sin banqueros</p>
+      <p class="page-hero-tagline lang-ja">銀行員のいない分散型銀行</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2494,24 +2508,29 @@
       <h2 class="lang-en">What is Aave?</h2>
       <h2 class="lang-fr">Qu'est-ce que Aave ?</h2>
       <h2 class="lang-es">¿Qué es Aave?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Aave is the world&#x27;s largest decentralized lending platform. Imagine a bank where there are no bankers, no paperwork, and no approval process. You deposit crypto and earn interest automatically. Need a loan? Put up collateral and borrow instantly. Everything runs on smart contracts — code that executes exactly as programmed, with no human in the middle.</p>
       <p class="lang-fr">Aave est la plus grande plateforme de prêt décentralisée au monde. Imaginez une banque sans banquiers, sans paperasse et sans processus d&#x27;approbation. Vous déposez de la crypto et gagnez des intérêts automatiquement. Besoin d&#x27;un prêt ? Mettez en garantie et empruntez instantanément. Tout fonctionne avec des contrats intelligents — du code qui s&#x27;exécute exactement comme programmé.</p>
       <p class="lang-es">Aave es la mayor plataforma de préstamos descentralizados del mundo. Imagina un banco sin banqueros, sin papeleo y sin proceso de aprobación. Depositas cripto y ganas intereses automáticamente. ¿Necesitas un préstamo? Aporta una garantía y obtén el crédito al instante. Todo funciona con contratos inteligentes — código que se ejecuta exactamente como fue programado, sin ningún intermediario humano.</p>
+      <p class="lang-ja">Aaveは世界最大の分散型貸し付けプラットフォームです。銀行員も書類も審査プロセスも不要な銀行を想像してください。暗号通貨を預けると自動的に利息を得られます。ローンが必要ですか？担保を差し入れれば即時に借りられます。すべてはスマートコントラクト — プログラム通りに正確に実行されるコードで動いており、人間が間に入る必要はありません。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Aave works like a pool system. Lenders deposit their crypto into shared pools and earn interest in real time. Borrowers can take from these pools by locking up collateral worth more than what they borrow. If the collateral drops too much in value, the system automatically sells it to repay lenders — this keeps the platform safe without any human intervention.</p>
       <p class="lang-fr">Aave fonctionne comme un système de pools. Les prêteurs déposent leur crypto dans des pools partagées et gagnent des intérêts en temps réel. Les emprunteurs peuvent puiser dans ces pools en verrouillant une garantie supérieure à ce qu&#x27;ils empruntent. Si la garantie baisse trop, le système la vend automatiquement pour rembourser les prêteurs.</p>
       <p class="lang-es">Aave funciona como un sistema de fondos comunes. Los prestamistas depositan su cripto en pools compartidos y ganan intereses en tiempo real. Los prestatarios pueden acceder a estos pools bloqueando una garantía de mayor valor que lo que solicitan. Si el valor de la garantía cae demasiado, el sistema la vende automáticamente para reembolsar a los prestamistas — esto mantiene la plataforma segura sin ninguna intervención humana.</p>
+      <p class="lang-ja">Aaveはプール方式で動いています。貸し手は暗号通貨を共有プールに預けてリアルタイムで利息を得ます。借り手は借りる額より価値の大きい担保をロックすることで、このプールから借り入れられます。担保の価値が大幅に下がると、システムが自動的に売却して貸し手に返済します — 人間の介入なしにプラットフォームの安全を保ちます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Earning interest on crypto deposits (up to 9% APY on stablecoins)</li>
 <li>borrowing against your crypto without selling it</li>
 <li>institutional lending for real-world assets via Aave Horizon</li>
@@ -2524,12 +2543,14 @@
 <li>pedir préstamos con tu cripto como garantía sin venderla</li>
 <li>préstamos institucionales para activos del mundo real a través de Aave Horizon</li>
 <li>integración de funciones de rendimiento en billeteras como MetaMask y Ledger</li></ul>
+      <ul class="lang-ja"><li>暗号通貨預金での利息収入（ステーブルコインで最大9% APY）、暗号通貨を売らずに担保として借り入れ、Aave Horizonを通じた現実世界資産の機関向け貸し付け、MetaMaskやLedgerなどウォレット内での利回り機能。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Largest DeFi lending protocol — $55+ billion in deposits</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Live on 6 blockchains (Ethereum, Arbitrum, Avalanche, Base, and more)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Institutional backing from BlackRock, Ripple, and major partners</li>
@@ -2542,12 +2563,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Activo en 6 blockchains (Ethereum, Arbitrum, Avalanche, Base y más)</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Respaldo institucional de BlackRock, Ripple y grandes socios</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La app de Aave lleva el ahorro DeFi a los usuarios móviles cotidianos</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>最大のDeFi貸し付けプロトコル — 預金550億ドル以上</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>6つのブロックチェーンで稼働（イーサリアム・Arbitrum・アバランチ・Baseなど）</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>BlackRock・Rippleなど大手からの機関投資家の支持</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Aaveアプリが日常のモバイルユーザーにDeFi貯蓄を届ける</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Requires crypto collateral — not accessible without existing holdings</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Smart contract risk — code bugs could theoretically lose funds</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Complex for absolute beginners</li>
@@ -2560,16 +2586,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Riesgo de contratos inteligentes — errores en el código podrían teóricamente hacer perder fondos</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Complejo para principiantes absolutos</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Las tasas de interés fluctúan según la oferta y la demanda</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>暗号通貨担保が必要 — 既存の資産がないとアクセスできない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>スマートコントラクトリスク — コードのバグが理論上資金を失わせる可能性がある</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>完全な初心者には複雑</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>金利は需給に応じて変動する</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#B6509E">
         <p class="lang-en">Aave is DeFi&#x27;s most trusted bank — except there is no bank. It&#x27;s proof that finance can run on code alone. With $75 billion in peak deposits and institutions joining through Aave Horizon, it&#x27;s bridging the gap between traditional finance and crypto. If you want to understand DeFi, Aave is the best place to start.</p>
         <p class="lang-fr">Aave est la banque la plus fiable du DeFi — sauf qu&#x27;il n&#x27;y a pas de banque. C&#x27;est la preuve que la finance peut fonctionner uniquement avec du code. Avec 75 milliards de dollars en dépôts au pic et des institutions rejoignant via Aave Horizon, il comble le fossé entre la finance traditionnelle et la crypto.</p>
         <p class="lang-es">Aave es el banco más confiable del DeFi — excepto que no hay banco. Es la prueba de que las finanzas pueden funcionar únicamente con código. Con 75.000 millones de dólares en depósitos en su pico e instituciones sumándose a través de Aave Horizon, está tendiendo el puente entre las finanzas tradicionales y la cripto. Si quieres entender el DeFi, Aave es el mejor lugar para comenzar.</p>
+      <p class="lang-ja">Aaveは DeFi 最も信頼される銀行です — ただし銀行は存在しません。金融がコードだけで動けることの証明です。ピーク時の預金750億ドルと Aave Horizon を通じた機関参入により、伝統的金融と暗号通貨のギャップを埋めています。DeFiを理解したいなら、Aaveが最適な出発点です。</p>
       </div>
     </section>
 
@@ -2579,10 +2611,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2624,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2623,6 +2658,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2631,6 +2667,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2644,16 +2682,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

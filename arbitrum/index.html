@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/arbitrum/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/arbitrum/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/arbitrum/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/arbitrum/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/arbitrum/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/arbitrum/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2021-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">Ethereum&#x27;s express lane — same security, 100x cheaper</p>
       <p class="page-hero-tagline lang-fr">La voie rapide d&#x27;Ethereum — même sécurité, 100 fois moins cher</p>
       <p class="page-hero-tagline lang-es">El carril rápido de Ethereum — misma seguridad, 100 veces más barato</p>
+      <p class="page-hero-tagline lang-ja">Ethereumが安くてシンプルになったら — これがアービトラムです</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Arbitrum?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Arbitrum ?</h2>
       <h2 class="lang-es">¿Qué es Arbitrum?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Arbitrum is a Layer 2 scaling solution for Ethereum that makes transactions dramatically faster and cheaper while inheriting Ethereum&#x27;s security. If Ethereum is a congested highway, Arbitrum is the express lane built alongside it — you get the same destination (security, settlement, ecosystem) but without the traffic jam and toll booth prices.</p>
       <p class="lang-en">Built by Offchain Labs, founded by Steven Goldfeder (Princeton PhD), Ed Felten (former White House Deputy CTO), and Harry Kalodner (Princeton PhD), Arbitrum launched its mainnet (Arbitrum One) in August 2021. It quickly became the dominant Layer 2, processing more transactions and hosting more total value locked (TVL) than any other Ethereum L2.</p>
       <p class="lang-en">Arbitrum uses a technology called &quot;optimistic rollups&quot; — it bundles hundreds of transactions together off-chain, processes them on Arbitrum&#x27;s own network, and then posts a compressed summary back to Ethereum. The key innovation is the &quot;optimistic&quot; part: transactions are assumed to be valid unless someone proves otherwise within a challenge period.</p>
@@ -2490,6 +2506,13 @@ El proyecto fue fundado por tres científicos informáticos de la Universidad de
 Arbitrum One lanzó su mainnet beta en agosto de 2021 y rápidamente se convirtió en el Layer 2 más popular en Ethereum. La actualización Nitro en agosto de 2022 fue un cambio de juego, introduciendo ejecución basada en Geth, pruebas de fraude WASM y compresión de calldata que redujeron aún más los costos. En marzo de 2023, el token ARB se lanzó con el mayor airdrop de la historia de las L2 de Ethereum, estableciendo el DAO de Arbitrum con un tesoro que supera los $1,000 millones.
 
 Hoy, Arbitrum lidera todas las redes Layer 2 en valor total bloqueado (TVL) y alberga un próspero ecosistema de protocolos DeFi, plataformas de juegos y mercados de NFT. Se ha convertido en el destino predeterminado para los desarrolladores que quieren la seguridad de Ethereum pero no pueden permitirse sus tarifas, y para los usuarios que quieren DeFi rápido y barato sin salir del ecosistema de Ethereum.</p>
+      <p class="lang-ja">アービトラムはEthereumの「Layer 2」スケーリングソリューションです。Ethereumのトップに構築されたより高速で安価な第二層のインフラストラクチャで、Ethereumの最大の問題（遅さと高いガス代）を解決しながら、Ethereumが実際に得意なこと（セキュリティと分散化）を維持します。
+
+アービトラムはOffchain Labsによって作られました。プリンストン大学のコンピュータサイエンス研究者チームで、2021年の立ち上げ前にOptimistic Rollupに関する学術論文を実際に書いた人々です。アカデミックなルーツが重要な理由は、アービトラムのコア技術が本当の研究から来ており、暗号のマーケティングマテリアルから来ていないからです。
+
+技術は「Optimistic Rollup」と呼ばれます。考え方はシンプルです。すべての取引をEthereumメインチェーンで処理する代わりに、アービトラムはそれらをオフチェーンでバッチ処理し、何百もの取引の圧縮された概要のみをEthereumに送信します。ネットワークは取引が正直だと「楽観的に」想定し、誰かが不正を異議申し立てするための7日間のウィンドウを設けます。この仕組みにより、ガス代がEthereumの1/10以下になり、取引がほぼ即座に確認されます。
+
+アービトラムは2021年8月にベータ版で立ち上がり、2022年のNitroアップグレードが大幅なパフォーマンス改善をもたらし、2023年3月にはARBトークンがEthereumの歴史上最大のL2エアドロップのひとつとともに立ち上がりました。2025年現在、アービトラムは20億ドル以上のTVLですべてのLayer 2ネットワークをリードしており、GMX、Uniswap、Aave、Curveなど最大のDeFiプロトコルの多くの最初の選択肢です。</p>
       <p class="lang-fr">Construit par Offchain Labs, fondé par Steven Goldfeder (PhD Princeton), Ed Felten (ancien Deputy CTO de la Maison Blanche) et Harry Kalodner, Arbitrum a lancé son mainnet en août 2021. Il est rapidement devenu le Layer 2 dominant, traitant plus de transactions que tout autre L2 Ethereum.</p>
       <p class="lang-es">Arbitrum usa una tecnología llamada optimistic rollups. La intuición es la siguiente: en lugar de ejecutar cada transacción en Ethereum (que es lento y costoso), Arbitrum agrupa miles de transacciones, las ejecuta en su propia cadena más rápida y luego publica un resumen comprimido en Ethereum. Es &quot;optimista&quot; porque el sistema asume que todas las transacciones son válidas por defecto — como presunción de inocencia hasta que se demuestre lo contrario.
 
@@ -2505,6 +2528,7 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Optimistic rollups work by executing transactions off Ethereum&#x27;s mainnet but posting transaction data back to Ethereum for security. Here&#x27;s the simple version: instead of every Ethereum validator processing every transaction, Arbitrum&#x27;s sequencer processes them in bulk and posts compressed batches to Ethereum.</p>
       <p class="lang-en">The &quot;optimistic&quot; part means the system trusts that transactions are correct by default. But anyone can challenge a suspicious batch by posting a &quot;fraud proof&quot; within a ~7-day window. If the challenge succeeds, the invalid batch is rolled back and the malicious validator gets penalized. This design lets Arbitrum be fast (transactions confirm in seconds) while remaining as secure as Ethereum itself.</p>
       <p class="lang-en">Arbitrum is fully EVM-compatible, meaning any Ethereum app can be deployed on Arbitrum with minimal code changes. This is why the biggest DeFi protocols — Uniswap, Aave, GMX, Curve — all run on Arbitrum. Users get the same experience but pay a fraction of the gas fees.</p>
@@ -2517,6 +2541,7 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>DeFi trading and lending at a fraction of Ethereum gas costs</li>
 <li>NFT minting and trading without prohibitive fees</li>
 <li>Gaming and social applications that need high throughput</li>
@@ -2532,12 +2557,14 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
 <li>mercados de NFT</li>
 <li>y se usa cada vez más para la tokenización de activos del mundo real (RWA). El framework Orbit permite a cualquiera lanzar cadenas Layer 3 personalizadas sobre Arbitrum</li>
 <li>extendiendo aún más el modelo de escalado para aplicaciones especializadas</li></ul>
+      <ul class="lang-ja"><li>アービトラムは主に低コスト・高速のDeFi活動のハブとして機能しています。例えばGMXでの無期限先物取引、Uniswapでのトークンスワップ、Aaveでの貸付・借入、Curve Financeでのステーブルコイン取引などです。Treasure DAOなどのゲームエコシステムも本拠地としており、Radiant CapitalのようなクロスチェーンDeFiプロトコルもアービトラムをホームとしています。Layer 2セキュリティが必要だが低コストのゲームやNFTアプリケーション向けにも使用されており、Offchain LabsのArbitrum Orbitを通じたアプリケーション固有のチェーン（AnyTrust）のデプロイにも活用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Dominant Layer 2 by TVL and transaction volume — proven market leader</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Full EVM compatibility means any Ethereum app works on Arbitrum</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Inherits Ethereum&#x27;s security model through fraud proofs</li>
@@ -2552,13 +2579,18 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>DAO bien financiado con más de <ul class="lang-fr"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Layer 2 dominant par TVL et volume de transactions — leader prouvé du marché</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Compatibilité EVM complète — toute app Ethereum fonctionne sur Arbitrum</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Hérite du modèle de sécurité d&#x27;Ethereum via les preuves de fraude</li>
-<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Écosystème solide avec les principaux protocoles DeFi déployés</li></ul>,000 millones en tesoría y una sólida estructura de gobernanza para el desarrollo a largo plazo de la red</li></ul>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Écosystème solide avec les principaux protocoles DeFi déployés</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>20億ドル超のTVL(Total Value Locked)でLayer 2をリード — それが市場が最も安全だと考えていることを意味します</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>EVM互換性の完全な達成 — EthereumのほぼすべてのdAppsがそのままデプロイできます</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Nitroアップグレードによりガス代がEthereumの1/10以下になり、ユーザーエクスペリエンスが大幅に向上しました</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Offchain Labsのプリンストン研究者チームが業界で最も強力な技術的資格のひとつを提供し、多くの投資家が「賢いお金がここにいる」と考える理由です</li></ul>,000 millones en tesoría y una sólida estructura de gobernanza para el desarrollo a largo plazo de la red</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Centralized sequencer — Offchain Labs currently runs the only sequencer</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>~7-day withdrawal period to move assets back to Ethereum L1</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ARB token airdrop created selling pressure and governance challenges</li>
@@ -2571,16 +2603,28 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Actualmente depende de un secuenciador centralizado para el ordenamiento de transacciones, creando un único punto de falla hasta que se complete la descentralización del secuenciador</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Competencia feroz de otros L2 (Optimism, Base, zkSync) en un mercado donde los costos de cambio son bajos y la liquidez está fragmentada</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La utilidad del token se limita a gobernanza y staking — ARB no captura directamente las tarifas de gas, lo que preocupa a algunos inversores sobre la acumulación de valor a largo plazo</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ethereumへの引き出しの7日間チャレンジウィンドウが摩擦を生み出します — ユーザーは待つか、独自のリスクを持つサードパーティブリッジを使わなければなりません</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>現在トランザクション順序付けのために集中型Sequencerに依存しており、Sequencerの分散化が完了するまで単一障害点が存在します</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>他のL2（Optimism、Base、zkSync）との激しい競争がある市場で、スイッチングコストが低く流動性が断片化しています</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークンユーティリティはガバナンスとステーキングに限定されています — ARBはガス料金を直接キャプチャしないため、長期的な価値蓄積について一部の投資家が懸念しています</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#28A0F0">
         <p class="lang-en">Arbitrum is Ethereum&#x27;s most successful scaling solution — it does exactly what it promised: makes Ethereum usable for everyday transactions without sacrificing security. The centralized sequencer is a real concern, but plans for decentralization are underway. If you believe Ethereum will remain the dominant smart contract platform, Arbitrum is likely to remain its most important layer.</p>
         <p class="lang-fr">Arbitrum est la solution de mise à l&#x27;échelle la plus réussie d&#x27;Ethereum — elle fait exactement ce qu&#x27;elle a promis : rendre Ethereum utilisable pour les transactions quotidiennes sans sacrifier la sécurité. Le séquenceur centralisé est une vraie préoccupation, mais des plans de décentralisation sont en cours. Si vous croyez qu&#x27;Ethereum restera la plateforme de contrats intelligents dominante, Arbitrum restera probablement sa couche la plus importante.</p>
         <p class="lang-es">Arbitrum es el Layer 2 que demostró que el escalado de Ethereum realmente funciona. Con el mayor TVL, los protocolos DeFi más desplegados y un equipo de investigadores de Princeton que literalmente escribieron el artículo sobre los optimistic rollups, se ha ganado su posición como el L2 líder. Los riesgos son reales — centralización del secuenciador, fricción del puente y competencia feroz — pero la excelencia técnica de Arbitrum, su masivo ecosistema y el tesoro de mil millones de dólares de su DAO le dan una ventaja competitiva significativa. Si crees que el futuro de Ethereum es multicapa, Arbitrum es la apuesta más sólida sobre esa tesis.</p>
+      <p class="lang-ja">アービトラムの核心技術はOptimistic Rollupです。取引がサブミットされると、Sequencer（現在は集中管理）がそれらを集め、ガスコストを削減するためにArbitrum Nitroを使ってバッチ処理・圧縮します。この圧縮されたバッチのみがEthereumメインネットにポストされ、セキュリティの最終ルーツとして機能します。
+
+「Optimistic」という部分がキーです。すべての取引は有効であると想定されます — 不正の証明なしに。しかし、7日間のチャレンジウィンドウ中に誰でもチャレンジャーとしてステップインし、不正の証明を提出できます。不正が証明されると、不正なバッチをサブミットしたバリデーターは担保として失い（スラッシュと呼ばれる）、チャレンジャーは報酬を受け取ります。このゲーム理論的な仕組みが、誰もが正直でいるインセンティブを生み出します。
+
+ArbOSはアービトラムの実行環境で、EVM（Ethereum Virtual Machine）と完全に互換性があります。Ethereumのスマートコントラクトは通常、変更なしにアービトラムにデプロイできます。これにより移行が摩擦なく行われ、現在のほぼすべての主要DeFiプロトコルがアービトラム上に展開されている理由の説明がつきます。
+
+ARBトークンは分散型自律組織（DAO）を通じてプロトコルガバナンスに使用されます。アービトラムDAOは10億ドル以上の財務資金を管理し、プロトコルのアップグレード、料金パラメーター、エコシステム助成金について投票します。</p>
       </div>
     </section>
 
@@ -2590,10 +2634,12 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2601,6 +2647,7 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2642,6 +2689,7 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2650,6 +2698,8 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2663,16 +2713,15 @@ La red usa un secuenciador que ordena y procesa transacciones antes de publicarl
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme

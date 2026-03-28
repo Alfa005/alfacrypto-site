@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/pendle/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/pendle/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/pendle/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/pendle/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/pendle/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/pendle/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2020-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">DeFi&#x27;s interest rate swap market — trade tomorrow&#x27;s yield today.</p>
       <p class="page-hero-tagline lang-fr">Le marché des swaps de taux d&#x27;intérêt de la DeFi — tradez le rendement de demain aujourd&#x27;hui.</p>
       <p class="page-hero-tagline lang-es">El mercado de swaps de tasas de interés de DeFi — opera el rendimiento de mañana hoy.</p>
+      <p class="page-hero-tagline lang-ja">DeFiの金利スワップ市場 — 明日の利回りを今日取引する。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Pendle?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Pendle ?</h2>
       <h2 class="lang-es">¿Qué es Pendle?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">In traditional finance, interest rate swaps are one of the most traded financial instruments in the world — a $600 trillion market where institutions agree to exchange fixed interest payments for variable ones (or vice versa). Before Pendle, DeFi had no equivalent. If you staked ETH and earned a 4% yield, you were locked in — you couldn&#x27;t sell that future yield to someone willing to pay for it today. Pendle changes that.</p>
       <p class="lang-en">Founded in 2020 by TN Lee (CEO) and Vu Nguyen, Pendle Finance is a protocol that splits yield-bearing assets into two tradeable components: the principal (what your deposit is worth today) and the future yield (what it will earn between now and a maturity date). These become separate tokens — Principal Tokens (PTs) and Yield Tokens (YTs) — that can each be traded independently on Pendle&#x27;s specialized AMM.</p>
       <p class="lang-en">The use cases this unlocks are genuinely novel. A conservative investor can buy PTs to lock in a fixed yield (say, 6% on stETH) guaranteed until maturity — like buying a zero-coupon bond. A yield speculator can buy YTs to gain leveraged exposure to future yields — if staking rates spike, their YT becomes highly profitable. A hedger can sell YTs to remove variable yield risk from their portfolio. These are sophisticated financial instruments that existed only in TradFi until Pendle.</p>
@@ -2491,6 +2507,13 @@ Fundado en 2020 por TN Lee (CEO) y Vu Nguyen, Pendle Finance es un protocolo que
 Los casos de uso que esto habilita son genuinamente novedosos. Un inversor conservador puede comprar PT para fijar un rendimiento fijo (por ejemplo, 6% en stETH) garantizado hasta el vencimiento — como comprar un bono cupón cero. Un especulador de rendimiento puede comprar YT para obtener exposición apalancada a rendimientos futuros — si las tasas de staking suben, sus YT se vuelven muy rentables. Un coberturista puede vender YT para eliminar el riesgo de rendimiento variable de su portafolio. Estos son instrumentos financieros sofisticados que solo existían en TradFi hasta que llegó Pendle.
 
 El TVL de Pendle pasó de menos de 100 millones a casi 6,500 millones de dólares a mediados de 2024, impulsado por el crecimiento explosivo de los derivados de staking líquido (stETH, mETH), el USDe de Ethena y los puntos de restaking de EigenLayer. A principios de 2025, Pendle lanzó &quot;Boros&quot; — un producto que extiende la tokenización de rendimiento a las tasas de financiamiento de futuros perpetuos, creando el primer equivalente DeFi de un swap de tasa de interés TradFi en mercados de derivados.</p>
+      <p class="lang-ja">伝統的金融では、金利スワップは世界で最も取引されている金融商品の一つです。機関が固定金利支払いと変動金利支払いを交換することに合意する600兆ドルの市場です。ペンドル以前、DeFiにはこれに相当するものがありませんでした。ETHをステークして4%の利回りを得ていても、その将来の利回りを今日それを支払いたいと思っている誰かに売ることはできませんでした。ペンドルはそれを変えます。
+
+2020年にTN Lee（CEO）とVu Nguyenによって設立されたペンドルファイナンスは、利回り保有資産を2つの取引可能なコンポーネントに分割するプロトコルです。元本（今日の預金価値）と将来の利回り（今から満期日までに得られるもの）に分割されます。これらはそれぞれ独立して取引できる別々のトークン、PT（プリンシパルトークン）とYT（イールドトークン）になります。それぞれペンドルの専門AMM上で取引できます。
+
+これにより解放されるユースケースは真に革新的です。保守的な投資家はPTを購入して満期まで保証された固定利回り（例：stETHで6%）を確定できます（ゼロクーポン債の購入に似ています）。利回り投機家はYTを購入して将来の利回りへのレバレッジエクスポージャーを得られます（ステーキングレートが急上昇すればYTは高収益になります）。ヘッジャーはYTを売却してポートフォリオから変動利回りリスクを除去できます。これらはペンドルが登場するまでTradFiにしか存在しなかった洗練された金融商品です。
+
+ペンドルのTVLは2024年半ばまでに1億ドル未満から約65億ドルへと急増し、リキッドステーキングデリバティブ（stETH、mETH）、EthenaのUSDe、EigenLayerのリステーキングポイントの爆発的成長に牽引されました。2025年初頭には、ペンドルは「Boros」を立ち上げ、パーペチュアルフューチャーズのファンディングレートへの利回りトークン化を拡張し、デリバティブ市場でのTradFi金利スワップと等価なDeFi初の商品を生み出しました。</p>
       <p class="lang-fr">Fondé en 2020 par TN Lee (CEO) et Vu Nguyen, Pendle Finance est un protocole qui divise les actifs porteurs de rendement en deux composantes échangeables : le principal (ce que vaut votre dépôt aujourd&#x27;hui) et le rendement futur (ce qu&#x27;il gagnera jusqu&#x27;à une date d&#x27;échéance). Ce deviennent des tokens séparés — Principal Tokens (PT) et Yield Tokens (YT) — qui peuvent chacun être échangés indépendamment sur l&#x27;AMM spécialisé de Pendle.</p>
       <p class="lang-es">Cuando un usuario deposita un activo generador de rendimiento (digamos, 1 stETH ganando un 5% APY) en Pendle, el protocolo lo envuelve en un token Standardized Yield (SY) — una representación normalizada que maneja las diferencias contables entre distintos tipos de rendimiento. El SY luego se divide en:
 
@@ -2507,6 +2530,7 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">When a user deposits a yield-bearing asset (say, 1 stETH earning 5% APY) into Pendle, the protocol wraps it into a Standardized Yield (SY) token — a normalized representation that handles the accounting differences between different yield types. The SY is then split into:</p>
       <p class="lang-en">**PT (Principal Token):** Redeemable for exactly 1 stETH at maturity. If you buy PT at a 6% discount today (0.94 stETH), you&#x27;re effectively earning a guaranteed 6% APY by holding until maturity. This is the fixed yield side.</p>
       <p class="lang-en">**YT (Yield Token):** Entitled to all yield generated by 1 stETH between now and maturity. If stETH earns 5% APY and you hold YT for the full year, you receive the equivalent of 0.05 stETH. YTs have a time-decay built in (like options) — they&#x27;re worth less as maturity approaches, since there&#x27;s less time left to collect yield.</p>
@@ -2521,15 +2545,24 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">Pendle is used for locking in fixed yields on staked ETH, liquid staking derivatives, and stablecoins; speculating on future DeFi interest rates with leveraged YT positions; hedging variable yield exposure in institutional portfolios; providing liquidity to PT/YT AMM pools for trading fees; trading EigenLayer restaking points and yields before maturity; and interest rate hedging on perpetual futures funding rates via Pendle Boros.</p>
       <p class="lang-fr">Pendle est utilisé pour bloquer des rendements fixes sur l&#x27;ETH staké, les dérivés de staking liquide et les stablecoins ; spéculer sur les futurs taux d&#x27;intérêt DeFi avec des positions YT à effet de levier ; couvrir l&#x27;exposition aux rendements variables dans les portefeuilles institutionnels ; fournir de la liquidité aux pools AMM PT/YT pour les frais de trading ; trader des points et rendements de restaking EigenLayer avant l&#x27;échéance ; et la couverture des taux d&#x27;intérêt sur les taux de financement des futures perpétuelles via Pendle Boros.</p>
       <p class="lang-es">Pendle se usa para fijar rendimientos fijos en ETH apostado, derivados de staking líquido y stablecoins; especular sobre futuras tasas de interés DeFi con posiciones YT apalancadas; cubrir la exposición a rendimientos variables en portafolios institucionales; proporcionar liquidez a los pools AMM de PT/YT por comisiones de operación; negociar puntos y rendimientos de restaking de EigenLayer antes del vencimiento; y cubrir tasas de interés sobre tasas de financiamiento de futuros perpetuos a través de Pendle Boros.</p>
+      <p class="lang-ja">ユーザーが利回り保有資産（例：5% APYを稼ぐ1 stETH）をペンドルに預けると、プロトコルはそれをSY（標準化利回り）トークンにラップします。これはさまざまな利回りタイプの会計上の違いを処理する正規化された表現です。SYはその後以下に分割されます。
+
+PT（プリンシパルトークン）：満期時に正確に1 stETHと交換可能。今日6%割引（0.94 stETH）でPTを購入すれば、満期まで保有することで実質的に6% APYの保証された利回りを得られます。これが固定利回り側です。
+
+YT（イールドトークン）：今から満期までの間に1 stETHが生み出すすべての利回りを受け取る権利。stETHが5% APYを稼ぎ、1年間YTを保有すれば、0.05 stETH相当を受け取れます。YTには（オプションのような）時間減衰が組み込まれており、満期が近づくほど価値が下がります（残りの利回り収集時間が少なくなるため）。
+
+両トークンはペンドルのAMMで取引されます。AMMは時間減衰資産向けに設計されたカスタムカーブを使用します。満期が近づくとPT価格は額面価値に収束し、YT価格はゼロに近づきます。これは標準的なUniswapスタイルのAMMとは数学的に異なり、独自のカーブ設計が必要でした。流動性提供者は取引手数料とPENDLEインセンティブを得られます。vePENDLEシステム（投票エスクロー型PENDLE）により、トークン保有者はPENDLEをロックしてどのプールがインセンティブを受け取るかに投票できます。これはCurveの影響力あるveCRVモデルに似ています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Only major DeFi protocol with a fully functional interest rate swap market — the $600T TradFi equivalent finally on-chain</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>TVL reached $6.5B at peak, demonstrating genuine product-market fit for fixed yield and yield speculation products</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>vePENDLE governance model creates sticky token demand — locked PENDLE holders earn boosted yields and vote on incentive allocation</li>
@@ -2542,12 +2575,14 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El TVL alcanzó 6,500 millones de dólares en su punto máximo, demostrando un genuino ajuste producto-mercado para productos de rendimiento fijo y especulación de rendimiento</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El modelo de gobernanza vePENDLE crea una demanda persistente de tokens — los titulares de PENDLE bloqueados ganan rendimientos potenciados y votan sobre la asignación de incentivos</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La expansión de Boros a los mercados de tasas de financiamiento de perpetuos abre una clase de activos y un segmento de usuarios completamente nuevos</li></ul>
+      <ul class="lang-ja"><li>ペンドルは、ステークETH・リキッドステーキングデリバティブ・ステーブルコインの固定利回り確定、レバレッジYTポジションでの将来のDeFi金利投機、機関ポートフォリオでの変動利回りエクスポージャーのヘッジ、取引手数料のためのPT/YT AMMプールへの流動性提供、満期前のEigenLayerリステーキングポイントと利回りの取引、そしてPendle Borosを通じたパーペチュアルフューチャーズのファンディングレートに対する金利ヘッジに利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Highly complex product — most retail users cannot explain the difference between PT and YT without significant education investment</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>TVL is directly tied to yield-bearing asset popularity (stETH, USDe); if those assets lose favor, Pendle&#x27;s TVL collapses rapidly</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Each pool has a maturity date, which means TVL periodically &quot;expires&quot; and must be rebuilt — creating constant user acquisition pressure</li>
@@ -2560,16 +2595,22 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El TVL está directamente vinculado a la popularidad de los activos generadores de rendimiento (stETH, USDe); si esos activos pierden favor, el TVL de Pendle colapsa rápidamente</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Cada pool tiene una fecha de vencimiento, lo que significa que el TVL periódicamente &quot;expira&quot; y debe reconstruirse — creando una presión constante de adquisición de usuarios</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La complejidad de los smart contracts para envolver, dividir y descomponer tokens con decaimiento temporal en múltiples cadenas crea una superficie de auditoría significativa y riesgo de errores</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>非常に複雑な製品 — ほとんどのリテールユーザーはPTとYTの違いを大きな学習投資なしには説明できない</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>TVLは利回り保有資産の人気（stETH、USDe）と直結しており、それらの資産が不人気になればペンドルのTVLは急速に崩壊する</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>各プールには満期日があり、TVLが定期的に「期限切れ」になって再構築が必要なため、ユーザー獲得の継続的なプレッシャーが生まれる</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>複数のチェーンでのトークンのラッピング・分割・時間減衰に関するスマートコントラクトの複雑さが、大きな監査対象領域とバグリスクを生み出している</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#0599DB">
         <p class="lang-en">Pendle built something that genuinely didn&#x27;t exist in DeFi before: a liquid market for trading future interest rates. Reaching $6.5B TVL proved the demand is real. The challenge is that Pendle&#x27;s success depends entirely on the health of underlying yield assets — when liquid staking yields compress or restaking enthusiasm cools, Pendle&#x27;s TVL follows. For DeFi to grow into sophisticated institutional finance, Pendle-style products are essential infrastructure. Whether PENDLE the token captures that value long-term is the open question.</p>
         <p class="lang-fr">Pendle a construit quelque chose qui n&#x27;existait genuinement pas dans la DeFi auparavant : un marché liquide pour trader les futurs taux d&#x27;intérêt. Atteindre 6,5B$ de TVL a prouvé que la demande est réelle. Le défi est que le succès de Pendle dépend entièrement de la santé des actifs sous-jacents porteurs de rendement. Pour que la DeFi évolue vers la finance institutionnelle sophistiquée, les produits de type Pendle sont une infrastructure essentielle. La question ouverte est de savoir si le token PENDLE capture cette valeur à long terme.</p>
         <p class="lang-es">Pendle construyó algo que genuinamente no existía en DeFi antes: un mercado líquido para negociar tasas de interés futuras. Alcanzar 6,500 millones de dólares en TVL demostró que la demanda es real. El desafío es que el éxito de Pendle depende enteramente de la salud de los activos subyacentes generadores de rendimiento — cuando los rendimientos de staking líquido se comprimen o el entusiasmo por el restaking se enfría, el TVL de Pendle lo sigue. Para que DeFi evolucione hacia las finanzas institucionales sofisticadas, los productos de tipo Pendle son infraestructura esencial. La pregunta abierta es si el token PENDLE captura ese valor a largo plazo.</p>
+      <p class="lang-ja">ペンドルはDeFiにそれまで存在しなかったもの、将来の金利を取引するための流動的市場を構築しました。TVL 65億ドルへの到達が需要の実在を証明しました。課題は、ペンドルの成功が基礎となる利回り資産の健全性に完全に依存していることです。リキッドステーキング利回りが圧縮されたり、リステーキング熱が冷めたりすると、ペンドルのTVLはそれに追随します。DeFiが洗練された機関金融へと成長するためには、ペンドルスタイルの製品が不可欠なインフラです。PENDLEトークンが長期的にその価値を捉えられるかどうかが未解決の問いです。</p>
       </div>
     </section>
 
@@ -2579,10 +2620,12 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2590,6 +2633,7 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2643,6 +2687,7 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2651,6 +2696,8 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2664,16 +2711,15 @@ Ambos tokens se negocian en el AMM de Pendle, que usa una curva personalizada di
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

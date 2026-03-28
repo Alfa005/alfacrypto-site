@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/pyth/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/pyth/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/pyth/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/pyth/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/pyth/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/pyth/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2021-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">Wall Street&#x27;s data, on every blockchain — straight from the source.</p>
       <p class="page-hero-tagline lang-fr">Les données de Wall Street, sur chaque blockchain — directement à la source.</p>
       <p class="page-hero-tagline lang-es">Los datos de Wall Street, en cada blockchain — directo desde la fuente.</p>
+      <p class="page-hero-tagline lang-ja">ウォール街のデータを、すべてのブロックチェーンへ — 一次情報源から直接。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Pyth Network?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Pyth Network ?</h2>
       <h2 class="lang-es">¿Qué es Pyth Network?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Smart contracts are powerful but blind. A DeFi lending protocol needs to know the current price of ETH to determine if a borrower&#x27;s collateral is still sufficient. But a blockchain can&#x27;t &quot;look up&quot; prices from the real world on its own — it needs a trusted data feed called an oracle. Most oracles aggregate publicly available price data from exchanges. Pyth Network does something fundamentally different: it goes directly to the institutions that *create* prices — investment banks, market makers, and exchanges — and gets the data from them before it becomes public.</p>
       <p class="lang-en">Founded in 2021 by Michael Cahill, Ciarán Cronin, and Jayant Krishnamurthy (with institutional backing from Jump Trading, which is one of the world&#x27;s largest quantitative trading firms), Pyth has assembled an extraordinary list of first-party data publishers: Jane Street, Cboe Global Markets, Binance, OKX, Coinbase, Revolut, Virtu Financial, Flow Traders, DRW, and Wintermute. These aren&#x27;t data aggregators — they are primary market participants submitting the very prices they trade on.</p>
       <p class="lang-en">By March 2026, Pyth serves price feeds to 400+ DeFi protocols across 100+ blockchains, with a Total Value Secured (TVS) exceeding $6 billion. The data catalog has expanded far beyond crypto: Pyth now covers equities, FX, commodities, and even Hong Kong stocks — making it the primary bridge for TradFi data flowing into DeFi. The institutional subscription product &quot;Pyth Pro&quot; crossed $1M in annual recurring revenue in 2025.</p>
@@ -2491,6 +2507,13 @@ Fundado en 2021 por Michael Cahill, Ciarán Cronin y Jayant Krishnamurthy (con r
 En marzo de 2026, Pyth sirve feeds de precios a más de 400 protocolos DeFi en más de 100 blockchains, con un Valor Total Asegurado (TVS) que supera los 6,000 millones de dólares. El catálogo de datos se ha expandido mucho más allá de las criptomonedas: Pyth ahora cubre renta variable, divisas, materias primas e incluso acciones de Hong Kong — convirtiéndolo en el puente principal para que los datos de finanzas tradicionales fluyan hacia DeFi. El producto de suscripción institucional &quot;Pyth Pro&quot; superó el millón de dólares en ingresos anuales recurrentes en 2025.
 
 El token PYTH, lanzado en noviembre de 2023, tiene una oferta máxima de 10,000 millones de tokens con aproximadamente 5,750 millones en circulación. Funciona como el token de staking para Oracle Integrity Staking — un sistema donde los titulares de PYTH depositan tokens contra publicadores de datos específicos para proporcionar garantías económicas de precisión de datos.</p>
+      <p class="lang-ja">スマートコントラクトは強力ですが、外部情報が見えません。DeFiのレンディングプロトコルが担保が依然として十分かどうかを確認するには、ETHの現在価格を知る必要があります。しかし、ブロックチェーンは独自に現実世界の価格を「調べる」ことができません。オラクルと呼ばれる信頼できるデータフィードが必要です。ほとんどのオラクルは取引所の公開価格データを集計します。パイスネットワークはまったく異なるアプローチを取り、価格を*作り出す*機関（投資銀行、マーケットメーカー、取引所）に直接アクセスし、データが公開される前にそこから取得します。
+
+2021年にMichael Cahill、Ciarán Cronin、Jayant Krishnamurthy（世界最大の量的取引会社の一つであるJump Tradingの機関サポート付き）によって設立されたパイスは、一次データパブリッシャーの驚くべきリストを揃えています。Jane Street、Cboe Global Markets、Binance、OKX、Coinbase、Revolut、Virtu Financial、Flow Traders、DRW、Wintermuteなどです。これらはデータ集計業者ではなく、実際に取引している価格を提出する一次市場参加者です。
+
+2026年3月時点で、パイスは100以上のブロックチェーンにわたる400以上のDeFiプロトコルに価格フィードを提供し、確保済み総価値（TVS）は60億ドルを超えています。データカタログは暗号資産をはるかに超えて拡大しており、パイスは現在、株式・FX・コモディティ、さらには香港株までカバーし、TradFiデータがDeFiに流入する主要な橋渡し役となっています。機関向けサブスクリプション製品「Pyth Pro」は2025年に年間経常収益100万ドルを突破しました。
+
+PYTHトークンは2023年11月に立ち上げられ、最大供給量は100億トークン、流通量は約57億5000万です。オラクルインテグリティステーキングのステーキングトークンとして機能し、PYTH保有者が特定のデータパブリッシャーに対してトークンをステークすることでデータ精度の経済的保証を提供する仕組みです。</p>
       <p class="lang-fr">Fondé en 2021 par Michael Cahill, Ciarán Cronin et Jayant Krishnamurthy, Pyth a assemblé une liste extraordinaire d&#x27;éditeurs de données de première partie : Jane Street, Cboe Global Markets, Binance, OKX, Coinbase, Revolut, Virtu Financial, Flow Traders, DRW et Wintermute. Ce ne sont pas des agrégateurs de données — ce sont des acteurs primaires du marché qui soumettent les prix sur lesquels ils tradent eux-mêmes.</p>
       <p class="lang-es">La arquitectura de Pyth tiene tres capas clave. En primer lugar, los publicadores: más de 120 firmas institucionales ejecutan nodos publicadores de Pyth y envían sus datos de precios propietarios fuera de la cadena a Pythnet — una blockchain dedicada basada en Solana. Esto ocurre continuamente, con los publicadores enviando precios actualizados aproximadamente cada 400 milisegundos. Cada envío incluye tanto un precio como un &quot;intervalo de confianza&quot; — un rango que indica cuán seguro está el publicador sobre el precio actual.
 
@@ -2505,6 +2528,7 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Pyth&#x27;s architecture has three key layers. First, the publishers: 120+ institutional firms run Pyth publisher nodes and submit their proprietary price data off-chain to Pythnet — a dedicated Solana-based blockchain. This happens continuously, with publishers submitting updated prices roughly every 400 milliseconds. Each submission includes both a price and a &quot;confidence interval&quot; — a range indicating how certain the publisher is about the current price (useful during high volatility).</p>
       <p class="lang-en">Second, Pythnet aggregates. All publisher submissions for a given asset are collected and combined using a median algorithm that weights by confidence interval — publishers with tighter confidence intervals (more certain prices) get more weight. This happens on-chain at Pythnet, creating a validated aggregate price with its own confidence interval. Pythnet settles 400 times per second, making it one of the fastest price-processing systems in crypto.</p>
       <p class="lang-en">Third, the pull model. Unlike older oracle systems that &quot;push&quot; price updates to blockchains on a schedule, Pyth uses a pull model: DeFi applications request the latest price on demand. A price consumer (say, a lending protocol checking collateral) fetches the current price from Pyth, which includes a verifiable cryptographic proof that the price was properly computed. The app verifies the proof and uses the price — all in one transaction. This is dramatically more efficient than push oracles and makes Pyth viable across 100+ chains without paying constant update fees on each one. PYTH staking via Oracle Integrity Staking creates slashing risk for publishers who submit inaccurate data, aligning incentives with data quality.</p>
@@ -2517,15 +2541,22 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">Pyth price feeds are used by DeFi lending protocols (Aave, Morpho, Euler) to assess collateral values, perpetuals DEXs (Drift, Hyperliquid) for trade settlement and liquidations, options protocols for strike pricing, tokenized equities platforms (xStocksFi) for stock price feeds, cross-chain bridges for asset pricing, gaming protocols for in-game economy pricing, and institutional TradFi applications via Pyth Pro subscription.</p>
       <p class="lang-fr">Les flux de prix Pyth sont utilisés par les protocoles de prêt DeFi (Aave, Morpho, Euler) pour évaluer les valeurs de garantie, les DEX de perpétuelles (Drift, Hyperliquid) pour le règlement des trades et les liquidations, les protocoles d&#x27;options pour la tarification des strikes, les plateformes d&#x27;actions tokenisées (xStocksFi) pour les flux de prix d&#x27;actions, les bridges cross-chain pour la tarification des actifs, les protocoles gaming et les applications TradFi institutionnelles via l&#x27;abonnement Pyth Pro.</p>
       <p class="lang-es">Los feeds de precios de Pyth son utilizados por protocolos de préstamos DeFi (Aave, Morpho, Euler) para evaluar valores de garantía, DEX de perpétuos (Drift, Hyperliquid) para el asentamiento de operaciones y liquidaciones, protocolos de opciones para la fijación de precios de ejercicio, plataformas de renta variable tokenizada (xStocksFi) para feeds de precios de acciones, puentes entre cadenas para la valoración de activos, protocolos de gaming para la fijación de precios en economías de juego, y aplicaciones TradFi institucionales mediante la suscripción a Pyth Pro.</p>
+      <p class="lang-ja">パイスのアーキテクチャには3つの重要なレイヤーがあります。第一に、パブリッシャー：120以上の機関がパイスパブリッシャーノードを運営し、専有価格データをオフチェーンでPythnet（専用のSolanaベースブロックチェーン）に提出します。これは継続的に行われ、パブリッシャーは約400ミリ秒ごとに価格を更新して提出します。各提出には価格と「信頼区間」（現在価格についてパブリッシャーがどれほど確信しているかを示す範囲、高ボラティリティ時に有用）が含まれます。
+
+第二に、Pythnetが集計します。特定の資産に対するすべてのパブリッシャーの提出データが収集され、信頼区間で重み付けされた中央値アルゴリズムで結合されます（信頼区間が狭いパブリッシャーほど重みが大きい）。これはPythnet上でオンチェーンで行われ、独自の信頼区間を持つ検証済み集計価格が作成されます。Pythnetは1秒間に400回決済し、クリプト界で最速の価格処理システムの一つです。
+
+第三に、プルモデルがあります。スケジュールに従って価格更新をブロックチェーンに「プッシュ」する古いオラクルシステムとは異なり、パイスはプルモデルを採用しています。DeFiアプリケーションがオンデマンドで最新価格を要求します。担保確認中のレンディングプロトコルなどの価格消費者がパイスから現在価格を取得し、これには価格が適切に計算されたことの検証可能な暗号証明が含まれます。アプリは証明を検証して価格を使用します。これはすべて1つのトランザクション内で完結します。プッシュオラクルよりはるかに効率的で、各チェーンで定期的な更新料を支払うことなくパイスを100以上のチェーンで利用可能にしています。オラクルインテグリティステーキングを通じたPYTHのステーキングにより、不正確なデータを提出したパブリッシャーにはスラッシングリスクが発生し、データ品質へのインセンティブが調整されています。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>120+ first-party institutional publishers including Jane Street, Cboe, Binance, and Revolut — data quality unmatched by aggregator-based oracles</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Sub-second (400ms) update frequency is 50-100x faster than Chainlink&#x27;s standard update cadence, critical for high-frequency DeFi</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Multi-chain by design: same feeds available on 100+ chains through the pull model without per-chain update costs</li>
@@ -2538,12 +2569,14 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Frecuencia de actualización por debajo del segundo (400ms), entre 50 y 100 veces más rápida que la cadencia estándar de Chainlink, fundamental para la DeFi de alta frecuencia</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Multicadena por diseño: los mismos feeds disponibles en más de 100 cadenas a través del modelo pull sin costos de actualización por cadena</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La cobertura de activos TradFi en renta variable, divisas y materias primas posiciona a Pyth como el puente a medida que las finanzas tradicionales migran on-chain</li></ul>
+      <ul class="lang-ja"><li>パイスの価格フィードは、担保価値評価のためのDeFiレンディングプロトコル（Aave、Morpho、Euler）、取引決済と清算のためのパーペチュアルDEX（Drift、Hyperliquid）、ストライク価格設定のためのオプションプロトコル、株価フィードのためのトークン化株式プラットフォーム（xStocksFi）、資産価格設定のためのクロスチェーンブリッジ、ゲームプロトコルのゲーム内経済価格設定、そしてPyth Proサブスクリプションを通じた機関向けTradFiアプリケーションに利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Historical mispricing incidents (including an 87% price error on one feed) demonstrate that even institutional data can fail catastrophically</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Pull model requires DeFi apps to actively fetch prices, creating potential failure points if an app&#x27;s integration is poorly implemented</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Heavy reliance on Jump Trading&#x27;s institutional network for bootstrapping raises questions about long-term publisher decentralization</li>
@@ -2556,16 +2589,22 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>El modelo pull requiere que las aplicaciones DeFi obtengan activamente los precios, creando posibles puntos de falla si la integración de una aplicación está mal implementada</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La fuerte dependencia de la red institucional de Jump Trading para el arranque plantea preguntas sobre la descentralización a largo plazo de los publicadores</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La utilidad del token PYTH es principalmente el staking — sin mecanismos sólidos de captura de comisiones, el valor del token depende en gran medida de la demanda especulativa</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>歴史的な誤価格事例（一つのフィードで87%の価格エラーを含む）は、機関データでさえ壊滅的に失敗する可能性を示している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>プルモデルはDeFiアプリが積極的に価格を取得することを要求するため、アプリの統合が不適切に実装された場合に潜在的な障害点を生み出す</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ブートストラッピングにおけるJump Tradingの機関ネットワークへの過度な依存が、長期的なパブリッシャー分散化についての疑問を提起している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>PYTHトークンの有用性は主にステーキング — 強力な手数料捕捉メカニズムなしには、トークン価値は投機的需要に大きく依存する</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#E6DAFE">
         <p class="lang-en">Pyth Network solved the &quot;oracle problem&quot; in a way Chainlink never quite managed: by going to primary market participants instead of aggregating public data. The result is faster, more accurate prices from sources that actually move markets. As traditional finance assets like equities and bonds migrate on-chain, Pyth&#x27;s institutional publisher relationships become increasingly valuable infrastructure. The governance and token utility design still has room to grow, but the data product itself is genuinely differentiated.</p>
         <p class="lang-fr">Pyth Network a résolu le &quot;problème des oracles&quot; d&#x27;une façon que Chainlink n&#x27;a jamais tout à fait réussi : en allant aux acteurs primaires du marché plutôt qu&#x27;en agrégeant des données publiques. Le résultat est des prix plus rapides et plus précis de sources qui font réellement bouger les marchés. À mesure que les actifs de la finance traditionnelle comme les actions et les obligations migrent on-chain, les relations institutionnelles de Pyth avec les éditeurs deviennent une infrastructure de plus en plus précieuse.</p>
         <p class="lang-es">Pyth Network resolvió el &quot;problema del oráculo&quot; de una manera que Chainlink nunca logró del todo: yendo a los participantes primarios del mercado en lugar de agregar datos públicos. El resultado son precios más rápidos y precisos de fuentes que realmente mueven los mercados. A medida que los activos de las finanzas tradicionales como acciones y bonos migran on-chain, las relaciones institucionales de Pyth con los publicadores se convierten en una infraestructura cada vez más valiosa. El diseño de la gobernanza y la utilidad del token aún tienen margen de mejora, pero el producto de datos en sí está genuinamente diferenciado.</p>
+      <p class="lang-ja">パイスネットワークはChainlinkが解決できなかった「オラクル問題」を解決しました。公開データを集計するのではなく、一次市場参加者から直接データを得ることで実現しています。その結果、実際に市場を動かすソースからのより速く、より正確な価格が得られます。株式や債券などの伝統的金融資産がオンチェーンに移行するにつれて、パイスの機関パブリッシャーとの関係はますます価値ある基盤となります。ガバナンスとトークン有用性の設計にはまだ成長の余地がありますが、データ製品自体は真に差別化されています。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ En tercer lugar, el modelo pull. A diferencia de los sistemas de oráculos más 
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

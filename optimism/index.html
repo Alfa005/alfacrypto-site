@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/optimism/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/optimism/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/optimism/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/optimism/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/optimism/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -63,7 +65,9 @@
     "@type": "WebPage",
     "@id": "https://alfacrypto.ai/optimism/"
   },
-  "inLanguage": ["en", "fr"],
+  "inLanguage": ["en", "fr",
+    "ja"
+  ],
   "datePublished": "2019-01-01",
   "dateModified": "2026-03-25",
   "about": {
@@ -78,6 +82,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2417,6 +2422,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2436,7 +2445,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2447,6 +2461,7 @@
       <p class="page-hero-tagline lang-en">Ethereum&#x27;s fast lane — 95% cheaper, 10x faster, fully Ethereum underneath.</p>
       <p class="page-hero-tagline lang-fr">La voie rapide d&#x27;Ethereum — 95% moins cher, 10x plus rapide, entièrement Ethereum en dessous.</p>
       <p class="page-hero-tagline lang-es">El carril rápido de Ethereum — 95% más barato, 10 veces más rápido, completamente Ethereum por debajo.</p>
+      <p class="page-hero-tagline lang-ja">Ethereumの高速レーン — 95%安く、10倍速く、根底はEthereumそのまま。</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2479,6 +2494,7 @@
       <h2 class="lang-en">What is Optimism?</h2>
       <h2 class="lang-fr">Qu&#x27;est-ce que Optimism ?</h2>
       <h2 class="lang-es">¿Qué es Optimism?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Ethereum is the world&#x27;s most secure and decentralized smart contract platform. It&#x27;s also, at times, painfully expensive — a simple token swap can cost $20–100 in gas fees during busy periods. Optimism was built to fix the cost problem without compromising Ethereum&#x27;s security guarantees. It does this by processing transactions off-chain and periodically &quot;rolling up&quot; the results back to Ethereum mainnet.</p>
       <p class="lang-en">Founded in 2019 by Jinglan Wang, Ben Jones, and Kevin Ho (formerly of the Ethereum Foundation), Optimism calls its technology &quot;optimistic rollups.&quot; The name comes from the underlying assumption: when you submit a batch of transactions, the network *optimistically* assumes they&#x27;re valid — innocent until proven guilty. A 7-day challenge window allows anyone to submit a fraud proof if they spot an invalid transaction, at which point it gets reversed. This simplicity is a feature: it means Optimism&#x27;s code is more auditable and less likely to contain bugs than more complex zero-knowledge rollup designs.</p>
       <p class="lang-en">But Optimism&#x27;s biggest impact isn&#x27;t Optimism mainnet itself — it&#x27;s the OP Stack. The OP Stack is the open-source code that Optimism runs on, and any project can use it to launch their own L2. Coinbase used it to build Base. Worldcoin used it for its identity chain. Celo migrated its entire blockchain onto it. In H2 2025 alone, the Superchain (all OP Stack chains combined) processed 3.6 billion transactions — a 44% growth rate. By early 2026, 50+ chains were running on OP Stack.</p>
@@ -2491,6 +2507,13 @@ Fundado en 2019 por Jinglan Wang, Ben Jones y Kevin Ho (anteriormente de la Ethe
 Pero el mayor impacto de Optimism no es el mainnet de Optimism en sí mismo — es el OP Stack. El OP Stack es el código de código abierto sobre el que funciona Optimism, y cualquier proyecto puede usarlo para lanzar su propio L2. Coinbase lo usó para construir Base. Worldcoin lo usó para su cadena de identidad. Celo migró toda su blockchain a él. Solo en el segundo semestre de 2025, la Superchain (todas las cadenas OP Stack combinadas) procesó 3,600 millones de transacciones — una tasa de crecimiento del 44%. A principios de 2026, más de 50 cadenas funcionaban en OP Stack.
 
 El token OP gobierna el Optimism Collective — una estructura de gobernanza que combina una Token House (titulares de OP) y una Citizens&#x27; House (titulares de NFT no transferibles). El modelo está diseñado para equilibrar los intereses económicos con la financiación de bienes públicos. Un porcentaje de los ingresos de la Superchain se destina a financiar el desarrollo de código abierto en todo el ecosistema Ethereum.</p>
+      <p class="lang-ja">Ethereumは世界で最もセキュアで分散化されたスマートコントラクトプラットフォームです。しかし、繁忙期にはシンプルなトークンスワップに20〜100ドルものガス代がかかることもあり、非常に高コストです。オプティミズムはEthereumのセキュリティ保証を損なうことなく、このコスト問題を解決するために構築されました。トランザクションをオフチェーンで処理し、定期的にその結果をEthereumメインネットに「ロールアップ」することで実現しています。
+
+2019年にJinglan Wang、Ben Jones、Kevin Ho（いずれもEthereum Foundation出身）によって設立されたオプティミズムは、この技術を「オプティミスティックロールアップ」と呼びます。名前の由来は、トランザクションのバッチを提出すると、ネットワークが*楽観的に*それらを有効と見なす（有罪が証明されるまで無罪）という仕組みからです。7日間のチャレンジ期間があり、誰でも不正なトランザクションを発見した場合に不正証明を提出でき、その場合は取り消されます。このシンプルさは特長であり、コードの監査可能性が高く、複雑なゼロ知識ロールアップ設計よりもバグが発生しにくいことを意味します。
+
+しかし、オプティミズムの最大の影響はオプティミズムメインネット自体ではなく、OP Stackにあります。OP Stackはオプティミズムが動作するオープンソースコードで、どのプロジェクトもこれを使って独自のL2を立ち上げられます。CoinbaseはBaseの構築に使用しました。WorldcoinはアイデンティティチェーンにOP Stackを選択しました。Celoはブロックチェーン全体を移行しました。2025年後半だけで、スーパーチェーン（全OP Stackチェーンの合計）は36億件のトランザクションを処理し、44%の成長率を達成しました。2026年初頭には50以上のチェーンがOP Stack上で稼働しています。
+
+OPトークンはオプティミズム・コレクティブを統治しています。これはトークンハウス（OP保有者）とシチズンズハウス（譲渡不可NFT保有者）を組み合わせたガバナンス構造です。このモデルは経済的利益とパブリックグッズへの資金提供のバランスを取るように設計されており、スーパーチェーン収益の一定割合がEthereumエコシステム全体のオープンソース開発に還元されます。</p>
       <p class="lang-fr">Fondé en 2019 par Jinglan Wang, Ben Jones et Kevin Ho (anciens de l&#x27;Ethereum Foundation), Optimism appelle sa technologie &quot;optimistic rollups&quot;. Le nom vient de l&#x27;hypothèse sous-jacente : quand vous soumettez un lot de transactions, le réseau *optimistiquement* les suppose valides. Une fenêtre de contestation de 7 jours permet à quiconque de soumettre une preuve de fraude s&#x27;il repère une transaction invalide.</p>
       <p class="lang-es">Los optimistic rollups funcionan separando el cómputo del asentamiento. Cuando realizas una transacción en Optimism — por ejemplo, intercambiando tokens en Uniswap — se procesa localmente en el secuenciador de Optimism, que es mucho más rápido y barato que el mainnet de Ethereum. El secuenciador agrupa miles de estas transacciones y periódicamente publica un registro comprimido de ellas en Ethereum. Piénsalo como pagar tu tarjeta de crédito: realizas muchas compras pequeñas durante el mes y al final va un pago consolidado al banco.
 
@@ -2505,6 +2528,7 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Optimistic rollups work by separating computation from settlement. When you make a transaction on Optimism — say, swapping tokens on Uniswap — it&#x27;s processed locally on Optimism&#x27;s sequencer, which is much faster and cheaper than Ethereum mainnet. The sequencer batches thousands of these transactions together and periodically posts a compressed record of them to Ethereum. Think of it like paying your credit card bill: you make many small purchases throughout the month, and one consolidated payment goes to the bank at the end.</p>
       <p class="lang-en">The security mechanism is the fraud proof system. Since Optimism &quot;optimistically&quot; assumes all transactions are valid, anyone who disagrees has 7 days to submit cryptographic proof that a transaction was fraudulent. If proven, the invalid transaction is rolled back and the sequencer loses its bond. This creates an economic incentive for honest behavior without requiring every transaction to be proven upfront (which is what ZK-rollups do, at higher computational cost).</p>
       <p class="lang-en">The OP Stack is essentially a modular blueprint: you can swap out different components (the sequencer, the settlement layer, the data availability layer) to customize your L2 for specific use cases. When Coinbase built Base, they used Ethereum for settlement and data availability. Other OP Stack chains are experimenting with cheaper data availability layers like Celestia. The Superchain vision is to eventually share a sequencer across all OP Stack chains, enabling instant cross-chain transactions within the ecosystem.</p>
@@ -2517,15 +2541,22 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <p class="lang-en">Optimism is used for low-cost Ethereum DeFi (Uniswap, Aave, Synthetix, Velodrome), NFT minting and trading, gaming, social applications, data indexing via The Graph and Covalent, identity systems (Worldcoin), and as the foundation for 50+ other blockchains via the OP Stack including Base (Coinbase), Lisk, and Celo.</p>
       <p class="lang-fr">Optimism est utilisé pour la DeFi Ethereum à faible coût (Uniswap, Aave, Synthetix, Velodrome), le minting et le trading de NFT, le gaming, les applications sociales, l&#x27;indexation de données via The Graph et Covalent, les systèmes d&#x27;identité (Worldcoin), et comme fondation pour plus de 50 autres blockchains via l&#x27;OP Stack dont Base (Coinbase), Lisk et Celo.</p>
       <p class="lang-es">Optimism se usa para DeFi de bajo costo en Ethereum (Uniswap, Aave, Synthetix, Velodrome), acuñación y comercio de NFT, gaming, aplicaciones sociales, indexación de datos a través de The Graph y Covalent, sistemas de identidad (Worldcoin), y como fundación para más de 50 otras blockchains a través del OP Stack, incluyendo Base (Coinbase), Lisk y Celo.</p>
+      <p class="lang-ja">オプティミスティックロールアップは、計算と決済を分離することで機能します。オプティミズム上でトランザクション（例：Uniswapでのトークンスワップ）を行うと、Ethereumメインネットよりはるかに高速で安価なオプティミズムのシーケンサーでローカルに処理されます。シーケンサーはこれら何千ものトランザクションをバッチ化し、定期的にその圧縮された記録をEthereumにポストします。クレジットカードの支払いに例えると、月中に多くの小額購入をして、月末に一括でまとめた支払いを銀行に行うようなイメージです。
+
+セキュリティの仕組みは不正証明システムです。オプティミズムはすべてのトランザクションを「楽観的に」有効と見なすため、異議のある人は7日間以内に暗号的な証明を提出できます。証明が認められると、不正なトランザクションはロールバックされ、シーケンサーはボンドを没収されます。これにより、すべてのトランザクションを事前に証明する必要なく（ZKロールアップが行っていること）、誠実な行動に対する経済的インセンティブが生まれます。
+
+OP Stackは本質的にモジュール式の設計図です。シーケンサー・決済レイヤー・データアベイラビリティレイヤーなど様々なコンポーネントを交換して、特定のユースケース向けにL2をカスタマイズできます。CoinbaseがBaseを構築した際は、Ethereumを決済とデータアベイラビリティに使用しました。他のOP Stackチェーンは、Celestiaのような安価なデータアベイラビリティレイヤーを試験しています。スーパーチェーンのビジョンは最終的にすべてのOP Stackチェーン間でシーケンサーを共有し、エコシステム内でインスタントのクロスチェーン取引を可能にすることです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>OP Stack has become the dominant L2 framework, powering 50+ chains including Base — giving Optimism ecosystem-level revenue from the entire Superchain</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>90-95% fee reduction vs Ethereum mainnet with full EVM equivalence means any Ethereum dApp can migrate with zero code changes</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Superchain processed 3.6 billion transactions in H2 2025 (44% growth), demonstrating real traction at scale</li>
@@ -2538,12 +2569,14 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La reducción de comisiones del 90-95% frente al mainnet de Ethereum con equivalencia EVM completa significa que cualquier dApp de Ethereum puede migrar sin cambios de código</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>La Superchain procesó 3,600 millones de transacciones en el segundo semestre de 2025 (crecimiento del 44%), demostrando tracción real a escala</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>El modelo de gobernanza con Citizens&#x27; House financiando bienes públicos es el más sofisticado y alineado con los valores en el espacio L2</li></ul>
+      <ul class="lang-ja"><li>オプティミズムは、低コストEthereumのDeFi（Uniswap、Aave、Synthetix、Velodrome）、NFTのミントと取引、ゲーム、ソーシャルアプリケーション、The GraphやCovalentによるデータインデックス、アイデンティティシステム（Worldcoin）、そしてOP Stack経由でBase（Coinbase）・Lisk・Celoを含む50以上の他のブロックチェーンの基盤として利用されています。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>7-day withdrawal delay to Ethereum mainnet is a significant UX friction for users who need fast access to their funds</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>OP token market cap of $222M significantly undervalues the Superchain ecosystem, suggesting token design may not capture enough value</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Base (Coinbase&#x27;s chain) now dominates Superchain activity — meaning Optimism&#x27;s success is partly dependent on a competitor&#x27;s decisions</li>
@@ -2556,16 +2589,22 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La capitalización de mercado del token OP de 222 millones de dólares subestima significativamente el ecosistema Superchain, lo que sugiere que el diseño del token puede no capturar suficiente valor</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Base (la cadena de Coinbase) ahora domina la actividad de la Superchain — lo que significa que el éxito de Optimism depende en parte de las decisiones de un competidor</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Compite directamente con Arbitrum (que tiene un TVL mayor) y los ZK-rollups (que ofrecen finalidad más rápida sin la ventana de 7 días)</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Ethereumメインネットへの7日間の引き出し遅延は、資金への迅速なアクセスが必要なユーザーにとって大きなUX上の障壁となっている</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>OPトークンの時価総額2億2200万ドルはスーパーチェーンエコシステムを大幅に過小評価しており、トークン設計が十分な価値を捉えられていない可能性を示唆している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Base（Coinbaseのチェーン）が現在スーパーチェーンの活動を支配しており、オプティミズムの成功が競合他社の意思決定に部分的に依存している</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>ArbitrumやZKロールアップ（7日間のウィンドウなしで高速な最終確定を提供）と直接競合している</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#FF0420">
         <p class="lang-en">Optimism made a counterintuitive bet: instead of trying to be the biggest L2, it open-sourced its technology and let others build on it. That bet has paid off — the Superchain is now one of the most active blockchain ecosystems in crypto, processing billions of transactions. The open question is whether the OP token captures enough of that value; right now, Base generates most of the activity, and Optimism governance decides how that revenue gets distributed.</p>
         <p class="lang-fr">Optimism a fait un pari contre-intuitif : au lieu d&#x27;essayer d&#x27;être le plus grand L2, il a rendu sa technologie open-source et a laissé d&#x27;autres construire dessus. Ce pari a porté ses fruits — la Superchain est désormais l&#x27;un des écosystèmes blockchain les plus actifs en crypto. La question ouverte est de savoir si le token OP capture suffisamment de cette valeur ; actuellement, Base génère la majorité de l&#x27;activité, et la gouvernance d&#x27;Optimism décide comment ces revenus sont distribués.</p>
         <p class="lang-es">Optimism hizo una apuesta contraintuitiva: en lugar de intentar ser el L2 más grande, publicó su tecnología como código abierto y dejó que otros construyeran sobre ella. Esa apuesta ha dado sus frutos — la Superchain es ahora uno de los ecosistemas blockchain más activos en cripto, procesando miles de millones de transacciones. La pregunta abierta es si el token OP captura suficiente de ese valor; ahora mismo, Base genera la mayor parte de la actividad, y la gobernanza de Optimism decide cómo se distribuyen esos ingresos.</p>
+      <p class="lang-ja">オプティミズムは直感に反する賭けに出ました。最大のL2になろうとするのではなく、技術をオープンソース化して他者が構築できるようにしたのです。その賭けは実を結びました。スーパーチェーンは現在、数十億件のトランザクションを処理するクリプト界で最もアクティブなブロックチェーンエコシステムの一つです。未解決の問題は、OPトークンがその価値をどれだけ捉えられているかです。現在はBaseが活動の大半を生み出しており、オプティミズムのガバナンスがその収益の分配を決定しています。</p>
       </div>
     </section>
 
@@ -2575,10 +2614,12 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2586,6 +2627,7 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2639,6 +2681,7 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2647,6 +2690,8 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2660,16 +2705,15 @@ El OP Stack es esencialmente un plano modular: puedes intercambiar diferentes co
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     (function() {

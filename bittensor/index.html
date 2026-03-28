@@ -16,6 +16,7 @@
   <link rel="alternate" hreflang="en" href="https://alfacrypto.ai/bittensor/">
   <link rel="alternate" hreflang="fr" href="https://alfacrypto.ai/bittensor/?lang=fr">
   <link rel="alternate" hreflang="es" href="https://alfacrypto.ai/bittensor/?lang=es">
+  <link rel="alternate" hreflang="ja" href="https://alfacrypto.ai/bittensor/?lang=ja">
   <link rel="alternate" hreflang="x-default" href="https://alfacrypto.ai/bittensor/">
 
   <!-- Open Graph -->
@@ -30,6 +31,7 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:locale:alternate" content="fr_FR">
   <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ja_JP">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
@@ -65,7 +67,8 @@
   },
   "inLanguage": [
     "en",
-    "fr"
+    "fr",
+    "ja"
   ],
   "datePublished": "2023-01-01",
   "dateModified": "2026-03-07",
@@ -81,6 +84,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700&display=swap">
 
   <style>
 
@@ -2420,6 +2424,10 @@
     [data-lang="es"] .lang-en { display: none; }
     [data-lang="es"] .lang-fr { display: none; }
     [data-lang="es"] .lang-es { display: block; }
+    [data-lang="ja"] .lang-en { display: none; }
+    [data-lang="ja"] .lang-fr { display: none; }
+    [data-lang="ja"] .lang-es { display: none; }
+    [data-lang="ja"] .lang-ja { display: block; }
     .lang-toggle {
       background: none; border: 1px solid var(--color-border);
       padding: var(--space-1) var(--space-3); border-radius: 999px;
@@ -2438,7 +2446,12 @@
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"/></svg>
         <span data-lang-en="All Cryptos" data-lang-fr="Toutes les Cryptos">All Cryptos</span>
       </a>
-      <button class="lang-toggle" onclick="toggleLang()" id="lang-btn">FR</button>
+      <div class="lang-toggle" id="lang-btns">
+        <button class="lang-btn active" onclick="setLang('en')" data-lang-target="en">EN</button>
+        <button class="lang-btn" onclick="setLang('fr')" data-lang-target="fr">FR</button>
+        <button class="lang-btn" onclick="setLang('es')" data-lang-target="es">ES</button>
+        <button class="lang-btn" onclick="setLang('ja')" data-lang-target="ja">JP</button>
+      </div>
     </nav>
 
     <div class="page-hero">
@@ -2449,6 +2462,7 @@
       <p class="page-hero-tagline lang-en">The decentralized marketplace where AI models compete and earn</p>
       <p class="page-hero-tagline lang-fr">Le marché décentralisé où les modèles IA s&#x27;affrontent et gagnent</p>
       <p class="page-hero-tagline lang-es">El mercado descentralizado donde los modelos de IA compiten y ganan</p>
+      <p class="page-hero-tagline lang-ja">AIモデルが競い合い報酬を得る分散型マーケットプレイス</p>
       <div class="page-stats">
         <div class="page-stat">
           <div class="page-stat-label">Ticker</div>
@@ -2483,24 +2497,29 @@
       <h2 class="lang-en">What is Bittensor?</h2>
       <h2 class="lang-fr">Qu'est-ce que Bittensor ?</h2>
       <h2 class="lang-es">¿Qué es Bittensor?</h2>
+      <h2 class="lang-ja">これは何？</h2>
       <p class="lang-en">Bittensor is trying to do for artificial intelligence what Bitcoin did for money: remove the middlemen and give power back to individuals. Right now, almost all AI is controlled by a handful of tech giants — OpenAI, Google, Anthropic. Bittensor creates an open marketplace where anyone can contribute AI models, and the best ones get paid in TAO tokens. It&#x27;s like a stock market for artificial intelligence, running on a blockchain.</p>
       <p class="lang-fr">Bittensor tente de faire pour l&#x27;intelligence artificielle ce que Bitcoin a fait pour l&#x27;argent : supprimer les intermédiaires et redonner le pouvoir aux individus. Aujourd&#x27;hui, presque toute l&#x27;IA est contrôlée par une poignée de géants technologiques — OpenAI, Google, Anthropic. Bittensor crée un marché ouvert où n&#x27;importe qui peut contribuer des modèles IA, et les meilleurs sont rémunérés en tokens TAO. C&#x27;est comme une bourse pour l&#x27;intelligence artificielle, fonctionnant sur une blockchain.</p>
       <p class="lang-es">Bittensor está intentando hacer por la inteligencia artificial lo que Bitcoin hizo por el dinero: eliminar a los intermediarios y devolver el poder a los individuos. Actualmente, casi toda la IA está controlada por un puñado de gigantes tecnológicos — OpenAI, Google, Anthropic. Bittensor crea un mercado abierto donde cualquiera puede contribuir modelos de IA, y los mejores son recompensados con tokens TAO. Es como una bolsa de valores para la inteligencia artificial, funcionando en una blockchain.</p>
+      <p class="lang-ja">ビットテンサーはビットコインがお金に対してしたことを人工知能に対してしようとしています。仲介者を取り除き、個人に権力を返すのです。現在、ほぼすべてのAIはOpenAI、Google、Anthropicといった少数のテック大企業によって管理されています。ビットテンサーは誰でもAIモデルを提供できるオープンなマーケットプレイスを作り、最も優れたものにはTAOトークンが支払われます。まるでブロックチェーン上で動く人工知能のための株式市場のようなものです。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">How does it work?</h2>
       <h2 class="lang-fr">Comment ça fonctionne ?</h2>
       <h2 class="lang-es">¿Cómo funciona?</h2>
+      <h2 class="lang-ja">どう機能する？</h2>
       <p class="lang-en">Bittensor is organized into &quot;subnets&quot; — each one is a focused AI competition. For example, Subnet 1 pits text AI models against each other. In each subnet, &quot;miners&quot; run AI models and produce outputs. &quot;Validators&quot; (who stake TAO) rate the quality of those outputs. The better your model performs compared to others, the more TAO you earn. This creates a self-improving AI ecosystem where quality is rewarded continuously.</p>
       <p class="lang-fr">Bittensor est organisé en « subnets » — chacun est une compétition IA spécialisée. Dans chaque subnet, des « mineurs » font tourner des modèles IA et des « validateurs » évaluent la qualité des résultats en stakant des TAO. Plus votre modèle est performant, plus vous gagnez de TAO. Cela crée un écosystème IA en amélioration permanente où la qualité est récompensée en continu.</p>
       <p class="lang-es">Bittensor está organizado en &quot;subnets&quot; — cada una es una competición de IA especializada. Por ejemplo, la Subnet 1 enfrenta modelos de IA de texto entre sí. En cada subnet, los &quot;mineros&quot; ejecutan modelos de IA y producen resultados. Los &quot;validadores&quot; (que hacen staking de TAO) evalúan la calidad de esos resultados. Cuanto mejor sea el rendimiento de tu modelo comparado con los demás, más TAO ganas. Esto crea un ecosistema de IA en mejora continua donde la calidad es recompensada constantemente.</p>
+      <p class="lang-ja">ビットテンサーは「サブネット」に編成されています。それぞれが集中したAI競争です。例えば、サブネット1はテキストAIモデル同士を競わせます。各サブネットでは「マイナー」がAIモデルを実行して出力を生成し、「バリデーター」（TAOをステーク）がその出力の品質を評価します。他と比べてモデルのパフォーマンスが高いほど、より多くのTAOを獲得できます。これにより、品質が継続的に報われる自己改善型AIエコシステムが生まれます。</p>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">What is it used for?</h2>
       <h2 class="lang-fr">À quoi ça sert ?</h2>
       <h2 class="lang-es">¿Para qué sirve?</h2>
+      <h2 class="lang-ja">何に使われる？</h2>
       <ul class="lang-en"><li>Decentralized AI text and image generation</li>
 <li>privacy-preserving AI compute</li>
 <li>deepfake detection</li>
@@ -2519,12 +2538,14 @@
 <li>generación de código con IA</li>
 <li>almacenamiento descentralizado</li>
 <li>etiquetado de datos para aprendizaje automático — con más de 100 subnets especializadas activas en 2025</li></ul>
+      <ul class="lang-ja"><li>分散型AIテキストと画像生成、プライバシー保護AIコンピューティング、ディープフェイク検出、AIコード生成、分散型ストレージ、機械学習向けデータラベリング — 2025年までに100以上の専門サブネットが稼働。</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Advantages</h2>
       <h2 class="lang-fr">Avantages</h2>
       <h2 class="lang-es">Ventajas</h2>
+      <h2 class="lang-ja">メリット</h2>
       <ul class="lang-en"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Same fixed supply as Bitcoin (21 million TAO) — designed for long-term scarcity</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Truly open AI infrastructure — no single company controls it</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Incentivizes competition, so the best AI models rise to the top automatically</li>
@@ -2537,12 +2558,17 @@
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Infraestructura de IA verdaderamente abierta — ninguna empresa la controla</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Incentiva la competencia, por lo que los mejores modelos de IA ascienden automáticamente</li>
 <li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>Ecosistema creciente de más de 100 subnets que cubren diversos casos de uso de IA</li></ul>
+      <ul class="lang-ja"><li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>ビットコインと同じ固定供給量（2100万TAO）— 長期的な希少性のための設計</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>真にオープンなAIインフラ — 単一の企業によるコントロールなし</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>競争を促進するため、最高のAIモデルが自動的に上位に浮かび上がる</li>
+<li class="pro-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-success)" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>多様なAIユースケースをカバーする100以上のサブネットの成長するエコシステム</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Drawbacks</h2>
       <h2 class="lang-fr">Inconvénients</h2>
       <h2 class="lang-es">Desventajas</h2>
+      <h2 class="lang-ja">デメリット</h2>
       <ul class="lang-en"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Highly complex — understanding subnets, validators, and emissions requires technical knowledge</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Early stage — most subnets are experimental and unproven at scale</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Competition from well-funded centralized AI companies is fierce</li>
@@ -2555,16 +2581,22 @@
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Etapa inicial — la mayoría de las subnets son experimentales y no están probadas a escala</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>La competencia de las empresas de IA centralizadas bien financiadas es intensa</li>
 <li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>Concentración de tokens: los primeros mineros e iniciados poseen grandes cantidades de TAO</li></ul>
+      <ul class="lang-ja"><li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>非常に複雑 — サブネット、バリデーター、エミッションの理解には技術的な知識が必要</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>初期段階 — ほとんどのサブネットは実験的であり、大規模では未実証</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>潤沢な資金を持つ中央集権型AI企業からの競争は熾烈</li>
+<li class="con-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-error)" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>トークン集中：初期マイナーとインサイダーが大量のTAOを保有</li></ul>
     </section>
 
     <section class="article-section">
       <h2 class="lang-en">Our verdict</h2>
       <h2 class="lang-fr">Notre verdict</h2>
       <h2 class="lang-es">Nuestro veredicto</h2>
+      <h2 class="lang-ja">私たちの評価</h2>
       <div class="verdict-box" style="border-color:#7C3AED">
         <p class="lang-en">Bittensor is one of the most ambitious bets in crypto: that AI itself can be decentralized. If it succeeds, it could become the backbone of an open AI economy that no corporation can control. It&#x27;s high risk, high complexity — but the vision is powerful enough that even institutional investors like Grayscale are paying attention. This is not for beginners, but for those who believe AI and blockchain belong together, Bittensor is the frontier.</p>
         <p class="lang-fr">Bittensor est l&#x27;un des paris les plus ambitieux de la crypto : que l&#x27;IA elle-même peut être décentralisée. Si cela réussit, il pourrait devenir l&#x27;épine dorsale d&#x27;une économie IA ouverte qu&#x27;aucune entreprise ne peut contrôler. C&#x27;est risqué et complexe — mais la vision est suffisamment puissante pour que même des investisseurs institutionnels comme Grayscale y prêtent attention. Ce n&#x27;est pas pour les débutants, mais pour ceux qui croient que IA et blockchain vont de pair, Bittensor est la frontière.</p>
         <p class="lang-es">Bittensor es una de las apuestas más ambiciosas del cripto: que la propia IA puede descentralizarse. Si tiene éxito, podría convertirse en la columna vertebral de una economía de IA abierta que ninguna corporación pueda controlar. Es de alto riesgo y alta complejidad — pero la visión es lo suficientemente poderosa como para que incluso inversores institucionales como Grayscale le presten atención. No es para principiantes, pero para quienes creen que la IA y la blockchain pertenecen juntas, Bittensor es la frontera.</p>
+      <p class="lang-ja">ビットテンサーは暗号資産における最も野心的な賭けの一つです。AI自体を分散化できるかどうかという賭けです。成功すれば、どの企業もコントロールできないオープンなAIエコノミーの根幹となる可能性があります。高リスクで複雑ですが、Grayscaleのような機関投資家でさえ注目するほど強力なビジョンです。初心者向けではありませんが、AIとブロックチェーンが共に属すると信じる人々にとって、ビットテンサーはフロンティアです。</p>
       </div>
     </section>
 
@@ -2574,10 +2606,12 @@
         <span class="lang-en">Explore all 38 cryptos</span>
         <span class="lang-fr">Explorer les 38 cryptos</span>
         <span class="lang-es">Explora las 38 criptos</span>
+        <span class="lang-ja">38の暗号資産を探す</span>
       </a>
       <p class="lang-en">alfacrypto.ai — Crypto, explained simply.</p>
       <p class="lang-fr">alfacrypto.ai — La crypto, expliquée simplement.</p>
       <p class="lang-es">alfacrypto.ai — Cripto, explicada de forma sencilla.</p>
+      <p class="lang-ja">alfacrypto.ai — 暗号資産をわかりやすく解説。</p>
     </div>
 
     <!-- Cross-links for SEO -->
@@ -2585,6 +2619,7 @@
       <h3 class="related-title lang-en">Other Crypto Guides</h3>
       <h3 class="related-title lang-fr">Autres Guides Crypto</h3>
     <h3 class="related-title lang-es">Otras Guías de Cripto</h3>
+      <h3 class="related-title lang-ja">他の暗号資産ガイド</h3>
       <div class="related-links">
         <a href="/bitcoin/">Bitcoin (BTC)</a>
         <a href="/ethereum/">Ethereum (ETH)</a>
@@ -2618,6 +2653,7 @@
     var currentLang = (new URLSearchParams(window.location.search).get('lang') || 'en');
     if (currentLang === 'fr') document.documentElement.setAttribute('data-lang', 'fr');
     if (currentLang === 'es') document.documentElement.setAttribute('data-lang', 'es');
+    if (currentLang === 'ja') document.documentElement.setAttribute('data-lang', 'ja');
     updateLangBtn();
     
     function setLang(lang) {
@@ -2626,6 +2662,8 @@
         document.documentElement.setAttribute('data-lang', 'fr');
       } else if (lang === 'es') {
         document.documentElement.setAttribute('data-lang', 'es');
+      } else if (lang === 'ja') {
+        document.documentElement.setAttribute('data-lang', 'ja');
       } else {
         document.documentElement.removeAttribute('data-lang');
       }
@@ -2639,16 +2677,15 @@
     function toggleLang() {
       if (currentLang === 'en') setLang('fr');
       else if (currentLang === 'fr') setLang('es');
+      else if (currentLang === 'es') setLang('ja');
       else setLang('en');
     }
     
     function updateLangBtn() {
-      var btn = document.getElementById('lang-btn');
-      if (btn) {
-        if (currentLang === 'en') btn.textContent = 'FR';
-        else if (currentLang === 'fr') btn.textContent = 'ES';
-        else btn.textContent = 'EN';
-      }
+      var btns = document.querySelectorAll('[data-lang-target]');
+      btns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-lang-target') === currentLang);
+      });
     }
     
     // Theme
